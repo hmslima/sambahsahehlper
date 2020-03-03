@@ -3,10 +3,13 @@
 
 #include "special_characters.h"
 
+#include "system_text.h"
+
 #define TRUE 1
 #define FALSE 0
 
 extern char argument[256];
+extern short int lang;
 
 extern short int show_system_messages;
 
@@ -103,6 +106,39 @@ short int is_there_more_than_one_vowel ()
 	else return FALSE;
 }
 
+short int is_there_more_than_one_vowel_ignoring_last_e ()
+{
+	short int arg_counter;
+	short int vowel = 0;
+	for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
+	{
+		if (argument[arg_counter] == 'a') vowel++;
+		else if ((argument[arg_counter] == 'e') && ((argument[arg_counter + 1] == 'u') || (argument[arg_counter + 1] == 'o')))
+		{
+			vowel++;
+			arg_counter++;
+		}
+		else if (argument[arg_counter] == 'e' && !(argument[arg_counter + 1] == '\0' || (argument[arg_counter + 1] == 's' && argument[arg_counter + 2] == '\0'))) vowel++;
+		else if ((argument[arg_counter] == 'i') && !(is_it_vowel(argument[arg_counter - 1])) && !(is_it_vowel(argument[arg_counter + 1]))) vowel++;
+		else if ((argument[arg_counter] == 'i') && (argument[arg_counter + 1] == 'e') && (argument[arg_counter + 2] == '\0')) vowel++;
+		else if ((argument[arg_counter] == 'i') && (is_it_consonant(argument[arg_counter - 1]) || argument[arg_counter - 1] == 'w') && (argument[arg_counter + 1] == '\0')) vowel++;
+		else if (argument[arg_counter] == 'o') vowel++;
+		else if ((argument[arg_counter] == 'u') && !(is_it_vowel(argument[arg_counter - 1])) && !(is_it_vowel(argument[arg_counter + 1]))) vowel++;
+		else if ((argument[arg_counter] == 'u') && (argument[arg_counter + 1] == 'e'))
+		{
+			vowel++;
+			arg_counter++;
+		}
+		else if (argument[arg_counter] == 'u') vowel++;
+		else if ((argument[arg_counter] == 'y') && (is_it_consonant (argument[arg_counter - 1]) || argument[arg_counter - 1] == '\0') && (is_it_consonant (argument[arg_counter + 1]))) vowel++;
+		else if ((argument[arg_counter] == 'y') && (is_it_consonant (argument[arg_counter - 1]) || argument[arg_counter - 1] == '\0') && (argument[arg_counter + 1] == '\0')) vowel++;
+		else if ((argument[arg_counter] == 'w') && (is_it_consonant (argument[arg_counter - 1])) && (is_it_consonant (argument[arg_counter + 1]))) vowel++;
+	}
+
+	if (vowel > 1) return TRUE;
+	else return FALSE;
+}
+
 
 void pronunciation ()
 {
@@ -146,10 +182,11 @@ void pronunciation ()
 		if (show_system_messages)
 		{
 			printf("\nLOG: argument[%d] = %c", arg_counter, argument[arg_counter]);
-			if (is_there_more_than_one_vowel ()) printf("\nLOG: There is more than one vowel\n");
-			else printf("\nLOG: There is NO more than one vowel\n");
-			if (!stress) printf("\nLOG: A vowel still ca be stressed\n");
-			else printf("\nLOG: There is already a stressed vowel\n");
+			if (is_there_more_than_one_vowel ()) printf("\nLOG: There is more than one vowel");
+			else printf("\nLOG: There is NO more than one vowel");
+			if (!stress) printf("\nLOG: A vowel still ca be stressed");
+			else printf("\nLOG: There is already a stressed vowel");
+			printf("\n-------");
 		}
 		/***********************************************************************/
 
@@ -717,7 +754,8 @@ void pronunciation ()
 
 				else if (argument[arg_counter + 1] == 'u')
 				{
-					if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 1] == 'h') && (is_it_consonant (argument[arg_counter + 2]) || argument[arg_counter + 2] == '\0'))
+					//euhC || euh\0
+					if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'h') && (is_it_consonant (argument[arg_counter + 3]) || argument[arg_counter + 3] == '\0'))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
@@ -728,7 +766,44 @@ void pronunciation ()
 						#endif
 						stress = TRUE;
 					}
-					else if (!(stress) && (is_there_more_than_one_vowel ()) && (((is_it_consonant (argument[arg_counter + 1])) && (argument[arg_counter + 1] == argument[arg_counter + 2])) || ((argument[arg_counter + 1] == 'c') && (argument[arg_counter + 2] == 'k'))) && (argument[arg_counter + 3] == '\0'))
+					//euC=C || euck
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (((is_it_consonant (argument[arg_counter + 2])) && (argument[arg_counter + 2] == argument[arg_counter + 3])) || ((argument[arg_counter + 2] == 'c') && (argument[arg_counter + 3] == 'k'))) && (argument[arg_counter + 4] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// euCer\0 ex: member
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (argument[arg_counter + 3] == 'e') && (argument[arg_counter + 4] == 'r') && (argument[arg_counter + 5] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// euCCer\0 ex: november
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 'e') && (argument[arg_counter + 5] == 'r') && (argument[arg_counter + 6] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// euCCCer\0 ex: novembrer
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (argument[arg_counter + 6] == 'r') && (argument[arg_counter + 7] == '\0'))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
@@ -765,9 +840,17 @@ void pronunciation ()
 				{
 					if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 1] == 'h') && (is_it_consonant (argument[arg_counter + 2]) || argument[arg_counter + 2] == '\0'))
 					{
-						SPT_word[SPT_counter] = 'E';
-						SPT_counter++;
-						stress = TRUE;
+						if (is_it_vowel(argument[arg_counter + 2]) || is_it_vowel(argument[arg_counter + 3]) || is_it_vowel(argument[arg_counter + 4]) || is_it_vowel(argument[arg_counter + 5]))
+						{
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						else
+						{
+							SPT_word[SPT_counter] = 'E';
+							SPT_counter++;
+							stress = TRUE;
+						}
 					}
 					else if (!(stress) && (is_there_more_than_one_vowel ()) && (((is_it_consonant (argument[arg_counter + 1])) && (argument[arg_counter + 1] == argument[arg_counter + 2])) || ((argument[arg_counter + 1] == 'c') && (argument[arg_counter + 2] == 'k'))) && (argument[arg_counter + 3] == '\0'))
 					{
@@ -925,8 +1008,33 @@ void pronunciation ()
 							SPT_word[SPT_counter] = 'e';
 							SPT_counter++;
 						}
+						// eCer\0 ex: member
+						else if ((is_it_consonant(argument[arg_counter + 1])) && (argument[arg_counter + 2] == 'e') && (argument[arg_counter + 3] == 'r') && (argument[arg_counter + 4] == '\0'))
+						{
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCer\0 ex: november
+						else if ((is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (argument[arg_counter + 3] == 'e') && (argument[arg_counter + 4] == 'r') && (argument[arg_counter + 5] == '\0'))
+						{
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCCer\0 ex: novembrer
+						else if ((is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 'e') && (argument[arg_counter + 5] == 'r') && (argument[arg_counter + 6] == '\0'))
+						{
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
 						// ing\0 For preventing "e" becoming {ë}, it's for words like "reling"
 						else if (argument[(strlen(argument) - 1)] == 'g' && argument[(strlen(argument) - 2)] == 'n' && argument[(strlen(argument) - 3)] == 'i')
+						{
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// There is more an non-final "e" ahead
+						// else if (argument[arg_counter + 1] == 'e' || argument[arg_counter + 2] == 'e' || argument[arg_counter + 3] == 'e' || argument[arg_counter + 4] == 'e')
+						else if ((argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0')) || (argument[arg_counter + 2] == 'e' && !(argument[arg_counter + 3] == '\0')) || (argument[arg_counter + 3] == 'e' && !(argument[arg_counter + 4] == '\0')) || (argument[arg_counter + 4] == 'e' && !(argument[arg_counter + 5] == '\0')))
 						{
 							SPT_word[SPT_counter] = 'e';
 							SPT_counter++;
@@ -1592,6 +1700,42 @@ void pronunciation ()
 								#endif
 							}
 						}
+						// eCer\0 ex: member
+						else if ((is_it_consonant(argument[arg_counter + 1])) && (argument[arg_counter + 2] == 'e') && (argument[arg_counter + 3] == 'r') && (argument[arg_counter + 4] == '\0'))
+						{
+							#ifdef _WIN32
+							SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
+							SPT_counter++;
+							#else
+							strncat(SPT_word, CAPITAL_U_DIAERESIS, 6);
+							SPT_counter = SPT_counter + 2;
+							#endif
+							stress = TRUE;
+						}
+						// eCCer\0 ex: november
+						else if ((is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (argument[arg_counter + 3] == 'e') && (argument[arg_counter + 4] == 'r') && (argument[arg_counter + 5] == '\0'))
+						{
+							#ifdef _WIN32
+							SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
+							SPT_counter++;
+							#else
+							strncat(SPT_word, CAPITAL_U_DIAERESIS, 6);
+							SPT_counter = SPT_counter + 2;
+							#endif
+							stress = TRUE;
+						}
+						// eCCCer\0 ex: novembrer
+						else if ((is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 'e') && (argument[arg_counter + 5] == 'r') && (argument[arg_counter + 6] == '\0'))
+						{
+							#ifdef _WIN32
+							SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
+							SPT_counter++;
+							#else
+							strncat(SPT_word, CAPITAL_U_DIAERESIS, 6);
+							SPT_counter = SPT_counter + 2;
+							#endif
+							stress = TRUE;
+						}
 						else // No sctress accent
 						{
 							#ifdef _WIN32
@@ -1780,7 +1924,30 @@ void pronunciation ()
 			{
 				// DO nothing. For words like "yunghy", "lambhel" or "brozdhos"
 			}
-			else if (is_it_vowel (argument[arg_counter + 1]))
+			else if (is_it_vowel (argument[arg_counter - 1]) && is_it_consonant(argument[arg_counter + 1]))
+			{
+				SPT_word[SPT_counter] = ':';
+				SPT_counter++;
+			}
+			//VhC
+			else if (is_it_vowel (argument[arg_counter - 1]) && is_it_consonant(argument[arg_counter + 1]))
+			{
+				SPT_word[SPT_counter] = ':';
+				SPT_counter++;
+			}
+			//Vh\0
+			else if (is_it_vowel (argument[arg_counter - 1]) && argument[arg_counter + 1] == '\0')
+			{
+				SPT_word[SPT_counter] = ':';
+				SPT_counter++;
+			}
+			//Vhe\0
+			else if (is_it_vowel (argument[arg_counter - 1]) && argument[arg_counter + 1] == 'e' && argument[arg_counter + 2] == '\0')
+			{
+				SPT_word[SPT_counter] = ':';
+				SPT_counter++;
+			}
+			else if (is_it_vowel (argument[arg_counter + 1]) || !(argument[arg_counter + 1] == 'e' && argument[arg_counter + 2] == '\0'))
 			{
 				SPT_word[SPT_counter] = 'h';
 				SPT_counter++;
@@ -1788,6 +1955,11 @@ void pronunciation ()
 			else if (!(SPT_word[SPT_counter - 1] == ':'))
 			{
 				SPT_word[SPT_counter] = ':';
+				SPT_counter++;
+			}
+			else
+			{
+				SPT_word[SPT_counter] = 'h';
 				SPT_counter++;
 			}
 		}
@@ -1923,11 +2095,11 @@ void pronunciation ()
 				SPT_word[SPT_counter] = 's';
 				SPT_counter++;
 			}
-			else if (is_it_consonant (argument[arg_counter - 1]) && !(argument[arg_counter + 1] == 'c') && !(is_it_vowel(argument[arg_counter + 1])))
+			/*else if (is_it_consonant (argument[arg_counter - 1]) && !(argument[arg_counter + 1] == 'c') && !(is_it_vowel(argument[arg_counter + 1])))
 			{
 				SPT_word[SPT_counter] = 'z';
 				SPT_counter++;
-			}
+			}*/
 			else if ((argument[arg_counter + 1] == 'c') && (argument[arg_counter + 2] == 'a' || argument[arg_counter + 2] == 'o' || argument[arg_counter + 2] == 'u'))
 			{
 				SPT_word[SPT_counter] = 's';
@@ -2034,7 +2206,7 @@ void pronunciation ()
 	****************************************************************************
 	****************************************************************************/
 
-	if (!(stress) && (is_there_more_than_one_vowel ()))
+	if (!(stress) && (is_there_more_than_one_vowel_ignoring_last_e ()))
 	{
 
 		strcpy(corrected_SPT_word, SPT_word); // I have to copy the word because the process below erases the stringsd, I don't know why.
@@ -2117,6 +2289,9 @@ void pronunciation ()
 
 
 	printf("\n{%s}\n", SPT_word);
+
+	if (strlen(SPT_word) > 10)
+		too_long_word (lang);
 
 	// For cleaning the string
 	memset(SPT_word, '\0', strlen(SPT_word));

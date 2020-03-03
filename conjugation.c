@@ -602,9 +602,9 @@ void conjugation ()
 	if (lang == 2) printf("\nFuture tense: ");
 	else if (lang == 4) printf("\nFuturo: ");
 	else printf("\nFuture tid: ");
-	if (the_last_letter_has_vowel_sound ())
+	/*if (the_last_letter_has_vowel_sound ())
 		printf("%sssiem, %sssies, %sssiet, %sssiemos, %sssiete, %sssient", present_2s, present_2s, present_2s, present_2s, present_2s, present_2s);
-	else if (present[strlen(present) - 1] == 's' && present[strlen(present) - 2] == 's')
+	else*/ if (present[strlen(present) - 1] == 's' && present[strlen(present) - 2] == 's')
 		printf("siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
 	else if (present[strlen(present) - 1] == 's')
 		printf("%sssiem, %sssies, %sssiet, %sssiemos, %sssiete, %sssient", present_2s, present_2s, present_2s, present_2s, present_2s, present_2s);
@@ -624,7 +624,7 @@ void conjugation ()
 	else if (present[strlen(argument) - 2] == 'y' && present[strlen(argument) - 1] == 'e')
 	{
 		present[strlen(argument) - 1] = 'i';
-		printf("%sem, %ses, %ssiet, %semos, %sete, %sent", present, present, present, present, present, present);
+		printf("%sem, %ses, %set, %semos, %sete, %sent", present, present, present, present, present, present);
 	}
 	else if (present[strlen(argument) - 2] == 'i' && present[strlen(argument) - 1] == 'e')
 	{
@@ -651,6 +651,7 @@ void conjugation ()
 
     // For cleaning
 	memset(argument, '\0', strlen(argument));
+	memset(nasal, '\0', strlen(nasal));
 	memset(infinitive, '\0', strlen(infinitive));
 	memset(present, '\0', strlen(present));
 	memset(past, '\0', strlen(past));

@@ -89,9 +89,16 @@ for "special" characters:
 #define CAPITAL_E_ACUTE "\x90"
 
 #define SMALL_A_CIRCUMFLEX "\x83"
+
 #define SMALL_E_CIRCUMFLEX "\x88"
+#define CAPITAL_E_CIRCUMFLEX "\xd2"
+
+#define SMALL_O_CIRCUMFLEX "\x93"
 
 #define SMALL_I_ACUTE "\xa1"
+#define CAPITAL_I_ACUTE "\xd6"
+
+#define SMALL_O_ACUTE "\xa2"
 
 #define SMALL_U_ACUTE "\xa3"
 
@@ -99,6 +106,7 @@ for "special" characters:
 #define SMALL_O_TILDE "\xe4"
 
 #define SMALL_C_CEDILLA "\x87"
+#define CAPITAL_C_CEDILLA "\x80"
 
 #define SMALL_A_DIAERESIS '\x84'
 #define CAPITAL_A_DIAERESIS '\x8e'
@@ -120,9 +128,16 @@ for "special" characters:
 #define CAPITAL_E_ACUTE "\u00c9"
 
 #define SMALL_A_CIRCUMFLEX "\u00e2"
-#define SMALL_E_CIRCUMFLEX "\u00eA"
+
+#define SMALL_E_CIRCUMFLEX "\u00ea"
+#define CAPITAL_E_CIRCUMFLEX "\u00ca"
+
+#define SMALL_O_CIRCUMFLEX "\u00f4"
 
 #define SMALL_I_ACUTE "\u00ed"
+#define CAPITAL_I_ACUTE "\u00cd"
+
+#define SMALL_O_ACUTE "\u00f3"
 
 #define SMALL_U_ACUTE "\u00fA"
 
@@ -130,6 +145,7 @@ for "special" characters:
 #define SMALL_O_TILDE "\u00f5"
 
 #define SMALL_C_CEDILLA "\u00e7"
+#define CAPITAL_C_CEDILLA "\u00c7"
 
 #define SMALL_A_DIAERESIS "\u00e4"
 #define CAPITAL_A_DIAERESIS "\u00c4"

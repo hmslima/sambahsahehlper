@@ -8,6 +8,7 @@ short int is_it_consonant_without_some_letters (char ch);
 short int is_there_something_here (char ch);
 short int is_it_simple_consonant (char ch);
 short int is_there_more_than_one_vowel ();
+short int is_there_more_than_one_vowel_ignoring_last_e ();
 void pronunciation ();
 
 #endif
