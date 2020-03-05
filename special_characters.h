@@ -119,6 +119,17 @@ for "special" characters:
 
 #define SECTION_SIGN '\xf5'
 
+#define SMALL_A_DIAERESIS_IN_TEXT "\x84"
+#define CAPITAL_A_DIAERESIS_IN_TEXT "\x8e"
+#define SMALL_E_DIAERESIS_IN_TEXT "\x89"
+#define CAPITAL_E_DIAERESIS_IN_TEXT "\xd3"
+#define SMALL_O_DIAERESIS_IN_TEXT "\x94"
+#define CAPITAL_O_DIAERESIS_IN_TEXT "\x99"
+#define SMALL_U_DIAERESIS_IN_TEXT "\x81"
+#define CAPITAL_U_DIAERESIS_IN_TEXT "\x9a"
+
+#define SECTION_SIGN_IN_TEXT "\xf5"
+
 #else
 
 #define SMALL_A_ACUTE "\u00e1"
@@ -157,6 +168,17 @@ for "special" characters:
 #define CAPITAL_U_DIAERESIS "\u00dc"
 
 #define SECTION_SIGN "\u00a7"
+
+#define SMALL_A_DIAERESIS_IN_TEXT "\u00e4"
+#define CAPITAL_A_DIAERESIS_IN_TEXT "\u00c4"
+#define SMALL_E_DIAERESIS_IN_TEXT "\u00eb"
+#define CAPITAL_E_DIAERESIS_IN_TEXT "\u00cb"
+#define SMALL_O_DIAERESIS_IN_TEXT "\u00f6"
+#define CAPITAL_O_DIAERESIS_IN_TEXT "\u00d6"
+#define SMALL_U_DIAERESIS_IN_TEXT "\u00fc"
+#define CAPITAL_U_DIAERESIS_IN_TEXT "\u00dc"
+
+#define SECTION_SIGN_IN_TEXT "\u00a7"
 
 #endif
 

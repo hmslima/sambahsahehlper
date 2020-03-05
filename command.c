@@ -52,6 +52,7 @@ short int define_command_number (char command_name[64])
 	if (strcmp(command_name, "exit") == 0) command_number = 1;
 	else if ((strcmp(command_name, "hehlp") == 0) || (strcmp(command_name, "help") == 0) || (strcmp(command_name, "ajuda") == 0)) command_number = 2;
 	else if (strcmp(command_name, "log") == 0) command_number = 3;
+	else if (strcmp(command_name, "testpnc") == 0) command_number = 4;
 	else if ((strcmp(command_name, "deflang") == 0) || (strcmp(command_name, "setlang") == 0)) command_number = 1000;
 	else if ((strcmp(command_name, "pnc") == 0) || (strcmp(command_name, "pronunce") == 0)) command_number = 1001;
 	else if ((strcmp(command_name, "cjg") == 0) || (strcmp(command_name, "conjuge") == 0)) command_number = 1002;

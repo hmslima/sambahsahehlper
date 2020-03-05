@@ -14,6 +14,7 @@ char argument[192]; // The argument of the command
 short int program_active = TRUE;
 
 short int show_system_messages = FALSE; // Show message errors
+short int is_testpnc_active = FALSE;
 
 short int lang = 1; /* Defines the language of the system through integer numbers, look below which languages each number represents:
 1 - Sambahsa Mundialect

@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("#######################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER ##########################\n");
+	printf ("####################### SAMBAHSA HEHLPER v 0.3 ########################\n");
 	printf ("#######################################################################\n\n");
 }
 
@@ -212,13 +212,13 @@ void too_long_word (short int lang)
 	{
 		default:
 		case 1:
-			printf ("\n* Tod werd est long... SEI (tik SEI!!!) tod est un composite werd, kad id programme hat ne ghehden ciautaung-ye transcribe id\n");
+			printf ("\n* Tod werd est long... SEI (tik SEI!!!) tod est un composite werd, ter eest un SMULK probabilitat od id programme hat ne ghehden ciautaung-ye transcribe id\n");
 		break;
 		case 2:
-			printf ("\n* This word is long... IF (only IF!!!) it is a compound word, maybe the program couldn\'t properly transcribe it.\n");
+			printf ("\n* This word is long... IF (only IF!!!) it is a compound word, there is a SMALL probability that the program may not have properly transcribed it.\n");
 		break;
 		case 4:
-			printf ("\n* Esta palavra " SMALL_E_ACUTE " longa... SE (somente SE!!!) isso for uma palavra composta, talvez o programa n" SMALL_A_TILDE "o p" SMALL_O_CIRCUMFLEX "de transcrev" SMALL_E_CIRCUMFLEX "-la apropriadamente\n");
+			printf ("\n* Esta palavra " SMALL_E_ACUTE " longa... SE (somente SE!!!) isso for uma palavra composta, h" SMALL_A_ACUTE " uma PEQUENA probabilidade de que o programa n" SMALL_A_TILDE "o p" SMALL_O_CIRCUMFLEX "de transcrev" SMALL_E_CIRCUMFLEX "-la apropriadamente\n");
 		break;
 	}
 }
