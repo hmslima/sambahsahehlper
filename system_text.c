@@ -11,8 +11,8 @@ extern short int lang;
 void logo ()
 {
 	printf ("#######################################################################\n");
-	printf ("####################### SAMBAHSA HEHLPER v 0.3 ########################\n");
-	printf ("#######################################################################\n\n");
+	printf ("####################### SAMBAHSA HEHLPER v 0.4 ########################\n");
+	printf ("#######################################################################\n");
 }
 
 
@@ -205,7 +205,6 @@ void invalid_argument (short int lang)
 	}
 }
 
-
 void too_long_word (short int lang)
 {
 	switch (lang)
@@ -219,6 +218,23 @@ void too_long_word (short int lang)
 		break;
 		case 4:
 			printf ("\n* Esta palavra " SMALL_E_ACUTE " longa... SE (somente SE!!!) isso for uma palavra composta, h" SMALL_A_ACUTE " uma PEQUENA probabilidade de que o programa n" SMALL_A_TILDE "o p" SMALL_O_CIRCUMFLEX "de transcrev" SMALL_E_CIRCUMFLEX "-la apropriadamente\n");
+		break;
+	}
+}
+
+void this_program_cannot_guess_prefixes (short int lang)
+{
+	switch (lang)
+	{
+		default:
+		case 1:
+			printf ("----------\nTod programme khact gvaedde an id daht werd hat au ne hat un real prefix, quod NAIWO est accenten. SEI (tik SEI!!!) BO conditions ender sont makbul...\n* Id werd hakan hat un prefix (sem prefixes: per, de, pre, re, be, ee, ex, beghs, fer, ne, se, exyer, ender, ep, epter, des, en, eti, ken, niter, peri, step)\n* Tod werd est accenten in id prefix\n...ithan id accent druve-ye buit deht in id rhalt syllab ab tod programme. Mathalan, id pronunciation ios werd \"decret\" est {d" SMALL_E_DIAERESIS_IN_TEXT "krEt}, bet tod programme baygh-shayad vos dahsiet {dEkr" SMALL_E_DIAERESIS_IN_TEXT "t}. Maaf bi-sabab tod limitation.\n\nATTENTION: Saygo to iter, yu dehlcte chehxe an id werd hakan hat un prefix, dwo gohd exempels om werds AUN prefixes sont \"beid\" ed \"rened\"\n----------\n");
+		break;
+		case 2:
+			printf ("----------\nThis program cannot guess whether or not the given word has a real prefix, which is NEVER stressed. IF (only IF!!!) BOTH conditions below are satisfied...\n* The word really has a prefix (some prefixes: per, de, pre, re, be, ee, ex, beghs, fer, ne, se, exyer, ender, ep, epter, des, en, eti, ken, niter, peri, step)\n* This word is stressed in the prefix\n...then the stress actually was set in the wrong syllable by this program. For example, the pronunciation of the word \"decret\" is {d" SMALL_E_DIAERESIS_IN_TEXT "krEt}, but this program may give you {dEkr" SMALL_E_DIAERESIS_IN_TEXT "t}. I am sorry for this limitation.\n\nATTENTION: I say it again, you must check whether the word really has a prefix, two good examples of words WITHOUT prefixes are \"beid\" and \"rened\"\n----------\n");
+		break;
+		case 4:
+			printf ("----------\nEste programa n" SMALL_A_TILDE "o pode adivinhar se a palavra dada tem ou n" SMALL_A_TILDE "o um prefixo real, que NUNCA " SMALL_E_ACUTE " acentuado tonicamente. SE (somente SE!!!) AMBAS condi" SMALL_C_CEDILLA SMALL_O_TILDE "es abaixo forem satisfeitas...\n* A palavra realmente tem um prefixo (alguns prefixos: per, de, pre, re, be, ee, ex, beghs, fer, ne, se, exyer, ender, ep, epter, des, en, eti, ken, niter, peri, step)\n* Esta palavra " SMALL_E_ACUTE " acentuada tonicamente no prefixo\n...ent" SMALL_A_TILDE "o a acentua" SMALL_C_CEDILLA SMALL_A_TILDE "o t" SMALL_O_CIRCUMFLEX "nica, na verdade, foi posta na s" SMALL_I_ACUTE "laba errada por este programa. Por exemplo, a pron" SMALL_U_ACUTE "ncia da palavra \"decret\" " SMALL_E_ACUTE " {d" SMALL_E_DIAERESIS_IN_TEXT "krEt}, mas este programa pode te dar {dEkr" SMALL_E_DIAERESIS_IN_TEXT "t}. Desculpe-me por esta limita" SMALL_C_CEDILLA SMALL_A_TILDE "o.\n\nATEN" CAPITAL_C_CEDILLA CAPITAL_A_TILDE "O: Digo isso novamente, voc" SMALL_E_CIRCUMFLEX " deve checar se a palavra realmente tem um prefixo, dois exemplos de palavras SEM preficos s" SMALL_A_TILDE "o \"beid\" e \"rened\"\n----------\n");
 		break;
 	}
 }

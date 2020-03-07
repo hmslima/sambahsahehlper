@@ -103,7 +103,10 @@ for "special" characters:
 #define SMALL_U_ACUTE "\xa3"
 
 #define SMALL_A_TILDE "\xc6"
+#define CAPITAL_A_TILDE "\xc7"
+
 #define SMALL_O_TILDE "\xe4"
+#define CAPITAL_O_TILDE "\xe5"
 
 #define SMALL_C_CEDILLA "\x87"
 #define CAPITAL_C_CEDILLA "\x80"
@@ -153,7 +156,10 @@ for "special" characters:
 #define SMALL_U_ACUTE "\u00fA"
 
 #define SMALL_A_TILDE "\u00e3"
+#define CAPITAL_A_TILDE "\u00c3"
+
 #define SMALL_O_TILDE "\u00f5"
+#define CAPITAL_O_TILDE "\u00d5"
 
 #define SMALL_C_CEDILLA "\u00e7"
 #define CAPITAL_C_CEDILLA "\u00c7"

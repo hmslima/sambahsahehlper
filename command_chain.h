@@ -158,7 +158,7 @@ switch (command_number)
 		printf("jamiyen {jamIy" SMALL_E_DIAERESIS_IN_TEXT "n} ||| ");
 			pronunciation ();
 		strcpy(argument, "enderkweiten");
-		printf("enderkweiten {enderkwEyt" SMALL_E_DIAERESIS_IN_TEXT "n} ||| ");
+		printf("enderkweiten {end" SMALL_E_DIAERESIS_IN_TEXT "rkwEyt" SMALL_E_DIAERESIS_IN_TEXT "n} ||| ");
 			pronunciation ();
 		strcpy(argument, "mecret");
 		printf("mecret {mEkr" SMALL_E_DIAERESIS_IN_TEXT "t} ||| ");
@@ -253,7 +253,7 @@ switch (command_number)
 		strcpy(argument, "ginchu");
 		printf("ginchu {djIntcu} ||| ");
 			pronunciation ();
-		strcpy(argument, "chris");
+		strcpy(argument, "christ");
 		printf("Christ {krist} ||| ");
 			pronunciation ();
 		strcpy(argument, "gnoh");
@@ -293,7 +293,7 @@ switch (command_number)
 		printf("peruca {p" SMALL_E_DIAERESIS_IN_TEXT "rUka} ||| ");
 			pronunciation ();
 		strcpy(argument, "cereal");
-		printf("cereal {ts" SMALL_E_DIAERESIS_IN_TEXT "reAl} ||| ");
+		printf("cereal {ts" SMALL_E_DIAERESIS_IN_TEXT "r" SMALL_E_DIAERESIS_IN_TEXT "Al} ||| ");
 			pronunciation ();
 		strcpy(argument, "gordos");
 		printf("gordos {gOrdos} ||| ");
@@ -396,6 +396,7 @@ switch (command_number)
 			pronunciation ();
 
 		printf("\nNun werds samt prefixes\n\n");
+
 
 		strcpy(argument, "decret");
 		printf("decret {d" SMALL_E_DIAERESIS_IN_TEXT "krEt} (de-!!!) ||| ");
