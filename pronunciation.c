@@ -1566,7 +1566,7 @@ void pronunciation ()
 						// Cess\0
 						else if ((is_it_consonant(argument[arg_counter - 1])) && (argument[arg_counter + 1] == 's') && (argument[arg_counter + 2] == 's') && (argument[arg_counter + 3] == '\0') && (is_it_vowel(argument[arg_counter -2]) || is_it_vowel(argument[arg_counter -3]) || is_it_vowel(argument[arg_counter -4])))
 						{
-							if (show_system_messages) printf("\npoint scess");
+							if (show_system_messages) printf("\npoint Cess");
 							if (argument[arg_counter - 1] == 's' || argument[arg_counter - 1] == 'c') // Thus ses\0
 							{
 								if (show_system_messages) printf("\npoint scess");
@@ -1583,6 +1583,34 @@ void pronunciation ()
 							{
 								// Do nothing
 							}
+						}
+						// eCVCC\0 ex: ametyst
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_vowel(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && argument[arg_counter + 5] == '\0')
+						{
+							if (show_system_messages) printf("\npoint eCVCC0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCVCCs\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_vowel(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && argument[arg_counter + 5] == 's' && argument[arg_counter + 6] == '\0')
+						{
+							if (show_system_messages) printf("\npoint eCVCCs0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCVCC\0 ex: ametyst
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && is_it_vowel(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && is_it_consonant(argument[arg_counter + 5]) && argument[arg_counter + 6] == '\0')
+						{
+							if (show_system_messages) printf("\npoint eCCVCC0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCVCCs\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && is_it_vowel(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && is_it_consonant(argument[arg_counter + 5]) && argument[arg_counter + 6] == 's' && argument[arg_counter + 7] == '\0')
+						{
+							if (show_system_messages) printf("\npoint eCCVCCs0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
 						}
 						else
 						{
@@ -2307,18 +2335,6 @@ void pronunciation ()
 						}
 						// yCCCer\0 ex: novymbrer
 						else if (!(stress) && (is_there_more_than_one_vowel ()) && (is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 'e') && (argument[arg_counter + 5] == 'r') && (argument[arg_counter + 6] == '\0'))
-						{
-							#ifdef _WIN32
-							SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
-							SPT_counter++;
-							#else
-							strncat(SPT_word, CAPITAL_U_DIAERESIS, 6);
-							SPT_counter = SPT_counter + 2;
-							#endif
-							stress = TRUE;
-						}
-						// yCC\0 ex: amethyst
-						else if (!(stress) && (is_there_more_than_one_vowel ()) && (is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (argument[arg_counter + 3] == '\0'))
 						{
 							#ifdef _WIN32
 							SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;

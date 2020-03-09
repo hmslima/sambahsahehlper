@@ -263,7 +263,19 @@ void present_tense ()
 
 	// First person singular
 	strcpy(present_1ps, present_basis);
-	if (present_1ps[strlen(present_1ps) - 1] == 'e')
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(present_1ps, "som");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(present_1ps, "ho");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(present_1ps, "woidim");
+	}
+	else if (present_1ps[strlen(present_1ps) - 1] == 'e')
 	{
 		// Do nothing
 	}
@@ -273,7 +285,19 @@ void present_tense ()
 
 	// Second person singular
 	strcpy(present_2ps, present_basis2);
-	if (present_basis2[strlen(present_basis2) - 1] == 's')
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(present_2ps, "es");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(present_2ps, "has");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(present_2ps, "woidst(a)");
+	}
+	else if (present_basis2[strlen(present_basis2) - 1] == 's')
 	{
 		// Do nothing
 	}
@@ -291,44 +315,104 @@ void present_tense ()
 
 	// Third person singular
 	strcpy(present_3ps, present_basis2);
-	if (present_3ps[strlen(present_3ps) - 1] == 'g') present_3ps[strlen(present_3ps) - 1] = 'c';
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(present_3ps, "est");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(present_3ps, "hat");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(present_3ps, "woidit");
+	}
+	else if (present_3ps[strlen(present_3ps) - 1] == 'g') present_3ps[strlen(present_3ps) - 1] = 'c';
 	else if (present_3ps[strlen(present_3ps) - 1] == 'k') present_3ps[strlen(present_3ps) - 1] = 'c';
-	present_3ps[strlen(present_3ps)] = 't';
+	if (!((strcmp(argument, "es") == 0) || (strcmp(argument, "hab") == 0) || (strcmp(argument, "woid") == 0)))
+	{
+		present_3ps[strlen(present_3ps)] = 't';
+	}
 
 	// First person plural
 	strcpy(present_1pp, present_basis);
-	present_1pp_counter = strlen(present_1pp);
-	present_1pp[present_1pp_counter] = 'm';
-	present_1pp[present_1pp_counter + 1] = '(';
-	present_1pp[present_1pp_counter + 2] = 'o';
-	present_1pp[present_1pp_counter + 3] = ')';
-	present_1pp[present_1pp_counter + 4] = 's';
-
-	// Second person plural
-	strcpy(present_2pp, present_basis2);
-	present_2pp_counter = strlen(present_2pp);
-	if (present_2pp[strlen(present_2pp) - 1] == 'g') present_2pp[strlen(present_2pp) - 1] = 'c';
-	else if (present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
-	present_2pp[present_2pp_counter] = 't';
-	present_2pp[present_2pp_counter + 1] = '(';
-	present_2pp[present_2pp_counter + 2] = 'e';
-	present_2pp[present_2pp_counter + 3] = ')';
-
-	// Third person plural
-	strcpy(present_3pp, present_basis);
-	present_3pp_counter = strlen(present_3pp);
-	if ((is_it_vowel(present_3pp[present_3pp_counter - 1])) || (present_3pp[present_3pp_counter - 1] == 'h' && is_it_vowel(present_3pp[present_3pp_counter - 2])))
+	if (strcmp(argument, "es") == 0) // Irregular verb
 	{
-		present_3pp[present_3pp_counter] = 'n';
-		present_3pp[present_3pp_counter + 1] = 't';
+        strcpy(present_1pp, "smos");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(present_1pp, "habmos/hams");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(present_1pp, "woidam");
 	}
 	else
 	{
-		present_3pp[present_3pp_counter] = 'e';
-		present_3pp[present_3pp_counter + 1] = '(';
-		present_3pp[present_3pp_counter + 2] = 'n';
-		present_3pp[present_3pp_counter + 3] = 't';
-		present_3pp[present_3pp_counter + 4] = ')';
+		present_1pp_counter = strlen(present_1pp);
+		present_1pp[present_1pp_counter] = 'm';
+		present_1pp[present_1pp_counter + 1] = '(';
+		present_1pp[present_1pp_counter + 2] = 'o';
+		present_1pp[present_1pp_counter + 3] = ')';
+		present_1pp[present_1pp_counter + 4] = 's';
+	}
+
+	// Second person plural
+	strcpy(present_2pp, present_basis2);
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(present_2pp, "ste");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(present_2pp, "habte");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(present_2pp, "woidat");
+	}
+	else
+	{
+		present_2pp_counter = strlen(present_2pp);
+		if (present_2pp[strlen(present_2pp) - 1] == 'g') present_2pp[strlen(present_2pp) - 1] = 'c';
+		else if (present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
+		present_2pp[present_2pp_counter] = 't';
+		present_2pp[present_2pp_counter + 1] = '(';
+		present_2pp[present_2pp_counter + 2] = 'e';
+		present_2pp[present_2pp_counter + 3] = ')';
+	}
+
+	// Third person plural
+	strcpy(present_3pp, present_basis);
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(present_3pp, "sont");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(present_3pp, "habent/hant");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(present_3pp, "woideer");
+	}
+	else
+	{
+		present_3pp_counter = strlen(present_3pp);
+		if ((is_it_vowel(present_3pp[present_3pp_counter - 1])) || (present_3pp[present_3pp_counter - 1] == 'h' && is_it_vowel(present_3pp[present_3pp_counter - 2])))
+		{
+			present_3pp[present_3pp_counter] = 'n';
+			present_3pp[present_3pp_counter + 1] = 't';
+		}
+		else
+		{
+			present_3pp[present_3pp_counter] = 'e';
+			present_3pp[present_3pp_counter + 1] = '(';
+			present_3pp[present_3pp_counter + 2] = 'n';
+			present_3pp[present_3pp_counter + 3] = 't';
+			present_3pp[present_3pp_counter + 4] = ')';
+		}
 	}
 }
 
@@ -513,7 +597,19 @@ void past_tense ()
 	// First person singular
 	strcpy(past_1ps, past_basis);
 	past_basis_counter = strlen(past_basis);
-	if (past_1ps[strlen(past_1ps) - 1] == 'w' || past_1ps[strlen(past_1ps) - 1] == 'y')
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(past_1ps, "buim//eem");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(past_1ps, "hiebim");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(past_1ps, "woisim");
+	}
+	else if (past_1ps[strlen(past_1ps) - 1] == 'w' || past_1ps[strlen(past_1ps) - 1] == 'y')
 	{
 		past_1ps[past_basis_counter] = 'i';
 		past_1ps[past_basis_counter + 1] = 'm';
@@ -537,7 +633,19 @@ void past_tense ()
 
 	// Second person singular
 	strcpy(past_2ps, past_basis);
-	if (is_it_vowel(past_basis[past_basis_counter - 1]) || (is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h'))
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(past_2ps, "buist(a)//ees");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(past_2ps, "hiebst(a)");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(past_2ps, "woisist");
+	}
+	else if (is_it_vowel(past_basis[past_basis_counter - 1]) || (is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h'))
 	{
 		past_2ps[past_basis_counter] = 's';
 		past_2ps[past_basis_counter + 1] = 't';
@@ -559,7 +667,19 @@ void past_tense ()
 
 	// Third person singular
 	strcpy(past_3ps, past_basis);
-	if (past_3ps[strlen(past_3ps) - 1] == 'w' || past_3ps[strlen(past_3ps) - 1] == 'y')
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(past_3ps, "buit//eet");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(past_3ps, "hiebit");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(past_3ps, "woisit");
+	}
+	else if (past_3ps[strlen(past_3ps) - 1] == 'w' || past_3ps[strlen(past_3ps) - 1] == 'y')
 	{
 		past_3ps[past_basis_counter] = 'i';
 		past_3ps[past_basis_counter + 1] = 't';
@@ -583,7 +703,19 @@ void past_tense ()
 
 	// First person plural
 	strcpy(past_1pp, past_basis);
-	if (strcmp(argument, "pregen") == 0) // Sometimes you need to jerry-rig some conjugations...
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(past_1pp, "buam//eemos");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(past_1pp, "hiebam");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(past_1pp, "woisam");
+	}
+	else if (strcmp(argument, "pregen") == 0) // Sometimes you need to jerry-rig some conjugations...
 	{
         strcpy(past_1pp, "pregnems");
 	}
@@ -620,7 +752,19 @@ void past_tense ()
 
 	// Second person plural
 	strcpy(past_2pp, past_basis);
-	if (past_2pp[strlen(past_2pp) - 1] == 'w' || past_2pp[strlen(past_2pp) - 1] == 'y')
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(past_2pp, "buat//eete");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(past_2pp, "hiebat");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(past_2pp, "woisat");
+	}
+	else if (past_2pp[strlen(past_2pp) - 1] == 'w' || past_2pp[strlen(past_2pp) - 1] == 'y')
 	{
 		past_2pp[past_basis_counter] = 'a';
 		past_2pp[past_basis_counter + 1] = 't';
@@ -653,7 +797,19 @@ void past_tense ()
 
 	// Third person plural
 	strcpy(past_3pp, past_basis);
-	if (past_3pp[strlen(past_3pp) - 1] == 'w' || past_3pp[strlen(past_3pp) - 1] == 'y')
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(past_3pp, "buir//eent");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(past_3pp, "hiebeer");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(past_3pp, "woiseer");
+	}
+	else if (past_3pp[strlen(past_3pp) - 1] == 'w' || past_3pp[strlen(past_3pp) - 1] == 'y')
 	{
 		past_3pp[past_basis_counter] = 'e';
 		past_3pp[past_basis_counter + 1] = 'e';
@@ -704,7 +860,19 @@ void infinitive_verb ()
 
 	// ------------------------------------
 
-	if (check_ei() || check_eu())
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(infinitive, "ses");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(infinitive, "habe");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(infinitive, "woide");
+	}
+	else if (check_ei() || check_eu())
 	{
 		GOTO_EU2:
 		GOTO_EI2:
@@ -740,45 +908,135 @@ void future_tense ()
 
 	// First person singular
 	strcpy(future_1ps, present_2ps);
-	future_1ps[present_2ps_counter] = 'i';
-	future_1ps[present_2ps_counter + 1] = 'e';
-	future_1ps[present_2ps_counter + 2] = 'm';
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(future_1ps, "sessiem");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(future_1ps, "habsiem");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(future_1ps, "woidsiem");
+	}
+	else
+	{
+		future_1ps[present_2ps_counter] = 'i';
+		future_1ps[present_2ps_counter + 1] = 'e';
+		future_1ps[present_2ps_counter + 2] = 'm';
+	}
 
 	// Second person singular
 	strcpy(future_2ps, present_2ps);
-	future_2ps[present_2ps_counter] = 'i';
-	future_2ps[present_2ps_counter + 1] = 'e';
-	future_2ps[present_2ps_counter + 2] = 's';
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(future_2ps, "sessies");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(future_2ps, "habsies");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(future_2ps, "woidsies");
+	}
+	else
+	{
+		future_2ps[present_2ps_counter] = 'i';
+		future_2ps[present_2ps_counter + 1] = 'e';
+		future_2ps[present_2ps_counter + 2] = 's';
+	}
 
 	// Third person singular
 	strcpy(future_3ps, present_2ps);
-	future_3ps[present_2ps_counter] = 'i';
-	future_3ps[present_2ps_counter + 1] = 'e';
-	future_3ps[present_2ps_counter + 2] = 't';
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(future_3ps, "sessiet");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(future_3ps, "habsiet");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(future_3ps, "woidsiet");
+	}
+	else
+	{
+		future_3ps[present_2ps_counter] = 'i';
+		future_3ps[present_2ps_counter + 1] = 'e';
+		future_3ps[present_2ps_counter + 2] = 't';
+	}
 
 	// First person plural
 	strcpy(future_1pp, present_2ps);
-	future_1pp[present_2ps_counter] = 'i';
-	future_1pp[present_2ps_counter + 1] = 'e';
-	future_1pp[present_2ps_counter + 2] = 'm';
-	future_1pp[present_2ps_counter + 3] = '(';
-	future_1pp[present_2ps_counter + 4] = 'o';
-	future_1pp[present_2ps_counter + 5] = ')';
-	future_1pp[present_2ps_counter + 6] = 's';
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(future_1pp, "sessiemos");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(future_1pp, "habsiem(o)s");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(future_1pp, "woidsiem(o)s");
+	}
+	else
+	{
+		future_1pp[present_2ps_counter] = 'i';
+		future_1pp[present_2ps_counter + 1] = 'e';
+		future_1pp[present_2ps_counter + 2] = 'm';
+		future_1pp[present_2ps_counter + 3] = '(';
+		future_1pp[present_2ps_counter + 4] = 'o';
+		future_1pp[present_2ps_counter + 5] = ')';
+		future_1pp[present_2ps_counter + 6] = 's';
+	}
 
 	// Second person plural
 	strcpy(future_2pp, present_2ps);
-	future_2pp[present_2ps_counter] = 'i';
-	future_2pp[present_2ps_counter + 1] = 'e';
-	future_2pp[present_2ps_counter + 2] = 't';
-	future_2pp[present_2ps_counter + 3] = 'e';
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(future_2pp, "sessiete");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(future_2pp, "habsiete");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(future_2pp, "woidsiete");
+	}
+	else
+	{
+		future_2pp[present_2ps_counter] = 'i';
+		future_2pp[present_2ps_counter + 1] = 'e';
+		future_2pp[present_2ps_counter + 2] = 't';
+		future_2pp[present_2ps_counter + 3] = 'e';
+	}
 
 	// Third person  plural
 	strcpy(future_3pp, present_2ps);
-	future_3pp[present_2ps_counter] = 'i';
-	future_3pp[present_2ps_counter + 1] = 'e';
-	future_3pp[present_2ps_counter + 2] = 'n';
-	future_3pp[present_2ps_counter + 3] = 't';
+	if (strcmp(argument, "es") == 0) // Irregular verb
+	{
+        strcpy(future_3pp, "sessient");
+	}
+	else if (strcmp(argument, "hab") == 0) // Irregular verb
+	{
+        strcpy(future_3pp, "habsient");
+	}
+	else if (strcmp(argument, "woid") == 0) // Irregular verb
+	{
+        strcpy(future_3pp, "woidsient");
+	}
+	else
+	{
+		future_3pp[present_2ps_counter] = 'i';
+		future_3pp[present_2ps_counter + 1] = 'e';
+		future_3pp[present_2ps_counter + 2] = 'n';
+		future_3pp[present_2ps_counter + 3] = 't';
+	}
 }
 
 void conditional ()
