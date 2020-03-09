@@ -23,6 +23,7 @@ short int von_wahl = 0;
 
 char infinitive[256];
 char present_basis[256];
+char present_basis2[256];
 char present_1ps[256];
 char present_2ps[256];
 char present_3ps[256];
@@ -50,6 +51,7 @@ char conditional_2pp[256];
 char conditional_3pp[256];
 char participe_t[256];
 char participe_en[256];
+char io_pronoun[10];
 
 /********************************************************************
 **** For checking the words
@@ -61,13 +63,13 @@ short int check_nasal_infix ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'm')
+		if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'm' && argument[arg_counter - 1] != '\0')
 			x++;
-		else if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'n')
+		else if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'n' && argument[arg_counter - 1] != '\0')
 			x++;
-		else if (argument[arg_counter] == 'm' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == 'h' || is_it_vowel(argument[arg_counter + 2])))
+		else if (argument[arg_counter] == 'm' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0' || argument[arg_counter + 2] == 'h' || is_it_vowel(argument[arg_counter + 2])))
 			x++;
-		else if (argument[arg_counter] == 'n' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == 'h' || is_it_vowel(argument[arg_counter + 2])))
+		else if (argument[arg_counter] == 'n' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0' || argument[arg_counter + 2] == 'h' || is_it_vowel(argument[arg_counter + 2])))
 			x++;
 	}
 
@@ -84,6 +86,8 @@ short int check_eh ()
 			x++;
 	}
 
+	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
+
 	return x; // Have the same effect of TRUE or FALSE
 }
 
@@ -96,6 +100,8 @@ short int check_eu ()
 		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'u' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w'))
 			x++;
 	}
+
+	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -110,6 +116,8 @@ short int check_ei ()
 			x++;
 	}
 
+	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
+
 	return x; // Have the same effect of TRUE or FALSE
 }
 
@@ -119,9 +127,11 @@ short int check_a ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (argument[arg_counter] == 'a' && is_it_consonant(argument[arg_counter - 1]) && (is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'w'))
+		if (argument[arg_counter] == 'a' && argument[arg_counter + 1] != '\0' && (is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'u'))
 			x++;
 	}
+
+	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -178,8 +188,8 @@ void present_tense ()
 
 	if (check_nasal_infix ())
 	{
+		// For the first person singular, first person plural and third person plural
 		word_counter = 0;
-
 		for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
 		{
 			if (argument[arg_counter] == 'e' && (argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n' || argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
@@ -190,15 +200,66 @@ void present_tense ()
 			{
 				// Do nothing
 			}
+			else if (argument[arg_counter] == 's' && argument[arg_counter - 1] == 'e' && is_it_vowel(argument[arg_counter - 3]))
+			{
+				// Do nothing
+			}
+			else if (argument[arg_counter] == 's' && argument[arg_counter - 1] == 's' && argument[arg_counter - 2] == 'e' && is_it_vowel(argument[arg_counter - 4]))
+			{
+				// Do nothing
+			}
 			else
 			{
 				present_basis[word_counter] = argument[arg_counter];
 				word_counter++;
 			}
 		}
+
+		// For the second person singular, third person singular and second person plural
+		word_counter = 0;
+		for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
+		{
+			if (argument[arg_counter] == 'e' && (argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n' || argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
+			{
+				if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'n' && is_it_consonant(argument[arg_counter - 1]) && !(argument[arg_counter - 1] == 's'))
+				{
+					present_basis2[word_counter] = argument[arg_counter];
+					word_counter++;
+				}
+				else if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'm' && is_it_consonant(argument[arg_counter - 1]) && !(argument[arg_counter - 1] == 's'))
+				{
+					present_basis2[word_counter] = argument[arg_counter];
+					word_counter++;
+				}
+				else
+				{
+					// Do nothing
+				}
+			}
+			else if (argument[arg_counter] == 's' && (argument[arg_counter + 2] == 'e' || argument[arg_counter + 1] == 'e'))
+			{
+				// Do nothing
+			}
+			else if (argument[arg_counter] == 's' && argument[arg_counter - 1] == 'e' && is_it_vowel(argument[arg_counter - 3]))
+			{
+				// Do nothing
+			}
+			else if (argument[arg_counter] == 's' && argument[arg_counter - 1] == 's' && argument[arg_counter - 2] == 'e' && is_it_vowel(argument[arg_counter - 4]))
+			{
+				// Do nothing
+			}
+			else
+			{
+				present_basis2[word_counter] = argument[arg_counter];
+				word_counter++;
+			}
+		}
 	}
 	else
+	{
 		strcpy(present_basis, argument);
+		strcpy(present_basis2, argument);
+	}
 
 	// First person singular
 	strcpy(present_1ps, present_basis);
@@ -211,17 +272,17 @@ void present_tense ()
 	else present_1ps[strlen(present_1ps)] = 'o';
 
 	// Second person singular
-	strcpy(present_2ps, present_basis);
-	if (present_basis[strlen(present_basis) - 1] == 's')
+	strcpy(present_2ps, present_basis2);
+	if (present_basis2[strlen(present_basis2) - 1] == 's')
 	{
 		// Do nothing
 	}
-	else if (present_basis[strlen(present_basis) - 1] == 'g')
+	else if (present_basis2[strlen(present_basis2) - 1] == 'g')
 	{
 		present_2ps[strlen(present_2ps) - 1] = 'c';
 		present_2ps[strlen(present_2ps)] = 's';
 	}
-	else if (present_basis[strlen(present_basis) - 1] == 'k')
+	else if (present_basis2[strlen(present_basis2) - 1] == 'k')
 	{
 		present_2ps[strlen(present_2ps) - 1] = 'c';
 		present_2ps[strlen(present_2ps)] = 's';
@@ -229,7 +290,7 @@ void present_tense ()
 	else present_2ps[strlen(present_2ps)] = 's';
 
 	// Third person singular
-	strcpy(present_3ps, present_basis);
+	strcpy(present_3ps, present_basis2);
 	if (present_3ps[strlen(present_3ps) - 1] == 'g') present_3ps[strlen(present_3ps) - 1] = 'c';
 	else if (present_3ps[strlen(present_3ps) - 1] == 'k') present_3ps[strlen(present_3ps) - 1] = 'c';
 	present_3ps[strlen(present_3ps)] = 't';
@@ -244,7 +305,7 @@ void present_tense ()
 	present_1pp[present_1pp_counter + 4] = 's';
 
 	// Second person plural
-	strcpy(present_2pp, present_basis);
+	strcpy(present_2pp, present_basis2);
 	present_2pp_counter = strlen(present_2pp);
 	if (present_2pp[strlen(present_2pp) - 1] == 'g') present_2pp[strlen(present_2pp) - 1] = 'c';
 	else if (present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
@@ -264,8 +325,10 @@ void present_tense ()
 	else
 	{
 		present_3pp[present_3pp_counter] = 'e';
-		present_3pp[present_3pp_counter + 1] = 'n';
-		present_3pp[present_3pp_counter + 2] = 't';
+		present_3pp[present_3pp_counter + 1] = '(';
+		present_3pp[present_3pp_counter + 2] = 'n';
+		present_3pp[present_3pp_counter + 3] = 't';
+		present_3pp[present_3pp_counter + 4] = ')';
 	}
 }
 
@@ -382,7 +445,7 @@ void past_tense ()
 
 		for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
 		{
-			if (argument[arg_counter] == 'a' && is_it_consonant(argument[arg_counter - 1]) && (is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'w'))
+			if (argument[arg_counter] == 'a' && argument[arg_counter + 1] != '\0' && (is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'u'))
 			{
 				past_basis[arg_counter] = 'i';
 				word_counter = arg_counter;
@@ -455,12 +518,12 @@ void past_tense ()
 		past_1ps[past_basis_counter] = 'i';
 		past_1ps[past_basis_counter + 1] = 'm';
 	}
-	else if (is_it_vowel(past_basis[past_basis_counter - 1]))
+	else if (past_basis[past_basis_counter - 1] == 'e')
 	{
 		past_1ps[past_basis_counter - 1] = 'i';
 		past_1ps[past_basis_counter] = 'm';
 	}
-	else if (is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h')
+	else if ((is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h') || (is_it_vowel(past_basis[past_basis_counter - 1])))
 	{
 		past_1ps[past_basis_counter] = 's';
 		past_1ps[past_basis_counter + 1] = 'i';
@@ -501,12 +564,12 @@ void past_tense ()
 		past_3ps[past_basis_counter] = 'i';
 		past_3ps[past_basis_counter + 1] = 't';
 	}
-	else if (is_it_vowel(past_basis[past_basis_counter - 1]))
+	else if (past_basis[past_basis_counter - 1] == 'e')
 	{
 		past_3ps[past_basis_counter - 1] = 'i';
 		past_3ps[past_basis_counter] = 't';
 	}
-	else if (is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h')
+	else if ((is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h') || (is_it_vowel(past_basis[past_basis_counter - 1])))
 	{
 		past_3ps[past_basis_counter] = 's';
 		past_3ps[past_basis_counter + 1] = 'i';
@@ -520,7 +583,20 @@ void past_tense ()
 
 	// First person plural
 	strcpy(past_1pp, past_basis);
-	if (past_1pp[strlen(past_1pp) - 1] == 'w' || past_1pp[strlen(past_1pp) - 1] == 'y')
+	if (strcmp(argument, "pregen") == 0) // Sometimes you need to jerry-rig some conjugations...
+	{
+        strcpy(past_1pp, "pregnems");
+	}
+	else if (past_1pp[strlen(past_1pp) - 1] == 'w' || past_1pp[strlen(past_1pp) - 1] == 'y')
+	{
+		past_1pp[past_basis_counter] = 'a';
+		past_1pp[past_basis_counter + 1] = 'm';
+	}
+	else if (past_basis[past_basis_counter - 1] == 'a')
+	{
+		past_1pp[past_basis_counter] = 'm';
+	}
+	else if ((past_basis[past_basis_counter - 2] == 'c' || past_basis[past_basis_counter - 2] == 'g') && past_basis[past_basis_counter - 1] == 'e')
 	{
 		past_1pp[past_basis_counter] = 'a';
 		past_1pp[past_basis_counter + 1] = 'm';
@@ -530,7 +606,7 @@ void past_tense ()
 		past_1pp[past_basis_counter - 1] = 'a';
 		past_1pp[past_basis_counter] = 'm';
 	}
-	else if (is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h')
+	else if (((is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h')))
 	{
 		past_1pp[past_basis_counter] = 's';
 		past_1pp[past_basis_counter + 1] = 'a';
@@ -549,12 +625,21 @@ void past_tense ()
 		past_2pp[past_basis_counter] = 'a';
 		past_2pp[past_basis_counter + 1] = 't';
 	}
+	else if (past_basis[past_basis_counter - 1] == 'a')
+	{
+		past_2pp[past_basis_counter] = 't';
+	}
+	else if ((past_basis[past_basis_counter - 2] == 'c' || past_basis[past_basis_counter - 2] == 'g') && past_basis[past_basis_counter - 1] == 'e')
+	{
+		past_2pp[past_basis_counter] = 'a';
+		past_2pp[past_basis_counter + 1] = 't';
+	}
 	else if (is_it_vowel(past_basis[past_basis_counter - 1]))
 	{
 		past_2pp[past_basis_counter - 1] = 'a';
 		past_2pp[past_basis_counter] = 't';
 	}
-	else if (is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h')
+	else if (((is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h')))
 	{
 		past_2pp[past_basis_counter] = 's';
 		past_2pp[past_basis_counter + 1] = 'a';
@@ -574,13 +659,12 @@ void past_tense ()
 		past_3pp[past_basis_counter + 1] = 'e';
 		past_3pp[past_basis_counter + 2] = 'r';
 	}
-	else if (is_it_vowel(past_basis[past_basis_counter - 1]))
+	else if (past_3pp[strlen(past_3pp) - 1] == 'e')
 	{
-		past_3pp[past_basis_counter - 1] = 'e';
 		past_3pp[past_basis_counter] = 'e';
 		past_3pp[past_basis_counter + 1] = 'r';
 	}
-	else if (is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h')
+	else if (((is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h') || (is_it_vowel(past_basis[past_basis_counter - 1]))))
 	{
 		past_3pp[past_basis_counter] = 'r';
 	}
@@ -618,6 +702,8 @@ void infinitive_verb ()
 		goto GOTO_NASAL2;
 	}
 
+	// ------------------------------------
+
 	if (check_ei() || check_eu())
 	{
 		GOTO_EU2:
@@ -639,7 +725,11 @@ void infinitive_verb ()
 	{
 		GOTO_EH2:
 		strcpy(infinitive, present_basis);
-		if (infinitive[strlen(infinitive) - 1] != 'e')
+		if (infinitive[strlen(infinitive) - 1] == 'e')
+        {
+            // Do nothing
+        }
+        else
 			infinitive[strlen(infinitive)] = 'e';
 	}
 }
@@ -702,7 +792,7 @@ void conditional ()
 	strcpy(conditional_2pp, present_basis);
 	strcpy(conditional_3pp, present_basis);
 
-	if (present_basis[strlen(present_basis) - 2] == 'y' && present_basis[strlen(present_basis) - 1] == 'e')
+	if (is_it_vowel(present_basis[strlen(present_basis) - 1]))
 	{
 		// First person singular
 		conditional_1ps[conditional_counter - 1] = 'i';
@@ -866,6 +956,10 @@ void past_participe ()
 
 		if (participe_t[strlen(participe_t) - 1] != 't') participe_t[strlen(participe_t)] = 't';
 	}
+	else
+	{
+        if (participe_t[strlen(participe_t) - 1] == 'd') participe_t[strlen(participe_t) - 1] = 's';
+	}
 
 
 	if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h')) participe_en[strlen(participe_en)] = 'e';
@@ -958,7 +1052,9 @@ void conjugation ()
 	else if (lang == 4) printf("\nPresente: ");
 	else printf("\nPresent tid: ");
 	// -----
-	printf("%s, %s, %s, %s, yu %s, %s", present_1ps, present_2ps, present_3ps, present_1pp, present_2pp, present_3pp);
+	if (present_1ps[strlen(present_1ps) - 1] == 'e') strcpy(io_pronoun, "io ");
+	else strcpy(io_pronoun, "");
+	printf("%s%s, %s, %s, %s, yu %s, %s", io_pronoun, present_1ps, present_2ps, present_3ps, present_1pp, present_2pp, present_3pp);
 
 	// Past tense
 	if (lang == 2) printf("\nPast tense: ");
@@ -1000,6 +1096,7 @@ void conjugation ()
 	memset(argument, '\0', strlen(argument));
 	memset(infinitive, '\0', strlen(infinitive));
 	memset(present_basis, '\0', strlen(present_basis));
+	memset(present_basis2, '\0', strlen(present_basis2));
 	memset(present_1ps, '\0', strlen(present_1ps));
 	memset(present_2ps, '\0', strlen(present_2ps));
 	memset(present_3ps, '\0', strlen(present_3ps));
@@ -1027,6 +1124,7 @@ void conjugation ()
 	memset(conditional_3pp, '\0', strlen(conditional_3pp));
 	memset(participe_t, '\0', strlen(participe_t));
 	memset(participe_en, '\0', strlen(participe_en));
+	memset(io_pronoun, '\0', strlen(io_pronoun));
 
 	a_for_ie = 0;
 	eu_for_u = 0;
