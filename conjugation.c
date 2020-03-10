@@ -67,11 +67,13 @@ short int check_nasal_infix ()
 			x++;
 		else if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'n' && argument[arg_counter - 1] != '\0')
 			x++;
-		else if (argument[arg_counter] == 'm' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0' || argument[arg_counter + 2] == 'h' || is_it_vowel(argument[arg_counter + 2])))
+		else if (!(argument[arg_counter - 1] == 'm') && argument[arg_counter] == 'm' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0' || argument[arg_counter + 2] == 'h' || is_it_vowel_without_w(argument[arg_counter + 2])))
 			x++;
-		else if (argument[arg_counter] == 'n' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0' || argument[arg_counter + 2] == 'h' || is_it_vowel(argument[arg_counter + 2])))
+		else if (!(argument[arg_counter - 1] == 'n') && argument[arg_counter] == 'n' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0' || argument[arg_counter + 2] == 'h' || is_it_vowel_without_w(argument[arg_counter + 2])))
 			x++;
 	}
+
+	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e cannot have nasal infix
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -275,12 +277,17 @@ void present_tense ()
 	{
         strcpy(present_1ps, "woidim");
 	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(present_1ps, "sammel");
+	}
 	else if (present_1ps[strlen(present_1ps) - 1] == 'e')
 	{
 		// Do nothing
 	}
 	else if (present_1ps[strlen(present_1ps) - 1] == 'w' || present_1ps[strlen(present_1ps) - 1] == 'y') present_1ps[strlen(present_1ps)] = 'o';
 	else if (is_it_vowel(present_1ps[strlen(present_1ps) - 1])) present_1ps[strlen(present_1ps)] = 'm';
+	else if (is_it_vowel(present_1ps[strlen(present_1ps) - 2]) && present_1ps[strlen(present_1ps) - 1] == 'h') present_1ps[strlen(present_1ps)] = 'm';
 	else present_1ps[strlen(present_1ps)] = 'o';
 
 	// Second person singular
@@ -331,7 +338,7 @@ void present_tense ()
 	else if (present_3ps[strlen(present_3ps) - 1] == 'k') present_3ps[strlen(present_3ps) - 1] = 'c';
 	if (!((strcmp(argument, "es") == 0) || (strcmp(argument, "hab") == 0) || (strcmp(argument, "woid") == 0)))
 	{
-		present_3ps[strlen(present_3ps)] = 't';
+		if (present_3ps[strlen(present_3ps) - 1] != 't') present_3ps[strlen(present_3ps)] = 't';
 	}
 
 	// First person plural
@@ -347,6 +354,14 @@ void present_tense ()
 	else if (strcmp(argument, "woid") == 0) // Irregular verb
 	{
         strcpy(present_1pp, "woidam");
+	}
+	else if (strcmp(argument, "pregen") == 0) // Sometimes you need to jerry-rig some conjugations...
+	{
+        strcpy(present_1pp, "pregnems");
+	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(present_1pp, "sammelms");
 	}
 	else
 	{
@@ -372,15 +387,26 @@ void present_tense ()
 	{
         strcpy(present_2pp, "woidat");
 	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(present_2pp, "sammelt");
+	}
 	else
 	{
 		present_2pp_counter = strlen(present_2pp);
 		if (present_2pp[strlen(present_2pp) - 1] == 'g') present_2pp[strlen(present_2pp) - 1] = 'c';
 		else if (present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
-		present_2pp[present_2pp_counter] = 't';
-		present_2pp[present_2pp_counter + 1] = '(';
-		present_2pp[present_2pp_counter + 2] = 'e';
-		present_2pp[present_2pp_counter + 3] = ')';
+		if (present_2pp[present_2pp_counter - 1] != 't')
+		{
+			present_2pp[present_2pp_counter] = 't';
+			present_2pp[present_2pp_counter + 1] = '(';
+			present_2pp[present_2pp_counter + 2] = 'e';
+			present_2pp[present_2pp_counter + 3] = ')';
+		}
+		else
+		{
+			present_2pp[present_2pp_counter] = 'e';
+		}
 	}
 
 	// Third person plural
@@ -396,6 +422,10 @@ void present_tense ()
 	else if (strcmp(argument, "woid") == 0) // Irregular verb
 	{
         strcpy(present_3pp, "woideer");
+	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(present_3pp, "sammelnt");
 	}
 	else
 	{
@@ -472,11 +502,11 @@ void past_tense ()
 			{
 				// Do nothing
 			}
-			else if (argument[arg_counter] == 'n' && (argument[arg_counter - 1] == 'e' || argument[arg_counter + 1] == 'e'))
+			else if (argument[arg_counter] == 'n' && (argument[arg_counter - 1] == 'e' || argument[arg_counter + 1] == 'e') && !(argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n'))
 			{
 				// Do nothing
 			}
-			else if (argument[arg_counter] == 'm' && (argument[arg_counter - 1] == 'e' || argument[arg_counter + 1] == 'e'))
+			else if (argument[arg_counter] == 'm' && (argument[arg_counter - 1] == 'e' || argument[arg_counter + 1] == 'e') && !(argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
 			{
 				// Do nothing
 			}
@@ -544,54 +574,92 @@ void past_tense ()
 			}
 		}
 	}
-	else if (check_von_wahl())
-	{
-		word_counter = 0;
-
-		for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
-		{
-			if (argument[arg_counter] == 'd' && argument[arg_counter + 1] == '\0')
-			{
-				past_basis[arg_counter] = 's';
-			}
-			else if (argument[arg_counter] == 'd' && argument[arg_counter + 1] == 'd' && argument[arg_counter + 2] == '\0')
-			{
-				past_basis[arg_counter] = 's';
-			}
-			else if (argument[arg_counter] == 't' && argument[arg_counter + 1] == '\0' && !(argument[arg_counter - 1] == 'c'))
-			{
-				past_basis[arg_counter] = 's';
-			}
-			else if (argument[arg_counter] == 't' && argument[arg_counter + 1] == 't' && argument[arg_counter + 2] == '\0')
-			{
-				past_basis[arg_counter] = 's';
-			}
-			else if (argument[arg_counter] == 'r' && argument[arg_counter + 1] == '\0')
-			{
-				past_basis[arg_counter] = 's';
-			}
-			else if (argument[arg_counter] == 'g' && argument[arg_counter + 1] == '\0')
-			{
-				past_basis[arg_counter] = 's';
-			}
-			else if (argument[arg_counter] == 'c' && argument[arg_counter + 1] == 't' && argument[arg_counter + 2] == '\0')
-			{
-				past_basis[arg_counter] = 'x';
-			}
-			else if (argument[arg_counter] == 't' && argument[arg_counter + 1] == '\0' && argument[arg_counter - 1] == 'c')
-			{
-				// Do nothing
-			}
-			else
-			{
-				past_basis[word_counter] = argument[arg_counter];
-				word_counter++;
-			}
-		}
-	}
 	else
 	{
 		strcpy(past_basis, present_basis);
+	}
+
+	// I check Von Wahl separetely
+	if (check_von_wahl())
+	{
+		word_counter = 0;
+
+		if (!(check_a() || check_eh() || check_ei() || check_eu() || check_nasal_infix()))
+		{
+			for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
+			{
+				if (argument[arg_counter] == 'd' && argument[arg_counter + 1] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (argument[arg_counter] == 'd' && argument[arg_counter + 1] == 'd' && argument[arg_counter + 2] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (argument[arg_counter] == 't' && argument[arg_counter + 1] == '\0' && !(argument[arg_counter - 1] == 'c'))
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (argument[arg_counter] == 't' && argument[arg_counter + 1] == 't' && argument[arg_counter + 2] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (argument[arg_counter] == 'r' && argument[arg_counter + 1] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (argument[arg_counter] == 'g' && argument[arg_counter + 1] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (argument[arg_counter] == 'c' && argument[arg_counter + 1] == 't' && argument[arg_counter + 2] == '\0')
+				{
+					past_basis[arg_counter] = 'x';
+				}
+				else if (argument[arg_counter] == 't' && argument[arg_counter + 1] == '\0' && argument[arg_counter - 1] == 'c')
+				{
+					// Do nothing
+				}
+			}
+		}
+		else
+		{
+			for (arg_counter = 0; arg_counter < strlen(past_basis) ; arg_counter++)
+			{
+				if (past_basis[arg_counter] == 'd' && past_basis[arg_counter + 1] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (past_basis[arg_counter] == 'd' && past_basis[arg_counter + 1] == 'd' && past_basis[arg_counter + 2] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (past_basis[arg_counter] == 't' && past_basis[arg_counter + 1] == '\0' && !(past_basis[arg_counter - 1] == 'c'))
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (past_basis[arg_counter] == 't' && past_basis[arg_counter + 1] == 't' && past_basis[arg_counter + 2] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (past_basis[arg_counter] == 'r' && past_basis[arg_counter + 1] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (past_basis[arg_counter] == 'g' && past_basis[arg_counter + 1] == '\0')
+				{
+					past_basis[arg_counter] = 's';
+				}
+				else if (past_basis[arg_counter] == 'c' && past_basis[arg_counter + 1] == 't' && past_basis[arg_counter + 2] == '\0')
+				{
+					past_basis[arg_counter] = 'x';
+				}
+				else if (past_basis[arg_counter] == 't' && past_basis[arg_counter + 1] == '\0' && past_basis[arg_counter - 1] == 'c')
+				{
+					// Do nothing
+				}
+			}
+		}
 	}
 
 	// First person singular
@@ -608,6 +676,10 @@ void past_tense ()
 	else if (strcmp(argument, "woid") == 0) // Irregular verb
 	{
         strcpy(past_1ps, "woisim");
+	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(past_1ps, "siemmlim");
 	}
 	else if (past_1ps[strlen(past_1ps) - 1] == 'w' || past_1ps[strlen(past_1ps) - 1] == 'y')
 	{
@@ -645,6 +717,19 @@ void past_tense ()
 	{
         strcpy(past_2ps, "woisist");
 	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(past_2ps, "siemmelst");
+	}
+	else if (past_basis[past_basis_counter - 1] == 'e')
+	{
+		past_2ps[past_basis_counter - 1] = 'i';
+		past_2ps[past_basis_counter] = 's';
+		past_2ps[past_basis_counter + 1] = 't';
+		past_2ps[past_basis_counter + 2] = '(';
+		past_2ps[past_basis_counter + 3] = 'a';
+		past_2ps[past_basis_counter + 4] = ')';
+	}
 	else if (is_it_vowel(past_basis[past_basis_counter - 1]) || (is_it_vowel(past_basis[past_basis_counter - 2]) && past_basis[past_basis_counter - 1] == 'h'))
 	{
 		past_2ps[past_basis_counter] = 's';
@@ -678,6 +763,10 @@ void past_tense ()
 	else if (strcmp(argument, "woid") == 0) // Irregular verb
 	{
         strcpy(past_3ps, "woisit");
+	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(past_3ps, "siemmlit");
 	}
 	else if (past_3ps[strlen(past_3ps) - 1] == 'w' || past_3ps[strlen(past_3ps) - 1] == 'y')
 	{
@@ -715,9 +804,9 @@ void past_tense ()
 	{
         strcpy(past_1pp, "woisam");
 	}
-	else if (strcmp(argument, "pregen") == 0) // Sometimes you need to jerry-rig some conjugations...
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
 	{
-        strcpy(past_1pp, "pregnems");
+        strcpy(past_1pp, "siemm(e)lam");
 	}
 	else if (past_1pp[strlen(past_1pp) - 1] == 'w' || past_1pp[strlen(past_1pp) - 1] == 'y')
 	{
@@ -764,6 +853,10 @@ void past_tense ()
 	{
         strcpy(past_2pp, "woisat");
 	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(past_2pp, "siemm(e)lat");
+	}
 	else if (past_2pp[strlen(past_2pp) - 1] == 'w' || past_2pp[strlen(past_2pp) - 1] == 'y')
 	{
 		past_2pp[past_basis_counter] = 'a';
@@ -808,6 +901,10 @@ void past_tense ()
 	else if (strcmp(argument, "woid") == 0) // Irregular verb
 	{
         strcpy(past_3pp, "woiseer");
+	}
+	else if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(past_3pp, "siemm(e)leer");
 	}
 	else if (past_3pp[strlen(past_3pp) - 1] == 'w' || past_3pp[strlen(past_3pp) - 1] == 'y')
 	{
@@ -872,22 +969,40 @@ void infinitive_verb ()
 	{
         strcpy(infinitive, "woide");
 	}
+	if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(infinitive, "sammel");
+	}
 	else if (check_ei() || check_eu())
 	{
 		GOTO_EU2:
 		GOTO_EI2:
 		strcpy(infinitive, past_basis);
 		counter = strlen(infinitive);
-		infinitive[counter] = 'e';
-		infinitive[counter + 1] = 's';
+		if (infinitive[strlen(infinitive) - 1] == 'e')
+        {
+        	infinitive[counter] = 's';
+        }
+        else
+        {
+			infinitive[counter] = 'e';
+			infinitive[counter + 1] = 's';
+		}
 	}
 	else if (check_nasal_infix())
 	{
 		GOTO_NASAL2:
 		strcpy(infinitive, present_basis);
 		counter = strlen(infinitive);
-		infinitive[counter] = 'e';
-		infinitive[counter + 1] = 's';
+		if (infinitive[strlen(infinitive) - 1] == 'e')
+        {
+        	infinitive[counter] = 's';
+        }
+        else
+        {
+			infinitive[counter] = 'e';
+			infinitive[counter + 1] = 's';
+		}
 	}
 	else
 	{
@@ -1179,8 +1294,17 @@ void past_participe ()
 		strcpy(participe_t, past_basis);
 		strcpy(participe_en, past_basis);
 	}
-	else if (check_von_wahl())
+	else
 	{
+		strcpy(participe_t, present_basis);
+		strcpy(participe_en, present_basis);
+	}
+
+	// Smetimes happes that a verb has an ablaut or nasal infix and also follow the Von Wahl rules
+	if (check_von_wahl())
+	{
+		memset(participe_t, '\0', strlen(participe_t));
+		memset(participe_en, '\0', strlen(participe_en));
 		strcpy(participe_t, past_basis);
 		strcpy(participe_en, present_basis);
 	}
@@ -1196,13 +1320,6 @@ void past_participe ()
 			participe_t[strlen(participe_t) - 1] = 'w';
 			participe_t[strlen(participe_t)] = 't';
 		}
-
-
-		strcpy(participe_en, present_basis);
-	}
-	else
-	{
-		strcpy(participe_t, present_basis);
 		strcpy(participe_en, present_basis);
 	}
 
@@ -1220,8 +1337,27 @@ void past_participe ()
 	}
 
 
-	if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h')) participe_en[strlen(participe_en)] = 'e';
-	participe_en[strlen(participe_en)] = 'n';
+
+
+
+	if (strcmp(argument, "sammel") == 0) // Problematic verb
+	{
+        strcpy(participe_en, "sammeln");
+	}
+	else
+	{
+		if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h')) participe_en[strlen(participe_en)] = 'e';
+		participe_en[strlen(participe_en)] = 'n';
+
+		if (check_nasal_infix()) // For correcting words like scinesd, otherwise we will get "scinden" instead the correct "scisden"
+		{
+			//-nden
+			if (participe_en[strlen(participe_en) - 4] == 'n' && participe_en[strlen(participe_en) - 3] == 'd')
+			{
+				participe_en[strlen(participe_en) - 4] = 's';
+			}
+		}
+	}
 }
 
 /********************************************************************
