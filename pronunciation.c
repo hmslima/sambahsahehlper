@@ -2969,7 +2969,7 @@ void pronunciation ()
 	}
 
 	// The piace of code below warns the user that the word might have a prefix
-	if (!is_testpnc_active && (is_there_more_than_one_vowel ()))
+	/*if (!is_testpnc_active && (is_there_more_than_one_vowel ()))
 	{
 		if ((argument[0] == 'p' && argument[1] == 'e' && argument[2] == 'r') || (argument[0] == 'd' && argument[1] == 'e') || (argument[0] == 'p' && argument[1] == 'r' && argument[2] == 'e') || (argument[0] == 'r' && argument[1] == 'e') || (argument[0] == 'b' && argument[1] == 'e') || (argument[0] == 'e' && argument[1] == 'e') || (argument[0] == 'e' && argument[1] == 'x') || (argument[0] == 'b' && argument[1] == 'e' && argument[2] == 'g' && argument[3] == 'h' && argument[4] == 's') || (argument[0] == 'f' && argument[1] == 'e' && argument[2] == 'r') || (argument[0] == 'n' && argument[1] == 'e') || (argument[0] == 's' && argument[1] == 'e') || (argument[0] == 'e' && argument[1] == 'x' && argument[2] == 't' && argument[3] == 'e' && argument[4] == 'r') || (argument[0] == 'e' && argument[1] == 'n' && argument[2] == 'd' && argument[3] == 'e' && argument[4] == 'r') || (argument[0] == 'e' && argument[1] == 'p') || (argument[0] == 'e' && argument[1] == 'p' && argument[2] == 't' && argument[3] == 'e' && argument[4] == 'r') || (argument[0] == 'd' && argument[1] == 'e' && argument[2] == 's') || (argument[0] == 'e' && argument[1] == 'n') || (argument[0] == 'e' && argument[1] == 't' && argument[2] == 'i') || (argument[0] == 'k' && argument[1] == 'e' && argument[2] == 'n') || (argument[0] == 'n' && argument[1] == 'i' && argument[2] == 't' && argument[3] == 'e' && argument[4] == 'r') || (argument[0] == 'p' && argument[1] == 'e' && argument[2] == 'r' && argument[3] == 'i') || (argument[0] == 's' && argument[1] == 't' && argument[2] == 'e' && argument[3] == 'p'))
 		{
@@ -2979,16 +2979,59 @@ void pronunciation ()
 			}
 
 		}
-    }
+    }*/
 
     // Before giving the program's own transcription, we will test if we already have a ready-made solution for the given word. There are words with "illogic" transcription because of ethymologic reasons that the program cannot predict
-    if (strcmp(argument, "suggest") == 0) // Irregular verb
+    if (strcmp(argument, "suggest") == 0)
 	{
 		if (show_system_messages) printf("\npoint ready_made_solution\n");
 		strcpy(SPT_word, "sugdjEst");
 	}
+	else if (strcmp(argument, "comprehend") == 0)
+	{
+		if (show_system_messages) printf("\npoint ready_made_solution\n");
+		strcpy(SPT_word, "komprëhEnd");
+	}
+	else if (strcmp(argument, "decret") == 0)
+	{
+		if (show_system_messages) printf("\npoint ready_made_solution\n");
+		strcpy(SPT_word, "dëkrEt");
+	}
+	else if (strcmp(argument, "fortrehc") == 0)
+	{
+		if (show_system_messages) printf("\npoint ready_made_solution\n");
+		strcpy(SPT_word, "fortrE:k");
+	}
+	else if (strcmp(argument, "negleg") == 0)
+	{
+		if (show_system_messages) printf("\npoint ready_made_solution\n");
+		strcpy(SPT_word, "nëglEg");
+	}
+	else if (strcmp(argument, "respect") == 0)
+	{
+		if (show_system_messages) printf("\npoint ready_made_solution\n");
+		strcpy(SPT_word, "rëspEkt");
+	}
+	else if (strcmp(argument, "recess") == 0 || strcmp(argument, "reccess") == 0)
+	{
+		if (show_system_messages) printf("\npoint ready_made_solution\n");
+		strcpy(SPT_word, "rëtsEs(s)");
+	}
+	else if (strcmp(argument, "bevid") == 0)
+	{
+		if (show_system_messages) printf("\npoint ready_made_solution\n");
+		strcpy(SPT_word, "bëvId");
+	}
 
 
+
+
+
+	// Brute correction of words
+	if (strcmp(argument, "decret") == 0)
+	{
+        strcpy(SPT_word, "dëkrEt");
+	}
 
 
 
@@ -2997,11 +3040,6 @@ void pronunciation ()
 		printf("{%s}\n", SPT_word);
 	else
 		printf("\n{%s}\n", SPT_word);
-
-
-
-
-
 
 
 
