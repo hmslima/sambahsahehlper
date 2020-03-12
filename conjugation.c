@@ -339,7 +339,7 @@ void present_tense ()
 	{
         strcpy(present_1ps, "sammel");
 	}
-	else if (present_1ps[strlen(present_1ps) - 1] == 'e')
+	else if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r'))
 	{
 		// Do nothing
 	}
@@ -495,7 +495,7 @@ void present_tense ()
 	else
 	{
 		present_3pp_counter = strlen(present_3pp);
-		if ((is_it_vowel(present_3pp[present_3pp_counter - 1])) || (present_3pp[present_3pp_counter - 1] == 'h' && is_it_vowel(present_3pp[present_3pp_counter - 2])))
+		if ((is_it_vowel(present_3pp[present_3pp_counter - 1])) || (present_3pp[present_3pp_counter - 1] == 'h' && is_it_vowel(present_3pp[present_3pp_counter - 2])) || (present_3pp[present_3pp_counter - 2] == 'e' && present_3pp[present_3pp_counter - 1] == 'r'))
 		{
 			present_3pp[present_3pp_counter] = 'n';
 			present_3pp[present_3pp_counter + 1] = 't';
@@ -919,6 +919,10 @@ void past_tense ()
 	{
         strcpy(past_1ps, "siemmlim");
 	}
+	else if (past_1ps[strlen(past_1ps) - 2] == 'e' && past_1ps[strlen(past_1ps) - 1] == 'r')
+	{
+		// Do nothing
+	}
 	else if (past_1ps[strlen(past_1ps) - 1] == 'w' || past_1ps[strlen(past_1ps) - 1] == 'y')
 	{
 		past_1ps[past_basis_counter] = 'i';
@@ -958,6 +962,14 @@ void past_tense ()
 	else if (strcmp(argument, "sammel") == 0) // Problematic verb
 	{
         strcpy(past_2ps, "siemmelst");
+	}
+	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
+	{
+		past_2ps[past_basis_counter] = 's';
+		past_2ps[past_basis_counter + 1] = 't';
+		past_2ps[past_basis_counter + 2] = '(';
+		past_2ps[past_basis_counter + 3] = 'a';
+		past_2ps[past_basis_counter + 4] = ')';
 	}
 	else if (past_basis[past_basis_counter - 1] == 'e')
 	{
@@ -1006,6 +1018,10 @@ void past_tense ()
 	{
         strcpy(past_3ps, "siemmlit");
 	}
+	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
+	{
+		// Do nothing
+	}
 	else if (past_3ps[strlen(past_3ps) - 1] == 'w' || past_3ps[strlen(past_3ps) - 1] == 'y')
 	{
 		past_3ps[past_basis_counter] = 'i';
@@ -1045,6 +1061,10 @@ void past_tense ()
 	else if (strcmp(argument, "sammel") == 0) // Problematic verb
 	{
         strcpy(past_1pp, "siemm(e)lam");
+	}
+	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
+	{
+		// Do nothing
 	}
 	else if (past_1pp[strlen(past_1pp) - 1] == 'w' || past_1pp[strlen(past_1pp) - 1] == 'y')
 	{
@@ -1095,6 +1115,10 @@ void past_tense ()
 	{
         strcpy(past_2pp, "siemm(e)lat");
 	}
+	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
+	{
+		// Do nothing
+	}
 	else if (past_2pp[strlen(past_2pp) - 1] == 'w' || past_2pp[strlen(past_2pp) - 1] == 'y')
 	{
 		past_2pp[past_basis_counter] = 'a';
@@ -1143,6 +1167,10 @@ void past_tense ()
 	else if (strcmp(argument, "sammel") == 0) // Problematic verb
 	{
         strcpy(past_3pp, "siemm(e)leer");
+	}
+	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
+	{
+		// Do nothing
 	}
 	else if (past_3pp[strlen(past_3pp) - 1] == 'w' || past_3pp[strlen(past_3pp) - 1] == 'y')
 	{
@@ -1246,7 +1274,7 @@ void infinitive_verb ()
 	{
 		GOTO_EH2:
 		strcpy(infinitive, present_basis);
-		if (infinitive[strlen(infinitive) - 1] == 'e')
+		if (infinitive[strlen(infinitive) - 1] == 'e' || (infinitive[strlen(infinitive) - 2] == 'e' && infinitive[strlen(infinitive) - 1] == 'r'))
         {
             // Do nothing
         }
@@ -1585,7 +1613,7 @@ void past_participe ()
 	}
 	else
 	{
-		if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h')) participe_en[strlen(participe_en)] = 'e';
+		if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h') && !(participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'r')) participe_en[strlen(participe_en)] = 'e';
 		participe_en[strlen(participe_en)] = 'n';
 
 		if (check_von_wahl()) // For correcting words like scinesd, otherwise we will get "scinden" instead the correct "scisden"
@@ -1685,7 +1713,7 @@ void conjugation ()
 	else if (lang == 4) printf("\nPresente: ");
 	else printf("\nPresent tid: ");
 	// -----
-	if (present_1ps[strlen(present_1ps) - 1] == 'e') strcpy(io_pronoun, "io ");
+	if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r')) strcpy(io_pronoun, "io ");
 	else strcpy(io_pronoun, "");
 	printf("%s%s, %s, %s, %s, yu %s, %s", io_pronoun, present_1ps, present_2ps, present_3ps, present_1pp, present_2pp, present_3pp);
 
