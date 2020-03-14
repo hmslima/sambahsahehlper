@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("#######################################################################\n");
-	printf ("####################### SAMBAHSA HEHLPER v 0.8 ########################\n");
+	printf ("####################### SAMBAHSA HEHLPER v 0.9 ########################\n");
 	printf ("#######################################################################\n");
 }
 
@@ -60,6 +60,14 @@ void help (short int lang)
 			printf ("\n    conscieus anghen. Tod programme ghehdt correg-ye transcribe un");
 			printf ("\n    werd kam \"gouverne\", bet ne \"gouvernement\" ob tod programme");
 			printf ("\n    khact gvaedde od tod senst werd est un composen werd!");
+			printf ("\n        Druve-ye yu vidsiete \"gouvernement\" ses correct-ye transcriben");
+			printf ("\n        ob io (is programmer) wihand-ye sieygim ei programme quod est");
+			printf ("\n        id transcription tos specific werd, bet to maght ne ses id fall");
+			printf ("\n        alters werds. Kwohrim un internal liste tom problematic werds,");
+			printf ("\n        bet khako dahe un tayar transcription pro vasya ex ia, ithan");
+			printf ("\n        yu tehrbsiete antruses id programmes transcriptor. Kay woide");
+			printf ("\n        qua werds hant tayar transcriptions, uset id commande");
+			printf ("\n        \"pncliste\" au \"listepnc\"");
 			printf ("\n    4 - Tod est un programmation probleme. To est dayir id buksteiv");
 			printf ("\n    \"e\" quan tod ne est accenten. In to fall, est daht vos auter \"{e}\"");
 			printf ("\n    au \"{"SMALL_E_DIAERESIS_IN_TEXT"}\". Eger ne est facil deil con tod special harif \""SMALL_E_DIAERESIS_IN_TEXT"\", id");
@@ -126,6 +134,14 @@ void help (short int lang)
 			printf ("\n    not a conscious person. This program can correctly transcribe a ");
 			printf ("\n    word like \"gouverne\", but not \"gouvernement\" because the ");
 			printf ("\n    program cannot guess that this last one is a compound word!");
+			printf ("\n        Actually you'll see \"gouvernement\" being correctly transcribed");
+			printf ("\n        because I (the programmer) manually told the program what is");
+			printf ("\n        the transcription of this specific word, but it can not be the");
+			printf ("\n        case of other words. I made an internal list of these");
+			printf ("\n        problematic words, but I cannot give a ready-made transcription");
+			printf ("\n        for all of them, so you will have to rely on the program\'s");
+			printf ("\n        transcriber. In order to know what words have ready-made");
+			printf ("\n        transcriptions, use the command \"pnclist\" or \"listpnc\"");
 			printf ("\n    4 - This is a programming problem. It\'s about the letter \"e\" when");
 			printf ("\n    this one is not stressed. In this case it\'s given to you either");
 			printf ("\n    \"{e}\" or \"{"SMALL_E_DIAERESIS_IN_TEXT"}\". Since it\'s not easy to deal with this special");
@@ -195,6 +211,14 @@ void help (short int lang)
 			printf ("\n    corretamente uma palavra como \"gouverne\", mas n" SMALL_A_TILDE "o \"gouvernement\"");
 			printf ("\n    porque o programa n" SMALL_A_TILDE "o pode adivinhar que esta " SMALL_U_ACUTE "ltima " SMALL_E_ACUTE " uma palavra");
 			printf ("\n    composta!");
+			printf ("\n        Na verdade voc" SMALL_E_CIRCUMFLEX " ver" SMALL_A_ACUTE " \"gouvernement\" ser transcrito corretamente");
+			printf ("\n        porque eu (o programador) manualmente disse ao programa qual " SMALL_E_ACUTE "");
+			printf ("\n        a transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o desta palavra espec" SMALL_I_ACUTE "fica, mas este pode n" SMALL_A_TILDE "o ser o");
+			printf ("\n        caso de outras palavras. Eu fiz uma lista interna dessas");
+			printf ("\n        palavras problem" SMALL_A_ACUTE "ticas, mas eu não posso dar uma transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o");
+			printf ("\n        pronta para todas elas, ent" SMALL_A_TILDE "o voc" SMALL_E_CIRCUMFLEX " ter" SMALL_A_ACUTE " que contar com o");
+			printf ("\n        transcritor do programa. Para saber quais palavras j" SMALL_A_ACUTE " foram");
+			printf ("\n        manualmente transcritas, use o comando \"pncliste\" ou \"listepnc\"");
 			printf ("\n    4 - Este " SMALL_E_ACUTE " um problema de programa" SMALL_C_CEDILLA SMALL_A_TILDE "o. " CAPITAL_E_ACUTE " sobre a letra \"e\" quando");
 			printf ("\n    ela n" SMALL_A_TILDE "o tem um acento t" SMALL_O_CIRCUMFLEX "nico. Nesse caso lhe " SMALL_E_ACUTE " dado ou \"{e}\" ou");
 			printf ("\n    \"{"SMALL_E_DIAERESIS_IN_TEXT"}\". Uma vez que n" SMALL_A_TILDE "o " SMALL_E_ACUTE " f" SMALL_A_ACUTE "cil lidar com este caractere especial");

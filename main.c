@@ -44,10 +44,10 @@ int main ()
 	logo ();
 	printf ("-----------------------------------------------------------------------\n");
 	printf("\nSB: Kwe tod est id prest ker yu neudte tod programme? In fall os");
-	printf("\npositive antwehrd, plais usete id commande \"hehlp\" kay vide quosmed");
+	printf("\npositive antwehrd, plais uset id commande \"hehlp\" kay vide quosmed");
 	printf("\nid programme wehrct ed woide de ids imkans ed also ids LIMITATIONS.");
 	printf("\nSEMPER inserte ia commandes in minuscule buksteivs ed aun alamats os");
-	printf("\nmathal! Oh, ed vergihes id neud iom prefixa ;-)");
+	printf("\nmathal! Oh, ed vergihes id neud iom prefixen ;-)");
 	printf("\n");
 	printf("\nEN: Is this the first time you use this program? In case of affirmative");
 	printf("\nanswer, please use the command \"help\" to see how the program works");

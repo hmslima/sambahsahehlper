@@ -1,0 +1,13 @@
+printf("\nbevid");
+printf("\ncomprehend");
+printf("\ndecret");
+printf("\nfortrehc");
+printf("\ngouvernement");
+printf("\nnegleg");
+printf("\nparlament");
+printf("\nperhvdi");
+printf("\nperplex");
+printf("\nrecess");
+printf("\nrespect");
+printf("\nsuggest");
+printf("\n");
