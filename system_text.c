@@ -35,7 +35,7 @@ void help (short int lang)
 			printf ("\nprogramme od ne correct ia nudtors rhalts, ithan woidte od:");
 			printf ("\n* Tod programme ghehdt analyse tik oin werd per ker");
 			printf ("\n* Aunnecessar blankrewsa resultsient in stragn sulouk, schowi yu dehlct,");
-			printf ("\nmathalan, scribe \"pnc werd\", ne \"pnc  write\" au");
+			printf ("\nmathalan, scribe \"pnc werd\", ne \"pnc  werd\" au");
 			printf ("\n\" pnc werd\" au \"pnc werd \". Kwe habmos un boidos?");
 			printf ("\n");
 			printf ("\n\nEn ia commandes:\n");
@@ -47,8 +47,8 @@ void help (short int lang)
 			printf ("\n* \"pnc\" au \"pronunce\": daht id pronunciation ios insert werd");
 			printf ("\n    * Mathalan: \"pnc plateau\" resultsiet in \"{platO:}\"");
 			printf ("\n    Dayir id transcriptor, yu naudhte  gweup quar jects in ment:");
-			printf ("\n    1 - Mehm od cia transtranscriptions pior sehkwnt id theoria,");
-			printf ("\n    mathalan in theoria id transcription os \"yoinkjiae\" est");
+			printf ("\n    1 - Mehm od cia transtranscriptions pior sehkwnt id theoria.");
+			printf ("\n    Mathalan in theoria id transcription os \"yoinkjiae\" est");
 			printf ("\n    {yoynkjyAy}, bet in praxis ids radhen transcription est");
 			printf ("\n    {yoynkjiAy} ob tod est meis pronuncable. Ithan ne pior sweurgh");
 			printf ("\n    sei un werd kwehct baygh inpronuncable");
@@ -56,7 +56,7 @@ void help (short int lang)
 			printf ("\n    werd, ids correct transcription est {kA:pstat}, lakin tod werd est");
 			printf ("\n    pronuncen kam {kaapstAd} in \"pure\" Sambahsa. Tod program ne");
 			printf ("\n    woidt an id werd est pure Sambahsa au ne.");
-			printf ("\n    3 - Sehkwent id aum describen uper, tod est un software, ne un");
+			printf ("\n    3 - Sehkwent id aum describen uper: tod est un software, ne un");
 			printf ("\n    conscieus anghen. Tod programme ghehdt correg-ye transcribe un");
 			printf ("\n    werd kam \"gouverne\", bet ne \"gouvernement\" ob tod programme");
 			printf ("\n    khact gvaedde od tod senst werd est un composen werd!");
@@ -109,7 +109,7 @@ void help (short int lang)
 			printf ("\nthat does not correct the user\'s mistakes, so know that:");
 			printf ("\n* This program can only analyze only one word at a time");
 			printf ("\n* Unnecessary white spaces will result in strange behavior, therefore");
-			printf ("\nyou must, for example, werd \"pnc write\", not \"pnc  write\" or");
+			printf ("\nyou must, for example, werd \"pnc werd\", not \"pnc  werd\" or");
 			printf ("\n\" pnc werd\" or \"pnc werd \". Are we understood?");
 			printf ("\n");
 			printf ("\n\nHere are the commands:\n");
@@ -121,8 +121,8 @@ void help (short int lang)
 			printf ("\n* \"pnc\" or \"pronunce\": gives the pronunciation of the inserted word");
 			printf ("\n    * For example: \"pnc plateau\" will result in \"{platO:}\"");
 			printf ("\n    About the transcriptor, you need to keep four things in mind:");
-			printf ("\n    1 - Remember that these transcriptions follow too much the theory,");
-			printf ("\n    for example, in theory the transcription of \"yoinkjiae\" is");
+			printf ("\n    1 - Remember that these transcriptions follow too much the theory.");
+			printf ("\n    For example, in theory the transcription of \"yoinkjiae\" is");
 			printf ("\n    {yoynkjyAy}, but in practice its suggested transcription is");
 			printf ("\n    {yoynkjiAy} because this one is more pronounceable. So don\'t worry");
 			printf ("\n    too much if a word seems to be very unpronounceable");
@@ -130,7 +130,7 @@ void help (short int lang)
 			printf ("\n    its correct transcription is {kA:pstat}, however this word is");
 			printf ("\n    pronounced as {kaapstAd} in \"pure\" Sambahsa. This program doesn\'t");
 			printf ("\n    know whether the word is pure Sambahsa or not.");
-			printf ("\n    3 - Following the reasoning above described, this is a software,");
+			printf ("\n    3 - Following the reasoning above described: this is a software");
 			printf ("\n    not a conscious person. This program can correctly transcribe a ");
 			printf ("\n    word like \"gouverne\", but not \"gouvernement\" because the ");
 			printf ("\n    program cannot guess that this last one is a compound word!");
@@ -184,7 +184,7 @@ void help (short int lang)
 			printf ("\nsimples que n" SMALL_A_TILDE "o corrige os erros do usu" SMALL_A_ACUTE "rio, ent" SMALL_A_TILDE "o saiba que:");
 			printf ("\n* Este programa pode analisar apenas uma palavra por vez");
 			printf ("\n* Espa" SMALL_C_CEDILLA "os em branco desnecess" SMALL_A_ACUTE "rios resultar" SMALL_A_TILDE "o em comportamento estranho,");
-			printf ("\nportanto voc" SMALL_E_CIRCUMFLEX " deve, por exemplo, escrever \"pnc write\", n" SMALL_A_TILDE "o \"pnc  werd\"");
+			printf ("\nportanto voc" SMALL_E_CIRCUMFLEX " deve, por exemplo, escrever \"pnc werd\", n" SMALL_A_TILDE "o \"pnc  werd\"");
 			printf ("\nou \" pnc werd\" ou \"pnc werd \". Estamos entendidos?");
 			printf ("\n");
 			printf ("\n\nEis os comandos:\n");
@@ -196,18 +196,18 @@ void help (short int lang)
 			printf ("\n* \"pnc\" ou \"pronunce\": d" SMALL_A_ACUTE " a pron" SMALL_U_ACUTE "ncia da palavra inserida");
 			printf ("\n    * Por exemplo: \"pnc plateau\" resultar" SMALL_A_ACUTE " em \"{platO:}\"");
 			printf ("\n    Sobre o transcritor, voc" SMALL_E_CIRCUMFLEX " precisa ter quatro coisas na sua mente:");
-			printf ("\n    1 - Lembre-se que essas transcri" SMALL_C_CEDILLA SMALL_O_TILDE "es seguem em demasiado a teoria,");
-			printf ("\n    por exemplo, em teoria a transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o de \"yoinkjiae\" " SMALL_E_ACUTE " {yoynkjyAy},");
+			printf ("\n    1 - Lembre-se que essas transcri" SMALL_C_CEDILLA SMALL_O_TILDE "es seguem em demasiado a teoria.");
+			printf ("\n    Por exemplo, em teoria a transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o de \"yoinkjiae\" " SMALL_E_ACUTE " {yoynkjyAy},");
 			printf ("\n    mas na pr" SMALL_A_ACUTE "tica a sua transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o recomendada " SMALL_E_ACUTE " {yoynkjiAy} porque");
-			printf ("\n    esta " SMALL_E_ACUTE " mais pronunciável. Portanto n" SMALL_A_TILDE "o se preocupe se uma palavra");
+			printf ("\n    esta " SMALL_E_ACUTE " mais pronunci" SMALL_A_ACUTE "vel. Portanto n" SMALL_A_TILDE "o se preocupe se uma palavra");
 			printf ("\n    parece ser impronunci" SMALL_A_ACUTE "vel.");
 			printf ("\n    2 - Outro bom exemplo " SMALL_E_ACUTE " \"Kaapstad\". Uma vez que essa " SMALL_E_ACUTE " uma palavra");
 			printf ("\n    afric" SMALL_A_CIRCUMFLEX "ner, sua transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o correta " SMALL_E_ACUTE " {kA:pstat}, entretanto esta");
 			printf ("\n    palavra " SMALL_E_ACUTE " pronunciada como {kaapstAd} em \"puro\" sambahsa. Este");
 			printf ("\n    programa n" SMALL_A_TILDE "o sabe se a palavra " SMALL_E_ACUTE " \"puramente sambahsa\" ou n" SMALL_A_TILDE "o,");
 			printf ("\n    tenha isso em mente.");
-			printf ("\n    3 - Seguindo o racioc" SMALL_I_ACUTE "nio descrito acima, isto " SMALL_E_ACUTE " um software,");
-			printf ("\n    n" SMALL_A_TILDE "o uma pessoa consci" SMALL_E_CIRCUMFLEX "nte. Este programa pode transcrever ");
+			printf ("\n    3 - Seguindo o racioc" SMALL_I_ACUTE "nio descrito acima: isto " SMALL_E_ACUTE " um software,");
+			printf ("\n    n" SMALL_A_TILDE "o uma pessoa consciente. Este programa pode transcrever ");
 			printf ("\n    corretamente uma palavra como \"gouverne\", mas n" SMALL_A_TILDE "o \"gouvernement\"");
 			printf ("\n    porque o programa n" SMALL_A_TILDE "o pode adivinhar que esta " SMALL_U_ACUTE "ltima " SMALL_E_ACUTE " uma palavra");
 			printf ("\n    composta!");
@@ -215,7 +215,7 @@ void help (short int lang)
 			printf ("\n        porque eu (o programador) manualmente disse ao programa qual " SMALL_E_ACUTE "");
 			printf ("\n        a transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o desta palavra espec" SMALL_I_ACUTE "fica, mas este pode n" SMALL_A_TILDE "o ser o");
 			printf ("\n        caso de outras palavras. Eu fiz uma lista interna dessas");
-			printf ("\n        palavras problem" SMALL_A_ACUTE "ticas, mas eu não posso dar uma transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o");
+			printf ("\n        palavras problem" SMALL_A_ACUTE "ticas, mas eu n" SMALL_A_TILDE "o posso dar uma transcri" SMALL_C_CEDILLA SMALL_A_TILDE "o");
 			printf ("\n        pronta para todas elas, ent" SMALL_A_TILDE "o voc" SMALL_E_CIRCUMFLEX " ter" SMALL_A_ACUTE " que contar com o");
 			printf ("\n        transcritor do programa. Para saber quais palavras j" SMALL_A_ACUTE " foram");
 			printf ("\n        manualmente transcritas, use o comando \"pncliste\" ou \"listepnc\"");
@@ -223,7 +223,7 @@ void help (short int lang)
 			printf ("\n    ela n" SMALL_A_TILDE "o tem um acento t" SMALL_O_CIRCUMFLEX "nico. Nesse caso lhe " SMALL_E_ACUTE " dado ou \"{e}\" ou");
 			printf ("\n    \"{"SMALL_E_DIAERESIS_IN_TEXT"}\". Uma vez que n" SMALL_A_TILDE "o " SMALL_E_ACUTE " f" SMALL_A_ACUTE "cil lidar com este caractere especial");
 			printf ("\n    \""SMALL_E_DIAERESIS_IN_TEXT"\", o programa pode deixar um \"e\" onde deveria ser um");
-			printf ("\n    \""SMALL_E_DIAERESIS_IN_TEXT"\". Apenas saiba disso. Não " SMALL_E_ACUTE " um problema s" SMALL_E_ACUTE "rio porque a coisa");
+			printf ("\n    \""SMALL_E_DIAERESIS_IN_TEXT"\". Apenas saiba disso. N" SMALL_A_TILDE "o " SMALL_E_ACUTE " um problema s" SMALL_E_ACUTE "rio porque a coisa");
 			printf ("\n    mais important " SMALL_E_ACUTE " acentuar t" SMALL_O_CIRCUMFLEX "nicamente a vogal correta.");
 			printf ("\n* \"cjg\" ou \"conjuge\": d" SMALL_A_ACUTE " a conjuga" SMALL_C_CEDILLA SMALL_A_TILDE "o da palavra inserida");
 			printf ("\n    * Por examplo: \"cjg edd\"");
@@ -233,7 +233,7 @@ void help (short int lang)
 			printf ("\n    programa lhe dar" SMALL_A_ACUTE " \"niepors\" porque o programa pensar" SMALL_A_ACUTE " que esta");
 			printf ("\n    palavra sofre com apofonia por causa deste \"a\" extra");
 			printf ("\n* \"log\": ativa ou desativa as mensagens de sistema. Este " SMALL_E_ACUTE " um recurso");
-			printf ("\nmuito " SMALL_U_ACUTE "til pra quem lida com o c" SMALL_O_ACUTE "digo deste programa As mensagens de.");
+			printf ("\nmuito " SMALL_U_ACUTE "til pra quem lida com o c" SMALL_O_ACUTE "digo deste programa As mensagens de");
 			printf ("\nsistema s" SMALL_A_TILDE "o todas em ingl" SMALL_E_CIRCUMFLEX "s.");
 			printf ("\n");
 			printf ("\n# ESTE TEXTO " CAPITAL_E_ACUTE " LONGO, TALVEZ VOC" CAPITAL_E_CIRCUMFLEX " TENHA QUE ROLAR ESTA JANELA PARA");
