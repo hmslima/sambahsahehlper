@@ -63,9 +63,9 @@ short int check_nasal_infix ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'm' && argument[arg_counter - 1] != '\0' && !((argument[arg_counter - 1] != 'n' && argument[arg_counter - 1] != 'm') && is_it_consonant(argument[arg_counter + 2]) && argument[arg_counter + 3] == '\0'))
+		if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'm' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == '\0') && argument[arg_counter - 1] != '\0' && !((argument[arg_counter - 1] == 'n' && argument[arg_counter - 1] == 'm')))
 			x++;
-		else if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'n' && argument[arg_counter - 1] != '\0' && !((argument[arg_counter - 1] != 'n' && argument[arg_counter - 1] != 'm') && is_it_consonant(argument[arg_counter + 2]) && argument[arg_counter + 3] == '\0'))
+		else if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'n' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == '\0') && argument[arg_counter - 1] != '\0' && !((argument[arg_counter - 1] == 'n' && argument[arg_counter - 1] == 'm')))
 			x++;
 		else if (!(argument[arg_counter - 1] == 'm') && argument[arg_counter] == 'm' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0' || argument[arg_counter + 2] == 'h' || is_it_vowel_without_w(argument[arg_counter + 2])))
 			x++;
@@ -195,7 +195,7 @@ void present_tense ()
 		word_counter = 0;
 		for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
 		{
-			if (argument[arg_counter] == 'e' && (argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n' || argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm') && !((argument[arg_counter - 1] != 'n' && argument[arg_counter - 1] != 'm') && is_it_consonant(argument[arg_counter + 2]) && argument[arg_counter + 3] == '\0'))
+			if (argument[arg_counter - 1] != '\0' && argument[arg_counter] == 'e' && (argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n' || argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm') && !((argument[arg_counter - 1] != 'n' && argument[arg_counter - 1] != 'm') && is_it_consonant(argument[arg_counter + 2]) && argument[arg_counter + 3] == '\0'))
 			{
 				// I check before whether there is not another syllable with the same
 				if (argument[arg_counter + 2] == 'e' && (argument[arg_counter + 1] == 'n' || argument[arg_counter + 3] == 'n' || argument[arg_counter + 1] == 'm' || argument[arg_counter + 3] == 'm'))
@@ -224,7 +224,7 @@ void present_tense ()
 					// Do nothing
 				}
 			}
-			else if (argument[arg_counter] == 's' && argument[arg_counter + 2] == 'e' && (argument[arg_counter + 3] == 'm' || argument[arg_counter + 3] == 'n'))
+			else if (argument[arg_counter] == 's' && argument[arg_counter + 1] == 's' && argument[arg_counter + 2] == 'e' && (argument[arg_counter + 3] == 'm' || argument[arg_counter + 3] == 'n'))
 			{
 				// Do nothing
 			}
@@ -251,7 +251,7 @@ void present_tense ()
 		word_counter = 0;
 		for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
 		{
-			if (argument[arg_counter] == 'e' && (argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n' || argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
+			if (argument[arg_counter - 1] != '\0' && argument[arg_counter] == 'e' && (argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n' || argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
 			{
 				// I check before whether there is not another syllable with the same
 				if (argument[arg_counter + 2] == 'e' && (argument[arg_counter + 1] == 'n' || argument[arg_counter + 3] == 'n' || argument[arg_counter + 1] == 'm' || argument[arg_counter + 3] == 'm'))
@@ -292,7 +292,7 @@ void present_tense ()
 					}
 				}
 			}
-			else if (argument[arg_counter] == 's' && argument[arg_counter + 2] == 'e' && (argument[arg_counter + 3] == 'm' || argument[arg_counter + 3] == 'n'))
+			else if (argument[arg_counter] == 's'  && argument[arg_counter + 1] == 's' && argument[arg_counter + 2] == 'e' && (argument[arg_counter + 3] == 'm' || argument[arg_counter + 3] == 'n'))
 			{
 				// Do nothing
 			}
@@ -419,22 +419,65 @@ void present_tense ()
 	{
         strcpy(present_1pp, "woidam");
 	}
-	else if (strcmp(argument, "pregen") == 0) // Sometimes you need to jerry-rig some conjugations...
-	{
-        strcpy(present_1pp, "pregnems");
-	}
 	else if (strcmp(argument, "sammel") == 0) // Problematic verb
 	{
         strcpy(present_1pp, "sammelms");
 	}
-	else
+	else if (check_nasal_infix())
+	{
+		if (is_it_vowel(present_1pp[strlen(present_1pp) - 3]) && is_it_consonant(present_1pp[strlen(present_1pp) - 2]) && is_it_consonant(present_1pp[strlen(present_1pp) - 1]))
+		{
+			if ((present_1pp[strlen(present_1pp) - 2] == 'g' && present_1pp[strlen(present_1pp) - 1] == 'n') || (present_1pp[strlen(present_1pp) - 2] == 'm' && present_1pp[strlen(present_1pp) - 1] == 'n'))
+			{
+				present_1pp_counter = strlen(present_1pp);
+				present_1pp[present_1pp_counter] = 'e';
+				present_1pp[present_1pp_counter + 1] = 'm';
+				present_1pp[present_1pp_counter + 2] = 's';
+			}
+			else
+			{
+				present_1pp_counter = strlen(present_1pp);
+				present_1pp[present_1pp_counter] = 'm';
+				present_1pp[present_1pp_counter + 1] = '(';
+				present_1pp[present_1pp_counter + 2] = 'o';
+				present_1pp[present_1pp_counter + 3] = ')';
+				present_1pp[present_1pp_counter + 4] = 's';
+			}
+		}
+		else
+		{
+			present_1pp_counter = strlen(present_1pp);
+			present_1pp[present_1pp_counter] = 'm';
+			present_1pp[present_1pp_counter + 1] = '(';
+			present_1pp[present_1pp_counter + 2] = 'o';
+			present_1pp[present_1pp_counter + 3] = ')';
+			present_1pp[present_1pp_counter + 4] = 's';
+		}
+	}
+	else if (present_1pp[strlen(present_1pp) - 1] == 'e')
 	{
 		present_1pp_counter = strlen(present_1pp);
 		present_1pp[present_1pp_counter] = 'm';
-		present_1pp[present_1pp_counter + 1] = '(';
-		present_1pp[present_1pp_counter + 2] = 'o';
-		present_1pp[present_1pp_counter + 3] = ')';
-		present_1pp[present_1pp_counter + 4] = 's';
+		present_1pp[present_1pp_counter + 1] = 's';
+	}
+	else
+	{
+		if (((present_1pp[strlen(present_1pp) - 2] == 'g' && present_1pp[strlen(present_1pp) - 1] == 'n')))
+		{
+			present_1pp_counter = strlen(present_1pp);
+			present_1pp[present_1pp_counter] = 'e';
+			present_1pp[present_1pp_counter + 1] = 'm';
+			present_1pp[present_1pp_counter + 2] = 's';
+		}
+		else
+		{
+			present_1pp_counter = strlen(present_1pp);
+			present_1pp[present_1pp_counter] = 'm';
+			present_1pp[present_1pp_counter + 1] = '(';
+			present_1pp[present_1pp_counter + 2] = 'o';
+			present_1pp[present_1pp_counter + 3] = ')';
+			present_1pp[present_1pp_counter + 4] = 's';
+		}
 	}
 
 	// Second person plural
@@ -589,7 +632,7 @@ void past_tense ()
 
 		for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
 		{
-			if (argument[arg_counter] == 'e' && (argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n' || argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
+			if (argument[arg_counter - 1] != '\0' && argument[arg_counter] == 'e' && (argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n' || argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
 			{
 				// I check before whether there is not another syllable with the same
 				if (argument[arg_counter + 2] == 'e' && (argument[arg_counter + 1] == 'n' || argument[arg_counter + 3] == 'n' || argument[arg_counter + 1] == 'm' || argument[arg_counter + 3] == 'm'))
@@ -627,7 +670,7 @@ void past_tense ()
 					}
 				}
 			}
-			else if (argument[arg_counter - 1] != '\0' && argument[arg_counter] == 'n' && (argument[arg_counter - 1] == 'e' || argument[arg_counter + 1] == 'e') && !(argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n'))
+			else if (!(argument[arg_counter - 1] == '\0' || (argument[arg_counter - 2] == '\0' && argument[arg_counter - 1] == 'e')) && argument[arg_counter] == 'n' && (argument[arg_counter - 1] == 'e' || argument[arg_counter + 1] == 'e') && !(argument[arg_counter - 1] == 'n' || argument[arg_counter + 1] == 'n'))
 			{
 				if (argument[arg_counter + 2] == 'n' && (argument[arg_counter + 1] == 'e' || argument[arg_counter + 3] == 'e') && !(argument[arg_counter + 1] == 'n' || argument[arg_counter + 3] == 'n'))
 				{
@@ -669,7 +712,7 @@ void past_tense ()
 					}
 				}
 			}
-			else if (argument[arg_counter - 1] != '\0' && argument[arg_counter] == 'm' && (argument[arg_counter - 1] == 'e' || argument[arg_counter + 1] == 'e') && !(argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
+			else if (!(argument[arg_counter - 1] == '\0' || (argument[arg_counter - 2] == '\0' && argument[arg_counter - 1] == 'e')) && argument[arg_counter] == 'm' && (argument[arg_counter - 1] == 'e' || argument[arg_counter + 1] == 'e') && !(argument[arg_counter - 1] == 'm' || argument[arg_counter + 1] == 'm'))
 			{
 				if (argument[arg_counter + 2] == 'm' && (argument[arg_counter + 1] == 'e' || argument[arg_counter + 3] == 'e') && !(argument[arg_counter + 1] == 'n' || argument[arg_counter + 3] == 'n'))
 				{
@@ -1552,7 +1595,7 @@ void conditional ()
 		conditional_3pp[conditional_counter + 2] = 'n';
 		conditional_3pp[conditional_counter + 3] = 't';
 	}
-	else if (is_it_vowel(present_basis[strlen(present_basis) - 1]))
+	else if (is_it_vowel(present_basis[strlen(present_basis) - 1]) && present_basis[strlen(present_basis) - 1] != 'w' && present_basis[strlen(present_basis) - 1] != 'y')
 	{
 		// First person singular
 		conditional_1ps[conditional_counter - 1] = 'i';
