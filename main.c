@@ -22,12 +22,11 @@ short int lang = 1; /* Defines the language of the system through integer number
 3 - British English
 4 - Brazilian Portuguese
 5 - European Portuguese
-6 - Mandarin
-7 - French from France
-8 - European Spanish
-9 - Russian
-10 - Modern Standard Arabic
-11 - Esperanto
+6 - French from France
+7 - European Spanish
+9 - Esperanto
+10 - European Spanish
+11 - Latin American Spanish
 [...]
 */
 
@@ -42,7 +41,6 @@ int main ()
 {
 	// Shows the name of the software
 	logo ();
-	printf ("-----------------------------------------------------------------------\n");
 	printf("\nSB: Kwe tod est id prest ker yu neudte tod programme? In fall os");
 	printf("\npositive antwehrd, plais uset id commande \"hehlp\" kay vide quosmed");
 	printf("\nid programme wehrct ed woide de ids imkans ed also ids LIMITATIONS.");
@@ -57,13 +55,8 @@ int main ()
 	printf("\nALWAYS insert the commands in lowercase letters and without quotation");
 	printf("\nmarks! Oh, and avoid using prefixes ;-)");
 	printf("\n");
-	printf("\nPT-BR: " CAPITAL_E_ACUTE " a primeira vez que voc" SMALL_E_CIRCUMFLEX " usa este programa? Em caso de resposta");
-	printf("\nafirmativa, por favor use o comando \"ajuda\" para ver como programa");
-	printf("\nfunciona e saber de suas capacidades e tamb" SMALL_E_ACUTE "m suas LIMITA" CAPITAL_C_CEDILLA CAPITAL_O_TILDE "ES.");
-	printf("\n * Use o comando \"deflang pt\" para mudar o idioma do programa para ");
-	printf("\n   portugu" SMALL_E_CIRCUMFLEX "s");
-	printf("\nSEMPRE insira os comandos em letras min" SMALL_U_ACUTE "sculas e sem aspas! Ah, e");
-	printf("\nevite usar prefixos ;-)");
+	printf("\nPT: Use o comando \"deflang pt\" para deixar o programa em portugu" SMALL_E_CIRCUMFLEX "s");
+	printf("\nFR: Utilisez la commande \"deflang fr\" pour le fran" SMALL_C_CEDILLA "ais.");
 	printf("\n");
 
 	// MAIN LOOP

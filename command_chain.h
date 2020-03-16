@@ -20,6 +20,7 @@ switch (command_number)
 	break;
 	case 5: // Sow the list of words that were manually transcribed by the programmer
 		#include "manual_transcription_list.h"
+		printf("\n");
 	break;
 
 	/* ************************************
@@ -32,6 +33,7 @@ switch (command_number)
 			if (strcmp(argument, "sb") == 0) lang = 1;
 			else if (strcmp(argument, "en") == 0 || strcmp(argument, "en-us") == 0) lang = 2;
 			else if (strcmp(argument, "pt") == 0 || strcmp(argument, "pt-br") == 0) lang = 4;
+			else if (strcmp(argument, "fr") == 0 || strcmp(argument, "fr-eu") == 0) lang = 6;
 		}
 		else
 			invalid_argument (lang);

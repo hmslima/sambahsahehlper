@@ -20,6 +20,8 @@ short int checklang (char argument[192])
 		return TRUE;
 	else if (strcmp(argument, "pt") == 0 || strcmp(argument, "pt-br") == 0 || strcmp(argument, "pt-eu") == 0)
 		return TRUE;
+	else if (strcmp(argument, "fr") == 0 || strcmp(argument, "fr-eu") == 0)
+		return TRUE;
 	else
 		return FALSE;
 }

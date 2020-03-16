@@ -172,9 +172,11 @@ short int check_von_wahl_v ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (argument[arg_counter] == 'v' && argument[arg_counter + 1] == '\0')
+		if (argument[arg_counter - 1] != 'g' && argument[arg_counter] == 'v' && argument[arg_counter + 1] == '\0')
 			x++;
 	}
+
+	if (check_eh() || check_ei() || check_eu()) x = 0;
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -381,6 +383,11 @@ void present_tense ()
 		present_2ps[strlen(present_2ps) - 1] = 'p';
 		present_2ps[strlen(present_2ps)] = 's';
 	}
+	else if (present_basis2[strlen(present_basis2) - 2] != 'g' && present_basis2[strlen(present_basis2) - 1] == 'v')
+	{
+		present_2ps[strlen(present_2ps) - 1] = 'f';
+		present_2ps[strlen(present_2ps)] = 's';
+	}
 	else present_2ps[strlen(present_2ps)] = 's';
 
 	// Third person singular
@@ -400,6 +407,7 @@ void present_tense ()
 	else if (present_3ps[strlen(present_3ps) - 1] == 'g') present_3ps[strlen(present_3ps) - 1] = 'c';
 	else if (present_3ps[strlen(present_3ps) - 1] == 'k') present_3ps[strlen(present_3ps) - 1] = 'c';
 	else if (present_3ps[strlen(present_3ps) - 1] == 'b') present_3ps[strlen(present_3ps) - 1] = 'p';
+	else if (present_3ps[strlen(present_3ps) - 2] != 'g' && present_3ps[strlen(present_3ps) - 1] == 'v') present_3ps[strlen(present_3ps) - 1] = 'f';
 	if (!((strcmp(argument, "es") == 0) || (strcmp(argument, "hab") == 0) || (strcmp(argument, "woid") == 0)))
 	{
 		if (present_3ps[strlen(present_3ps) - 1] != 't') present_3ps[strlen(present_3ps)] = 't';
@@ -504,6 +512,7 @@ void present_tense ()
 		if (present_2pp[strlen(present_2pp) - 1] == 'g') present_2pp[strlen(present_2pp) - 1] = 'c';
 		else if (present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
 		else if (present_2pp[strlen(present_2pp) - 1] == 'b') present_2pp[strlen(present_2pp) - 1] = 'p';
+		else if (present_2pp[strlen(present_2pp) - 2] != 'g' && present_2pp[strlen(present_2pp) - 1] == 'v') present_2pp[strlen(present_2pp) - 1] = 'f';
 		if (present_2pp[present_2pp_counter - 1] != 't')
 		{
 			present_2pp[present_2pp_counter] = 't';
@@ -1069,6 +1078,15 @@ void past_tense ()
 	{
 		past_2ps[past_basis_counter] = 's';
 		past_2ps[past_basis_counter + 1] = 't';
+	}
+	else if (past_basis[past_basis_counter - 2] != 'g' && past_basis[past_basis_counter - 1] == 'v')
+	{
+		past_2ps[past_basis_counter - 1] = 'f';
+		past_2ps[past_basis_counter] = 's';
+		past_2ps[past_basis_counter + 1] = 't';
+		past_2ps[past_basis_counter + 2] = '(';
+		past_2ps[past_basis_counter + 3] = 'a';
+		past_2ps[past_basis_counter + 4] = ')';
 	}
 	else if (past_basis[past_basis_counter - 1] == 'e')
 	{
@@ -1715,6 +1733,7 @@ void past_participe ()
 		if (participe_t[strlen(participe_t) - 1] == 'g') participe_t[strlen(participe_t) - 1] = 'c';
 		else if (participe_t[strlen(participe_t) - 1] == 'k') participe_t[strlen(participe_t) - 1] = 'c';
 		else if (participe_t[strlen(participe_t) - 1] == 'b') participe_t[strlen(participe_t) - 1] = 'p';
+		else if (participe_t[strlen(participe_t) - 2] != 'g' && participe_t[strlen(participe_t) - 1] == 'v') participe_t[strlen(participe_t) - 1] = 'f';
 
 		if (participe_t[strlen(participe_t) - 1] != 't') participe_t[strlen(participe_t)] = 't';
 	}
@@ -1822,6 +1841,7 @@ void conjugation ()
 	// The verb
 	if (lang == 2) printf("\nVerb: ");
 	else if (lang == 4) printf("\nVerbo: ");
+	else if (lang == 6) printf("\nVerbe : ");
 	else printf("\nVerb: ");
 	printf("%s", argument);
 
@@ -1829,12 +1849,14 @@ void conjugation ()
 	// Infinitive
 	if (lang == 2) printf("\nInfinitive: ");
 	else if (lang == 4) printf("\nInfinitivo: ");
+	else if (lang == 6) printf("\nInfinitif : ");
 	else printf("\nInfinitive: ");
 	printf("%s", infinitive);
 
 	// Present tense
 	if (lang == 2) printf("\nPresent tense: ");
 	else if (lang == 4) printf("\nPresente: ");
+	else if (lang == 6) printf("\nPr" SMALL_E_ACUTE "sent : ");
 	else printf("\nPresent tid: ");
 	// -----
 	if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r')) strcpy(io_pronoun, "io ");
@@ -1844,6 +1866,7 @@ void conjugation ()
 	// Past tense
 	if (lang == 2) printf("\nPast tense: ");
 	else if (lang == 4) printf("\nPret" SMALL_E_ACUTE "rito: ");
+	else if (lang == 6) printf("\nPass" SMALL_E_ACUTE " : ");
 	else printf("\nPrev tid: ");
 	// -----
 	printf("%s, %s, %s, %s, %s, %s", past_1ps, past_2ps, past_3ps, past_1pp, past_2pp, past_3pp);
@@ -1851,6 +1874,7 @@ void conjugation ()
 	// Future tense
 	if (lang == 2) printf("\nFuture tense: ");
 	else if (lang == 4) printf("\nFuturo: ");
+	else if (lang == 6) printf("\nFutur : ");
 	else printf("\nFuture tid: ");
 	if (present_basis[strlen(present_basis) - 1] == 's')
 		printf("siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
@@ -1860,6 +1884,7 @@ void conjugation ()
 	// Conditional
 	if (lang == 2) printf("\nConditional: ");
 	else if (lang == 4) printf("\nCondicional: ");
+	else if (lang == 6) printf("\nConditionnel : ");
 	else printf("\nConditional: ");
 	// -----
 	printf("%s, %s, %s, %s, yu %s, %s", conditional_1ps, conditional_2ps, conditional_3ps, conditional_1pp, conditional_2pp, conditional_3pp);
@@ -1867,6 +1892,7 @@ void conjugation ()
 	// Past participle
 	if (lang == 2) printf("\nPast participle: ");
 	else if (lang == 4) printf("\nPartic" SMALL_I_ACUTE "pio do passado: ");
+	else if (lang == 6) printf("\nParticipe pass" SMALL_E_ACUTE " : ");
 	else printf("\nPrev participe: ");
 	// -----
 	printf("%s / %s", participe_t, participe_en);
