@@ -1,6 +1,15 @@
 printf("\nabsent");
+printf("\naddic");
+printf("\nadhes");
+printf("\naffec");
+printf("\naflig");
 printf("\nafrica");
+printf("\naleg");
 printf("\namerica");
+printf("\narrest");
+printf("\nascend");
+printf("\nasperg");
+printf("\nassist");
 printf("\nbevid");
 printf("\ncomprehend");
 printf("\ndecent");

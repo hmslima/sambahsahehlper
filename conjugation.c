@@ -115,7 +115,7 @@ short int check_ei ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'i' && is_it_consonant(argument[arg_counter - 1]) && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w'))
+		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'i' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w'))
 			x++;
 	}
 
@@ -130,7 +130,14 @@ short int check_a ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (argument[arg_counter] == 'a' && argument[arg_counter + 1] != '\0' && (is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'u') && !(argument[arg_counter + 1] == 'h' && argument[arg_counter + 2] == '\0'))
+		// Test verbs that start with an a-
+		if (argument[arg_counter - 1] == '\0' && argument[arg_counter] == 'a') // I believe that any a- verb with more than 6 letters has no ablaut in the firs "a"
+		{
+			if (strcmp(argument, "ag") == 0 || strcmp(argument, "aghel") == 0 || strcmp(argument, "al") == 0 || strcmp(argument, "algv") == 0 || strcmp(argument, "ammer") == 0 || strcmp(argument, "andh") == 0 || strcmp(argument, "angh") == 0 || strcmp(argument, "ap") == 0 || strcmp(argument, "ar") == 0 || strcmp(argument, "ark") == 0 || strcmp(argument, "aug") == 0 || strcmp(argument, "aum") == 0 || strcmp(argument, "aumber") == 0 || strcmp(argument, "aur") == 0 || strcmp(argument, "aurgh") == 0 || strcmp(argument, "ausk") == 0 || strcmp(argument, "ay") == 0 || strcmp(argument, "aygw") == 0 || strcmp(argument, "ayr") == 0 || strcmp(argument, "aysgwn") == 0 || strcmp(argument, "azwl") == 0)
+				x++;
+		}
+		// Test the "a" in other positions
+		else if (!(argument[arg_counter - 1] == '\0') && argument[arg_counter] == 'a' && argument[arg_counter + 1] != '\0' && (is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'u') && !(argument[arg_counter + 1] == 'h' && argument[arg_counter + 2] == '\0'))
 			x++;
 	}
 

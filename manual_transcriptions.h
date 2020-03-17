@@ -3,15 +3,60 @@ if (strcmp(argument, "absent") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "absEnt");
 }
+else if (strcmp(argument, "addic") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "addIk");
+}
+else if (strcmp(argument, "adhes") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "adhEs");
+}
+else if (strcmp(argument, "affec") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "affEk");
+}
+else if (strcmp(argument, "aflig") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "aflIg");
+}
 else if (strcmp(argument, "africa") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "Afrika");
 }
+else if (strcmp(argument, "aleg") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "alEg");
+}
 else if (strcmp(argument, "america") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "amErika");
+}
+else if (strcmp(argument, "arrest") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "arrEst");
+}
+else if (strcmp(argument, "ascend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "asEnd");
+}
+else if (strcmp(argument, "asperg") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "aspErg");
+}
+else if (strcmp(argument, "assist") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "asIst");
 }
 else if (strcmp(argument, "bevid") == 0)
 {
