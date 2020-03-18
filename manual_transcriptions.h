@@ -108,6 +108,11 @@ else if (strcmp(argument, "gouvernements") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "gu:vErn" SMALL_E_DIAERESIS_IN_TEXT "m" SMALL_E_DIAERESIS_IN_TEXT "nts");
 }
+else if (strcmp(argument, "kaapstad") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "kA:pstat");
+}
 else if (strcmp(argument, "negleg") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");

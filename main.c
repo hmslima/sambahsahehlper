@@ -41,22 +41,21 @@ int main ()
 {
 	// Shows the name of the software
 	logo ();
-	printf("\nSB: Kwe tod est id prest ker yu neudte tod programme? In fall os");
-	printf("\npositive antwehrd, plais uset id commande \"hehlp\" kay vide quosmed");
-	printf("\nid programme wehrct ed woide de ids imkans ed also ids LIMITATIONS.");
-	printf("\nSEMPER inserte ia commandes in minuscule buksteivs ed aun alamats os");
-	printf("\nmathal! Oh, ed vergihes id neud iom prefixen ;-)");
+	printf("\nSB: Kwe tod est id prest ker yu neudte tod programme? In fall os positive");
+	printf("\nantwehrd, plais uset id commande \"hehlp\" kay vide quosmed id programme wehrct");
+	printf("\ned woide de ids imkans ed also ids LIMITATIONS.");
+	printf("\nSEMPER inserte ia commandes in minuscule buksteivs ed aun alamats os mathal!");
+	printf("\nOh, ed vergihes id neud iom prefixen ;-)");
 	printf("\n");
-	printf("\nEN: Is this the first time you use this program? In case of affirmative");
-	printf("\nanswer, please use the command \"help\" to see how the program works");
-	printf("\nand to know about its capacities and also its LIMITATIONS");
-	printf("\n * Use the command \"setlang en\" to change the program's language to ");
-	printf("\n   English");
-	printf("\nALWAYS insert the commands in lowercase letters and without quotation");
-	printf("\nmarks! Oh, and avoid using prefixes ;-)");
+	printf("\nEN: Is this the first time you use this program? In case of affirmative answer,");
+	printf("\nplease use the command \"help\" to see how the program works and to know about");
+	printf("\nits capacities and also its LIMITATIONS");
+	printf("\n * Use the command \"setlang en\" to change the program's language to English");
+	printf("\nALWAYS insert the commands in lowercase letters and without quotation marks!");
+	printf("\nOh, and avoid using prefixes ;-)");
 	printf("\n");
-	printf("\nPT: Use o comando \"deflang pt\" para deixar o programa em portugu" SMALL_E_CIRCUMFLEX "s");
-	printf("\nFR: Utilisez la commande \"deflang fr\" pour le fran" SMALL_C_CEDILLA "ais.");
+	printf("\nPT: Use o comando \"deflang pt\" para mudar o idioma do programa para portugu" SMALL_E_CIRCUMFLEX "s");
+	printf("\nFR: Utilisez la commande \"deflang fr\" pour changer la langue en fran" SMALL_C_CEDILLA "ais");
 	printf("\n");
 
 	// MAIN LOOP
@@ -69,4 +68,3 @@ int main ()
 	}
 	return 0; // Only to avoid the problem of "c warning: control reaches end of non-void function [-Wreturn-type]|"
 }
-

@@ -20,6 +20,7 @@ printf("\nexcerpt");
 printf("\nexcerpts");
 printf("\ngouvernement");
 printf("\ngouvernements");
+printf("\nkaapstad");
 printf("\nnegleg");
 printf("\nparis");
 printf("\nparlament");
