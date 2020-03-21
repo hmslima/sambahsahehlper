@@ -20,6 +20,10 @@ For more informations, you can go to the "help" section of the program by using 
 
 `ajuda`
 
+`aide`
+
+`helpo`
+
 ## For programmers
 
 I have to say that I am not a programmer, actually I am not even a "computer guy" and probably this is the first and last program that I am doing. So know in advance that I am very amateur in programming and perhaps you may find the code of this program a mess, full of redundancies, full of bad practices and "childish". **But the program does the job and it's what matters!**
