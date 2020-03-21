@@ -12,6 +12,18 @@ In order to ask the transcription of a word to SPT, you must use the command `pn
 
 `pnc bahsa`
 
+You can change the language of the texts of the program through the command `deflang` or `setlang`:
+
+`deflang sb` for Sambahsa-Mundialect _(the standard language of the program)_
+
+`deflang en` for English
+
+`deflang pt` for Portuguese
+
+`deflang fr` for French
+
+`deflang eo` for Esperanto
+
 For more informations, you can go to the "help" section of the program by using one of the commands below:
 
 `hehlp`
