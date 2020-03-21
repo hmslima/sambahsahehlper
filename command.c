@@ -50,7 +50,7 @@ short int define_command_number (char command_name[64])
 {
 	short int command_number;
 	if (strcmp(command_name, "exit") == 0) command_number = 1;
-	else if ((strcmp(command_name, "hehlp") == 0) || (strcmp(command_name, "help") == 0) || (strcmp(command_name, "ajuda") == 0) || (strcmp(command_name, "aide") == 0) || (strcmp(command_name, "ayuda") == 0)) command_number = 2;
+	else if ((strcmp(command_name, "hehlp") == 0) || (strcmp(command_name, "help") == 0) || (strcmp(command_name, "ajuda") == 0) || (strcmp(command_name, "aide") == 0) || (strcmp(command_name, "helpo") == 0) || (strcmp(command_name, "ayuda") == 0)) command_number = 2;
 	else if (strcmp(command_name, "log") == 0) command_number = 3;
 	else if (strcmp(command_name, "testpnc") == 0) command_number = 4;
 	else if ((strcmp(command_name, "pncliste") == 0) || (strcmp(command_name, "listepnc") == 0) || (strcmp(command_name, "pnclist") == 0) || (strcmp(command_name, "listpnc") == 0)) command_number = 5;

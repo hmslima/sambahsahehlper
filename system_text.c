@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("###############################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER v 0.15 ###########################\n");
+	printf ("########################### SAMBAHSA HEHLPER v 0.16 ###########################\n");
 	printf ("###############################################################################\n");
 }
 
@@ -46,6 +46,7 @@ void help (short int lang)
 			printf ("\n    * \"deflang pt\": pro portughesche");
 			printf ("\n    * \"deflang en\": pro englisch");
 			printf ("\n    * \"deflang fr\": pro franceois");
+			printf ("\n    * \"deflang eo\": pro esperanto");
 			printf ("\n* \"pnc\" au \"pronunce\": daht id pronunciation ios insert werd");
 			printf ("\n    * Mathalan: \"pnc plateau\" resultesiet in \"{platO:}\"");
 			printf ("\n    Dayir id transcriptor, yu naudhte gwupes quar jects in ment. Bet pre wey");
@@ -120,6 +121,7 @@ void help (short int lang)
 			printf ("\n    * \"setlang pt\": for Portuguese");
 			printf ("\n    * \"setlang en\": for English");
 			printf ("\n    * \"setlang fr\": for French");
+			printf ("\n    * \"setlang eo\": for Esperanto");
 			printf ("\n* \"pnc\" or \"pronunce\": gives the pronunciation of the inserted word");
 			printf ("\n    * For example: \"pnc plateau\" will result in \"{platO:}\"");
 			printf ("\n    About the transcriptor, you need to keep four things in mind. But before we");
@@ -135,13 +137,13 @@ void help (short int lang)
 			printf ("\n    correct transcription is {kA:pstat}, however this word would be pronounced");
 			printf ("\n    as {kaapstAd} in \"pure\" Sambahsa. This situation is common with proper");
 			printf ("\n    nouns.");
-			printf ("\n    3 - Following the reasoning above described: this is a software not a");
+			printf ("\n    3 - Following the reasoning described above: this is a software not a");
 			printf ("\n    conscious person. This program can correctly transcribe a word like");
 			printf ("\n    \"gouverne\", but not \"gouvernement\" because the program cannot guess that");
 			printf ("\n    this last one is a compound word!");
 			printf ("\n        Actually you'll see \"gouvernement\" and \"Kaapstad\" being correctly");
 			printf ("\n        transcribed because I (the programmer) manually told the program what");
-			printf ("\n        is the transcription of these specific words, but it can not be the");
+			printf ("\n        are the transcriptions of these specific words, but it can not be the");
 			printf ("\n        case of other problematic words. I cannot give a ready-made ");
 			printf ("\n        transcription for all of these words (so you will have to rely on the");
 			printf ("\n        program\'s transcriber), but I made an internal list of them. In order");
@@ -159,12 +161,6 @@ void help (short int lang)
 			printf ("\n    conjugation to the past is \"napors\", however the program will give you");
 			printf ("\n    \"niepors\" because the program will think that this word undergoes an");
 			printf ("\n    ablaut because of this extra letter \"a\".");
-			printf ("\n");
-			printf ("\nThis program is not perfect, my actual objective with this program is to give");
-			printf ("\nan orientation to the beginners, an easy and comfortable way of checking the");
-			printf ("\npronunciation and conjugation of the most basic words. This is a program");
-			printf ("\nthat do a lot for you, but you have to work with it in the sense that you have");
-			printf ("\nto see its results with a critical eye and good common sense.");
 			printf ("\n");
 			printf ("\n* \"log\": activates or deactivates the system messages. It\'s a very useful");
 			printf ("\nresource for who deals with the code of this program.");
@@ -197,6 +193,7 @@ void help (short int lang)
 			printf ("\n    * \"deflang pt\": para portugu" SMALL_E_CIRCUMFLEX "s");
 			printf ("\n    * \"deflang en\": para ingl" SMALL_E_CIRCUMFLEX "s");
 			printf ("\n    * \"deflang fr\": para franc" SMALL_E_CIRCUMFLEX "s");
+			printf ("\n    * \"deflang eo\": para esperanto");
 			printf ("\n* \"pnc\" ou \"pronunce\": d" SMALL_A_ACUTE " a pron" SMALL_U_ACUTE "ncia da palavra inserida");
 			printf ("\n    * Por exemplo: \"pnc plateau\" resultar" SMALL_A_ACUTE " em \"{platO:}\"");
 			printf ("\n    Sobre o transcritor, voc" SMALL_E_CIRCUMFLEX " precisa ter quatro coisas na sua mente. Mas antes");
@@ -266,6 +263,7 @@ void help (short int lang)
 			printf ("\n    * \"deflang pt\" : portugais");
 			printf ("\n    * \"deflang en\" : anglais");
 			printf ("\n    * \"deflang fr\" : fran" SMALL_C_CEDILLA "ais");
+			printf ("\n    * \"deflang eo\" : esperanto");
 			printf ("\n* \"pnc\" ou \"pronunce\" : donne la prononciation du mot ins" SMALL_E_ACUTE "r" SMALL_E_ACUTE "");
 			printf ("\n    * Par exemple, \"pnc plateau\" donnera \"{platO:}\"");
 			printf ("\n    Sur le transcripteur, vous devez garder quatre choses " SMALL_A_GRAVE " l\'esprit. Mais");
@@ -288,15 +286,80 @@ void help (short int lang)
 			printf ("\n    mesure o" SMALL_U_GRAVE " les pr" SMALL_E_ACUTE "fixes perturbent l\'accentuation des verbes et l\'analyse");
 			printf ("\n    qu\'en fait ce logiciel.");
 			printf ("\n");
-			printf ("\nCe programme n\'est pas parfait, son v" SMALL_E_ACUTE "ritable objectif est d\'orienter les");
-			printf ("\nd" SMALL_E_ACUTE "butants dans l\'apprentissage du sambahsa; les r" SMALL_E_ACUTE "sultats qu\'il donne doivent");
-			printf ("\n" SMALL_E_CIRCUMFLEX "tre accueillis avec un oeil critique et du bon sens.");
-			printf ("\n");
 			printf ("\n* \"log\" : active ou d" SMALL_E_ACUTE "sactive les messages du programme. Ces messages sont");
 			printf ("\ntoujours en anglais.");
 			printf ("\n");
 			printf ("\n# CE TEXTE EST ASSEZ LONG, PEUT-" CAPITAL_E_CIRCUMFLEX "TRE FAUT-IL QUE VOUS REMONTIEZ VERS LE HAUT");
 			printf ("\nPOUR EN LIRE LE DEBUT");
+
+			printf("\n");
+		break;
+		case 10:
+			printf ("\nHELPO");
+			printf ("\n-------------------------------------------------------------------------------\n");
+			printf ("\n" CAPITAL_C_CIRCUMFLEX "i tiu programo estis kreita de la brazilano Henrique Matheus da Silva Lima");
+			printf ("\npor la lingvo sambaso-mundialekto. En la tuta procedo de kreado de " SMALL_C_CIRCUMFLEX "i tiu");
+			printf ("\nprogramo, li havis la helpon de la kreinto de la lingvo, la franco Olivier");
+			printf ("\nSimon.");
+			printf ("\nLa celo de la programo estas helpi la komencantojn montranta la prononcon kaj");
+			printf ("\nkonjugacion de la vortoj. Anta" SMALL_U_BREVE " oni da" SMALL_U_BREVE "rigos, vi devas kompreni ol " SMALL_C_CIRCUMFLEX "i estas");
+			printf ("\nsimpla programo kiu ne korektas la erarojn de la uzanto, tial sciu ol:");
+			printf ("\n* " CAPITAL_C_CIRCUMFLEX "i tiu programo povas analizi nur unu vorto per fojo");
+			printf ("\n* Nenecesaj blankaj spacoj resultos en stragna konduto, do vi devas, ekzemple,");
+			printf ("\nscribe \"pnc werd\", ne \"pnc  werd\" a" SMALL_U_BREVE " \" pnc werd\" a" SMALL_U_BREVE " \"pnc werd \".");
+			printf ("\n" CAPITAL_C_CIRCUMFLEX "u ni estas komprenitaj?");
+			printf ("\n");
+			printf ("\nJen la ordonoj:\n");
+			printf ("\n* \"exit\": fermas la programon");
+			printf ("\n* \"setlang\": " SMALL_S_CIRCUMFLEX "an" SMALL_G_CIRCUMFLEX "as la lingvon de la programo");
+			printf ("\n    * \"deflang sb\": por sambaso-mundialekto");
+			printf ("\n    * \"deflang pt\": por la portugala");
+			printf ("\n    * \"deflang en\": por la angla");
+			printf ("\n    * \"deflang fr\": por la franca");
+			printf ("\n    * \"deflang eo\": por esperanto");
+			printf ("\n* \"pnc\" a" SMALL_U_BREVE " \"pronunce\": donas la prononcon de la vorto enmetita");
+			printf ("\n    * Ekzemple: \"pnc plateau\" resultos en \"{platO:}\"");
+			printf ("\n    Pri la transskribisto, tenu en menso kvar a" SMALL_J_CIRCUMFLEX "ojn. Sed anta" SMALL_U_BREVE " ni iros");
+			printf ("\n    anta" SMALL_U_BREVE "e en " SMALL_C_CIRCUMFLEX "i tiu diskuto, sciu ol " SMALL_C_CIRCUMFLEX "i tiu programo estas tre kompetenta en");
+			printf ("\n    " SMALL_G_CIRCUMFLEX "ia laboro, tamen estas kelkaj maloftaj situacioj kio petas vian atenton");
+			printf ("\n    1 - Memoru ol " SMALL_C_CIRCUMFLEX "i tiu transsckriboj tro sekvas teorion. Ekzemple:");
+			printf ("\n    en teorio, la transskribo de \"yoinkjiae\" estas {yoynkjyAy}, sed en");
+			printf ("\n    praktiko " SMALL_G_CIRCUMFLEX "ia sugestan transskribo estas {yoynkjiAy} " SMALL_C_CIRCUMFLEX "ar " SMALL_C_CIRCUMFLEX "i tiu estas pli");
+			printf ("\n    prononcebla. Tial ne tro zorgu " SMALL_C_CIRCUMFLEX "u vorto " SMALL_S_CIRCUMFLEX "ajnas esti neprononcebla");
+			printf ("\n    2 - Alia bona ekzemplo estas \"Kaapstad\". " CAPITAL_C_CIRCUMFLEX "ar estas afrikansa vorto, " SMALL_G_CIRCUMFLEX "ia");
+			printf ("\n    " SMALL_G_CIRCUMFLEX "usta transskribo estas {kA:pstat}, tamen " SMALL_C_CIRCUMFLEX "i tiu vorto estus prononcita");
+			printf ("\n    kiel {kaapstAd} en \"pura\" sambaso. " CAPITAL_C_CIRCUMFLEX "i situacio estas komuna kun propraj");
+			printf ("\n    nomoj.");
+			printf ("\n    3 - Sekvanta la priskribitan rezonon super: " SMALL_C_CIRCUMFLEX "i tiu estas programaro, ne");
+			printf ("\n    konscia persono. " CAPITAL_C_CIRCUMFLEX "i tiu programo povas " SMALL_G_CIRCUMFLEX "uste transskribi ion kiel la");
+			printf ("\n    vorton \"gouverne\", sed ne la vorton \"gouvernement\" " SMALL_C_CIRCUMFLEX "ar la programo ne");
+			printf ("\n    povas diveni ol " SMALL_C_CIRCUMFLEX "i lasta estas kombinata!");
+			printf ("\n        Vere vi vidos la vortojn \"gouvernement\" kaj \"Kaapstad\" esti " SMALL_G_CIRCUMFLEX "uste");
+			printf ("\n        transskribitaj " SMALL_C_CIRCUMFLEX "ar mi (la programisto) mane diris al programo kiujn");
+			printf ("\n        estas la transskriboj de " SMALL_C_CIRCUMFLEX "i specifaj vortoj, sed tio ne povas esti la");
+			printf ("\n        kazon de aliaj problemaj vortoj. Mi ne povas doni pretajn transskrinojn");
+			printf ("\n        por " SMALL_C_CIRCUMFLEX "io de " SMALL_C_CIRCUMFLEX "i vortoj (tiel vi devos fidi la transskribiston de la");
+			printf ("\n        programo), sed mi faris internan liston de ili. Por scii kiujn");
+			printf ("\n        problemajn vortojn havas pretajn transskribojn, uzu la ordonon");
+			printf ("\n        \"pncliste\" a" SMALL_U_BREVE " \"listepnc\"");
+			printf ("\n    4 - " CAPITAL_C_CIRCUMFLEX "i tio estas programada problemo. Tio estas pri la litero \"e\" kiam " SMALL_C_CIRCUMFLEX "i");
+			printf ("\n    tiu ne estas akcenta. En " SMALL_C_CIRCUMFLEX "i kazo, estas donita al vi a" SMALL_U_BREVE " \"{e}\" a" SMALL_U_BREVE " \"{"SMALL_E_DIAERESIS_IN_TEXT"}\".");
+			printf ("\n    " CAPITAL_C_CIRCUMFLEX "ar ne estas facila labori kun " SMALL_C_CIRCUMFLEX "i speciala litero \""SMALL_E_DIAERESIS_IN_TEXT"\", la programo povas");
+			printf ("\n    lasi \"e\" kie devus esti \""SMALL_E_DIAERESIS_IN_TEXT"\". Nur scii tion. Tio ne estas serioza");
+			printf ("\n    problemo " SMALL_C_CIRCUMFLEX "ar la plej grava afero estas akcentigi la " SMALL_G_CIRCUMFLEX "ustan vokalon");
+			printf ("\n* \"cjg\" a" SMALL_U_BREVE " \"conjuge\": donas la konjagucion de la vorto enmetita");
+			printf ("\n    * Ekzemple: \"cjg edd\"");
+			printf ("\n    Mi forte rekomendas al vi por nur enmeti verbojn sen anta" SMALL_U_BREVE "afikso. Kial?");
+			printf ("\n    Bona ekzemplo estas la verbo \"naporg\" (na- " SMALL_C_CIRCUMFLEX "i tie estas anta" SMALL_U_BREVE "afikso), kies");
+			printf ("\n    " SMALL_G_CIRCUMFLEX "usta conjugacion por la pasinta estas \"napors\", tamen la programo donos");
+			printf ("\n    al vi \"niepors\" " SMALL_C_CIRCUMFLEX "ar la programo pensos ol " SMALL_C_CIRCUMFLEX "i vorto suferas abla" SMALL_U_BREVE "ton ka" SMALL_U_BREVE "ze");
+			printf ("\n    " SMALL_C_CIRCUMFLEX "i ekstra litero \"a\".");
+			printf ("\n");
+			printf ("\n* \"log\": aktivigas a" SMALL_U_BREVE " malaktivigas la sistemajn mesa" SMALL_G_CIRCUMFLEX "ojn. Tio estas tre");
+			printf ("\nutila rimedo pro kiu(j) laboras kun la kodo de " SMALL_C_CIRCUMFLEX "i programo.");
+			printf ("\n");
+			printf ("\n# " CAPITAL_C_CIRCUMFLEX "I TIO ESTAS LONGA TEKSTO, EBLE VI BEZONOS RULI SUPER " CAPITAL_C_CIRCUMFLEX "I TERMINALFENESTRON");
+			printf ("\n(A" CAPITAL_U_BREVE " MAKSIMUMIGI " CAPITAL_C_CIRCUMFLEX "I TERMINALFENESTRON) POR VIDI LA KOMENCON DE " CAPITAL_C_CIRCUMFLEX "I TIU TEKSTO");
 
 			printf("\n");
 		break;
@@ -320,6 +383,9 @@ void command_not_found (short int lang)
 		case 6:
 			printf ("\nERROR: Commande introuvable. En cas de doute, utilisez la commande \"aide\"\n");
 		break;
+		case 10:
+			printf ("\nERARO: Netrovita ordono. En kazo de dubo, uzu la ordonon \"helpo\"\n");
+		break;
 	}
 }
 
@@ -340,6 +406,9 @@ void invalid_argument (short int lang)
 		case 6:
 			printf ("\nERROR: Argument invalide. En cas de doute, utilisez la commande \"aide\"\n");
 		break;
+		case 10:
+			printf ("\nERARO: Nevalida argumento. En kazo de dubo, uzu la ordonon \"helpo\"\n");
+		break;
 	}
 }
 
@@ -359,6 +428,9 @@ void too_long_word (short int lang)
 		break;
 		case 6:
 			printf ("\n* Ce mot est long... SI (et seulement SI!!!) c'est un mot compos" SMALL_E_ACUTE ", il y a une petite probabilit" SMALL_E_ACUTE " que le programme n'ait pas pu le transcrire de mani" SMALL_E_GRAVE "re appropri" SMALL_E_ACUTE "e\n");
+		break;
+		case 10:
+			printf ("\n* " CAPITAL_C_CIRCUMFLEX "i tie vorto est tro longa... SE (kaj apena" SMALL_U_BREVE " SE!!!), ĉi tiu estas kombinita vorto, estas malgranda " SMALL_S_CIRCUMFLEX "anco ol la programo ne ta" SMALL_U_BREVE "ge povis transscribe tiun vorton\n");
 		break;
 	}
 }

@@ -97,6 +97,7 @@ short int is_there_more_than_one_vowel ()
 			vowel++;
 			arg_counter++;
 		}
+		// eau
 		else if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'a' && argument[arg_counter + 2] == 'u')
 		{
 			vowel++;
@@ -119,7 +120,7 @@ short int is_there_more_than_one_vowel ()
 			// It's a semivowel, do nothing
 		}
 		else if (argument[arg_counter] == 'i') vowel++;
-		if (argument[arg_counter] == 'o' && (argument[arg_counter + 1] == 'e' || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'i' || argument[arg_counter + 1] == 'u'))
+		else if (argument[arg_counter] == 'o' && (argument[arg_counter + 1] == 'e' || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'i' || argument[arg_counter + 1] == 'u'))
 		{
 			vowel++;
 			arg_counter++;
@@ -221,7 +222,7 @@ short int is_there_more_than_one_vowel_ignoring_last_e ()
 			// It's a semivowel, do nothing
 		}
 		else if (argument[arg_counter] == 'i') vowel++;
-		if (argument[arg_counter] == 'o' && (argument[arg_counter + 1] == 'e' || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'i' || argument[arg_counter + 1] == 'u'))
+		else if (argument[arg_counter] == 'o' && (argument[arg_counter + 1] == 'e' || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'i' || argument[arg_counter + 1] == 'u'))
 		{
 			vowel++;
 			arg_counter++;
@@ -908,12 +909,12 @@ void pronunciation ()
 						SPT_word[SPT_counter] = 'O';
 						stress = TRUE;
 					}
-					else if (!(stress) && argument[arg_counter + 3] == '\0')
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && argument[arg_counter + 3] == '\0')
 					{
 						SPT_word[SPT_counter] = 'O';
 						stress = TRUE;
 					}
-					else if (!(stress) && argument[arg_counter + 3] == 's' && argument[arg_counter + 4] == '\0')
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && argument[arg_counter + 3] == 's' && argument[arg_counter + 4] == '\0')
 					{
 						SPT_word[SPT_counter] = 'O';
 						stress = TRUE;
@@ -1762,6 +1763,13 @@ void pronunciation ()
 							{
 								// Do nothing
 							}
+						}
+						// eCVC\0 ex: merit
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_vowel(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && argument[arg_counter + 4] == '\0')
+						{
+							if (show_system_messages) printf("\npoint eCVC0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
 						}
 						// eCVCC\0 ex: ametyst
 						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_vowel(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && argument[arg_counter + 5] == '\0')

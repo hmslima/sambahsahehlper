@@ -115,7 +115,7 @@ short int check_ei ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'i' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w'))
+		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'i' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w') && /*skeir is a prefix*/ !(argument[arg_counter - 2] == 's' && argument[arg_counter - 1] == 'k' && argument[arg_counter + 2] == 'r'))
 			x++;
 	}
 
@@ -1028,7 +1028,16 @@ void past_tense ()
 	}
 	else if (past_1ps[strlen(past_1ps) - 2] == 'e' && past_1ps[strlen(past_1ps) - 1] == 'r')
 	{
-		// Do nothing
+		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
+		{
+			// Do nothing
+		}
+		else
+		{
+			past_1ps[past_basis_counter - 2] = 'r';
+			past_1ps[past_basis_counter - 1] = 'i';
+			past_1ps[past_basis_counter] = 'm';
+		}
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1078,8 +1087,18 @@ void past_tense ()
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
-		past_2ps[past_basis_counter] = 's';
-		past_2ps[past_basis_counter + 1] = 't';
+		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
+		{
+			past_2ps[past_basis_counter] = 's';
+			past_2ps[past_basis_counter + 1] = 't';
+		}
+		else
+		{
+			past_2ps[past_basis_counter - 2] = 'r';
+			past_2ps[past_basis_counter - 1] = 'i';
+			past_2ps[past_basis_counter] = 's';
+			past_2ps[past_basis_counter + 1] = 't';
+		}
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1144,7 +1163,16 @@ void past_tense ()
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
-		// Do nothing
+		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
+		{
+			// Do nothing
+		}
+		else
+		{
+			past_3ps[past_basis_counter - 2] = 'r';
+			past_3ps[past_basis_counter - 1] = 'i';
+			past_3ps[past_basis_counter] = 't';
+		}
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1194,7 +1222,22 @@ void past_tense ()
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
-		// Do nothing
+		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
+		{
+			past_1pp[past_basis_counter] = '(';
+			past_1pp[past_basis_counter + 1] = 'a';
+			past_1pp[past_basis_counter + 2] = 'm';
+			past_1pp[past_basis_counter + 3] = ')';
+		}
+		else
+		{
+			past_1pp[past_basis_counter - 2] = '(';
+			past_1pp[past_basis_counter - 1] = 'e';
+			past_1pp[past_basis_counter] = ')';
+			past_1pp[past_basis_counter + 1] = 'r';
+			past_1pp[past_basis_counter + 2] = 'a';
+			past_1pp[past_basis_counter + 3] = 'm';
+		}
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1252,7 +1295,22 @@ void past_tense ()
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
-		// Do nothing
+		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
+		{
+			past_2pp[past_basis_counter] = '(';
+			past_2pp[past_basis_counter + 1] = 'a';
+			past_2pp[past_basis_counter + 2] = 't';
+			past_2pp[past_basis_counter + 3] = ')';
+		}
+		else
+		{
+			past_2pp[past_basis_counter - 2] = '(';
+			past_2pp[past_basis_counter - 1] = 'e';
+			past_2pp[past_basis_counter] = ')';
+			past_2pp[past_basis_counter + 1] = 'r';
+			past_2pp[past_basis_counter + 2] = 'a';
+			past_2pp[past_basis_counter + 3] = 't';
+		}
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1310,7 +1368,24 @@ void past_tense ()
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
-		// Do nothing
+		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
+		{
+			past_3pp[past_basis_counter] = '(';
+			past_3pp[past_basis_counter + 1] = 'e';
+			past_3pp[past_basis_counter + 2] = 'e';
+			past_3pp[past_basis_counter + 3] = 'r';
+			past_3pp[past_basis_counter + 4] = ')';
+		}
+		else
+		{
+			past_3pp[past_basis_counter - 2] = '(';
+			past_3pp[past_basis_counter - 1] = 'e';
+			past_3pp[past_basis_counter] = ')';
+			past_3pp[past_basis_counter + 1] = 'r';
+			past_3pp[past_basis_counter + 2] = 'e';
+			past_3pp[past_basis_counter + 3] = 'e';
+			past_3pp[past_basis_counter + 4] = 'r';
+		}
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1849,6 +1924,7 @@ void conjugation ()
 	if (lang == 2) printf("\nVerb: ");
 	else if (lang == 4) printf("\nVerbo: ");
 	else if (lang == 6) printf("\nVerbe : ");
+	else if (lang == 10) printf("\nVerbo: ");
 	else printf("\nVerb: ");
 	printf("%s", argument);
 
@@ -1857,6 +1933,7 @@ void conjugation ()
 	if (lang == 2) printf("\nInfinitive: ");
 	else if (lang == 4) printf("\nInfinitivo: ");
 	else if (lang == 6) printf("\nInfinitif : ");
+	else if (lang == 10) printf("\nInfinitivo: ");
 	else printf("\nInfinitive: ");
 	printf("%s", infinitive);
 
@@ -1864,6 +1941,7 @@ void conjugation ()
 	if (lang == 2) printf("\nPresent tense: ");
 	else if (lang == 4) printf("\nPresente: ");
 	else if (lang == 6) printf("\nPr" SMALL_E_ACUTE "sent : ");
+	else if (lang == 10) printf("\nPrezenco: ");
 	else printf("\nPresent tid: ");
 	// -----
 	if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r')) strcpy(io_pronoun, "io ");
@@ -1874,6 +1952,7 @@ void conjugation ()
 	if (lang == 2) printf("\nPast tense: ");
 	else if (lang == 4) printf("\nPret" SMALL_E_ACUTE "rito: ");
 	else if (lang == 6) printf("\nPass" SMALL_E_ACUTE " : ");
+	else if (lang == 10) printf("\nPreterito: ");
 	else printf("\nPrev tid: ");
 	// -----
 	printf("%s, %s, %s, %s, %s, %s", past_1ps, past_2ps, past_3ps, past_1pp, past_2pp, past_3pp);
@@ -1882,6 +1961,7 @@ void conjugation ()
 	if (lang == 2) printf("\nFuture tense: ");
 	else if (lang == 4) printf("\nFuturo: ");
 	else if (lang == 6) printf("\nFutur : ");
+	else if (lang == 10) printf("\nFuturo: ");
 	else printf("\nFuture tid: ");
 	if (present_basis[strlen(present_basis) - 1] == 's')
 		printf("siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
@@ -1892,6 +1972,7 @@ void conjugation ()
 	if (lang == 2) printf("\nConditional: ");
 	else if (lang == 4) printf("\nCondicional: ");
 	else if (lang == 6) printf("\nConditionnel : ");
+	else if (lang == 10) printf("\nKondicionalo: ");
 	else printf("\nConditional: ");
 	// -----
 	printf("%s, %s, %s, %s, yu %s, %s", conditional_1ps, conditional_2ps, conditional_3ps, conditional_1pp, conditional_2pp, conditional_3pp);
@@ -1900,6 +1981,7 @@ void conjugation ()
 	if (lang == 2) printf("\nPast participle: ");
 	else if (lang == 4) printf("\nPartic" SMALL_I_ACUTE "pio do passado: ");
 	else if (lang == 6) printf("\nParticipe pass" SMALL_E_ACUTE " : ");
+	else if (lang == 10) printf("\nPasinta pasiva participo: ");
 	else printf("\nPrev participe: ");
 	// -----
 	printf("%s / %s", participe_t, participe_en);

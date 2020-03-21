@@ -24,9 +24,8 @@ short int lang = 1; /* Defines the language of the system through integer number
 5 - European Portuguese
 6 - French from France
 7 - European Spanish
-9 - Esperanto
-10 - European Spanish
-11 - Latin American Spanish
+9 - Latin American Spanish
+10 - Esperanto
 [...]
 */
 
@@ -56,6 +55,7 @@ int main ()
 	printf("\n");
 	printf("\nPT: Use o comando \"deflang pt\" para mudar o idioma do programa para portugu" SMALL_E_CIRCUMFLEX "s");
 	printf("\nFR: Utilisez la commande \"deflang fr\" pour changer la langue en fran" SMALL_C_CEDILLA "ais");
+	printf("\nEO: Uzu la ordonon \"deflang eo\" por " SMALL_S_CIRCUMFLEX "an" SMALL_G_CIRCUMFLEX "i la lingvon por esperanto");
 	printf("\n");
 
 	// MAIN LOOP

@@ -34,6 +34,7 @@ switch (command_number)
 			else if (strcmp(argument, "en") == 0 || strcmp(argument, "en-us") == 0) lang = 2;
 			else if (strcmp(argument, "pt") == 0 || strcmp(argument, "pt-br") == 0) lang = 4;
 			else if (strcmp(argument, "fr") == 0 || strcmp(argument, "fr-eu") == 0) lang = 6;
+			else if (strcmp(argument, "eo") == 0) lang = 10;
 		}
 		else
 			invalid_argument (lang);

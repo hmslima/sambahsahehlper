@@ -123,6 +123,19 @@ for "special" characters:
 #define SMALL_N_TILDE "\xa4"
 #define CAPITAL_N_TILDE "\xa5"
 
+#define SMALL_J_CIRCUMFLEX "jh"
+#define CAPITAL_J_CIRCUMFLEX "JH"
+#define SMALL_S_CIRCUMFLEX "sh"
+#define CAPITAL_S_CIRCUMFLEX "SH"
+#define SMALL_C_CIRCUMFLEX "ch"
+#define CAPITAL_C_CIRCUMFLEX "CH"
+#define SMALL_G_CIRCUMFLEX "gh"
+#define CAPITAL_G_CIRCUMFLEX "GH"
+#define SMALL_H_CIRCUMFLEX "hh"
+#define CAPITAL_H_CIRCUMFLEX "HH"
+#define SMALL_U_BREVE "u"
+#define CAPITAL_U_BREVE "U"
+
 #define SMALL_A_DIAERESIS '\x84'
 #define CAPITAL_A_DIAERESIS '\x8e'
 #define SMALL_E_DIAERESIS '\x89'
@@ -187,6 +200,19 @@ for "special" characters:
 
 #define SMALL_N_TILDE "\u00f1"
 #define CAPITAL_N_TILDE "\u00d1"
+
+#define SMALL_J_CIRCUMFLEX "\u0135"
+#define CAPITAL_J_CIRCUMFLEX "\u0134"
+#define SMALL_S_CIRCUMFLEX "\u015d"
+#define CAPITAL_S_CIRCUMFLEX "\u015c"
+#define SMALL_C_CIRCUMFLEX "\u0109"
+#define CAPITAL_C_CIRCUMFLEX "\u0108"
+#define SMALL_G_CIRCUMFLEX "\u011d"
+#define CAPITAL_G_CIRCUMFLEX "\u011c"
+#define SMALL_H_CIRCUMFLEX "\u0125"
+#define CAPITAL_H_CIRCUMFLEX "\u0124"
+#define SMALL_U_BREVE "\u016d"
+#define CAPITAL_U_BREVE "\u016c"
 
 #define SMALL_A_DIAERESIS "\u00e4"
 #define CAPITAL_A_DIAERESIS "\u00c4"

@@ -422,5 +422,8 @@ printf("associeit {asotsyEyt} ||| ");
 strcpy(argument, "ieu");
 printf("ieu {y" SMALL_O_DIAERESIS_IN_TEXT "} ||| ");
 	pronunciation ();
+strcpy(argument, "merit");
+printf("merit {mErit} ||| ");
+	pronunciation ();
 
 is_testpnc_active = FALSE;
