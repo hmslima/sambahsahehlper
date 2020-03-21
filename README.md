@@ -12,7 +12,7 @@ In order to ask the transcription of a word to SPT, you must use the command `pn
 
 `pnc bahsa`
 
-For more informations, you can go to the "help" section of the program by using one of the command below:
+For more informations, you can go to the "help" section of the program by using one of the commands below:
 
 `hehlp`
 
