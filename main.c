@@ -51,7 +51,7 @@ int main ()
 	printf("\nits capacities and also its LIMITATIONS");
 	printf("\n * Use the command \"setlang en\" to change the program's language to English");
 	printf("\nALWAYS insert the commands in lowercase letters and without quotation marks!");
-	printf("\nOh, and avoid using prefixes ;-)");
+	printf("\nOh, and avoid using prefixes;-)");
 	printf("\n");
 	printf("\nPT: Use o comando \"deflang pt\" para mudar o idioma do programa para portugu" SMALL_E_CIRCUMFLEX "s");
 	printf("\nFR: Utilisez la commande \"deflang fr\" pour changer la langue en fran" SMALL_C_CEDILLA "ais");
