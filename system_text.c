@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("###############################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER v 0.17 ###########################\n");
+	printf ("########################### SAMBAHSA HEHLPER v 0.18 ###########################\n");
 	printf ("###############################################################################\n");
 }
 
@@ -40,7 +40,9 @@ void help (short int lang)
 			printf ("\nKwe habmos un boidos?");
 			printf ("\n");
 			printf ("\nEn ia commandes:\n");
-			printf ("\n* \"exit\": exeiht id programme");
+			printf ("\n* \"salg\" au \"exit\": exeiht id programme");
+			printf ("\n* \"falls\": skaut un tabell om declination falls");
+			printf ("\n* \"prl\" au \"plural\": daht id plural forme ios insert werd");
 			printf ("\n* \"deflang\": meitht id bahsa ios programme");
 			printf ("\n    * \"deflang sb\": pro sambahsa-mundialect");
 			printf ("\n    * \"deflang pt\": pro portughesche");
@@ -116,6 +118,7 @@ void help (short int lang)
 			printf ("\n");
 			printf ("\nHere are the commands:\n");
 			printf ("\n* \"exit\": exits the program");
+			printf ("\n* \"cases\": shows a table declination cases");
 			printf ("\n* \"setlang\": changes the language of the program");
 			printf ("\n    * \"setlang sb\": for Sambahsa-Mundialect");
 			printf ("\n    * \"setlang pt\": for Portuguese");
@@ -187,7 +190,8 @@ void help (short int lang)
 			printf ("\n\" pnc werd\" ou \"pnc werd \". Estamos entendidos?");
 			printf ("\n");
 			printf ("\nEis os comandos:\n");
-			printf ("\n* \"exit\": fecha o programa");
+			printf ("\n* \"sair\": fecha o programa");
+			printf ("\n* \"casos\": exibe uma tabela de casos de declina" SMALL_C_CEDILLA SMALL_A_TILDE "o");
 			printf ("\n* \"deflang\": muda o idioma do programa");
 			printf ("\n    * \"deflang sb\": para sambahsa-mundialect");
 			printf ("\n    * \"deflang pt\": para portugu" SMALL_E_CIRCUMFLEX "s");
@@ -257,7 +261,8 @@ void help (short int lang)
 			printf ("\n" SMALL_E_ACUTE "crire \"pnc werd\", et non \"pnc  werd\" ni \" pnc werd\", ni \"pnc mot \". D\'accord ?");
 			printf ("\n");
 			printf ("\nVoici les commandes : :\n");
-			printf ("\n* \"exit\" : sort du programme");
+			printf ("\n* \"sortir\" : sort du programme");
+			printf ("\n* \"cas\": donne un tableau des cas de d" SMALL_E_ACUTE "clinaison");
 			printf ("\n* \"deflang\" : change la langue du programme");
 			printf ("\n    * \"deflang sb\" : sambahsa-mundialect");
 			printf ("\n    * \"deflang pt\" : portugais");
@@ -310,7 +315,8 @@ void help (short int lang)
 			printf ("\n" CAPITAL_C_CIRCUMFLEX "u ni estas komprenitaj?");
 			printf ("\n");
 			printf ("\nJen la ordonoj:\n");
-			printf ("\n* \"exit\": fermas la programon");
+			printf ("\n* \"eliri\": fermas la programon");
+			printf ("\n* \"kazoj\": montras tabelon de deklini" SMALL_G_CIRCUMFLEX "aj kazoj");
 			printf ("\n* \"setlang\": " SMALL_S_CIRCUMFLEX "an" SMALL_G_CIRCUMFLEX "as la lingvon de la programo");
 			printf ("\n    * \"deflang sb\": por sambaso-mundialekto");
 			printf ("\n    * \"deflang pt\": por la portugala");

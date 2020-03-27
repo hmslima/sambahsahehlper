@@ -49,14 +49,16 @@ const char* define_command_name (char command[256])
 short int define_command_number (char command_name[64])
 {
 	short int command_number;
-	if (strcmp(command_name, "exit") == 0) command_number = 1;
+	if ((strcmp(command_name, "salg") == 0) || (strcmp(command_name, "exit") == 0) || (strcmp(command_name, "sair") == 0) || (strcmp(command_name, "salir") == 0) || (strcmp(command_name, "sortir") == 0) || (strcmp(command_name, "eliri") == 0)) command_number = 1;
 	else if ((strcmp(command_name, "hehlp") == 0) || (strcmp(command_name, "help") == 0) || (strcmp(command_name, "ajuda") == 0) || (strcmp(command_name, "aide") == 0) || (strcmp(command_name, "helpo") == 0) || (strcmp(command_name, "ayuda") == 0)) command_number = 2;
 	else if (strcmp(command_name, "log") == 0) command_number = 3;
 	else if (strcmp(command_name, "testpnc") == 0) command_number = 4;
 	else if ((strcmp(command_name, "pncliste") == 0) || (strcmp(command_name, "listepnc") == 0) || (strcmp(command_name, "pnclist") == 0) || (strcmp(command_name, "listpnc") == 0)) command_number = 5;
+	else if ((strcmp(command_name, "falls") == 0) || (strcmp(command_name, "casos") == 0) || (strcmp(command_name, "cases") == 0) || (strcmp(command_name, "kazoj") == 0) || (strcmp(command_name, "cas") == 0)) command_number = 6;
 	else if ((strcmp(command_name, "deflang") == 0) || (strcmp(command_name, "setlang") == 0)) command_number = 1000;
 	else if ((strcmp(command_name, "pnc") == 0) || (strcmp(command_name, "pronunce") == 0)) command_number = 1001;
 	else if ((strcmp(command_name, "cjg") == 0) || (strcmp(command_name, "conjuge") == 0)) command_number = 1002;
+	else if ((strcmp(command_name, "prl") == 0) || (strcmp(command_name, "plural") == 0)) command_number = 1003;
 	else command_number = 0; // 0 means invalid command
 
 	return command_number;

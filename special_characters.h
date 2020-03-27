@@ -106,6 +106,7 @@ for "special" characters:
 #define CAPITAL_I_ACUTE "\xd6"
 
 #define SMALL_O_ACUTE "\xa2"
+#define CAPITAL_O_ACUTE "\xe0"
 
 #define SMALL_U_ACUTE "\xa3"
 
@@ -163,7 +164,7 @@ for "special" characters:
 #define SMALL_A_ACUTE "\u00e1"
 #define CAPITAL_A_ACUTE "\u00c1"
 
-#define SMALL_A_GRAVE "\u00e0 "
+#define SMALL_A_GRAVE "\u00e0"
 
 #define SMALL_E_ACUTE "\u00e9"
 #define CAPITAL_E_ACUTE "\u00c9"
@@ -184,6 +185,7 @@ for "special" characters:
 #define CAPITAL_I_ACUTE "\u00cd"
 
 #define SMALL_O_ACUTE "\u00f3"
+#define CAPITAL_O_ACUTE "\u00d3"
 
 #define SMALL_U_ACUTE "\u00fA"
 

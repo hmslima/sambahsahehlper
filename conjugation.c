@@ -1924,6 +1924,7 @@ void conjugation ()
 	if (lang == 2) printf("\nVerb: ");
 	else if (lang == 4) printf("\nVerbo: ");
 	else if (lang == 6) printf("\nVerbe : ");
+	else if (lang == 8 || lang == 9) printf("\nVerbo: ");
 	else if (lang == 10) printf("\nVerbo: ");
 	else printf("\nVerb: ");
 	printf("%s", argument);
@@ -1933,6 +1934,7 @@ void conjugation ()
 	if (lang == 2) printf("\nInfinitive: ");
 	else if (lang == 4) printf("\nInfinitivo: ");
 	else if (lang == 6) printf("\nInfinitif : ");
+	else if (lang == 8 || lang == 9) printf("\nInfinitivo: ");
 	else if (lang == 10) printf("\nInfinitivo: ");
 	else printf("\nInfinitive: ");
 	printf("%s", infinitive);
@@ -1941,6 +1943,7 @@ void conjugation ()
 	if (lang == 2) printf("\nPresent tense: ");
 	else if (lang == 4) printf("\nPresente: ");
 	else if (lang == 6) printf("\nPr" SMALL_E_ACUTE "sent : ");
+	else if (lang == 8 || lang == 9) printf("\nPresente: ");
 	else if (lang == 10) printf("\nPrezenco: ");
 	else printf("\nPresent tid: ");
 	// -----
@@ -1952,6 +1955,7 @@ void conjugation ()
 	if (lang == 2) printf("\nPast tense: ");
 	else if (lang == 4) printf("\nPret" SMALL_E_ACUTE "rito: ");
 	else if (lang == 6) printf("\nPass" SMALL_E_ACUTE " : ");
+	else if (lang == 8 || lang == 9) printf("\nPasado: ");
 	else if (lang == 10) printf("\nPreterito: ");
 	else printf("\nPrev tid: ");
 	// -----
@@ -1961,6 +1965,7 @@ void conjugation ()
 	if (lang == 2) printf("\nFuture tense: ");
 	else if (lang == 4) printf("\nFuturo: ");
 	else if (lang == 6) printf("\nFutur : ");
+	else if (lang == 8 || lang == 9) printf("\nFuturo: ");
 	else if (lang == 10) printf("\nFuturo: ");
 	else printf("\nFuture tid: ");
 	if (present_basis[strlen(present_basis) - 1] == 's')
@@ -1972,6 +1977,7 @@ void conjugation ()
 	if (lang == 2) printf("\nConditional: ");
 	else if (lang == 4) printf("\nCondicional: ");
 	else if (lang == 6) printf("\nConditionnel : ");
+	else if (lang == 8 || lang == 9) printf("\nCondicional: ");
 	else if (lang == 10) printf("\nKondicionalo: ");
 	else printf("\nConditional: ");
 	// -----
@@ -1981,6 +1987,7 @@ void conjugation ()
 	if (lang == 2) printf("\nPast participle: ");
 	else if (lang == 4) printf("\nPartic" SMALL_I_ACUTE "pio do passado: ");
 	else if (lang == 6) printf("\nParticipe pass" SMALL_E_ACUTE " : ");
+	else if (lang == 8 || lang == 9) printf("\nPasado participio: ");
 	else if (lang == 10) printf("\nPasinta pasiva participo: ");
 	else printf("\nPrev participe: ");
 	// -----

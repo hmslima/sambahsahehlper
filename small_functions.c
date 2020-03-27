@@ -22,6 +22,8 @@ short int checklang (char argument[192])
 		return TRUE;
 	else if (strcmp(argument, "fr") == 0 || strcmp(argument, "fr-eu") == 0)
 		return TRUE;
+	else if (strcmp(argument, "es") == 0)
+		return TRUE;
 	else if (strcmp(argument, "eo") == 0)
 		return TRUE;
 	else

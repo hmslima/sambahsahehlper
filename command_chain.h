@@ -22,6 +22,9 @@ switch (command_number)
 		#include "manual_transcription_list.h"
 		printf("\n");
 	break;
+	case 6: // Help
+		cases (lang);
+	break;
 
 	/* ************************************
 	* Anything beyond 999 needs an argument
@@ -34,6 +37,7 @@ switch (command_number)
 			else if (strcmp(argument, "en") == 0 || strcmp(argument, "en-us") == 0) lang = 2;
 			else if (strcmp(argument, "pt") == 0 || strcmp(argument, "pt-br") == 0) lang = 4;
 			else if (strcmp(argument, "fr") == 0 || strcmp(argument, "fr-eu") == 0) lang = 6;
+			else if (strcmp(argument, "es") == 0 || strcmp(argument, "es-eu") == 0) lang = 8;
 			else if (strcmp(argument, "eo") == 0) lang = 10;
 		}
 		else
@@ -44,5 +48,8 @@ switch (command_number)
 	break;
 	case 1002: // Conjugates the given word
 		conjugation ();
+	break;
+	case 1003: // Conjugates the given word
+		plural ();
 	break;
 }

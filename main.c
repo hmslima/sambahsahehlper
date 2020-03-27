@@ -23,7 +23,8 @@ short int lang = 1; /* Defines the language of the system through integer number
 4 - Brazilian Portuguese
 5 - European Portuguese
 6 - French from France
-7 - European Spanish
+7 - French from Africa
+8 - European Spanish
 9 - Latin American Spanish
 10 - Esperanto
 [...]
@@ -35,6 +36,8 @@ short int lang = 1; /* Defines the language of the system through integer number
 
 #include "pronunciation.h"
 #include "conjugation.h"
+#include "cases.h"
+#include "plural.h"
 
 int main ()
 {
@@ -51,7 +54,7 @@ int main ()
 	printf("\nits capacities and also its LIMITATIONS");
 	printf("\n * Use the command \"setlang en\" to change the program's language to English");
 	printf("\nALWAYS insert the commands in lowercase letters and without quotation marks!");
-	printf("\nOh, and avoid using prefixes;-)");
+	printf("\nOh, and avoid using prefixes ;-)");
 	printf("\n");
 	printf("\nPT: Use o comando \"deflang pt\" para mudar o idioma do programa para portugu" SMALL_E_CIRCUMFLEX "s");
 	printf("\nFR: Utilisez la commande \"deflang fr\" pour changer la langue en fran" SMALL_C_CEDILLA "ais");
