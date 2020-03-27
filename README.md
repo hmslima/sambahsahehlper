@@ -24,6 +24,20 @@ You can change the language of the texts of the program through the command `def
 
 `deflang eo` for Esperanto
 
+One of the commands just below shows a table of declination cases. If you configure the program to show texts in a language that is not Sambahsa, you'll also get the translations of these cases.
+
+`falls`
+
+`cases`
+
+`casos`
+
+`cas`
+
+`kazoj`
+
+The command `prl` or `plural` plus the word will give you the plural form of the given word.
+
 For more informations, you can go to the "help" section of the program by using one of the commands below:
 
 `hehlp`
