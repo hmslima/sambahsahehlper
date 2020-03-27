@@ -12,31 +12,31 @@ extern short int lang;
 
 void if_it_is_a_thing (short int lang)
 {
-	if (lang == 2) printf(", if it is a thing");
+	if (lang == 2) printf(", if this is a thing");
 	else if (lang == 4) printf(", se isso for uma coisa");
 	else if (lang == 6) printf(", si c\'est une chose");
 	else if (lang == 8 || lang == 9) printf(", si isso es una cosa");
-	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio estas a" SMALL_J_CIRCUMFLEX "o");
+	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio " SMALL_C_CIRCUMFLEX "i estas a" SMALL_J_CIRCUMFLEX "o");
 	else printf(", sei to est un ject");
 }
 
 void if_it_is_a_living_being (short int lang)
 {
-	if (lang == 2) printf(", if it is a living being");
-	else if (lang == 4) printf(", se isso for um ser vivo");
-	else if (lang == 6) printf(", si c\'est un " SMALL_E_CIRCUMFLEX "tre vivant");
-	else if (lang == 8 || lang == 9) printf(", si isso es un ser vivo");
-	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio estas viva estulo");
-	else printf(", sei to est un gwiv");
+	if (lang == 2) printf(", if this is an animated living being");
+	else if (lang == 4) printf(", se isso for um ser vivo animado");
+	else if (lang == 6) printf(", si c\'est un " SMALL_E_CIRCUMFLEX "tre vivant anim" SMALL_E_ACUTE "");
+	else if (lang == 8 || lang == 9) printf(", si isso es un ser vivo animado");
+	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio " SMALL_C_CIRCUMFLEX "i estas animita viva estulo");
+	else printf(", sei to est un animen gwiv");
 }
 
 void if_it_is_a_proper_name (short int lang)
 {
-	if (lang == 2) printf(", if it is a proper noun\n");
+	if (lang == 2) printf(", if this is a proper noun\n");
 	else if (lang == 4) printf(", se isso for um substantivo pr" SMALL_O_ACUTE "prio\n");
 	else if (lang == 6) printf(", si c\'est un nom propre\n");
 	else if (lang == 8 || lang == 9) printf(", si isso es un nombre propio\n");
-	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio estas propra nomo\n");
+	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio " SMALL_C_CIRCUMFLEX "i estas propra nomo\n");
 	else printf(", sei to est un proper nam\n");
 }
 
@@ -200,7 +200,7 @@ void plural ()
 	************* -X, S, Z, ...
 	***************************************************************************/
 
-    else if (argument[strlen(argument) - 1] == 'z' || argument[strlen(argument) - 1] == 'x' || (argument[strlen(argument) - 2] == 'a' && argument[strlen(argument) - 1] == 's') || (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 's') || (argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 's') || (argument[strlen(argument) - 2] == 's' && argument[strlen(argument) - 1] == 'h') || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'h'))
+    else if (argument[strlen(argument) - 1] == 'z' || argument[strlen(argument) - 1] == 'x' || (argument[strlen(argument) - 1] == 's' && argument[strlen(argument) - 2] != 'o' && argument[strlen(argument) - 2] != 'e') || (argument[strlen(argument) - 2] == 's' && argument[strlen(argument) - 1] == 'h') || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'h'))
     {
     	// For a thing
 
