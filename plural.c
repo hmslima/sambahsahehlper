@@ -7,35 +7,46 @@
 #include "special_characters.h"
 #include "pronunciation.h"
 
-extern char argument[256];
+extern char argument[192];
 extern short int lang;
 
 void if_it_is_a_thing (short int lang)
 {
 	if (lang == 2) printf(", if it is a thing");
-	else if (lang == 4) printf(", se for uma coisa");
+	else if (lang == 4) printf(", se isso for uma coisa");
 	else if (lang == 6) printf(", si c\'est une chose");
-	else if (lang == 8 || lang == 9) printf(", si es una cosa");
-	else if (lang == 10) printf(", se estas a" SMALL_J_CIRCUMFLEX "o");
-	else printf(", sei est un ject");
+	else if (lang == 8 || lang == 9) printf(", si isso es una cosa");
+	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio estas a" SMALL_J_CIRCUMFLEX "o");
+	else printf(", sei to est un ject");
 }
 
 void if_it_is_a_living_being (short int lang)
 {
-	if (lang == 2) printf(", if it is a living being\n");
-	else if (lang == 4) printf(", se for um ser vivo\n");
-	else if (lang == 6) printf(", ssi c\'est un " SMALL_E_CIRCUMFLEX "tre vivant\n");
-	else if (lang == 8 || lang == 9) printf(", si es un ser vivo\n");
-	else if (lang == 10) printf(", se estas viva estulo\n");
-	else printf(", sei est un gwiv\n");
+	if (lang == 2) printf(", if it is a living being");
+	else if (lang == 4) printf(", se isso for um ser vivo");
+	else if (lang == 6) printf(", si c\'est un " SMALL_E_CIRCUMFLEX "tre vivant");
+	else if (lang == 8 || lang == 9) printf(", si isso es un ser vivo");
+	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio estas viva estulo");
+	else printf(", sei to est un gwiv");
+}
+
+void if_it_is_a_proper_name (short int lang)
+{
+	if (lang == 2) printf(", if it is a proper noun\n");
+	else if (lang == 4) printf(", se isso for um substantivo pr" SMALL_O_ACUTE "prio\n");
+	else if (lang == 6) printf(", si c\'est un nom propre\n");
+	else if (lang == 8 || lang == 9) printf(", si isso es un nombre propio\n");
+	else if (lang == 10) printf(", se " SMALL_C_CIRCUMFLEX "i tio estas propra nomo\n");
+	else printf(", sei to est un proper nam\n");
 }
 
 void plural ()
 {
-    char word[256];
-    char word2[256];
+    char word[192];
+    char word2[192];
 
-    short int arg_counter;
+	short int word_size = strlen(argument);
+	short int arg_counter;
 
     // For converting all capital letter into small letters
 	for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
@@ -83,6 +94,7 @@ void plural ()
 		{
 			word[strlen(word) - 2] = 's';
 			word[strlen(word) - 1] = 'a';
+			word[strlen(word)] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
 			printf("\n\"");
 			printf("%s", word);
 			printf("\"");
@@ -91,6 +103,7 @@ void plural ()
 		else
 		{
 			word[strlen(word)] = 'a';
+			word[word_size + 1] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
 			printf("\n\"");
 			printf("%s", word);
 			printf("\"");
@@ -103,6 +116,7 @@ void plural ()
 		{
 			word2[strlen(word2) - 2] = 'i';
     		word2[strlen(word2) - 1] = '\0';
+    		word2[strlen(word2)] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
     		printf("\n\"");
 			printf("%s", word2);
 			printf("\"");
@@ -111,11 +125,18 @@ void plural ()
 		else
 		{
 			word2[strlen(word2)] = 'i';
+			word2[word_size + 1] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
 			printf("\n\"");
 			printf("%s", word2);
 			printf("\"");
 			if_it_is_a_living_being (lang);
 		}
+
+		// For proper nouns
+		printf("\n\"");
+		printf("%s", argument);
+		printf("\"");
+		if_it_is_a_proper_name (lang);
     }
 
     /***************************************************************************
@@ -130,6 +151,7 @@ void plural ()
 		{
 			word[strlen(word) - 2] = 's';
 			word[strlen(word) - 1] = 'a';
+			word[strlen(word)] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
 			printf("\n\"");
 			printf("%s", word);
 			printf("\"");
@@ -138,6 +160,7 @@ void plural ()
 		else
 		{
 			word[strlen(word)] = 'a';
+			word[word_size + 1] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
 			printf("\n\"");
 			printf("%s", word);
 			printf("\"");
@@ -150,6 +173,7 @@ void plural ()
 		{
 			word2[strlen(word2) - 2] = 's';
     		word2[strlen(word2) - 1] = 'i';
+    		word2[strlen(word2)] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
     		printf("\n\"");
 			printf("%s", word2);
 			printf("\"");
@@ -158,11 +182,49 @@ void plural ()
 		else
 		{
 			word2[strlen(word2)] = 'i';
+			word2[word_size + 1] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
 			printf("\n\"");
 			printf("%s", word2);
 			printf("\"");
 			if_it_is_a_living_being (lang);
 		}
+
+		// For proper nouns
+		printf("\n\"");
+		printf("%s", argument);
+		printf("\"");
+		if_it_is_a_proper_name (lang);
+    }
+
+    /***************************************************************************
+	************* -X, S, Z, ...
+	***************************************************************************/
+
+    else if (argument[strlen(argument) - 1] == 'z' || argument[strlen(argument) - 1] == 'x' || (argument[strlen(argument) - 2] == 'a' && argument[strlen(argument) - 1] == 's') || (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 's') || (argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 's') || (argument[strlen(argument) - 2] == 's' && argument[strlen(argument) - 1] == 'h') || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'h'))
+    {
+    	// For a thing
+
+		word[strlen(word)] = 'a';
+		word[word_size + 1] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
+		printf("\n\"");
+		printf("%s", word);
+		printf("\"");
+		if_it_is_a_thing (lang);
+
+		// For an animated being
+
+		word2[strlen(word2)] = 'i';
+		word2[word_size + 1] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
+		printf("\n\"");
+		printf("%s", word2);
+		printf("\"");
+		if_it_is_a_living_being (lang);
+
+		// For proper nouns
+		printf("\n\"");
+		printf("%s", argument);
+		printf("\"");
+		if_it_is_a_proper_name (lang);
     }
 
     /***************************************************************************
@@ -173,6 +235,7 @@ void plural ()
     {
 		word[strlen(word) - 2] = 'a';
 		word[strlen(word) - 1] = '\0';
+		word[strlen(word)] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
 		printf("\n");
 		printf("%s", word);
 		printf("\n");
@@ -185,9 +248,10 @@ void plural ()
     else
     {
     	word[strlen(word)] = 's';
-    	printf("\n\"");
+    	word[word_size + 1] = '\0'; // I don't know why, but without this I get a lot of "dirty data"
+    	printf("\n");
     	printf("%s", word);
-    	printf("\"");
+    	printf("\n");
     }
 
     // For cleaning

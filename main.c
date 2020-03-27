@@ -9,7 +9,7 @@
 char command[256]; // Variable where all commands will be stored.
 char command_name[64]; // The command itself
 short int command_number;
-char argument[192]; // The argument of the command
+char argument[192]; // The argument of the command .... 192 = 256 - 64
 
 short int program_active = TRUE;
 
@@ -64,6 +64,7 @@ int main ()
 	// MAIN LOOP
 	while (program_active)
 	{
+
 		command_field (); // it makes appear the area where you type the commands
 
 		#include "command_chain.h" // All possible commands

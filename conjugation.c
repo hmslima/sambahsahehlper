@@ -7,7 +7,7 @@
 #include "special_characters.h"
 #include "pronunciation.h"
 
-extern char argument[256];
+extern char argument[192];
 extern short int lang;
 
 extern short int show_system_messages;
@@ -21,36 +21,36 @@ short int ei_for_i = 0;
 short int von_wahl = 0;
 	short int ct = FALSE; // For dealing with the ct Von Wahl
 
-char infinitive[256];
-char present_basis[256];
-char present_basis2[256];
-char present_1ps[256];
-char present_2ps[256];
-char present_3ps[256];
-char present_1pp[256];
-char present_2pp[256];
-char present_3pp[256];
-char past_basis[256];
-char past_1ps[256];
-char past_2ps[256];
-char past_3ps[256];
-char past_1pp[256];
-char past_2pp[256];
-char past_3pp[256];
-char future_1ps[256];
-char future_2ps[256];
-char future_3ps[256];
-char future_1pp[256];
-char future_2pp[256];
-char future_3pp[256];
-char conditional_1ps[256];
-char conditional_2ps[256];
-char conditional_3ps[256];
-char conditional_1pp[256];
-char conditional_2pp[256];
-char conditional_3pp[256];
-char participe_t[256];
-char participe_en[256];
+char infinitive[192];
+char present_basis[192];
+char present_basis2[192];
+char present_1ps[192];
+char present_2ps[192];
+char present_3ps[192];
+char present_1pp[192];
+char present_2pp[192];
+char present_3pp[192];
+char past_basis[192];
+char past_1ps[192];
+char past_2ps[192];
+char past_3ps[192];
+char past_1pp[192];
+char past_2pp[192];
+char past_3pp[192];
+char future_1ps[192];
+char future_2ps[192];
+char future_3ps[192];
+char future_1pp[192];
+char future_2pp[192];
+char future_3pp[192];
+char conditional_1ps[192];
+char conditional_2ps[192];
+char conditional_3ps[192];
+char conditional_1pp[192];
+char conditional_2pp[192];
+char conditional_3pp[192];
+char participe_t[192];
+char participe_en[192];
 char io_pronoun[10];
 
 /********************************************************************

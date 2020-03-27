@@ -8,14 +8,14 @@
 #define TRUE 1
 #define FALSE 0
 
-extern char argument[256];
+extern char argument[192];
 extern short int lang;
 
 extern short int show_system_messages;
 extern short int is_testpnc_active;
 
-char SPT_word[256];
-char corrected_SPT_word[256];
+char SPT_word[192];
+char corrected_SPT_word[192];
 char correct_vowel;
 
 short int stress = FALSE;
@@ -1996,13 +1996,6 @@ void pronunciation ()
 							SPT_word[SPT_counter] = 'e';
 							SPT_counter++;
 						}
-						// There is more an non-final "e" ahead
-						/*else if ((argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0')) || (argument[arg_counter + 2] == 'e' && !(argument[arg_counter + 3] == '\0')) || (argument[arg_counter + 3] == 'e' && !(argument[arg_counter + 4] == '\0')) || (argument[arg_counter + 4] == 'e' && !(argument[arg_counter + 5] == '\0')))
-						{
-							if (show_system_messages) printf("\npoint there_is_more_an_non_final_e");
-							SPT_word[SPT_counter] = 'e';
-							SPT_counter++;
-						}*/
 						// eCyV\0 || eCwV\0
 						else if ((is_it_consonant(argument[arg_counter + 1])) && (argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w') && is_it_vowel(argument[arg_counter + 3]) && argument[arg_counter + 4] == '\0')
 						{
