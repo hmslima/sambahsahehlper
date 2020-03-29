@@ -36,8 +36,6 @@ One of the commands just below shows a table of declination cases. If you config
 
 `kazoj`
 
-The command `prl` or `plural` plus the word will give you the plural form of the given word.
-
 For more informations, you can go to the "help" section of the program by using one of the commands below:
 
 `hehlp`
