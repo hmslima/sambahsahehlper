@@ -195,7 +195,7 @@ void cases (short int lang)
 	}
 	else if (lang == 8 || lang == 9)
 	{
-		printf(" = el, lo, la, él, ella (indeterminado)");
+		printf(" = el, lo, la, " SMALL_E_ACUTE "l, ella (indeterminado)");
 		printf ("  | ");
 	}
 	else if (lang == 10)
