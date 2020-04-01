@@ -25,29 +25,28 @@ void cases (short int lang)
 
 	if (lang == 2) printf("NOMINATIVE                                 | ");
 	else if (lang == 4) printf("NOMINATIVO                                 | ");
-	else if (lang == 6) printf("NOMINATIVE                                 | ");
+	else if (lang == 6) printf("NOMINATIF                                  | ");
 	else if (lang == 8 || lang == 9) printf("NOMINATIVO                                 | ");
 	else if (lang == 10) printf("NOMINATIVO                                 | ");
-	// else printf("NOMINATIVE                                 | ");
 	else printf("NOMINATIVE\t\t\t\t  | ");
 
 	if (lang == 2) printf("ACCUSATIVE | ");
 	else if (lang == 4) printf("ACUSATIVO  | ");
-	else if (lang == 6) printf("ACCUSATEUR | ");
+	else if (lang == 6) printf("ACCUSATIF  | ");
 	else if (lang == 8 || lang == 9) printf("ACUSATIVO  | ");
-	else if (lang == 10) printf("ACUSATIVO  | ");
+	else if (lang == 10) printf("AKUZATIVO  | ");
 	else printf("ACCUSATIVE | ");
 
 	if (lang == 2) printf("DATIVE    | ");
 	else if (lang == 4) printf("DATIVO    | ");
-	else if (lang == 6) printf("DATIVE    | ");
+	else if (lang == 6) printf("DATIF     | ");
 	else if (lang == 8 || lang == 9) printf("DATIVO    | ");
 	else if (lang == 10) printf("DATIVO    | ");
 	else printf("DATIVE    | ");
 
 	if (lang == 2) printf("GENITIVE");
 	else if (lang == 4) printf("GENITIVO");
-	else if (lang == 6) printf("GENITIVE");
+	else if (lang == 6) printf("G" CAPITAL_E_ACUTE "NITIF");
 	else if (lang == 8 || lang == 9) printf("GENITIVO");
 	else if (lang == 10) printf("GENITIVO");
 	else printf("GENITIVE");
@@ -90,7 +89,7 @@ void cases (short int lang)
 	else printf ("\t\t\t\t   | ");
 
 	printf ("te         | ");
-	printf ("ti        | ");
+	printf ("tib       | ");
 	printf (" ");
 
 	/***************************************************************************
@@ -102,16 +101,17 @@ void cases (short int lang)
 	if (lang == 2) printf(" = he ");
 	else if (lang == 4) printf(" = ele");
 	else if (lang == 6) printf(" = il ");
-	else if (lang == 8 || lang == 9) printf(" = tu ");
+	else if (lang == 8 || lang == 9) printf(" = " SMALL_E_ACUTE "l, el");
 	else if (lang == 10) printf(" = li ");
 
 	// White space until the next column
 	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 8 || lang == 9) printf ("\t\t\t\t   | ");
 	else printf ("\t\t\t\t   | ");
 
 	printf ("iom        | ");
 	printf ("ei        | ");
-	printf ("ios");
+	printf ("ios" SUPERSCRIPT_ONE "");
 
 	/***************************************************************************
 	************* IA
@@ -131,7 +131,7 @@ void cases (short int lang)
 
 	printf ("iam        | ");
 	printf ("ay        | ");
-	printf ("ias");
+	printf ("ias" SUPERSCRIPT_ONE "");
 
 	/***************************************************************************
 	************* ID
@@ -156,8 +156,8 @@ void cases (short int lang)
 	}
 	else if (lang == 8 || lang == 9)
 	{
-		printf(" = el, lo, " SMALL_E_ACUTE "l ");
-		printf ("\t\t\t   | ");
+		printf(" = el, lo, " SMALL_E_ACUTE "l (neutro)");
+		printf ("\t\t   | ");
 	}
 	else if (lang == 10)
 	{
@@ -170,7 +170,7 @@ void cases (short int lang)
 
 	printf ("id         | ");
 	printf ("ei        | ");
-	printf ("ios");
+	printf ("ios" SUPERSCRIPT_ONE "");
 
 	/***************************************************************************
 	************* EL
@@ -185,8 +185,8 @@ void cases (short int lang)
 	}
 	else if (lang == 4)
 	{
-		printf(" = ele / ela");
-		printf ("\t\t\t\t   | ");
+		printf(" = ele, ela (indeterminado)");
+		printf ("\t\t   | ");
 	}
 	else if (lang == 6)
 	{
@@ -195,8 +195,8 @@ void cases (short int lang)
 	}
 	else if (lang == 8 || lang == 9)
 	{
-		printf(" = el, lo, la, él, ella ");
-		printf ("\t\t   | ");
+		printf(" = el, lo, la, él, ella (indeterminado)");
+		printf ("  | ");
 	}
 	else if (lang == 10)
 	{
@@ -209,7 +209,7 @@ void cases (short int lang)
 
 	printf ("el         | ");
 	printf ("al        | ");
-	printf ("al");
+	printf ("al" SUPERSCRIPT_ONE "");
 
 	/***************************************************************************
 	************* WEY
@@ -257,15 +257,16 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("ies");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = they (masculine)");
 		printf ("\t\t\t   | ");
 	}
 	else if (lang == 4)
 	{
-		printf(" = eles (masculino)");
-		printf ("\t\t\t   | ");
+		printf(" = eles");
+		printf ("\t\t\t\t   | ");
 	}
 	else if (lang == 6)
 	{
@@ -274,8 +275,8 @@ void cases (short int lang)
 	}
 	else if (lang == 8 || lang == 9)
 	{
-		printf(" = los, ellos (masculino) ");
-		printf ("\t\t   | ");
+		printf(" = los, ellos");
+		printf ("\t\t\t   | ");
 	}
 	else if (lang == 10)
 	{
@@ -283,12 +284,9 @@ void cases (short int lang)
 		printf ("\t\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("iens       | ");
 	printf ("ibs       | ");
-	printf ("iom");
+	printf ("iom" SUPERSCRIPT_ONE "");
 
 	/***************************************************************************
 	************* IAS
@@ -296,7 +294,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("ias");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = they (feminine)");
 		printf ("\t\t\t   | ");
@@ -308,12 +307,12 @@ void cases (short int lang)
 	}
 	else if (lang == 6)
 	{
-		printf(" = les / elles");
-		printf ("\t\t\t   | ");
+		printf(" = les / elles (f" SMALL_E_ACUTE "minin)");
+		printf ("\t\t   | ");
 	}
 	else if (lang == 8 || lang == 9)
 	{
-		printf(" = las (feminino) ");
+		printf(" = las, ellas");
 		printf ("\t\t\t   | ");
 	}
 	else if (lang == 10)
@@ -322,12 +321,9 @@ void cases (short int lang)
 		printf ("\t\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("ians       | ");
 	printf ("iabs      | ");
-	printf ("iam");
+	printf ("iam" SUPERSCRIPT_ONE "");
 
 	/***************************************************************************
 	************* IA (PLURAL)
@@ -335,7 +331,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("ia");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = they (neutral)");
 		printf ("\t\t\t   | ");
@@ -361,12 +358,9 @@ void cases (short int lang)
 		printf ("\t\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
-	printf ("el         | ");
-	printf ("al        | ");
-	printf ("al");
+	printf ("ia         | ");
+	printf ("ibs       | ");
+	printf ("iom" SUPERSCRIPT_ONE "");
 
 	/***************************************************************************
 	************* I
@@ -374,7 +368,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("i");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = they (undetermined)");
 		printf ("\t\t\t   | ");
@@ -400,12 +395,9 @@ void cases (short int lang)
 		printf ("\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("i          | ");
 	printf ("im        | ");
-	printf ("im");
+	printf ("im" SUPERSCRIPT_ONE "");
 
 	/***************************************************************************
 	************* SO
@@ -413,7 +405,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("so");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = this (masculine)");
 		printf ("\t\t\t   | ");
@@ -439,9 +432,6 @@ void cases (short int lang)
 		printf ("\t\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("tom        | ");
 	printf ("tei       | ");
 	printf ("tos");
@@ -452,7 +442,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("toy");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = these (masculine)");
 		printf ("\t\t\t   | ");
@@ -469,7 +460,7 @@ void cases (short int lang)
 	}
 	else if (lang == 8 || lang == 9)
 	{
-		printf(" = estes ");
+		printf(" = estos ");
 		printf ("\t\t\t\t   | ");
 	}
 	else if (lang == 10)
@@ -477,9 +468,6 @@ void cases (short int lang)
 		printf(" = " SMALL_C_CIRCUMFLEX "i tiuj (vira) ");
 		printf ("\t\t\t   | ");
 	}
-
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
 
 	printf ("tens       | ");
 	printf ("tibs      | ");
@@ -491,7 +479,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("sa");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = this (feminine)");
 		printf ("\t\t\t   | ");
@@ -517,9 +506,6 @@ void cases (short int lang)
 		printf ("\t\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("tam        | ");
 	printf ("tay       | ");
 	printf ("tas");
@@ -530,7 +516,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("tas");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = these (feminine)");
 		printf ("\t\t\t   | ");
@@ -556,9 +543,6 @@ void cases (short int lang)
 		printf ("\t\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("tans       | ");
 	printf ("tabs      | ");
 	printf ("tam");
@@ -569,7 +553,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("tod");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = this (neutral)");
 		printf ("\t\t\t   | ");
@@ -595,9 +580,6 @@ void cases (short int lang)
 		printf ("\t\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("tod        | ");
 	printf ("tei       | ");
 	printf ("tos");
@@ -608,7 +590,8 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("ta");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = these (neutral)");
 		printf ("\t\t\t   | ");
@@ -625,7 +608,7 @@ void cases (short int lang)
 	}
 	else if (lang == 8 || lang == 9)
 	{
-		printf(" = estes (neutro) ");
+		printf(" = estos (neutro) ");
 		printf ("\t\t\t   | ");
 	}
 	else if (lang == 10)
@@ -633,9 +616,6 @@ void cases (short int lang)
 		printf(" = " SMALL_C_CIRCUMFLEX "i tiuj (ne" SMALL_U_BREVE "tra)");
 		printf ("\t\t\t   | ");
 	}
-
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
 
 	printf ("ta         | ");
 	printf ("tibs      | ");
@@ -647,10 +627,11 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("tel");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = this (undetermined)");
-		printf ("\t\t\t   | ");
+		printf ("\t\t   | ");
 	}
 	else if (lang == 4)
 	{
@@ -673,9 +654,6 @@ void cases (short int lang)
 		printf ("\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("tel        | ");
 	printf ("tal       | ");
 	printf ("tal");
@@ -686,10 +664,11 @@ void cases (short int lang)
 
 	printf ("\n");
 	printf ("ti");
-	if (lang == 2)
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
 	{
 		printf(" = these (undetermined)");
-		printf ("\t\t\t   | ");
+		printf ("\t\t   | ");
 	}
 	else if (lang == 4)
 	{
@@ -703,7 +682,7 @@ void cases (short int lang)
 	}
 	else if (lang == 8 || lang == 9)
 	{
-		printf(" = estes (indeterminado)");
+		printf(" = estos (indeterminado)");
 		printf ("\t\t   | ");
 	}
 	else if (lang == 10)
@@ -712,12 +691,1051 @@ void cases (short int lang)
 		printf ("\t\t   | ");
 	}
 
-	// White space until the next column
-	if (lang == 1) printf ("\t\t\t\t\t  | ");
-
 	printf ("ti         | ");
 	printf ("tim       | ");
 	printf ("tim");
+
+	/***************************************************************************
+	************* CIS
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("cis");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = that (masculine)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = aquele");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = cet");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = aquel");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tiu (vira)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("ciom       | ");
+	printf ("cei       | ");
+	printf ("cios");
+
+	/***************************************************************************
+	************* CIES
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("cies");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = those (masculine)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = aqueles");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = ces (masculin)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = aquellos");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tiuj (vira)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("ciens      | ");
+	printf ("cibs      | ");
+	printf ("ciom");
+
+	/***************************************************************************
+	************* CIA
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("cia");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = that (feminine)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = aquela");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = cette");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = aquella");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tiu (virina)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("ciam       | ");
+	printf ("ciay      | ");
+	printf ("cias");
+
+	/***************************************************************************
+	************* CIAS
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("cias");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = those (feminine)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = aquelas");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = ces (f" SMALL_E_ACUTE "minin)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = aquellas");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tiuj (virina)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("cians      | ");
+	printf ("ciabs     | ");
+	printf ("ciam");
+
+	/***************************************************************************
+	************* CID
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("cid");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = that (neutral)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = aquele (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = cet, cette (neutre)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = aquel (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tiu (ne" SMALL_U_BREVE "tra)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("cid        | ");
+	printf ("cei       | ");
+	printf ("cios");
+
+	/***************************************************************************
+	************* CIA
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("cia");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = those (neutral)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = aqueles (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = ces (neutre)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = aquellos (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tiuj (ne" SMALL_U_BREVE "tra)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("cia        | ");
+	printf ("cibs      | ");
+	printf ("ciom");
+
+	/***************************************************************************
+	************* CEL
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("cel");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = that (undetermined)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = aquele, aquela (indeterminado)");
+		printf ("\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = cet, cette (ind" SMALL_E_ACUTE "termin" SMALL_E_ACUTE ")");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = aquel (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tiu (nedeterminita)");
+		printf ("\t\t   | ");
+	}
+
+	printf ("cel        | ");
+	printf ("cial      | ");
+	printf ("cial");
+
+	/***************************************************************************
+	************* CI
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("ci");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = those (undetermined)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = aqueles (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = ces (ind" SMALL_E_ACUTE "termin" SMALL_E_ACUTE ")");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = aquellos (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tiuj (nedeterminita)");
+		printf ("\t\t   | ");
+	}
+
+	printf ("ci         | ");
+	printf ("cim       | ");
+	printf ("cim");
+
+	/***************************************************************************
+	************* QUIS
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("quis...?");
+	if (lang == 1) printf ("\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = who...? (masculine, singular)");
+		printf ("   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = que, quem, qual...? (masculino)");
+		printf (" | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui...? (singulier masculin)");
+		printf ("    | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = qui" SMALL_E_ACUTE "n...? (masculino)");
+		printf ("\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiu...? (vira)");
+		printf ("\t\t   | ");
+	}
+
+	printf ("quom...?   | ");
+	printf ("quei...?  | ");
+	printf ("quos...?");
+
+	/***************************************************************************
+	************* QUI
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("qui");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = who (masculine, singular)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = que, quem, qual (masculino)");
+		printf ("\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui (singulier masculin)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = qui" SMALL_E_ACUTE "n (masculino)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiu (vira)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("quom       | ");
+	printf ("quei      | ");
+	printf ("quos");
+
+	/***************************************************************************
+	************* QUOY
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("quoy");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = who (masculine, plural)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = quais (plural masculino)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui (pluriel masculin)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = cu" SMALL_A_ACUTE "les (masculino)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiuj (vira)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("quens      | ");
+	printf ("quibs     | ");
+	printf ("quom");
+
+	/***************************************************************************
+	************* QUA
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("qua");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = who (feminine, singular)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = que, quem, qual (feminino)");
+		printf ("\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui (singulier f" SMALL_E_ACUTE "minin)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = qui" SMALL_E_ACUTE "n (feminino)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiu (virina)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("quam       | ");
+	printf ("quay      | ");
+	printf ("quas");
+
+	/***************************************************************************
+	************* QUAS
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("quas");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = who (feminine, plural)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = quais (plural feminino)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui (pluriel f" SMALL_E_ACUTE "minin)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = cu" SMALL_A_ACUTE "les (feminino)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiuj (virina)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("quans      | ");
+	printf ("quabs     | ");
+	printf ("quam");
+
+	/***************************************************************************
+	************* QUOD
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("quod");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = what (neutral, singular)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = que, quem, o qual (neutro)");
+		printf ("\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui, que (singulier neutre)");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = qu" SMALL_E_ACUTE ", cual, que (neutro)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiu (ne" SMALL_U_BREVE "tra)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("quod       | ");
+	printf ("quei      | ");
+	printf ("quos");
+
+	/***************************************************************************
+	************* QUA
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("qua");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = what (neutral, plural)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = os quais (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui, que (pluriel neutre)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = que, cu" SMALL_A_ACUTE "les (neutro plural)");
+		printf ("\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiuj (ne" SMALL_U_BREVE "tra)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("qua        | ");
+	printf ("quibs     | ");
+	printf ("quom");
+
+	/***************************************************************************
+	************* QUEL
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("quel");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = who (undetermined, singular)");
+		printf ("\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = que, quem, o qual (indeterminado)");
+		printf ("   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui, que (singulier ind" SMALL_E_ACUTE "termin" SMALL_E_ACUTE ")");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = qui" SMALL_E_ACUTE "n (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiu (nedeterminita)");
+		printf ("\t\t   | ");
+	}
+
+	printf ("quel       | ");
+	printf ("qual      | ");
+	printf ("qual");
+
+	/***************************************************************************
+	************* QUI
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("qui");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = who (undetermined, plural)");
+		printf ("\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = os quais (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = qui, que (pluriel ind" SMALL_E_ACUTE "termin" SMALL_E_ACUTE ")");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = cu" SMALL_A_ACUTE "les (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kiuj (nedeterminita)");
+		printf ("\t\t   | ");
+	}
+
+	printf ("qui        | ");
+	printf ("quim      | ");
+	printf ("quim");
+
+	/***************************************************************************
+	************* NEIS
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("neis");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = none (masculine, singular)");
+		printf ("\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = nenhum");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = aucun (singulier masculin)");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = ninguno (masculino)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = neniu (vira)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("niom       | ");
+	printf ("nei       | ");
+	printf ("nios");
+
+	/***************************************************************************
+	************* NOY
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("noy");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = none (masculine, plural)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = nenhuns");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = aucuns (pluriel masculin)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = ningunos (masculino)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = neniuj (vira)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("niens      | ");
+	printf ("neibs     | ");
+	printf ("niom");
+
+	/***************************************************************************
+	************* NIA
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("nia");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = none (feminine, singular)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = nenhuma");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = aucune (singulier f" SMALL_E_ACUTE "minin)");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = ninguna (feminino)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = neniu (virina)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("niam       | ");
+	printf ("niay      | ");
+	printf ("nias");
+
+	/***************************************************************************
+	************* NIAS
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("nias");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = none (masculine, plural)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = nenhumas");
+		printf ("\t\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = aucunes (pluriel f" SMALL_E_ACUTE "minin)");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = ningunas (feminino)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = neniuj (virina)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("nians      | ");
+	printf ("niabs     | ");
+	printf ("niam");
+
+	/***************************************************************************
+	************* NEID
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("neid");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = none (neutral, singular)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = nenhum (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = aucun (singulier neutre)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = ninguno (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = neniu (ne" SMALL_U_BREVE "tra)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("neid       | ");
+	printf ("nei       | ");
+	printf ("nios");
+
+	/***************************************************************************
+	************* NIA
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("nia");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = none (neutral, plural)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = nenhuns (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = aucuns (pluriel neutre)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = ningunos (neutro)");
+		printf ("\t\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = neniuj (ne" SMALL_U_BREVE "tra)");
+		printf ("\t\t\t   | ");
+	}
+
+	printf ("nia        | ");
+	printf ("neibs     | ");
+	printf ("niom");
+
+	/***************************************************************************
+	************* NEL
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("nel");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = none (undetermined, singular)");
+		printf ("\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = nenhum (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = aucun (singulier ind" SMALL_E_ACUTE "termin" SMALL_E_ACUTE ")");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = ninguno (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = neniu (nedeterminita)");
+		printf ("\t\t   | ");
+	}
+
+	printf ("nel        | ");
+	printf ("nal       | ");
+	printf ("nal");
+
+	/***************************************************************************
+	************* NEI
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("nei");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = none (undetermined, plural)");
+		printf ("\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = nenhuns (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = aucuns (pluriel ind" SMALL_E_ACUTE "termin" SMALL_E_ACUTE ")");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = ningunos (indeterminado)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = neniuj (nedeterminita)");
+		printf ("\t\t   | ");
+	}
+
+	printf ("nei        | ");
+	printf ("neim/nim  | ");
+	printf ("neim/nim");
+
+	/***************************************************************************
+	************* EMPTY SPACE
+	***************************************************************************/
+
+	 // I don't know why the hell when I set a language different from Sambahsa I lost one empty space
+	if (lang ==1) printf ("\n\t\t\t\t          |            |           |");
+	else printf ("\n\t\t\t\t           |            |           |");
+
+
+	/***************************************************************************
+	************* TO
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("to");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = this (generic pronoun)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = esse, este (pronome gen" SMALL_E_ACUTE "rico)");
+		printf ("\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = " SMALL_C_CEDILLA "a, ce (pronom g" SMALL_E_ACUTE "n" SMALL_E_ACUTE "rique)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = esto, lo (pronombre gen" SMALL_E_ACUTE "rico)");
+		printf ("\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = tio (" SMALL_G_CIRCUMFLEX "enerala pronomo) ");
+		printf ("\t\t   | ");
+	}
+
+	printf ("to         | ");
+	printf ("ad to     | ");
+	printf ("os to");
+
+	/***************************************************************************
+	************* QUO
+	***************************************************************************/
+
+	printf ("\n");
+	printf ("quo");
+	if (lang == 1) printf ("\t\t\t\t\t  | ");
+	else if (lang == 2)
+	{
+		printf(" = what (generic pronoun)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 4)
+	{
+		printf(" = que (pronome gen" SMALL_E_ACUTE "rico)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 6)
+	{
+		printf(" = ce qui, ce que (pronom g" SMALL_E_ACUTE "n" SMALL_E_ACUTE "rique)");
+		printf ("\t   | ");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf(" = que (pronombre gen" SMALL_E_ACUTE "rico)");
+		printf ("\t\t   | ");
+	}
+	else if (lang == 10)
+	{
+		printf(" = kio (" SMALL_G_CIRCUMFLEX "enerala pronomo)");
+		printf ("\t\t   | ");
+	}
+
+	printf ("quo        | ");
+	printf ("ad quo    | ");
+	printf ("os quo");
+
+	/***************************************************************************
+	************* NOTES
+	***************************************************************************/
+
+	printf ("\n-------------------------------------------------------------------------------");
+
+	if (lang == 2)
+	{
+		printf ("\n" SUPERSCRIPT_ONE " It is applied only to the definite articles");
+	}
+	else if (lang == 4)
+	{
+		printf ("\n" SUPERSCRIPT_ONE " Isso vale apenas para os artigos definidos");
+	}
+	else if (lang == 6)
+	{
+		printf ("\n" SUPERSCRIPT_ONE " " CAPITAL_C_CEDILLA "a s\'applique uniquement aux articles d" SMALL_E_ACUTE "finis");
+	}
+	else if (lang == 8 || lang == 9)
+	{
+		printf ("\n" SUPERSCRIPT_ONE " Esto aplica solo a art" SMALL_I_ACUTE "culos definidos");
+	}
+	else if (lang == 10)
+	{
+		printf ("\n" SUPERSCRIPT_ONE " Tio estas aplikata nur al difinaj artikoloj");
+	}
+	else
+	{
+		printf ("\n" SUPERSCRIPT_ONE " To ghehldt tik pro ia definiht articles");
+	}
+
+
+	printf ("\n-------------------------------------------------------------------------------");
 
 	/***************************************************************************
 	****************************************************************************

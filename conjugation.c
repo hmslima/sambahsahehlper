@@ -76,6 +76,8 @@ short int check_nasal_infix ()
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e cannot have nasal infix
 	if (!(is_there_more_than_one_vowel())) x = 0; // If there is only one vowel, like the invented word "men", there cannot be a nasal infix
 
+	if (strcmp(argument, "hensel") == 0) x = 0;
+
 	return x; // Have the same effect of TRUE or FALSE
 }
 
@@ -90,6 +92,13 @@ short int check_eh ()
 	}
 
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
+	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in in in
+	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
+	else if (argument[strlen(argument) - 3] != 'q' && argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 'i') x = 0; // The stress is in -ui
+	else if (argument[strlen(argument) - 4] == 'o' && is_it_consonant(argument[strlen(argument) - 3]) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l') x = 0; // The stress is in -oCel
+	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') x = 0; // The stress is in -aC || -oC || -uC
+	else if (is_it_vowel(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1]) && ((argument[strlen(argument) - 2] == argument[strlen(argument) - 1]) || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'k'))) x = 0; // The stressed vowel is in the vowel VCC
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -105,7 +114,23 @@ short int check_eu ()
 	}
 
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
-
+	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in in in
+	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
+	else if (argument[strlen(argument) - 3] != 'q' && argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 'i') x = 0; // The stress is in -ui
+	else if (argument[strlen(argument) - 4] == 'o' && is_it_consonant(argument[strlen(argument) - 3]) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l') x = 0; // The stress is in -oCel
+	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') // The stress is in -aC || -oC || -uC
+	{
+		if (argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'u')
+		{/*Do nothing*/}
+		else x = 0;
+	}
+	else if (is_it_vowel(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1]) && ((argument[strlen(argument) - 2] == argument[strlen(argument) - 1]) || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'k'))) // The stressed vowel is in the vowel VCC
+	{
+		if (argument[strlen(argument) - 4] == 'e' && argument[strlen(argument) - 3] == 'u')
+		{/*Do nothing*/}
+		else x = 0;
+	}
 	return x; // Have the same effect of TRUE or FALSE
 }
 
@@ -120,6 +145,23 @@ short int check_ei ()
 	}
 
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
+	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in in in
+	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
+	else if (argument[strlen(argument) - 3] != 'q' && argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 'i') x = 0; // The stress is in -ui
+	else if (argument[strlen(argument) - 4] == 'o' && is_it_consonant(argument[strlen(argument) - 3]) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l') x = 0; // The stress is in -oCel
+	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') // The stress is in -aC || -oC || -uC
+	{
+		if (argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'i')
+		{/*Do nothing*/}
+		else x = 0;
+	}
+	else if (is_it_vowel(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1]) && ((argument[strlen(argument) - 2] == argument[strlen(argument) - 1]) || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'k'))) // The stressed vowel is in the vowel VCC
+	{
+		if (argument[strlen(argument) - 4] == 'e' && argument[strlen(argument) - 3] == 'i')
+		{/*Do nothing*/}
+		else x = 0;
+	}
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -142,6 +184,13 @@ short int check_a ()
 	}
 
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
+	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in in in
+	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
+	else if (argument[strlen(argument) - 3] != 'q' && argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 'i') x = 0; // The stress is in -ui
+	else if (argument[strlen(argument) - 4] == 'o' && is_it_consonant(argument[strlen(argument) - 3]) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l') x = 0; // The stress is in -oCel
+	else if ((argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') x = 0; // The stress is in -oC || -uC
+	else if (is_it_vowel(argument[strlen(argument) - 3]) && argument[strlen(argument) - 3] != 'a' && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1]) && ((argument[strlen(argument) - 2] == argument[strlen(argument) - 1]) || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'k'))) x = 0; // The stressed vowel is in the vowel VCC
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -344,11 +393,11 @@ void present_tense ()
 	{
         strcpy(present_1ps, "woidim");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(present_1ps, "sammel");
-	}
 	else if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r'))
+	{
+		// Do nothing
+	}
+	else if (present_basis[strlen(present_basis) - 2] == 'e' && present_basis[strlen(present_basis) - 1] == 'l')
 	{
 		// Do nothing
 	}
@@ -434,10 +483,6 @@ void present_tense ()
 	{
         strcpy(present_1pp, "woidam");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(present_1pp, "sammelms");
-	}
 	else if (check_nasal_infix())
 	{
 		if (is_it_vowel(present_1pp[strlen(present_1pp) - 3]) && is_it_consonant(present_1pp[strlen(present_1pp) - 2]) && is_it_consonant(present_1pp[strlen(present_1pp) - 1]))
@@ -470,6 +515,18 @@ void present_tense ()
 		}
 	}
 	else if (present_1pp[strlen(present_1pp) - 1] == 'e')
+	{
+		present_1pp_counter = strlen(present_1pp);
+		present_1pp[present_1pp_counter] = 'm';
+		present_1pp[present_1pp_counter + 1] = 's';
+	}
+	else if (present_1pp[strlen(present_1pp) - 2] == 'e' && present_1pp[strlen(present_1pp) - 1] == 'r')
+	{
+		present_1pp_counter = strlen(present_1pp);
+		present_1pp[present_1pp_counter] = 'm';
+		present_1pp[present_1pp_counter + 1] = 's';
+	}
+	else if (present_1pp[strlen(present_1pp) - 2] == 'e' && present_1pp[strlen(present_1pp) - 1] == 'l')
 	{
 		present_1pp_counter = strlen(present_1pp);
 		present_1pp[present_1pp_counter] = 'm';
@@ -509,10 +566,6 @@ void present_tense ()
 	{
         strcpy(present_2pp, "woidat");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(present_2pp, "sammelt");
-	}
 	else
 	{
 		present_2pp_counter = strlen(present_2pp);
@@ -520,7 +573,12 @@ void present_tense ()
 		else if (present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
 		else if (present_2pp[strlen(present_2pp) - 1] == 'b') present_2pp[strlen(present_2pp) - 1] = 'p';
 		else if (present_2pp[strlen(present_2pp) - 2] != 'g' && present_2pp[strlen(present_2pp) - 1] == 'v') present_2pp[strlen(present_2pp) - 1] = 'f';
-		if (present_2pp[present_2pp_counter - 1] != 't')
+
+		if ((present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'r') || (present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'l'))
+		{
+			present_2pp[present_2pp_counter] = 't';
+		}
+		else if (present_2pp[present_2pp_counter - 1] != 't')
 		{
 			present_2pp[present_2pp_counter] = 't';
 			present_2pp[present_2pp_counter + 1] = '(';
@@ -547,14 +605,10 @@ void present_tense ()
 	{
         strcpy(present_3pp, "woideer");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(present_3pp, "sammelnt");
-	}
 	else
 	{
 		present_3pp_counter = strlen(present_3pp);
-		if ((is_it_vowel(present_3pp[present_3pp_counter - 1])) || (present_3pp[present_3pp_counter - 1] == 'h' && is_it_vowel(present_3pp[present_3pp_counter - 2])) || (present_3pp[present_3pp_counter - 2] == 'e' && present_3pp[present_3pp_counter - 1] == 'r'))
+		if ((is_it_vowel(present_3pp[present_3pp_counter - 1])) || (present_3pp[present_3pp_counter - 1] == 'h' && is_it_vowel(present_3pp[present_3pp_counter - 2])) || (present_3pp[present_3pp_counter - 2] == 'e' && present_3pp[present_3pp_counter - 1] == 'r') || (present_3pp[present_3pp_counter - 2] == 'e' && present_3pp[present_3pp_counter - 1] == 'l'))
 		{
 			present_3pp[present_3pp_counter] = 'n';
 			present_3pp[present_3pp_counter + 1] = 't';
@@ -925,11 +979,11 @@ void past_tense ()
 	}
 
 	// I check Von Wahl separetely
-	if (check_von_wahl())
+	if (check_von_wahl() && !(check_a()))
 	{
 		word_counter = 0;
 
-		if (!(check_a() || check_eh() || check_ei() || check_eu() || check_nasal_infix()))
+		if (!(check_eh() || check_ei() || check_eu() || check_nasal_infix()))
 		{
 			for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
 			{
@@ -960,10 +1014,7 @@ void past_tense ()
 				else if (argument[arg_counter] == 'c' && argument[arg_counter + 1] == 't' && argument[arg_counter + 2] == '\0')
 				{
 					past_basis[arg_counter] = 'x';
-				}
-				else if (argument[arg_counter] == 't' && argument[arg_counter + 1] == '\0' && argument[arg_counter - 1] == 'c')
-				{
-					// Do nothing
+					past_basis[arg_counter + 1] = '\0';
 				}
 			}
 		}
@@ -998,10 +1049,7 @@ void past_tense ()
 				else if (past_basis[arg_counter] == 'c' && past_basis[arg_counter + 1] == 't' && past_basis[arg_counter + 2] == '\0')
 				{
 					past_basis[arg_counter] = 'x';
-				}
-				else if (past_basis[arg_counter] == 't' && past_basis[arg_counter + 1] == '\0' && past_basis[arg_counter - 1] == 'c')
-				{
-					// Do nothing
+					past_basis[arg_counter + 1] = '\0';
 				}
 			}
 		}
@@ -1022,10 +1070,6 @@ void past_tense ()
 	{
         strcpy(past_1ps, "woisim");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(past_1ps, "siemmlim");
-	}
 	else if (past_1ps[strlen(past_1ps) - 2] == 'e' && past_1ps[strlen(past_1ps) - 1] == 'r')
 	{
 		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
@@ -1038,6 +1082,12 @@ void past_tense ()
 			past_1ps[past_basis_counter - 1] = 'i';
 			past_1ps[past_basis_counter] = 'm';
 		}
+	}
+	else if (past_1ps[strlen(past_1ps) - 2] == 'e' && past_1ps[strlen(past_1ps) - 1] == 'l')
+	{
+		past_1ps[strlen(past_1ps) - 2] = 'l';
+		past_1ps[strlen(past_1ps) - 1] = 'i';
+		past_1ps[strlen(past_1ps)] = 'm';
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1081,10 +1131,6 @@ void past_tense ()
 	{
         strcpy(past_2ps, "woisist");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(past_2ps, "siemmelst");
-	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
 		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
@@ -1099,6 +1145,12 @@ void past_tense ()
 			past_2ps[past_basis_counter] = 's';
 			past_2ps[past_basis_counter + 1] = 't';
 		}
+	}
+	else if (past_2ps[strlen(past_2ps) - 2] == 'e' && past_2ps[strlen(past_2ps) - 1] == 'l')
+	{
+		past_2ps[past_basis_counter - 2] = 'l';
+		past_2ps[past_basis_counter - 1] = 's';
+		past_2ps[past_basis_counter] = 't';
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1157,10 +1209,6 @@ void past_tense ()
 	{
         strcpy(past_3ps, "woisit");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(past_3ps, "siemmlit");
-	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
 		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
@@ -1173,6 +1221,12 @@ void past_tense ()
 			past_3ps[past_basis_counter - 1] = 'i';
 			past_3ps[past_basis_counter] = 't';
 		}
+	}
+	else if (past_3ps[strlen(past_3ps) - 2] == 'e' && past_3ps[strlen(past_3ps) - 1] == 'l')
+	{
+		past_3ps[past_basis_counter - 2] = 'l';
+		past_3ps[past_basis_counter - 1] = 'i';
+		past_3ps[past_basis_counter] = 't';
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1216,10 +1270,6 @@ void past_tense ()
 	{
         strcpy(past_1pp, "woisam");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(past_1pp, "siemm(e)lam");
-	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
 		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
@@ -1238,6 +1288,15 @@ void past_tense ()
 			past_1pp[past_basis_counter + 2] = 'a';
 			past_1pp[past_basis_counter + 3] = 'm';
 		}
+	}
+	else if (past_1pp[strlen(past_1pp) - 2] == 'e' && past_1pp[strlen(past_1pp) - 1] == 'l')
+	{
+		past_1pp[past_basis_counter - 2] = '(';
+		past_1pp[past_basis_counter - 1] = 'e';
+		past_1pp[past_basis_counter] = ')';
+		past_1pp[past_basis_counter + 1] = 'l';
+		past_1pp[past_basis_counter + 2] = 'a';
+		past_1pp[past_basis_counter + 3] = 'm';
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1289,10 +1348,6 @@ void past_tense ()
 	{
         strcpy(past_2pp, "woisat");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(past_2pp, "siemm(e)lat");
-	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
 		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
@@ -1311,6 +1366,15 @@ void past_tense ()
 			past_2pp[past_basis_counter + 2] = 'a';
 			past_2pp[past_basis_counter + 3] = 't';
 		}
+	}
+	else if (past_2pp[strlen(past_2pp) - 2] == 'e' && past_2pp[strlen(past_2pp) - 1] == 'l')
+	{
+		past_2pp[past_basis_counter - 2] = '(';
+		past_2pp[past_basis_counter - 1] = 'e';
+		past_2pp[past_basis_counter] = ')';
+		past_2pp[past_basis_counter + 1] = 'l';
+		past_2pp[past_basis_counter + 2] = 'a';
+		past_2pp[past_basis_counter + 3] = 't';
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1362,10 +1426,6 @@ void past_tense ()
 	{
         strcpy(past_3pp, "woiseer");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(past_3pp, "siemm(e)leer");
-	}
 	else if (past_basis[strlen(past_basis) - 2] == 'e' && past_basis[strlen(past_basis) - 1] == 'r')
 	{
 		if (past_basis[strlen(past_basis) - 3] == 'c' || past_basis[strlen(past_basis) - 3] == 'g' || (past_basis[strlen(past_basis) - 4] == 'q' && past_basis[strlen(past_basis) - 3] == 'u') || past_basis[strlen(past_basis) - 3] == 'r')
@@ -1386,6 +1446,16 @@ void past_tense ()
 			past_3pp[past_basis_counter + 3] = 'e';
 			past_3pp[past_basis_counter + 4] = 'r';
 		}
+	}
+	else if (past_3pp[strlen(past_3pp) - 2] == 'e' && past_3pp[strlen(past_3pp) - 1] == 'l')
+	{
+		past_3pp[past_basis_counter - 2] = '(';
+		past_3pp[past_basis_counter - 1] = 'e';
+		past_3pp[past_basis_counter] = ')';
+		past_3pp[past_basis_counter + 1] = 'l';
+		past_3pp[past_basis_counter + 2] = 'e';
+		past_3pp[past_basis_counter + 3] = 'e';
+		past_3pp[past_basis_counter + 4] = 'r';
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1455,10 +1525,6 @@ void infinitive_verb ()
 	{
         strcpy(infinitive, "woide");
 	}
-	else if (strcmp(argument, "sammel") == 0) // Problematic verb
-	{
-        strcpy(infinitive, "sammel");
-	}
 	else if (check_ei() || check_eu())
 	{
 		GOTO_EU2:
@@ -1489,6 +1555,10 @@ void infinitive_verb ()
 			infinitive[counter] = 'e';
 			infinitive[counter + 1] = 's';
 		}
+	}
+	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l')
+	{
+		strcpy(infinitive, argument);
 	}
 	else
 	{
@@ -1786,8 +1856,7 @@ void past_participe ()
 		strcpy(participe_en, present_basis);
 	}
 
-	// Smetimes happes that a verb has an ablaut or nasal infix and also follow the Von Wahl rules
-	if (check_von_wahl())
+	if (check_von_wahl() && !(check_a()))
 	{
 		memset(participe_t, '\0', strlen(participe_t));
 		//memset(participe_en, '\0', strlen(participe_en));
@@ -1825,30 +1894,21 @@ void past_participe ()
 	}
 
 
+	if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h') && !(participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'r') && !(participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'l')) participe_en[strlen(participe_en)] = 'e';
+
+	participe_en[strlen(participe_en)] = 'n';
 
 
-
-	if (strcmp(argument, "sammel") == 0) // Problematic verb
+	if (check_von_wahl())
 	{
-        strcpy(participe_en, "sammeln");
-	}
-	else
-	{
-		if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h') && !(participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'r')) participe_en[strlen(participe_en)] = 'e';
-		participe_en[strlen(participe_en)] = 'n';
-
-		if (check_von_wahl())
+		if (argument[strlen(argument) - 2] == 's' && argument[strlen(argument) - 1] == 'd') // For correcting words like scinesd, otherwise we will get "scinden" instead the correct "scisden"
 		{
-			if (argument[strlen(argument) - 2] == 's' && argument[strlen(argument) - 1] == 'd') // For correcting words like scinesd, otherwise we will get "scinden" instead the correct "scisden"
-			{
-				participe_en[strlen(participe_en) - 3] = 'd';
-			}
-			else if (participe_en[strlen(participe_en) - 3] == 's' && participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'n') // For correcting words like "funed", otherwise we eil get "fusen" instead the correct "fuden"
-			{
-				participe_en[strlen(participe_en) - 3] = 'd';
-			}
+			participe_en[strlen(participe_en) - 3] = 'd';
 		}
-
+		else if (participe_en[strlen(participe_en) - 3] == 's' && participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'n') // For correcting words like "funed", otherwise we eil get "fusen" instead the correct "fuden"
+		{
+			participe_en[strlen(participe_en) - 3] = 'd';
+		}
 	}
 }
 
@@ -1947,7 +2007,7 @@ void conjugation ()
 	else if (lang == 10) printf("\nPrezenco: ");
 	else printf("\nPresent tid: ");
 	// -----
-	if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r')) strcpy(io_pronoun, "io ");
+	if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r') || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'l')) strcpy(io_pronoun, "io ");
 	else strcpy(io_pronoun, "");
 	printf("%s%s, %s, %s, %s, yu %s, %s", io_pronoun, present_1ps, present_2ps, present_3ps, present_1pp, present_2pp, present_3pp);
 
@@ -1957,7 +2017,7 @@ void conjugation ()
 	else if (lang == 6) printf("\nPass" SMALL_E_ACUTE " : ");
 	else if (lang == 8 || lang == 9) printf("\nPasado: ");
 	else if (lang == 10) printf("\nPreterito: ");
-	else printf("\nPrev tid: ");
+	else printf("\nPreterit: ");
 	// -----
 	printf("%s, %s, %s, %s, %s, %s", past_1ps, past_2ps, past_3ps, past_1pp, past_2pp, past_3pp);
 

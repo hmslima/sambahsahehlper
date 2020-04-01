@@ -37,7 +37,6 @@ short int lang = 1; /* Defines the language of the system through integer number
 #include "pronunciation.h"
 #include "conjugation.h"
 #include "cases.h"
-#include "plural.h"
 
 int main ()
 {

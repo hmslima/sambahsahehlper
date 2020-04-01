@@ -88,6 +88,16 @@ else if (strcmp(argument, "dement") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "mEnt");
 }
+else if (strcmp(argument, "ees") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "E" SMALL_E_DIAERESIS_IN_TEXT "s");
+}
+else if (strcmp(argument, "eet") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "E" SMALL_E_DIAERESIS_IN_TEXT "t");
+}
 else if (strcmp(argument, "excerpt") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -112,6 +122,11 @@ else if (strcmp(argument, "kaapstad") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "kA:pstat");
+}
+else if (strcmp(argument, "kiwi") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "kiwI");
 }
 else if (strcmp(argument, "negleg") == 0)
 {
@@ -152,6 +167,11 @@ else if (strcmp(argument, "presents") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "zEnt");
+}
+else if (strcmp(argument, "preterit") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "preterIt");
 }
 else if (strcmp(argument, "preven") == 0)
 {
@@ -212,5 +232,10 @@ else if (strcmp(argument, "suggest") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "sugdjEst");
+}
+else if (strcmp(argument, "yui") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "yuI");
 }
 

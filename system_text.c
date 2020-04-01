@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("###############################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER v 0.19 ###########################\n");
+	printf ("########################### SAMBAHSA HEHLPER v 0.20 ###########################\n");
 	printf ("###############################################################################\n");
 }
 
@@ -42,7 +42,6 @@ void help (short int lang)
 			printf ("\nEn ia commandes:\n");
 			printf ("\n* \"salg\" au \"exit\": exeiht id programme");
 			printf ("\n* \"falls\": skaut un tabell om declination falls");
-			printf ("\n* \"prl\" au \"plural\": daht id plural forme ios insert werd");
 			printf ("\n* \"deflang\": meitht id bahsa ios programme");
 			printf ("\n    * \"deflang sb\": pro sambahsa-mundialect");
 			printf ("\n    * \"deflang pt\": pro portughesche");
@@ -118,7 +117,7 @@ void help (short int lang)
 			printf ("\n");
 			printf ("\nHere are the commands:\n");
 			printf ("\n* \"exit\": exits the program");
-			printf ("\n* \"cases\": shows a table declination cases");
+			printf ("\n* \"cases\": shows a table of declination cases");
 			printf ("\n* \"setlang\": changes the language of the program");
 			printf ("\n    * \"setlang sb\": for Sambahsa-Mundialect");
 			printf ("\n    * \"setlang pt\": for Portuguese");

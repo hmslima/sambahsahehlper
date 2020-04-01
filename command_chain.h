@@ -49,7 +49,4 @@ switch (command_number)
 	case 1002: // Conjugates the given word
 		conjugation ();
 	break;
-	case 1003: // Conjugates the given word
-		plural ();
-	break;
 }

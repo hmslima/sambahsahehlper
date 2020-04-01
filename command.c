@@ -50,15 +50,32 @@ short int define_command_number (char command_name[64])
 {
 	short int command_number;
 	if ((strcmp(command_name, "salg") == 0) || (strcmp(command_name, "exit") == 0) || (strcmp(command_name, "sair") == 0) || (strcmp(command_name, "salir") == 0) || (strcmp(command_name, "sortir") == 0) || (strcmp(command_name, "eliri") == 0)) command_number = 1;
+	else if ((strcmp(command_name, "Salg") == 0) || (strcmp(command_name, "Exit") == 0) || (strcmp(command_name, "Sair") == 0) || (strcmp(command_name, "Salir") == 0) || (strcmp(command_name, "Sortir") == 0) || (strcmp(command_name, "Eliri") == 0)) command_number = 1;
+	else if ((strcmp(command_name, "SALG") == 0) || (strcmp(command_name, "EXIT") == 0) || (strcmp(command_name, "SAIR") == 0) || (strcmp(command_name, "SALIR") == 0) || (strcmp(command_name, "SORTIR") == 0) || (strcmp(command_name, "ELIRI") == 0)) command_number = 1;
 	else if ((strcmp(command_name, "hehlp") == 0) || (strcmp(command_name, "help") == 0) || (strcmp(command_name, "ajuda") == 0) || (strcmp(command_name, "aide") == 0) || (strcmp(command_name, "helpo") == 0) || (strcmp(command_name, "ayuda") == 0)) command_number = 2;
+	else if ((strcmp(command_name, "Hehlp") == 0) || (strcmp(command_name, "Help") == 0) || (strcmp(command_name, "Ajuda") == 0) || (strcmp(command_name, "Aide") == 0) || (strcmp(command_name, "Helpo") == 0) || (strcmp(command_name, "Ayuda") == 0)) command_number = 2;
+	else if ((strcmp(command_name, "HEHLP") == 0) || (strcmp(command_name, "HELP") == 0) || (strcmp(command_name, "AJUDA") == 0) || (strcmp(command_name, "AIDE") == 0) || (strcmp(command_name, "HELPO") == 0) || (strcmp(command_name, "AYUDA") == 0)) command_number = 2;
 	else if (strcmp(command_name, "log") == 0) command_number = 3;
+	else if (strcmp(command_name, "Log") == 0) command_number = 3;
+	else if (strcmp(command_name, "LOG") == 0) command_number = 3;
 	else if (strcmp(command_name, "testpnc") == 0) command_number = 4;
+	else if (strcmp(command_name, "Testpnc") == 0) command_number = 4;
+	else if (strcmp(command_name, "TESTPNC") == 0) command_number = 4;
 	else if ((strcmp(command_name, "pncliste") == 0) || (strcmp(command_name, "listepnc") == 0) || (strcmp(command_name, "pnclist") == 0) || (strcmp(command_name, "listpnc") == 0)) command_number = 5;
+	else if ((strcmp(command_name, "Pncliste") == 0) || (strcmp(command_name, "Listepnc") == 0) || (strcmp(command_name, "Pnclist") == 0) || (strcmp(command_name, "Listpnc") == 0)) command_number = 5;
+	else if ((strcmp(command_name, "PNCLISTE") == 0) || (strcmp(command_name, "LISTEPNC") == 0) || (strcmp(command_name, "PNCLIST") == 0) || (strcmp(command_name, "LISTPNC") == 0)) command_number = 5;
 	else if ((strcmp(command_name, "falls") == 0) || (strcmp(command_name, "casos") == 0) || (strcmp(command_name, "cases") == 0) || (strcmp(command_name, "kazoj") == 0) || (strcmp(command_name, "cas") == 0)) command_number = 6;
+	else if ((strcmp(command_name, "Falls") == 0) || (strcmp(command_name, "Casos") == 0) || (strcmp(command_name, "Cases") == 0) || (strcmp(command_name, "Kazoj") == 0) || (strcmp(command_name, "Cas") == 0)) command_number = 6;
+	else if ((strcmp(command_name, "FALLS") == 0) || (strcmp(command_name, "CASOS") == 0) || (strcmp(command_name, "CASES") == 0) || (strcmp(command_name, "KAZOJ") == 0) || (strcmp(command_name, "CAS") == 0)) command_number = 6;
 	else if ((strcmp(command_name, "deflang") == 0) || (strcmp(command_name, "setlang") == 0)) command_number = 1000;
+	else if ((strcmp(command_name, "Deflang") == 0) || (strcmp(command_name, "Setlang") == 0)) command_number = 1000;
+	else if ((strcmp(command_name, "DEFLANG") == 0) || (strcmp(command_name, "SETLANG") == 0)) command_number = 1000;
 	else if ((strcmp(command_name, "pnc") == 0) || (strcmp(command_name, "pronunce") == 0)) command_number = 1001;
+	else if ((strcmp(command_name, "Pnc") == 0) || (strcmp(command_name, "Pronunce") == 0)) command_number = 1001;
+	else if ((strcmp(command_name, "PNC") == 0) || (strcmp(command_name, "PRONUNCE") == 0)) command_number = 1001;
 	else if ((strcmp(command_name, "cjg") == 0) || (strcmp(command_name, "conjuge") == 0)) command_number = 1002;
-	else if ((strcmp(command_name, "prl") == 0) || (strcmp(command_name, "plural") == 0)) command_number = 1003;
+	else if ((strcmp(command_name, "Cjg") == 0) || (strcmp(command_name, "Conjuge") == 0)) command_number = 1002;
+	else if ((strcmp(command_name, "CJG") == 0) || (strcmp(command_name, "CONJUGE") == 0)) command_number = 1002;
 	else command_number = 0; // 0 means invalid command
 
 	return command_number;

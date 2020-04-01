@@ -159,6 +159,12 @@ for "special" characters:
 
 #define SECTION_SIGN_IN_TEXT "\xf5"
 
+#define DEGREE_SYMBOL "\xf8"
+
+#define SUPERSCRIPT_ONE "\xfb"
+#define SUPERSCRIPT_TWO "\xfd"
+#define SUPERSCRIPT_THREE "\xfc"
+
 #else
 
 #define SMALL_A_ACUTE "\u00e1"
@@ -237,6 +243,12 @@ for "special" characters:
 #define CAPITAL_U_DIAERESIS_IN_TEXT "\u00dc"
 
 #define SECTION_SIGN_IN_TEXT "\u00a7"
+
+#define DEGREE_SYMBOL "\u00b0"
+
+#define SUPERSCRIPT_ONE "\u00b9"
+#define SUPERSCRIPT_TWO "\u00b2"
+#define SUPERSCRIPT_THREE "\u00b3"
 
 #endif
 

@@ -1208,9 +1208,8 @@ void pronunciation ()
 
 				else if (!(stress) && (argument[arg_counter + 1] == 'e'))
 				{
-					SPT_word[SPT_counter] = 'E';
+					SPT_word[SPT_counter] = 'e'; // This one was stressed 'E', but it's not good for words like "leepard"
 					SPT_counter++;
-					stress = TRUE;
 				}
 				else if (argument[arg_counter - 1] == 'e')
 				{
@@ -2116,15 +2115,24 @@ void pronunciation ()
 						// It's safe to make this e non-stressed because there are at least two vowels ahead
 						else if (is_there_more_than_one_vowel_after_problematic_e (argument, arg_counter))
 						{
-							if (show_system_messages) printf("\npoint is_there_more_than_one_vowel_after_problematic_e");
-							#ifdef _WIN32
-							SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
-							SPT_counter++;
-							#else
-							strncat(SPT_word, SMALL_E_DIAERESIS, 6);
-							SPT_counter = SPT_counter + 2;
-							#endif
-							occurrence_of_the_small_e_diaeresis++;
+							if (argument[arg_counter + 1] == 'e' || argument[arg_counter + 1] == 'o')
+							{
+								if (show_system_messages) printf("\npoint is_there_more_than_one_vowel_after_problematic_e_but_there_is_an_\"e\"_or_\"o\"");
+								SPT_word[SPT_counter] = 'e';
+								SPT_counter++;
+							}
+							else
+							{
+								if (show_system_messages) printf("\npoint is_there_more_than_one_vowel_after_problematic_e");
+								#ifdef _WIN32
+								SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
+								SPT_counter++;
+								#else
+								strncat(SPT_word, SMALL_E_DIAERESIS, 6);
+								SPT_counter = SPT_counter + 2;
+								#endif
+								occurrence_of_the_small_e_diaeresis++;
+							}
 						}
 						else
 						{
@@ -2186,9 +2194,18 @@ void pronunciation ()
 					SPT_counter++;
 				}
 
-				/************* -in **/
+				/************* -in(s) **/
 
-				else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 1] == 'n') && (argument[arg_counter + 2] == '\0'))
+				else if (!(stress) && (is_there_more_than_one_vowel ()) && argument[arg_counter + 1] == 'n' && (argument[arg_counter + 2] == '\0' || (argument[arg_counter + 2] == 's' && argument[arg_counter + 3] == '\0')))
+				{
+					SPT_word[SPT_counter] = 'I';
+					stress = TRUE;
+					SPT_counter++;
+				}
+
+				/************* -ui(s) **/
+
+				else if (!(stress) && (is_there_more_than_one_vowel ()) && argument[arg_counter - 1] == 'u' && SPT_word[SPT_counter - 1] == 'w' && (argument[arg_counter + 1] == '\0' || (argument[arg_counter + 1] == 's' && argument[arg_counter + 2] == '\0')))
 				{
 					SPT_word[SPT_counter] = 'I';
 					stress = TRUE;
@@ -3504,6 +3521,11 @@ void pronunciation ()
 				}
 			}
 			else if ((is_it_vowel (argument[arg_counter - 1])) && (is_it_vowel (argument[arg_counter + 1])) && (argument[arg_counter - 1] != 'w' && argument[arg_counter - 1] != 'y'))
+			{
+				SPT_word[SPT_counter] = 'z';
+				SPT_counter++;
+			}
+			else if (argument[arg_counter - 1] == 'b' || argument[arg_counter - 1] == 'g' || argument[arg_counter - 1] == 'd')
 			{
 				SPT_word[SPT_counter] = 'z';
 				SPT_counter++;
