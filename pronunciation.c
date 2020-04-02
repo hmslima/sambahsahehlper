@@ -495,8 +495,8 @@ void pronunciation ()
 						#endif
 						stress = TRUE;
 					}
-					// -ai
-					else if (!(stress) && (is_there_more_than_one_vowel ()) && argument[arg_counter + 2] == '\0')
+					// -ai(s)
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && ((argument[arg_counter + 2] == 's' && argument[arg_counter + 3] == '\0') || argument[arg_counter + 2] == '\0'))
 					{
 						if (show_system_messages) printf("\npoint -ai");
 						#ifdef _WIN32
@@ -764,7 +764,7 @@ void pronunciation ()
 						}
 					}
 					// aiCeC(s)\0
-					else if ((is_it_consonant(argument[arg_counter + 2])) && (argument[arg_counter + 3] == 'e') && (is_it_consonant(argument[arg_counter + 4])) && (((argument[arg_counter + 5] == 's' && argument[arg_counter + 4] != 's') && argument[arg_counter + 6] == '\0') || argument[arg_counter + 5] == '\0'))
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (is_it_consonant(argument[arg_counter + 2])) && (argument[arg_counter + 3] == 'e') && (is_it_consonant(argument[arg_counter + 4])) && (((argument[arg_counter + 5] == 's' && argument[arg_counter + 4] != 's') && argument[arg_counter + 6] == '\0') || argument[arg_counter + 5] == '\0'))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
@@ -776,7 +776,7 @@ void pronunciation ()
 						stress = TRUE;
 					}
 					// aiCCeC(s)\0
-					else if ((is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 'e') && (is_it_consonant(argument[arg_counter + 5])) && ((((argument[arg_counter + 6] == 's' && argument[arg_counter + 5] != 's') && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0')))
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 'e') && (is_it_consonant(argument[arg_counter + 5])) && ((((argument[arg_counter + 6] == 's' && argument[arg_counter + 5] != 's') && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0')))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
@@ -788,7 +788,7 @@ void pronunciation ()
 						stress = TRUE;
 					}
 					// aiCCCeC(s)\0
-					else if ((is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (is_it_consonant(argument[arg_counter + 6])) && ((((argument[arg_counter + 7] == 's' && argument[arg_counter + 6] != 's') && argument[arg_counter + 8] == '\0') || argument[arg_counter + 7] == '\0')))
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (is_it_consonant(argument[arg_counter + 6])) && ((((argument[arg_counter + 7] == 's' && argument[arg_counter + 6] != 's') && argument[arg_counter + 8] == '\0') || argument[arg_counter + 7] == '\0')))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
@@ -800,7 +800,7 @@ void pronunciation ()
 						stress = TRUE;
 					}
 					// ai(wy)CeC(s)\0
-					else if ((argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && is_it_consonant(argument[arg_counter + 3]) && (argument[arg_counter + 4] == 'e') && (is_it_consonant(argument[arg_counter + 5])) && (((argument[arg_counter + 6] == 's' && argument[arg_counter + 5] != 's') && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0'))
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && is_it_consonant(argument[arg_counter + 3]) && (argument[arg_counter + 4] == 'e') && (is_it_consonant(argument[arg_counter + 5])) && (((argument[arg_counter + 6] == 's' && argument[arg_counter + 5] != 's') && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0'))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
@@ -812,7 +812,7 @@ void pronunciation ()
 						stress = TRUE;
 					}
 					// ai(wy)CCeC(s)\0
-					else if ((argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') &&  (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (is_it_consonant(argument[arg_counter + 6])) && (((argument[arg_counter + 7] == 's' && argument[arg_counter + 6] != 's') && argument[arg_counter + 8] == '\0') || argument[arg_counter + 7] == '\0'))
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') &&  (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (is_it_consonant(argument[arg_counter + 6])) && (((argument[arg_counter + 7] == 's' && argument[arg_counter + 6] != 's') && argument[arg_counter + 8] == '\0') || argument[arg_counter + 7] == '\0'))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
@@ -824,7 +824,127 @@ void pronunciation ()
 						stress = TRUE;
 					}
 					// ai(wy)CCCeC(s)\0
-					else if ( (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (is_it_consonant(argument[arg_counter + 5])) && (argument[arg_counter + 6] == 'e') && (is_it_consonant(argument[arg_counter + 7])) && (((argument[arg_counter + 8] == 's' && argument[arg_counter + 7] != 's') && argument[arg_counter + 9] == '\0') || argument[arg_counter + 8] == '\0'))
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (is_it_consonant(argument[arg_counter + 5])) && (argument[arg_counter + 6] == 'e') && (is_it_consonant(argument[arg_counter + 7])) && (((argument[arg_counter + 8] == 's' && argument[arg_counter + 7] != 's') && argument[arg_counter + 9] == '\0') || argument[arg_counter + 8] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// aiCeCC(s)\0
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (argument[arg_counter + 3] == 'e') && is_it_consonant(argument[arg_counter + 4]) && is_it_consonant(argument[arg_counter + 5]) && !((argument[arg_counter + 4] == argument[arg_counter + 5]) || (argument[arg_counter + 4] == 'c' && argument[arg_counter + 5] == 'k')) && (((argument[arg_counter + 6] == 's' && argument[arg_counter + 5] != 's') && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// aiCCeCC(s)\0
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 'e') && (is_it_consonant(argument[arg_counter + 5])) && is_it_consonant(argument[arg_counter + 6]) && !((argument[arg_counter + 5] == argument[arg_counter + 6]) || (argument[arg_counter + 5] == 'c' && argument[arg_counter + 6] == 'k')) && ((((argument[arg_counter + 7] == 's' && argument[arg_counter + 6] != 's') && argument[arg_counter + 8] == '\0') || argument[arg_counter + 7] == '\0')))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// aiCCCeCC(s)\0
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (is_it_consonant(argument[arg_counter + 6])) && is_it_consonant(argument[arg_counter + 7]) && !((argument[arg_counter + 6] == argument[arg_counter + 7]) || (argument[arg_counter + 6] == 'c' && argument[arg_counter + 7] == 'k')) && ((((argument[arg_counter + 8] == 's' && argument[arg_counter + 7] != 's') && argument[arg_counter + 9] == '\0') || argument[arg_counter + 8] == '\0')))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// ai(wy)CeCC(s)\0
+					else if ((argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && is_it_consonant(argument[arg_counter + 3]) && (argument[arg_counter + 4] == 'e') && (is_it_consonant(argument[arg_counter + 5])) && is_it_consonant(argument[arg_counter + 6]) && !((argument[arg_counter + 5] == argument[arg_counter + 6]) || (argument[arg_counter + 5] == 'c' && argument[arg_counter + 6] == 'k')) && (((argument[arg_counter + 7] == 's' && argument[arg_counter + 6] != 's') && argument[arg_counter + 8] == '\0') || argument[arg_counter + 7] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// ai(wy)CCeCC(s)\0
+					else if ((argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') &&  (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (is_it_consonant(argument[arg_counter + 6])) && is_it_consonant(argument[arg_counter + 7]) && !((argument[arg_counter + 6] == argument[arg_counter + 7]) || (argument[arg_counter + 6] == 'c' && argument[arg_counter + 7] == 'k')) && (((argument[arg_counter + 8] == 's' && argument[arg_counter + 7] != 's') && argument[arg_counter + 9] == '\0') || argument[arg_counter + 8] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// ai(wy)CCCeCC(s)\0
+					else if ( (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (is_it_consonant(argument[arg_counter + 5])) && (argument[arg_counter + 6] == 'e') && (is_it_consonant(argument[arg_counter + 7])) && is_it_consonant(argument[arg_counter + 8]) && !((argument[arg_counter + 7] == argument[arg_counter + 8]) || (argument[arg_counter + 7] == 'c' && argument[arg_counter + 8] == 'k')) && (((argument[arg_counter + 9] == 's' && argument[arg_counter + 8] != 's') && argument[arg_counter + 10] == '\0') || argument[arg_counter + 9] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// ai(wy)eC(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && (argument[arg_counter + 3] == 'e') && (is_it_consonant(argument[arg_counter + 4])) && ((argument[arg_counter + 5] == 's' && argument[arg_counter + 6] == '\0') || argument[arg_counter + 5] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// ai(wy)eCC(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && (argument[arg_counter + 3] == 'e') && (is_it_consonant(argument[arg_counter + 4])) && (is_it_consonant(argument[arg_counter + 5])) && !((argument[arg_counter + 4] == argument[arg_counter + 5]) || (argument[arg_counter + 4] == 'c' && argument[arg_counter + 5] == 'k')) && ((argument[arg_counter + 6] == 's' && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// ai(wy)C(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && is_it_consonant(argument[arg_counter + 3]) && ((argument[arg_counter + 4] == 's' && argument[arg_counter + 5] == '\0') || argument[arg_counter + 4] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_A_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// ai(wy)V(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && is_it_vowel(argument[arg_counter + 3]) && ((argument[arg_counter + 4] == 's' && argument[arg_counter + 5] == '\0') || argument[arg_counter + 4] == '\0'))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_A_DIAERESIS;
@@ -1336,6 +1456,78 @@ void pronunciation ()
 						#endif
 						stress = TRUE;
 					}
+					// euCeCC(s)\0
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (argument[arg_counter + 3] == 'e') && is_it_consonant(argument[arg_counter + 4]) && is_it_consonant(argument[arg_counter + 5]) && !((argument[arg_counter + 4] == argument[arg_counter + 5]) || (argument[arg_counter + 4] == 'c' && argument[arg_counter + 5] == 'k')) && (((argument[arg_counter + 6] == 's' && argument[arg_counter + 5] != 's') && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// euCCeCC(s)\0
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 'e') && (is_it_consonant(argument[arg_counter + 5])) && is_it_consonant(argument[arg_counter + 6]) && !((argument[arg_counter + 5] == argument[arg_counter + 6]) || (argument[arg_counter + 5] == 'c' && argument[arg_counter + 6] == 'k')) && ((((argument[arg_counter + 7] == 's' && argument[arg_counter + 6] != 's') && argument[arg_counter + 8] == '\0') || argument[arg_counter + 7] == '\0')))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// euCCCeCC(s)\0
+					else if ((is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (is_it_consonant(argument[arg_counter + 6])) && is_it_consonant(argument[arg_counter + 7]) && !((argument[arg_counter + 6] == argument[arg_counter + 7]) || (argument[arg_counter + 6] == 'c' && argument[arg_counter + 7] == 'k')) && ((((argument[arg_counter + 8] == 's' && argument[arg_counter + 7] != 's') && argument[arg_counter + 9] == '\0') || argument[arg_counter + 8] == '\0')))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// eu(wy)CeCC(s)\0
+					else if ((argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && is_it_consonant(argument[arg_counter + 3]) && (argument[arg_counter + 4] == 'e') && (is_it_consonant(argument[arg_counter + 5])) && is_it_consonant(argument[arg_counter + 6]) && !((argument[arg_counter + 5] == argument[arg_counter + 6]) || (argument[arg_counter + 5] == 'c' && argument[arg_counter + 6] == 'k')) && (((argument[arg_counter + 7] == 's' && argument[arg_counter + 6] != 's') && argument[arg_counter + 8] == '\0') || argument[arg_counter + 7] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// eu(wy)CCeCC(s)\0
+					else if ((argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') &&  (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 'e') && (is_it_consonant(argument[arg_counter + 6])) && is_it_consonant(argument[arg_counter + 7]) && !((argument[arg_counter + 6] == argument[arg_counter + 7]) || (argument[arg_counter + 6] == 'c' && argument[arg_counter + 7] == 'k')) && (((argument[arg_counter + 8] == 's' && argument[arg_counter + 7] != 's') && argument[arg_counter + 9] == '\0') || argument[arg_counter + 8] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// eu(wy)CCCeCC(s)\0
+					else if ( (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (is_it_consonant(argument[arg_counter + 5])) && (argument[arg_counter + 6] == 'e') && (is_it_consonant(argument[arg_counter + 7])) && is_it_consonant(argument[arg_counter + 8]) && !((argument[arg_counter + 7] == argument[arg_counter + 8]) || (argument[arg_counter + 7] == 'c' && argument[arg_counter + 8] == 'k')) && (((argument[arg_counter + 9] == 's' && argument[arg_counter + 8] != 's') && argument[arg_counter + 10] == '\0') || argument[arg_counter + 9] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
 					// euCC\0 ex: cancersieugs
 					else if (!(stress) && (is_there_more_than_one_vowel ()) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (argument[arg_counter + 4] == '\0'))
 					{
@@ -1350,6 +1542,66 @@ void pronunciation ()
 					}
 					// euCCC\0 ex: bedreughs
 					else if (!(stress) && (is_there_more_than_one_vowel ()) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (is_it_consonant(argument[arg_counter + 4])) && (argument[arg_counter + 5] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// eu(wy)eC(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && (argument[arg_counter + 3] == 'e') && (is_it_consonant(argument[arg_counter + 4])) && ((argument[arg_counter + 5] == 's' && argument[arg_counter + 6] == '\0') || argument[arg_counter + 5] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// eu(wy)eCC(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && (argument[arg_counter + 3] == 'e') && (is_it_consonant(argument[arg_counter + 4])) && (is_it_consonant(argument[arg_counter + 5])) && !((argument[arg_counter + 4] == argument[arg_counter + 5]) || (argument[arg_counter + 4] == 'c' && argument[arg_counter + 5] == 'k')) && ((argument[arg_counter + 6] == 's' && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// eu(wy)(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && ((argument[arg_counter + 3] == 's' && argument[arg_counter + 4] == '\0') || argument[arg_counter + 3] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// eu(wy)C(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && is_it_consonant(argument[arg_counter + 3]) && ((argument[arg_counter + 4] == 's' && argument[arg_counter + 5] == '\0') || argument[arg_counter + 4] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// eu(wy)V(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && (argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == 'y') && is_it_vowel(argument[arg_counter + 3]) && ((argument[arg_counter + 4] == 's' && argument[arg_counter + 5] == '\0') || argument[arg_counter + 4] == '\0'))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
@@ -3592,6 +3844,10 @@ void pronunciation ()
 					#endif
 				}
 				arg_counter++; // Yeah, you must jump one letter
+			}
+			else if (argument[arg_counter - 1] == 't')
+			{
+				// Do nothing
 			}
 			else
 			{
