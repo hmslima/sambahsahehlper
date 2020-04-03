@@ -76,7 +76,11 @@ short int check_nasal_infix ()
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e cannot have nasal infix
 	if (!(is_there_more_than_one_vowel())) x = 0; // If there is only one vowel, like the invented word "men", there cannot be a nasal infix
 
-	if (strcmp(argument, "hensel") == 0) x = 0;
+	// Some "illogic" words that have no nasal infix because their "e" are stressed
+	if ((strcmp(argument, "absent") == 0) || (strcmp(argument, "ascend") == 0) || (strcmp(argument, "comprehend") == 0) || (strcmp(argument, "hensel") == 0) || (strcmp(argument, "negleg") == 0) || (strcmp(argument, "preven") == 0))
+	{
+		x = 0;
+	}
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -179,8 +183,10 @@ short int check_a ()
 				x++;
 		}
 		// Test the "a" in other positions
-		else if (!(argument[arg_counter - 1] == '\0') && argument[arg_counter] == 'a' && argument[arg_counter + 1] != '\0' && (is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'u') && !(argument[arg_counter + 1] == 'h' && argument[arg_counter + 2] == '\0'))
+		else if (argument[arg_counter - 1] != '\0' && argument[arg_counter] == 'a' && argument[arg_counter + 1] != '\0' && (is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'y' || argument[arg_counter + 1] == 'u') && !(argument[arg_counter + 1] == 'h' && argument[arg_counter + 2] == '\0'))
+		{
 			x++;
+		}
 	}
 
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut

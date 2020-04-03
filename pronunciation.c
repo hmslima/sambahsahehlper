@@ -2130,12 +2130,25 @@ void pronunciation ()
 								#endif
 								occurrence_of_the_small_e_diaeresis++;
 							}
-							// ies\0 || yes\0
-							else if ((argument[arg_counter - 1] == 'i' || argument[arg_counter - 1] == 'y') && argument[arg_counter + 1] == 's' && argument[arg_counter + 2] == '\0')
+							// ies\0
+							else if (argument[arg_counter - 1] == 'i' && argument[arg_counter + 1] == 's' && argument[arg_counter + 2] == '\0')
 							{
-								if (show_system_messages) printf("\npoint yes");
+								if (show_system_messages) printf("\npoint ies");
 								SPT_word[SPT_counter] = 'e';
 								SPT_counter++;
+							}
+							// yes\0
+							else if (argument[arg_counter - 1] == 'y' && argument[arg_counter + 1] == 's' && argument[arg_counter + 2] == '\0')
+							{
+								if (show_system_messages) printf("\npoint yes");
+								#ifdef _WIN32
+								SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
+								SPT_counter++;
+								#else
+								strncat(SPT_word, SMALL_E_DIAERESIS, 6);
+								SPT_counter = SPT_counter + 2;
+								#endif
+								occurrence_of_the_small_e_diaeresis++;
 							}
 							// wes\0
 							else if (argument[arg_counter - 1] == 'w' && argument[arg_counter + 1] == 's' && argument[arg_counter + 2] == '\0')
@@ -2787,7 +2800,7 @@ void pronunciation ()
 				/************* uCe... **/
 
 				//uCes
-				else if (is_it_consonant(argument[arg_counter + 1]) && argument[arg_counter + 2] == 'e' && argument[arg_counter + 3] == 's' && argument[arg_counter + 4] == '\0')
+				else if ((is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'w' || argument[arg_counter + 1] == 'y') && argument[arg_counter + 2] == 'e' && argument[arg_counter + 3] == 's' && argument[arg_counter + 4] == '\0')
 				{
 					if (argument[arg_counter + 1] == 'l') // -ules doesn't get stress
 					{

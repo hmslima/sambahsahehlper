@@ -3,6 +3,11 @@ if (strcmp(argument, "absent") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "absEnt");
 }
+if (strcmp(argument, "absents") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "absEnts");
+}
 else if (strcmp(argument, "addic") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -17,6 +22,11 @@ else if (strcmp(argument, "affec") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "affEk");
+}
+else if (strcmp(argument, "affecs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "affEks");
 }
 else if (strcmp(argument, "aflig") == 0)
 {
@@ -68,6 +78,16 @@ else if (strcmp(argument, "comprehend") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "kompr" SMALL_E_DIAERESIS_IN_TEXT "hEnd");
 }
+else if (strcmp(argument, "concept") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "kon(t)sEpt");
+}
+else if (strcmp(argument, "concepts") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "kon(t)sEpts");
+}
 else if (strcmp(argument, "decent") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -87,6 +107,11 @@ else if (strcmp(argument, "dement") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "mEnt");
+}
+else if (strcmp(argument, "dements") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "mEnts");
 }
 else if (strcmp(argument, "ees") == 0)
 {
@@ -127,6 +152,11 @@ else if (strcmp(argument, "kiwi") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "kiwI");
+}
+else if (strcmp(argument, "kiwis") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "kiwIs");
 }
 else if (strcmp(argument, "negleg") == 0)
 {
@@ -187,6 +217,16 @@ else if (strcmp(argument, "prophets") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "profEts");
+}
+else if (strcmp(argument, "prospect") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "prospEkt");
+}
+else if (strcmp(argument, "prospects") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "prospEkts");
 }
 else if (strcmp(argument, "recent") == 0 || strcmp(argument, "reccess") == 0)
 {
