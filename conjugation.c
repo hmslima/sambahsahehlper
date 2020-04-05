@@ -403,7 +403,7 @@ void present_tense ()
 	{
 		// Do nothing
 	}
-	else if (present_basis[strlen(present_basis) - 2] == 'e' && present_basis[strlen(present_basis) - 1] == 'l')
+	else if (present_basis[strlen(present_basis) - 3] != 'i' && present_basis[strlen(present_basis) - 2] == 'e' && present_basis[strlen(present_basis) - 1] == 'l')
 	{
 		// Do nothing
 	}
@@ -532,7 +532,7 @@ void present_tense ()
 		present_1pp[present_1pp_counter] = 'm';
 		present_1pp[present_1pp_counter + 1] = 's';
 	}
-	else if (present_1pp[strlen(present_1pp) - 2] == 'e' && present_1pp[strlen(present_1pp) - 1] == 'l')
+	else if (present_1pp[strlen(present_1pp) - 3] != 'i' && present_1pp[strlen(present_1pp) - 2] == 'e' && present_1pp[strlen(present_1pp) - 1] == 'l')
 	{
 		present_1pp_counter = strlen(present_1pp);
 		present_1pp[present_1pp_counter] = 'm';
@@ -580,7 +580,7 @@ void present_tense ()
 		else if (present_2pp[strlen(present_2pp) - 1] == 'b') present_2pp[strlen(present_2pp) - 1] = 'p';
 		else if (present_2pp[strlen(present_2pp) - 2] != 'g' && present_2pp[strlen(present_2pp) - 1] == 'v') present_2pp[strlen(present_2pp) - 1] = 'f';
 
-		if ((present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'r') || (present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'l'))
+		if ((present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'r') || (present_2pp[present_2pp_counter - 3] != 'i' && present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'l'))
 		{
 			present_2pp[present_2pp_counter] = 't';
 		}
@@ -614,7 +614,7 @@ void present_tense ()
 	else
 	{
 		present_3pp_counter = strlen(present_3pp);
-		if ((is_it_vowel(present_3pp[present_3pp_counter - 1])) || (present_3pp[present_3pp_counter - 1] == 'h' && is_it_vowel(present_3pp[present_3pp_counter - 2])) || (present_3pp[present_3pp_counter - 2] == 'e' && present_3pp[present_3pp_counter - 1] == 'r') || (present_3pp[present_3pp_counter - 2] == 'e' && present_3pp[present_3pp_counter - 1] == 'l'))
+		if (is_it_vowel(present_3pp[present_3pp_counter - 1]) || (present_3pp[present_3pp_counter - 1] == 'h' && is_it_vowel(present_3pp[present_3pp_counter - 2])) || (present_3pp[present_3pp_counter - 2] == 'e' && present_3pp[present_3pp_counter - 1] == 'r') || (present_3pp[present_3pp_counter - 3] != 'i' && present_3pp[present_3pp_counter - 2] == 'e' && present_3pp[present_3pp_counter - 1] == 'l'))
 		{
 			present_3pp[present_3pp_counter] = 'n';
 			present_3pp[present_3pp_counter + 1] = 't';
@@ -1089,7 +1089,7 @@ void past_tense ()
 			past_1ps[past_basis_counter] = 'm';
 		}
 	}
-	else if (past_1ps[strlen(past_1ps) - 2] == 'e' && past_1ps[strlen(past_1ps) - 1] == 'l')
+	else if (past_1ps[strlen(past_1ps) - 3] != 'i' && past_1ps[strlen(past_1ps) - 2] == 'e' && past_1ps[strlen(past_1ps) - 1] == 'l')
 	{
 		past_1ps[strlen(past_1ps) - 2] = 'l';
 		past_1ps[strlen(past_1ps) - 1] = 'i';
@@ -1152,7 +1152,7 @@ void past_tense ()
 			past_2ps[past_basis_counter + 1] = 't';
 		}
 	}
-	else if (past_2ps[strlen(past_2ps) - 2] == 'e' && past_2ps[strlen(past_2ps) - 1] == 'l')
+	else if (past_2ps[strlen(past_2ps) - 3] != 'i' && past_2ps[strlen(past_2ps) - 2] == 'e' && past_2ps[strlen(past_2ps) - 1] == 'l')
 	{
 		past_2ps[past_basis_counter - 2] = 'l';
 		past_2ps[past_basis_counter - 1] = 's';
@@ -1228,7 +1228,7 @@ void past_tense ()
 			past_3ps[past_basis_counter] = 't';
 		}
 	}
-	else if (past_3ps[strlen(past_3ps) - 2] == 'e' && past_3ps[strlen(past_3ps) - 1] == 'l')
+	else if (past_3ps[strlen(past_3ps) - 3] != 'i' && past_3ps[strlen(past_3ps) - 2] == 'e' && past_3ps[strlen(past_3ps) - 1] == 'l')
 	{
 		past_3ps[past_basis_counter - 2] = 'l';
 		past_3ps[past_basis_counter - 1] = 'i';
@@ -1295,7 +1295,7 @@ void past_tense ()
 			past_1pp[past_basis_counter + 3] = 'm';
 		}
 	}
-	else if (past_1pp[strlen(past_1pp) - 2] == 'e' && past_1pp[strlen(past_1pp) - 1] == 'l')
+	else if (past_1pp[strlen(past_1pp) - 3] != 'i' && past_1pp[strlen(past_1pp) - 2] == 'e' && past_1pp[strlen(past_1pp) - 1] == 'l')
 	{
 		past_1pp[past_basis_counter - 2] = '(';
 		past_1pp[past_basis_counter - 1] = 'e';
@@ -1373,7 +1373,7 @@ void past_tense ()
 			past_2pp[past_basis_counter + 3] = 't';
 		}
 	}
-	else if (past_2pp[strlen(past_2pp) - 2] == 'e' && past_2pp[strlen(past_2pp) - 1] == 'l')
+	else if (past_2pp[strlen(past_2pp) - 3] != 'i' && past_2pp[strlen(past_2pp) - 2] == 'e' && past_2pp[strlen(past_2pp) - 1] == 'l')
 	{
 		past_2pp[past_basis_counter - 2] = '(';
 		past_2pp[past_basis_counter - 1] = 'e';
@@ -1453,7 +1453,7 @@ void past_tense ()
 			past_3pp[past_basis_counter + 4] = 'r';
 		}
 	}
-	else if (past_3pp[strlen(past_3pp) - 2] == 'e' && past_3pp[strlen(past_3pp) - 1] == 'l')
+	else if (past_3pp[strlen(past_3pp) - 3] != 'i' && past_3pp[strlen(past_3pp) - 2] == 'e' && past_3pp[strlen(past_3pp) - 1] == 'l')
 	{
 		past_3pp[past_basis_counter - 2] = '(';
 		past_3pp[past_basis_counter - 1] = 'e';
@@ -1562,7 +1562,7 @@ void infinitive_verb ()
 			infinitive[counter + 1] = 's';
 		}
 	}
-	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l')
+	else if (argument[strlen(argument) - 3] != 'i' && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l')
 	{
 		strcpy(infinitive, argument);
 	}
@@ -1900,7 +1900,7 @@ void past_participe ()
 	}
 
 
-	if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h') && !(participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'r') && !(participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'l')) participe_en[strlen(participe_en)] = 'e';
+	if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h') && !(participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'r') && !(participe_en[strlen(participe_en) - 3] != 'i' && participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'l')) participe_en[strlen(participe_en)] = 'e';
 
 	participe_en[strlen(participe_en)] = 'n';
 

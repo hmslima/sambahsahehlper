@@ -128,6 +128,16 @@ else if (strcmp(argument, "excerpt") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "ekstsErpt");
 }
+else if (strcmp(argument, "element") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "El" SMALL_E_DIAERESIS_IN_TEXT "m" SMALL_E_DIAERESIS_IN_TEXT "nt");
+}
+else if (strcmp(argument, "elements") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "El" SMALL_E_DIAERESIS_IN_TEXT "m" SMALL_E_DIAERESIS_IN_TEXT "nts");
+}
 else if (strcmp(argument, "excerpts") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -208,6 +218,16 @@ else if (strcmp(argument, "preven") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "vEn");
 }
+else if (strcmp(argument, "project") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "projEkt");
+}
+else if (strcmp(argument, "projects") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "projEkts");
+}
 else if (strcmp(argument, "prophet") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -217,6 +237,11 @@ else if (strcmp(argument, "prophets") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "profEts");
+}
+else if (strcmp(argument, "propos") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "propOs");
 }
 else if (strcmp(argument, "prospect") == 0)
 {
@@ -257,6 +282,16 @@ else if (strcmp(argument, "respects") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "spEkts");
+}
+else if (strcmp(argument, "restrict") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "strIkt");
+}
+else if (strcmp(argument, "restricts") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "strIkts");
 }
 else if (strcmp(argument, "secret") == 0)
 {

@@ -2455,8 +2455,15 @@ void pronunciation ()
 
 				else if ((argument[arg_counter + 1] == 'e') && !(argument[arg_counter + 2] == '\0'))
 				{
-					SPT_word[SPT_counter] = 'y';
-					SPT_counter++;
+					if (argument[arg_counter - 1] == 'y')
+					{
+						// Do nothing
+					}
+					else
+					{
+						SPT_word[SPT_counter] = 'y';
+						SPT_counter++;
+					}
 				}
 
 				/************* -in(s) **/
@@ -3887,18 +3894,10 @@ void pronunciation ()
 
 		if (argument[arg_counter] == 'z')
 		{
-			if (is_it_vowel(argument[arg_counter - 1]))
-			{
-				SPT_word[SPT_counter] = 'z';
-				SPT_counter++;
-			}
-			else
-			{
-				SPT_word[SPT_counter] = 'd';
-				SPT_counter++;
-				SPT_word[SPT_counter] = 'z';
-				SPT_counter++;
-			}
+			SPT_word[SPT_counter] = 'd';
+			SPT_counter++;
+			SPT_word[SPT_counter] = 'z';
+			SPT_counter++;
 		}
 
 		/***********************************************************************/
