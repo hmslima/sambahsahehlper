@@ -133,6 +133,11 @@ else if (strcmp(argument, "dements") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "mEnts");
 }
+else if (strcmp(argument, "direcs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "dirEks");
+}
 else if (strcmp(argument, "direct") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -142,6 +147,11 @@ else if (strcmp(argument, "directs") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "dirEkts");
+}
+else if (strcmp(argument, "direg") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "dirEg");
 }
 else if (strcmp(argument, "ees") == 0)
 {
