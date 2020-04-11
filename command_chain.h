@@ -44,9 +44,11 @@ switch (command_number)
 			invalid_argument (lang);
 	break;
 	case 1001: // Uses the function that transcribes the given word to SPT
-		pronunciation ();
+		if (strcmp(argument, "no_argument") == 0 || argument[0] == '\0') invalid_argument (lang);
+		else pronunciation ();
 	break;
 	case 1002: // Conjugates the given word
-		conjugation ();
+		if (strcmp(argument, "no_argument") == 0 || argument[0] == '\0') invalid_argument (lang);
+		else conjugation ();
 	break;
 }
