@@ -2738,25 +2738,7 @@ void pronunciation ()
 
 				if (argument[arg_counter + 1] == 'e')
 				{
-					if (argument[arg_counter - 1] == 'g')
-					{
-						SPT_word[SPT_counter] = 'u';
-						SPT_counter++;
-					}
-					else if (!(is_there_more_than_one_vowel ()))
-					{
-						#ifdef _WIN32
-						SPT_word[SPT_counter] = SMALL_U_DIAERESIS;
-						SPT_counter++;
-						#else
-						strncat(SPT_word, SMALL_U_DIAERESIS, 6);
-						SPT_counter = SPT_counter + 2;
-						#endif
-						SPT_word[SPT_counter] = ':';
-						SPT_counter++;
-						arg_counter++;
-					}
-					else
+					if (is_there_more_than_one_vowel () && argument[arg_counter + 2] == '\0')
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
@@ -2766,6 +2748,19 @@ void pronunciation ()
 						SPT_counter = SPT_counter + 2;
 						#endif
 						stress = TRUE;
+						SPT_word[SPT_counter] = ':';
+						SPT_counter++;
+						arg_counter++;
+					}
+					else
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = SMALL_U_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, SMALL_U_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
 						SPT_word[SPT_counter] = ':';
 						SPT_counter++;
 						arg_counter++;
