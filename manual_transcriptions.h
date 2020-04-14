@@ -103,6 +103,16 @@ else if (strcmp(argument, "concil") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "kontsIl");
 }
+else if (strcmp(argument, "conflict") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "konflIkt");
+}
+else if (strcmp(argument, "conflicts") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "konflIkts");
+}
 else if (strcmp(argument, "concils") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -163,10 +173,15 @@ else if (strcmp(argument, "eet") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "E" SMALL_E_DIAERESIS_IN_TEXT "t");
 }
-else if (strcmp(argument, "excerpt") == 0)
+else if (strcmp(argument, "elect") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
-	strcpy(SPT_word, "ekstsErpt");
+	strcpy(SPT_word, "elEkt");
+}
+else if (strcmp(argument, "eleg") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "elEg");
 }
 else if (strcmp(argument, "element") == 0)
 {
@@ -177,6 +192,11 @@ else if (strcmp(argument, "elements") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "El" SMALL_E_DIAERESIS_IN_TEXT "m" SMALL_E_DIAERESIS_IN_TEXT "nts");
+}
+else if (strcmp(argument, "excerpt") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "ekstsErpt");
 }
 else if (strcmp(argument, "excerpts") == 0)
 {
@@ -342,6 +362,11 @@ else if (strcmp(argument, "recess") == 0 || strcmp(argument, "reccess") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "tsEs(s)");
+}
+else if (strcmp(argument, "rejec") == 0 || strcmp(argument, "reccess") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "rejEk");
 }
 else if (strcmp(argument, "reject") == 0 || strcmp(argument, "reccess") == 0)
 {

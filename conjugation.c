@@ -449,7 +449,7 @@ void present_tense ()
 		present_2ps[strlen(present_2ps) - 1] = 'p';
 		present_2ps[strlen(present_2ps)] = 's';
 	}
-	else if (present_basis2[strlen(present_basis2) - 2] != 'g' && present_basis2[strlen(present_basis2) - 1] == 'v')
+	else if (present_basis2[strlen(present_basis2) - 1] == 'v' && present_basis2[strlen(present_basis2) - 2] != 'g' && (check_eh() || check_ei() || check_eu()))
 	{
 		present_2ps[strlen(present_2ps) - 1] = 'f';
 		present_2ps[strlen(present_2ps)] = 's';
@@ -473,7 +473,7 @@ void present_tense ()
 	else if (present_3ps[strlen(present_3ps) - 1] == 'g') present_3ps[strlen(present_3ps) - 1] = 'c';
 	else if (present_3ps[strlen(present_3ps) - 1] == 'k') present_3ps[strlen(present_3ps) - 1] = 'c';
 	else if (present_3ps[strlen(present_3ps) - 1] == 'b') present_3ps[strlen(present_3ps) - 1] = 'p';
-	else if (present_3ps[strlen(present_3ps) - 2] != 'g' && present_3ps[strlen(present_3ps) - 1] == 'v') present_3ps[strlen(present_3ps) - 1] = 'f';
+	else if (present_3ps[strlen(present_3ps) - 1] == 'v' && present_3ps[strlen(present_3ps) - 2] != 'g' && (check_eh() || check_ei() || check_eu())) present_3ps[strlen(present_3ps) - 1] = 'f';
 	if (!((strcmp(argument, "es") == 0) || (strcmp(argument, "hab") == 0) || (strcmp(argument, "woid") == 0)))
 	{
 		if (present_3ps[strlen(present_3ps) - 1] != 't') present_3ps[strlen(present_3ps)] = 't';
@@ -582,7 +582,7 @@ void present_tense ()
 		if (present_2pp[strlen(present_2pp) - 1] == 'g') present_2pp[strlen(present_2pp) - 1] = 'c';
 		else if (present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
 		else if (present_2pp[strlen(present_2pp) - 1] == 'b') present_2pp[strlen(present_2pp) - 1] = 'p';
-		else if (present_2pp[strlen(present_2pp) - 2] != 'g' && present_2pp[strlen(present_2pp) - 1] == 'v') present_2pp[strlen(present_2pp) - 1] = 'f';
+		else if (present_2pp[strlen(present_2pp) - 1] == 'v' && present_2pp[strlen(present_2pp) - 2] != 'g' && (check_eh() || check_ei() || check_eu())) present_2pp[strlen(present_2pp) - 1] = 'f';
 
 		if ((present_2pp[present_2pp_counter - 3] != 'i' && present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'r') || (present_2pp[present_2pp_counter - 3] != 'i' && present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'l'))
 		{
@@ -1167,7 +1167,7 @@ void past_tense ()
 		past_2ps[past_basis_counter] = 's';
 		past_2ps[past_basis_counter + 1] = 't';
 	}
-	else if (past_basis[past_basis_counter - 2] != 'g' && past_basis[past_basis_counter - 1] == 'v')
+	/*else if (past_basis[past_basis_counter - 2] != 'g' && past_basis[past_basis_counter - 1] == 'v')
 	{
 		past_2ps[past_basis_counter - 1] = 'f';
 		past_2ps[past_basis_counter] = 's';
@@ -1175,7 +1175,7 @@ void past_tense ()
 		past_2ps[past_basis_counter + 2] = '(';
 		past_2ps[past_basis_counter + 3] = 'a';
 		past_2ps[past_basis_counter + 4] = ')';
-	}
+	}*/
 	else if (past_basis[past_basis_counter - 1] == 'e')
 	{
 		past_2ps[past_basis_counter - 1] = 'i';
@@ -1894,7 +1894,7 @@ void past_participe ()
 		if (participe_t[strlen(participe_t) - 1] == 'g') participe_t[strlen(participe_t) - 1] = 'c';
 		else if (participe_t[strlen(participe_t) - 1] == 'k') participe_t[strlen(participe_t) - 1] = 'c';
 		else if (participe_t[strlen(participe_t) - 1] == 'b') participe_t[strlen(participe_t) - 1] = 'p';
-		else if (participe_t[strlen(participe_t) - 2] != 'g' && participe_t[strlen(participe_t) - 1] == 'v') participe_t[strlen(participe_t) - 1] = 'f';
+		else if (participe_t[strlen(participe_t) - 1] == 'v' && participe_t[strlen(participe_t) - 2] != 'g' && (check_eh() || check_ei() || check_eu())) participe_t[strlen(participe_t) - 1] = 'f';
 
 		if (participe_t[strlen(participe_t) - 1] != 't') participe_t[strlen(participe_t)] = 't';
 	}
