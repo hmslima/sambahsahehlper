@@ -1,9 +1,19 @@
-if (strcmp(argument, "absent") == 0)
+if (strcmp(argument, "abghend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "abgEnd");
+}
+else if (strcmp(argument, "abghend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "abgEnds");
+}
+else if (strcmp(argument, "absent") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "absEnt");
 }
-if (strcmp(argument, "absents") == 0)
+else if (strcmp(argument, "absents") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "absEnts");
@@ -133,6 +143,16 @@ else if (strcmp(argument, "decrets") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "krEts");
 }
+else if (strcmp(argument, "defend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "fEnd");
+}
+else if (strcmp(argument, "defends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "fEnds");
+}
 else if (strcmp(argument, "dement") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -142,6 +162,16 @@ else if (strcmp(argument, "dements") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "mEnts");
+}
+else if (strcmp(argument, "descend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "sEnd");
+}
+else if (strcmp(argument, "descends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "sEnds");
 }
 else if (strcmp(argument, "direcs") == 0)
 {
@@ -193,6 +223,16 @@ else if (strcmp(argument, "elements") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "El" SMALL_E_DIAERESIS_IN_TEXT "m" SMALL_E_DIAERESIS_IN_TEXT "nts");
 }
+else if (strcmp(argument, "enderghend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "end" SMALL_E_DIAERESIS_IN_TEXT "rgEnd");
+}
+else if (strcmp(argument, "enderghends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "end" SMALL_E_DIAERESIS_IN_TEXT "rgEnds");
+}
 else if (strcmp(argument, "excerpt") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -207,6 +247,21 @@ else if (strcmp(argument, "exist") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "eksIst");
+}
+else if (strcmp(argument, "exists") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "eksIsts");
+}
+else if (strcmp(argument, "extend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "ekstEnd");
+}
+else if (strcmp(argument, "extends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "ekstEnds");
 }
 else if (strcmp(argument, "gouvernement") == 0)
 {
@@ -258,6 +313,36 @@ else if (strcmp(argument, "negleg") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "n" SMALL_E_DIAERESIS_IN_TEXT "glEg");
 }
+else if (strcmp(argument, "offend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "ofEnd");
+}
+else if (strcmp(argument, "offends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "ofEnds");
+}
+else if (strcmp(argument, "oisghend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "oysgEnd");
+}
+else if (strcmp(argument, "oisghends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "oysgEnds");
+}
+else if (strcmp(argument, "ostend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "ostEnd");
+}
+else if (strcmp(argument, "ostends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "ostEnds");
+}
 else if (strcmp(argument, "paris") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -283,6 +368,16 @@ else if (strcmp(argument, "perplex") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "p" SMALL_E_DIAERESIS_IN_TEXT "rplEks");
 }
+else if (strcmp(argument, "pipend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pipEnd");
+}
+else if (strcmp(argument, "pipends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pipEnds");
+}
 else if (strcmp(argument, "precid") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -307,6 +402,16 @@ else if (strcmp(argument, "presents") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "zEnt");
+}
+else if (strcmp(argument, "pretend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "tEnd");
+}
+else if (strcmp(argument, "pretends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "tEnds");
 }
 else if (strcmp(argument, "preterit") == 0)
 {
@@ -407,6 +512,16 @@ else if (strcmp(argument, "secrets") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "s" SMALL_E_DIAERESIS_IN_TEXT "krEts");
+}
+else if (strcmp(argument, "suspend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "suspEnd");
+}
+else if (strcmp(argument, "suspends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "suspEnds");
 }
 else if (strcmp(argument, "suggest") == 0)
 {

@@ -75,9 +75,11 @@ short int check_nasal_infix ()
 
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e cannot have nasal infix
 	if (!(is_there_more_than_one_vowel())) x = 0; // If there is only one vowel, like the invented word "men", there cannot be a nasal infix
+	if (argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'n' && argument[strlen(argument) - 1] == 'd') x = 0; // Verbs ended in -end cannot have nasal infix
+	if (argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'n' && argument[strlen(argument) - 1] == 't') x = 0; // Verbs ended in -ent cannot have nasal infix
 
 	// Some "illogic" words that have no nasal infix because their "e" are stressed
-	if ((strcmp(argument, "absent") == 0) || (strcmp(argument, "ascend") == 0) || (strcmp(argument, "comprehend") == 0) || (strcmp(argument, "hensel") == 0) || (strcmp(argument, "negleg") == 0) || (strcmp(argument, "preven") == 0))
+	if ((strcmp(argument, "hensel") == 0) || (strcmp(argument, "negleg") == 0) || (strcmp(argument, "preven") == 0))
 	{
 		x = 0;
 	}
@@ -1928,38 +1930,6 @@ void past_participe ()
 
 void conjugation ()
 {
-
-	// For converting all capital letter into small letters
-	for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
-	{
-		if (argument[arg_counter] == 'A') argument[arg_counter] = 'a';
-		else if (argument[arg_counter] == 'B') argument[arg_counter] = 'b';
-		else if (argument[arg_counter] == 'C') argument[arg_counter] = 'c';
-		else if (argument[arg_counter] == 'D') argument[arg_counter] = 'd';
-		else if (argument[arg_counter] == 'E') argument[arg_counter] = 'e';
-		else if (argument[arg_counter] == 'F') argument[arg_counter] = 'f';
-		else if (argument[arg_counter] == 'G') argument[arg_counter] = 'g';
-		else if (argument[arg_counter] == 'H') argument[arg_counter] = 'h';
-		else if (argument[arg_counter] == 'I') argument[arg_counter] = 'i';
-		else if (argument[arg_counter] == 'J') argument[arg_counter] = 'j';
-		else if (argument[arg_counter] == 'K') argument[arg_counter] = 'k';
-		else if (argument[arg_counter] == 'L') argument[arg_counter] = 'l';
-		else if (argument[arg_counter] == 'M') argument[arg_counter] = 'm';
-		else if (argument[arg_counter] == 'N') argument[arg_counter] = 'n';
-		else if (argument[arg_counter] == 'O') argument[arg_counter] = 'o';
-		else if (argument[arg_counter] == 'P') argument[arg_counter] = 'p';
-		else if (argument[arg_counter] == 'Q') argument[arg_counter] = 'q';
-		else if (argument[arg_counter] == 'R') argument[arg_counter] = 'r';
-		else if (argument[arg_counter] == 'S') argument[arg_counter] = 's';
-		else if (argument[arg_counter] == 'T') argument[arg_counter] = 't';
-		else if (argument[arg_counter] == 'U') argument[arg_counter] = 'u';
-		else if (argument[arg_counter] == 'V') argument[arg_counter] = 'v';
-		else if (argument[arg_counter] == 'W') argument[arg_counter] = 'w';
-		else if (argument[arg_counter] == 'X') argument[arg_counter] = 'x';
-		else if (argument[arg_counter] == 'Y') argument[arg_counter] = 'y';
-		else if (argument[arg_counter] == 'Z') argument[arg_counter] = 'z';
-	}
-
 	// Call the functions
 	present_tense();
 	past_tense ();
