@@ -45,13 +45,15 @@ int main ()
 	printf("\nSB: Kwe tod est id prest ker yu neudte tod programme? In fall os positive");
 	printf("\nantwehrd, plais uset id commande \"hehlp\" kay vide quosmed id programme wehrct");
 	printf("\ned woide de ids imkans ed also ids LIMITATIONS.");
-	printf("\nInserte ia commandes aun alamats os mathal ed vergihes id neud iom prefixen!");
+	printf("\nInserte ia commandes aun alamats os mathal ed vergihes insere werds samt");
+	printf("\nprefixe!");
 	printf("\n");
 	printf("\nEN: Is this the first time you use this program? In case of affirmative answer,");
 	printf("\nplease use the command \"help\" to see how the program works and to know about");
 	printf("\nits capacities and also its LIMITATIONS");
 	printf("\n* Use the command \"setlang en\" to change the program's language to English");
-	printf("\nInsert the commands without quotation marks and avoid using prefixes!");
+	printf("\nInsert the commands without quotation marks and avoid inserting words with");
+	printf("\nprefix!");
 	printf("\n");
 	printf("\nPT: Use o comando \"deflang pt\" para mudar o idioma do programa para portugu" SMALL_E_CIRCUMFLEX "s");
 	printf("\nFR: Utilisez la commande \"deflang fr\" pour changer la langue en fran" SMALL_C_CEDILLA "ais");

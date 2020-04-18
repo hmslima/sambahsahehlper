@@ -163,6 +163,16 @@ else if (strcmp(argument, "dements") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "mEnts");
 }
+else if (strcmp(argument, "depend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "pEnd");
+}
+else if (strcmp(argument, "depends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "pEnds");
+}
 else if (strcmp(argument, "descend") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -273,6 +283,16 @@ else if (strcmp(argument, "gouvernements") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "gu:vErn" SMALL_E_DIAERESIS_IN_TEXT "m" SMALL_E_DIAERESIS_IN_TEXT "nts");
 }
+else if (strcmp(argument, "inser") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "insEr");
+}
+else if (strcmp(argument, "insers") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "insErs");
+}
 else if (strcmp(argument, "internet") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -312,6 +332,16 @@ else if (strcmp(argument, "negleg") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "n" SMALL_E_DIAERESIS_IN_TEXT "glEg");
+}
+else if (strcmp(argument, "object") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "objEkt");
+}
+else if (strcmp(argument, "objects") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "objEkts");
 }
 else if (strcmp(argument, "offend") == 0)
 {

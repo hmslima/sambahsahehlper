@@ -145,6 +145,7 @@ short int is_there_more_than_one_vowel ()
 			// It's a semivowel, do nothing
 		}
 		else if (argument[arg_counter] == 'y') vowel++;
+		else if ((argument[arg_counter] == 'w') && (argument[arg_counter - 1] == 'i' && is_it_vowel (argument[arg_counter - 2]))) vowel++; // in situations like "meiwrnt", the "w" has sound of {u}
 		else if ((argument[arg_counter] == 'w') && (is_it_vowel (argument[arg_counter - 1]) || is_it_vowel (argument[arg_counter + 1])))
 		{
 			// It's a semivowel, do nothing
@@ -247,6 +248,7 @@ short int is_there_more_than_one_vowel_ignoring_last_e ()
 			// It's a semivowel, do nothing
 		}
 		else if (argument[arg_counter] == 'y') vowel++;
+		else if ((argument[arg_counter] == 'w') && (argument[arg_counter - 1] == 'i' && is_it_vowel (argument[arg_counter - 2]))) vowel++; // in situations like "meiwrnt", the "w" has sound of {u}
 		else if ((argument[arg_counter] == 'w') && (is_it_vowel (argument[arg_counter - 1]) || is_it_vowel (argument[arg_counter + 1])))
 		{
 			// It's a semivowel, do nothing
@@ -323,6 +325,7 @@ short int is_there_more_than_one_vowel_after_problematic_e (char argument[256], 
 			// It's a semivowel, do nothing
 		}
 		else if (argument[arg_counter] == 'y') vowel++;
+		else if ((argument[arg_counter] == 'w') && (argument[arg_counter - 1] == 'i' && is_it_vowel (argument[arg_counter - 2]))) vowel++; // in situations like "meiwrnt", the "w" has sound of {u}
 		else if ((argument[arg_counter] == 'w') && (is_it_vowel (argument[arg_counter - 1]) || is_it_vowel (argument[arg_counter + 1])))
 		{
 			// It's a semivowel, do nothing
@@ -3336,12 +3339,16 @@ void pronunciation ()
 			************* w
 			***************************************************************************/
 
-			else if ((argument[arg_counter] == 'w') && (is_it_consonant (argument[arg_counter - 1])) && (is_it_consonant (argument[arg_counter + 1])))
+			else if (argument[arg_counter] == 'w' && is_it_consonant (argument[arg_counter - 1]) && is_it_consonant (argument[arg_counter + 1]))
 			{
 				SPT_word[SPT_counter] = 'u';
 				SPT_counter++;
 			}
-
+			else if (argument[arg_counter] == 'w' && argument[arg_counter - 1] == 'i' && is_it_vowel (argument[arg_counter - 2]))
+			{
+				SPT_word[SPT_counter] = 'u';
+				SPT_counter++;
+			}
 
 			/********************/
 			/********************/
