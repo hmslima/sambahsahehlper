@@ -82,10 +82,7 @@ short int check_nasal_infix ()
 	if (argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'n' && argument[strlen(argument) - 1] == 't') x = 0; // Verbs ended in -ent cannot have nasal infix
 
 	// Some "illogic" words that have no nasal infix because their "e" are stressed
-	if ((strcmp(argument, "hensel") == 0) || (strcmp(argument, "negleg") == 0) || (strcmp(argument, "preven") == 0))
-	{
-		x = 0;
-	}
+	#include "illogic_nasal_infix.h"
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -1935,7 +1932,7 @@ void conjugation ()
 {
 	if (argument[strlen(argument) - 3] != 'i' && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'r')
 	{
-		if (strcmp(argument, "inser") == 0)
+		if ((strcmp(argument, "confer") == 0) || (strcmp(argument, "defer") == 0) || (strcmp(argument, "deser") == 0) || (strcmp(argument, "differ") == 0) || (strcmp(argument, "infer") == 0) || (strcmp(argument, "inser") == 0) || (strcmp(argument, "interfer") == 0) || (strcmp(argument, "prefer") == 0) || (strcmp(argument, "refer") == 0) || (strcmp(argument, "reper") == 0) || (strcmp(argument, "transfer") == 0))
 			illogic_er = TRUE;
 		else
 			illogic_er = FALSE;
