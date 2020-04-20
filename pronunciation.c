@@ -2464,6 +2464,15 @@ void pronunciation ()
 					SPT_counter++;
 				}
 
+				/************* -ique(s) **/
+
+				else if (argument[arg_counter + 1] == 'q' && argument[arg_counter + 2] == 'u' && argument[arg_counter + 3] == 'e' && ((argument[arg_counter + 4] == 's' && argument[arg_counter + 5] == '\0') || argument[arg_counter + 4] == '\0'))
+				{
+					SPT_word[SPT_counter] = 'I';
+					stress = TRUE;
+					SPT_counter++;
+				}
+
 				/*******************/
 
 				else

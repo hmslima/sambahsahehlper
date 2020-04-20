@@ -106,6 +106,7 @@ short int check_eh ()
 	else if (argument[strlen(argument) - 4] == 'o' && is_it_consonant(argument[strlen(argument) - 3]) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l') x = 0; // The stress is in -oCel
 	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') x = 0; // The stress is in -aC || -oC || -uC
 	else if (is_it_vowel(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1]) && ((argument[strlen(argument) - 2] == argument[strlen(argument) - 1]) || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'k'))) x = 0; // The stressed vowel is in the vowel VCC
+	else if (argument[strlen(argument) - 2] == 'a' && argument[strlen(argument) - 1] == 'h') x = 0; // The stress is in -ah
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -139,6 +140,8 @@ short int check_eu ()
 		{/*Do nothing*/}
 		else x = 0;
 	}
+	else if (argument[strlen(argument) - 2] == 'a' && argument[strlen(argument) - 1] == 'h') x = 0; // The stress is in -ah
+
 	return x; // Have the same effect of TRUE or FALSE
 }
 
@@ -171,6 +174,7 @@ short int check_ei ()
 		{/*Do nothing*/}
 		else x = 0;
 	}
+	else if (argument[strlen(argument) - 2] == 'a' && argument[strlen(argument) - 1] == 'h') x = 0; // The stress is in -ah
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -209,6 +213,7 @@ short int check_a ()
 	else if (argument[strlen(argument) - 4] == 'o' && is_it_consonant(argument[strlen(argument) - 3]) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l') x = 0; // The stress is in -oCel
 	else if ((argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') x = 0; // The stress is in -oC || -uC
 	else if (is_it_vowel(argument[strlen(argument) - 3]) && argument[strlen(argument) - 3] != 'a' && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1]) && ((argument[strlen(argument) - 2] == argument[strlen(argument) - 1]) || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'k'))) x = 0; // The stressed vowel is in the vowel VCC
+	else if (argument[strlen(argument) - 2] == 'a' && argument[strlen(argument) - 1] == 'h') x = 0; // The stress is in -ah
 
 	return x; // Have the same effect of TRUE or FALSE
 }

@@ -358,6 +358,11 @@ else if (strcmp(argument, "gouvernements") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "gu:vErn" SMALL_E_DIAERESIS_IN_TEXT "m" SMALL_E_DIAERESIS_IN_TEXT "nts");
 }
+else if (strcmp(argument, "indirect") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "indirEkt");
+}
 else if (strcmp(argument, "infer") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");

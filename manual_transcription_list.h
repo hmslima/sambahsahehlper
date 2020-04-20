@@ -69,6 +69,7 @@ printf("\nextend");
 printf("\nextends");
 printf("\ngouvernement");
 printf("\ngouvernements");
+printf("\nindirect");
 printf("\ninfer");
 printf("\ninfers");
 printf("\ninser");
