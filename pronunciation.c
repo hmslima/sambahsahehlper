@@ -1727,7 +1727,7 @@ void pronunciation ()
 						occurrence_of_the_small_e_diaeresis++;
 					}
 					//peri-
-					else if ((argument[arg_counter - 1] == 'p' && argument[arg_counter + 1] == 'r' && argument[arg_counter + 2] == 'i') && (is_it_vowel(argument[arg_counter + 3]) || is_it_vowel(argument[arg_counter + 4]) || is_it_vowel(argument[arg_counter + 5])))
+					else if ((argument[arg_counter - 2] == '\0' && argument[arg_counter - 1] == 'p' && argument[arg_counter + 1] == 'r' && argument[arg_counter + 2] == 'i') && (is_it_vowel(argument[arg_counter + 3]) || is_it_vowel(argument[arg_counter + 4]) || is_it_vowel(argument[arg_counter + 5])))
 					{
 						if (show_system_messages) printf("\npoint prefix_peri-");
 						#ifdef _WIN32
@@ -2321,6 +2321,19 @@ void pronunciation ()
 							SPT_word[SPT_counter] = 'e';
 							SPT_counter++;
 						}
+						// e-ment ex: equipement
+						else if (argument[arg_counter + 1] == 'm' && argument[arg_counter + 2] == 'e' && argument[arg_counter + 3] == 'n' && argument[arg_counter + 4] == 't' && ((argument[arg_counter + 5] == 's' && argument[arg_counter + 6] == '\0') || argument[arg_counter + 5] == '\0'))
+						{
+							if (show_system_messages) printf("\npoint cheat ement");
+							#ifdef _WIN32
+							SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
+							SPT_counter++;
+							#else
+							strncat(SPT_word, SMALL_E_DIAERESIS, 6);
+							SPT_counter = SPT_counter + 2;
+							#endif
+							occurrence_of_the_small_e_diaeresis++;
+						}
 						// eCVCC\0 ex: ametyst
 						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_vowel(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && argument[arg_counter + 5] == '\0')
 						{
@@ -2354,13 +2367,19 @@ void pronunciation ()
 						{
 							if (argument[arg_counter + 1] == 'e' || argument[arg_counter + 1] == 'o')
 							{
-								if (show_system_messages) printf("\npoint is_there_more_than_one_vowel_after_problematic_e_but_there_is_an_\"e\"_or_\"o\"");
+								if (show_system_messages) printf("\npoint there_is_more_than_one_vowel_after_problematic_e_but_there_is_an_\"e\"_or_\"o\"");
+								SPT_word[SPT_counter] = 'e';
+								SPT_counter++;
+							}
+							else if ((argument[arg_counter + 3] == 'm' && argument[arg_counter + 4] == 'e' && argument[arg_counter + 5] == 'n' && argument[arg_counter + 6] == 't') || (argument[arg_counter + 4] == 'm' && argument[arg_counter + 5] == 'e' && argument[arg_counter + 6] == 'n' && argument[arg_counter + 7] == 't') || (argument[arg_counter + 5] == 'm' && argument[arg_counter + 6] == 'e' && argument[arg_counter + 7] == 'n' && argument[arg_counter + 8] == 't'))
+							{
+								if (show_system_messages) printf("\npoint there_is_more_than_one_vowel_after_problematic_e_but_there_is_a_ment");
 								SPT_word[SPT_counter] = 'e';
 								SPT_counter++;
 							}
 							else
 							{
-								if (show_system_messages) printf("\npoint is_there_more_than_one_vowel_after_problematic_e");
+								if (show_system_messages) printf("\npoint there_is_more_than_one_vowel_after_problematic_e");
 								#ifdef _WIN32
 								SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
 								SPT_counter++;
@@ -2879,7 +2898,20 @@ void pronunciation ()
 				//uCe...
 				else if ((is_it_consonant(argument[arg_counter + 1])) && (argument[arg_counter + 2] == 'e'))
 				{
-					if ((is_there_something_here(argument[arg_counter - 3]) || is_it_vowel(argument[arg_counter - 2])) && !(argument[arg_counter + 1] == 'l'))
+					// ument(s)
+					if (argument[arg_counter + 1] == 'm' && argument[arg_counter + 3] == 'n' && argument[arg_counter + 4] == 't' && (argument[arg_counter + 5] == '\0' || (argument[arg_counter + 5] == 's' && argument[arg_counter + 6] == '\0')))
+					{
+						if (show_system_messages) printf("\npoint cheat ument(s)");
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = SMALL_U_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, SMALL_U_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+					}
+					// ...uCe...
+					else if ((is_there_something_here(argument[arg_counter - 3]) || is_it_vowel(argument[arg_counter - 2])) && !(argument[arg_counter + 1] == 'l'))
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
@@ -3932,7 +3964,7 @@ void pronunciation ()
 			}
 			else
 			{
-				if (SPT_word[SPT_counter] == 'a' && !(SPT_word[SPT_counter + 1] == 's' && SPT_word[SPT_counter + 2] == '\0'))
+				if (SPT_word[SPT_counter] == 'a' && !(SPT_word[SPT_counter + 1] == 's' && SPT_word[SPT_counter + 2] == '\0') && !(SPT_word[SPT_counter + 1] == 'm' && (SPT_word[SPT_counter + 3] == 'n' || SPT_word[SPT_counter + 4] == 'n') && (SPT_word[SPT_counter + 4] == 't' || SPT_word[SPT_counter + 5] == 't') && (((SPT_word[SPT_counter + 5] == 's' || SPT_word[SPT_counter + 6] == 's') && (SPT_word[SPT_counter + 6] == '\0' || SPT_word[SPT_counter + 7] == '\0')) || (SPT_word[SPT_counter + 4] == '\0' || SPT_word[SPT_counter + 6] == '\0')) && ((argument[strlen(argument) - 4] == 'm' && argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'n' && argument[strlen(argument) - 1] == 't') || (argument[strlen(argument) - 5] == 'm' && argument[strlen(argument) - 4] == 'e' && argument[strlen(argument) - 3] == 'n' && argument[strlen(argument) - 2] == 't' && argument[strlen(argument) - 1] == 's')) && (is_it_vowel(SPT_word[SPT_counter - 2]) || is_it_vowel(SPT_word[SPT_counter - 3]) || is_it_vowel(SPT_word[SPT_counter - 4]))))
 				{
 					SPT_word[SPT_counter] = 'A';
 					correct_vowel = 'A';
@@ -3944,20 +3976,19 @@ void pronunciation ()
 					correct_vowel = 'E';
 					break;
 				}
-				else if (SPT_word[SPT_counter] == 'i' && !(SPT_word[SPT_counter - 1] == 'a') && !(SPT_word[SPT_counter + 1] == 'n' && SPT_word[SPT_counter + 2] == 'g') && !(is_it_consonant(SPT_word[SPT_counter + 1]) && SPT_word[SPT_counter + 2] == '\0') && !(is_it_consonant(SPT_word[SPT_counter + 1]) && is_it_consonant(SPT_word[SPT_counter + 2]) && SPT_word[SPT_counter + 3] == '\0'))
+				else if (SPT_word[SPT_counter] == 'i' && !(SPT_word[SPT_counter - 1] == 'a') && !(SPT_word[SPT_counter + 1] == 'n' && SPT_word[SPT_counter + 2] == 'g') && !(is_it_consonant(SPT_word[SPT_counter + 1]) && SPT_word[SPT_counter + 2] == '\0') && !(is_it_consonant(SPT_word[SPT_counter + 1]) && is_it_consonant(SPT_word[SPT_counter + 2]) && SPT_word[SPT_counter + 3] == '\0') && !(SPT_word[SPT_counter + 1] == 'm' && (SPT_word[SPT_counter + 3] == 'n' || SPT_word[SPT_counter + 4] == 'n') && (SPT_word[SPT_counter + 4] == 't' || SPT_word[SPT_counter + 5] == 't') && (((SPT_word[SPT_counter + 5] == 's' || SPT_word[SPT_counter + 6] == 's') && (SPT_word[SPT_counter + 6] == '\0' || SPT_word[SPT_counter + 7] == '\0')) || (SPT_word[SPT_counter + 4] == '\0' || SPT_word[SPT_counter + 6] == '\0')) && ((argument[strlen(argument) - 4] == 'm' && argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'n' && argument[strlen(argument) - 1] == 't') || (argument[strlen(argument) - 5] == 'm' && argument[strlen(argument) - 4] == 'e' && argument[strlen(argument) - 3] == 'n' && argument[strlen(argument) - 2] == 't' && argument[strlen(argument) - 1] == 's')) && (is_it_vowel(SPT_word[SPT_counter - 2]) || is_it_vowel(SPT_word[SPT_counter - 3]) || is_it_vowel(SPT_word[SPT_counter - 4]))))
 				{
 					SPT_word[SPT_counter] = 'I';
 					correct_vowel = 'I';
 					break;
 				}
-				else if (SPT_word[SPT_counter] == 'o' && !(SPT_word[SPT_counter - 1] == 'e') && !(SPT_word[SPT_counter - 1] == 'a') && !(SPT_word[SPT_counter + 1] == 's' && SPT_word[SPT_counter + 2] == '\0'))
+				else if (SPT_word[SPT_counter] == 'o' && !(SPT_word[SPT_counter - 1] == 'e') && !(SPT_word[SPT_counter - 1] == 'a') && !(SPT_word[SPT_counter + 1] == 's' && SPT_word[SPT_counter + 2] == '\0') && !(SPT_word[SPT_counter + 1] == 'm' && (SPT_word[SPT_counter + 3] == 'n' || SPT_word[SPT_counter + 4] == 'n') && (SPT_word[SPT_counter + 4] == 't' || SPT_word[SPT_counter + 5] == 't') && (((SPT_word[SPT_counter + 5] == 's' || SPT_word[SPT_counter + 6] == 's') && (SPT_word[SPT_counter + 6] == '\0' || SPT_word[SPT_counter + 7] == '\0')) || (SPT_word[SPT_counter + 4] == '\0' || SPT_word[SPT_counter + 6] == '\0')) && ((argument[strlen(argument) - 4] == 'm' && argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'n' && argument[strlen(argument) - 1] == 't') || (argument[strlen(argument) - 5] == 'm' && argument[strlen(argument) - 4] == 'e' && argument[strlen(argument) - 3] == 'n' && argument[strlen(argument) - 2] == 't' && argument[strlen(argument) - 1] == 's')) && (is_it_vowel(SPT_word[SPT_counter - 2]) || is_it_vowel(SPT_word[SPT_counter - 3]) || is_it_vowel(SPT_word[SPT_counter - 4]))))
 				{
 					SPT_word[SPT_counter] = 'O';
 					correct_vowel = 'O';
 					break;
 				}
 				else if (SPT_word[SPT_counter] == 'u' && !(SPT_word[SPT_counter - 1] == 'a') && !(SPT_word[SPT_counter - 1] == 'e') && !(SPT_word[SPT_counter - 1] == 'o') && !(argument[SPT_counter - 3] == 'w' || argument[SPT_counter - 2] == 'w' || argument[SPT_counter - 1] == 'w' || argument[SPT_counter] == 'w' || argument[SPT_counter + 1] == 'w' || argument[SPT_counter + 2] == 'w' || argument[SPT_counter + 3] == 'w') && !(SPT_word[SPT_counter + 1] == 'm' && SPT_word[SPT_counter + 2] == '\0') && !(SPT_word[SPT_counter + 1] == 's' && SPT_word[SPT_counter + 2] == '\0'))
-				// This line !(argument[SPT_counter - 3] == 'w' || ... || agument[SPT_counter + 3] == 'w') if for if the original letter was a "w"
 				{
 					SPT_word[SPT_counter] = 'U';
 					correct_vowel = 'U';

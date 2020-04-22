@@ -12,12 +12,17 @@ extern char command_name[64]; // The command itself
 extern short int command_number;
 extern char argument[192]; // The argument of the command
 
+extern short int show_system_messages;
+
 const char* insert_command() // It just receives what the user has typed and stores in the "command" variable
 {
 	char letter = 'x'; // Defining an initial value avoids an infinite loop
 	memset(command,0,strlen(command)); // Cleans any previous commands
 	short int counter = 0; // Sets the initial value of the counter
-	printf ("\n> "); // Draw the character "> " that will be put before any command
+	// Draw the character "> " that will be put before any command
+	printf ("\n");
+	if (show_system_messages) printf ("#");
+	printf ("> ");
 	while (letter != '\n') // \n means the moment when the user types ENTER
 	{
 		letter = getchar();
