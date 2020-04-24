@@ -468,6 +468,11 @@ else if (strcmp(argument, "intervens") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "int" SMALL_E_DIAERESIS_IN_TEXT "rvEns");
 }
+else if (strcmp(argument, "intervent") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "int" SMALL_E_DIAERESIS_IN_TEXT "rvEnt");
+}
 else if (strcmp(argument, "kaapstad") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -697,6 +702,11 @@ else if (strcmp(argument, "refers") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "fErs");
+}
+else if (strcmp(argument, "refert") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "fErt");
 }
 else if (strcmp(argument, "rejec") == 0)
 {

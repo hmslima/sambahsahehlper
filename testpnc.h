@@ -54,7 +54,7 @@ strcpy(argument, "bouquete");
 printf("bouquete {bu:kEt} ||| ");
 	pronunciation ();
 strcpy(argument, "bureau");
-printf("bureau {bürO:} ||| ");
+printf("bureau {b" SMALL_U_DIAERESIS_IN_TEXT "rO:} ||| ");
 	pronunciation ();
 strcpy(argument, "canther");
 printf("canther {kAn" SECTION_SIGN_IN_TEXT SMALL_E_DIAERESIS_IN_TEXT "r} ||| ");
