@@ -32,11 +32,11 @@ void help (short int lang)
 			printf ("\nid hehlp ios creator ios bahsa, ios franceois Olivier Simon.");
 			printf ("\nId objective tos programme est hehlpe i inkapants skaund-ye ia pronunciation");
 			printf ("\ned conjugation iom werds.");
-			printf ("\nPre wey continuemos, yu tehrpte comprehende od tod est un simple programme od");
-			printf ("\n ne correct ia rhalts im nudtors, ithan woidte od:");
-			printf ("\n* Tod programme ghehdt analyse tik oin werd per ker dehlcte,");
+			printf ("\nPre wey continuemos, yu tehrpte comprehende od tod est un simple programme quod");
+			printf ("\nne correct ia rhalts im nudtors, ithan woidte od:");
+			printf ("\n* Tod programme ghehdt analyse tik oin werd per ker");
 			printf ("\n* Aunnecessar blankrewsa resultesient in stragn sulouk, schowi yu dehlcte,");
-			printf ("\n mathalan, scribe \"pnc werd\", ne \"pnc  werd\" au \" pnc werd\" au \"pnc werd \"");
+			printf ("\nmathalan, scribe \"pnc werd\", ne \"pnc  werd\" au \" pnc werd\" au \"pnc werd \"");
 			printf ("\nKwe habmos un boidos?");
 			printf ("\n");
 			printf ("\nEn ia commandes:\n");
@@ -53,7 +53,7 @@ void help (short int lang)
 			printf ("\n    Dayir id transcriptor, yu naudhte gwupes quar jects in ment. Bet pre wey");
 			printf ("\n    natolcsiemos de to, woidte od tod programme est baygh competent in sien");
 			printf ("\n    job, lakin ter sont sem rar situations qua naudhe vies attention.");
-			printf ("\n    1 - Mehmte od cia transcriptions pior sehkwnt id theoria. Mathalan in");
+			printf ("\n    1 - Mehmte od ia transcriptions pior sehkwnt id theoria. Mathalan in");
 			printf ("\n    theoria id transcription os \"yoinkjiae\" est {yoynkjyAy}, bet in praxis ids");
 			printf ("\n    radhen transcription est {yoynkjiAy} ob tod est meis pronunceable. Ithan ne");
 			printf ("\n    pior sweurghte sei un werd kwehct baygh impronunceable");
