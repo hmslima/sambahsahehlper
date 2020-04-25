@@ -46,7 +46,7 @@ int main ()
 	printf("\nantwehrd, plais uset id commande \"hehlp\" kay vide quosmed id programme wehrct");
 	printf("\ned woide de ids imkans ed also ids LIMITATIONS.");
 	printf("\nInserte ia commandes aun alamats os mathal ed vergihes insere werds samt");
-	printf("\nprefixe we quodkwe type os composite werd.");
+	printf("\nprefixe we quodkwe type os composit werd.");
 	printf("\n");
 	printf("\nEN: Is this the first time you use this program? In case of affirmative answer,");
 	printf("\nplease use the command \"help\" to see how the program works and to know about");
