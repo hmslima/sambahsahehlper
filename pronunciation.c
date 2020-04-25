@@ -2089,10 +2089,10 @@ void pronunciation ()
 						// there is a semivowel
 						else if ((argument[arg_counter - 1] == 'y') || (argument[arg_counter + 1] == 'y') || (argument[arg_counter - 1] == 'i') || (argument[arg_counter + 1] == 'i') || (argument[arg_counter - 1] == 'w') || (argument[arg_counter + 1] == 'w'))
 						{
-							// ien\0 || yen\0 || wen\0
-							if (argument[arg_counter + 1] == 'n' && argument[arg_counter + 2] == '\0')
+							// ien(s)\0 || yen\0 || wen\0
+							if (argument[arg_counter + 1] == 'n' && (argument[arg_counter + 2] == '\0' || (argument[arg_counter + 2] == 's' && argument[arg_counter + 3] == '\0')))
 							{
-								if (show_system_messages) printf("\npoint wyen");
+								if (show_system_messages) printf("\npoint wyen(s)");
 								#ifdef _WIN32
 								SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
 								SPT_counter++;
@@ -2141,6 +2141,19 @@ void pronunciation ()
 								if (argument[arg_counter + 1] == 'w' && argument[arg_counter + 2] == '\0')
 								{
 									if (show_system_messages) printf("\npoint ew0");
+									#ifdef _WIN32
+									SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
+									SPT_counter++;
+									#else
+									strncat(SPT_word, SMALL_E_DIAERESIS, 6);
+									SPT_counter = SPT_counter + 2;
+									#endif
+									occurrence_of_the_small_e_diaeresis++;
+								}
+								// weC(s)\0
+								if (argument[arg_counter - 1] == 'w' && is_it_consonant(argument[arg_counter + 1]) && (argument[arg_counter + 2] == '\0' || (argument[arg_counter + 2] == 's' && argument[arg_counter + 3] == '\0')))
+								{
+									if (show_system_messages) printf("\npoint weC0");
 									#ifdef _WIN32
 									SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
 									SPT_counter++;
@@ -2359,6 +2372,62 @@ void pronunciation ()
 						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && is_it_vowel(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && is_it_consonant(argument[arg_counter + 5]) && argument[arg_counter + 6] == 's' && argument[arg_counter + 7] == '\0')
 						{
 							if (show_system_messages) printf("\npoint eCCVCCs0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCC(e/i)C(s)\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && (argument[arg_counter + 3] == 'e' || argument[arg_counter + 3] == 'i') && is_it_consonant(argument[arg_counter + 4]) && (argument[arg_counter + 5] == '\0' || (argument[arg_counter + 4] != 's' && argument[arg_counter + 5] == 's' && argument[arg_counter + 6] == '\0')))
+						{
+							if (show_system_messages) printf("\npoint eCC(e/i)C(s)0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCC(e/i)C(s)\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && (argument[arg_counter + 4] == 'e' || argument[arg_counter + 4] == 'i') && is_it_consonant(argument[arg_counter + 5]) && (argument[arg_counter + 6] == '\0' || (argument[arg_counter + 5] != 's' && argument[arg_counter + 6] == 's' && argument[arg_counter + 7] == '\0')))
+						{
+							if (show_system_messages) printf("\npoint eCCC(e/i)C(s)0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCCC(e/i)C(s)\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && (argument[arg_counter + 5] == 'e' || argument[arg_counter + 5] == 'i') && is_it_consonant(argument[arg_counter + 6]) && (argument[arg_counter + 7] == '\0' || (argument[arg_counter + 6] != 's' && argument[arg_counter + 7] == 's' && argument[arg_counter + 8] == '\0')))
+						{
+							if (show_system_messages) printf("\npoint eCCCC(e/i)C(s)0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCCCC(e/i)C(s)\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && is_it_consonant(argument[arg_counter + 5]) && (argument[arg_counter + 6] == 'e' || argument[arg_counter + 6] == 'i') && is_it_consonant(argument[arg_counter + 7]) && (argument[arg_counter + 8] == '\0' || (argument[arg_counter + 7] != 's' && argument[arg_counter + 8] == 's' && argument[arg_counter + 9] == '\0')))
+						{
+							if (show_system_messages) printf("\npoint eCCCCC(e/i)C(s)0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+                        // eCw(e/i)C(s)\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && argument[arg_counter + 2] == 'w' && (argument[arg_counter + 3] == 'e' || argument[arg_counter + 3] == 'i') && is_it_consonant(argument[arg_counter + 4]) && (argument[arg_counter + 5] == '\0' || (argument[arg_counter + 4] != 's' && argument[arg_counter + 5] == 's' && argument[arg_counter + 6] == '\0')))
+						{
+							if (show_system_messages) printf("\npoint eCw(e/i)C(s)0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCw(e/i)C(s)\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && argument[arg_counter + 3] == 'w' && (argument[arg_counter + 4] == 'e' || argument[arg_counter + 4] == 'i') && is_it_consonant(argument[arg_counter + 5]) && (argument[arg_counter + 6] == '\0' || (argument[arg_counter + 5] != 's' && argument[arg_counter + 6] == 's' && argument[arg_counter + 7] == '\0')))
+						{
+							if (show_system_messages) printf("\npoint eCCw(e/i)C(s)0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCCw(e/i)C(s)\0
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && argument[arg_counter + 4] == 'w' && (argument[arg_counter + 5] == 'e' || argument[arg_counter + 5] == 'i') && is_it_consonant(argument[arg_counter + 6]) && (argument[arg_counter + 7] == '\0' || (argument[arg_counter + 6] != 's' && argument[arg_counter + 7] == 's' && argument[arg_counter + 8] == '\0')))
+						{
+							if (show_system_messages) printf("\npoint eCCCw(e/i)C(s)0");
+							SPT_word[SPT_counter] = 'e';
+							SPT_counter++;
+						}
+						// eCCCCw(e/i)C(s)\0 ex: mEnskgwit
+						else if (is_it_consonant(argument[arg_counter + 1]) && is_it_consonant(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && argument[arg_counter + 5] == 'w' && (argument[arg_counter + 6] == 'e' || argument[arg_counter + 6] == 'i') && is_it_consonant(argument[arg_counter + 7]) && (argument[arg_counter + 8] == '\0' || (argument[arg_counter + 7] != 's' && argument[arg_counter + 8] == 's' && argument[arg_counter + 9] == '\0')))
+						{
+							if (show_system_messages) printf("\npoint eCCCw(e/i)C(s)0");
 							SPT_word[SPT_counter] = 'e';
 							SPT_counter++;
 						}
@@ -4134,12 +4203,10 @@ void pronunciation ()
 		printf("\n{%s}\n", SPT_word);
 
 
-
 	// For cleaning
 	memset(SPT_word, '\0', strlen(SPT_word));
 	memset(argument, '\0', strlen(argument));
 	SPT_counter = 0;
 	stress = FALSE;
 	occurrence_of_the_small_e_diaeresis = 0;
-
 }
