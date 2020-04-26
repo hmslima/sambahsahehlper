@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("###############################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER v 0.33 ###########################\n");
+	printf ("########################### SAMBAHSA HEHLPER v 0.34 ###########################\n");
 	printf ("###############################################################################\n");
 }
 
@@ -59,7 +59,7 @@ void help (short int lang)
 			printf ("\n    pior sweurghte sei un werd kwehct baygh impronunceable");
 			printf ("\n    2 - Alyo gohd exempel est \"Kaapstad\". Eger id est un afrikaans werd, ids");
 			printf ("\n    correct transcription est {kA:pstat}, lakin tod werd esiet pronuncen kam");
-			printf ("\n    {kaapstAd} in \"pure\" Sambahsa. Tod situatuion est commun con proper nams.");
+			printf ("\n    {kaapstAd} in \"pure\" Sambahsa. Tod situation est commun con proper nams.");
 			printf ("\n    3 - Sehkwent id aum describen uper: tod est un software, ne un conscieus");
 			printf ("\n    anghen. Tod programme khact correct-ye transcribe un werd kam \"defend\" med");
 			printf ("\n    ids wi capacitats ob id khact gvaedde od tod werd est composen (hat un");
@@ -83,13 +83,14 @@ void help (short int lang)
 			printf ("\n    exempel est id verb \"naporg\" (na- her est un prefixe), quos correct");
 			printf ("\n    conjugation pro id prev est \"napors\", lakin id programme dahsiet vos");
 			printf ("\n    \"niepors\" ob id programme mehnsiet od tod werd subeiht un ablaut bi-sabab");
-			printf ("\n    tod extra buksteiv \"a\".");
-			printf ("\n");
-			printf ("\nTod programme ne est perfect, mien druv objective con tod programme est dahe un");
-			printf ("\norientation im inkapants, un facil ed comfortable kwehrmen os chehxe id");
-			printf ("\npronunciation ed conjugation iom meist basic werds. Tod est un programme quod");
-			printf ("\nkwehrt maung jects pro vos, bet yu tehrpte orbate con id in id sense od yu");
-			printf ("\ntehrpte vide ia resultats con critic okwi ed gohd sense.");
+			printf ("\n    tod extra buksteiv \"a\". Ne est facil ziele ei conjugator quod est id");
+			printf ("\n    accentuen voyel.");
+			printf ("\n    Alyo observation: yu kausiete od id conjugator daht werds samt sem");
+			printf ("\n    buksteivs inter kaws. Mathalan: id dahn preterit singular second person");
+			printf ("\n    ios verb \"beud\" est {bud(i)st(a)}, bet tod ne maynt od {budista} est un");
+			printf ("\n    valid pronunciation. Yu terhbte habe un critic okwi ed gohd sense kay");
+			printf ("\n    trehve id ciautaung pronunciation, quod est {budst(a)}. Alliete tod");
+			printf ("\n    programme con id grammatic.");
 			printf ("\n");
 			printf ("\n* \"log\": enwehrct we swehrct ia programme messages. Tod est un baygh util");
 			printf ("\nressurce pro quel deilt con id code tos programme. Ia programmes messages sont");
@@ -162,7 +163,14 @@ void help (short int lang)
 			printf ("\n    good example is the verb \"naporg\" (na- here is a prefix), whose correct");
 			printf ("\n    conjugation to the past is \"napors\", however the program will give you");
 			printf ("\n    \"niepors\" because the program will think that this word undergoes an");
-			printf ("\n    ablaut because of this extra letter \"a\".");
+			printf ("\n    ablaut because of this extra letter \"a\". It\'s not easy to show to the");
+			printf ("\n    the conjugator where is the stressed vowel.");
+			printf ("\n    Other observation: you\'ll note that the conjugator gives words with some");
+			printf ("\n    letters between parenthesis. For example: it given past singular second");
+			printf ("\n    person of the verb \"beud\" is {bud(i)st(a)}, but it doesn\'t mean that");
+			printf ("\n    {budista} is a valid pronunciation. You must have a critical eye and good");
+			printf ("\n    sense to find the appropriate pronunciation, which is {budst(a)}. Ally this");
+			printf ("\n    program with the grammar.");
 			printf ("\n");
 			printf ("\n* \"log\": activates or deactivates the system messages. It\'s a very useful");
 			printf ("\nresource for who deals with the code of this program.");
@@ -234,7 +242,15 @@ void help (short int lang)
 			printf ("\n    Um bom exemplo " SMALL_E_ACUTE " o verbo \"naporg\" (na- aqui " SMALL_E_ACUTE " um prefixo), cuja conjuga" SMALL_C_CEDILLA SMALL_A_TILDE "o");
 			printf ("\n    correta para o pret" SMALL_E_ACUTE "rito " SMALL_E_ACUTE " \"napors\", entretanto o programa lhe dar" SMALL_A_ACUTE "");
 			printf ("\n    \"niepors\" porque o programa pensar" SMALL_A_ACUTE " que esta palavra sofre com apofonia");
-			printf ("\n    por causa deste \"a\" extra.");
+			printf ("\n    por causa deste \"a\" extra. N" SMALL_A_TILDE "o " SMALL_E_ACUTE " f" SMALL_A_ACUTE "cil mostrar para o conjugador onde est" SMALL_A_ACUTE "");
+			printf ("\n    a vogal acentuada tonicamente.");
+			printf ("\n    Outra observa" SMALL_C_CEDILLA SMALL_A_TILDE "o: voc" SMALL_E_CIRCUMFLEX " notar" SMALL_A_ACUTE " que o conjugador d" SMALL_A_ACUTE " verbos com algumas");
+			printf ("\n    letras entre par" SMALL_E_CIRCUMFLEX "nteses. Por exemplo: a segunda pessoa do singular do");
+			printf ("\n    pret" SMALL_E_ACUTE "rito do verbo \"beud\" que o programa d" SMALL_A_ACUTE " " SMALL_E_ACUTE " {bud(i)st(a)}, mas isso");
+			printf ("\n    n" SMALL_A_TILDE "o significa que {budista} " SMALL_E_ACUTE " uma pron" SMALL_U_ACUTE "ncia v" SMALL_A_ACUTE "lida. Voc" SMALL_E_CIRCUMFLEX " tem que ter um");
+			printf ("\n    olhar cr" SMALL_I_ACUTE "tico e bom senso para achar a pron" SMALL_U_ACUTE "ncia apropriada, que " SMALL_E_ACUTE "");
+			printf ("\n    {budst(a)}. Alie este programa com a gram" SMALL_A_ACUTE "tica.");
+			printf ("\n");
 			printf ("\n* \"log\": ativa ou desativa as mensagens de sistema. Este " SMALL_E_ACUTE " um recurso muito");
 			printf ("\n" SMALL_U_ACUTE "til pra quem lida com o c" SMALL_O_ACUTE "digo deste programa. As mensagens de sistema s" SMALL_A_TILDE "o");
 			printf ("\ntodas em ingl" SMALL_E_CIRCUMFLEX "s.");
@@ -357,7 +373,14 @@ void help (short int lang)
 			printf ("\n    Bona ekzemplo estas la verbo \"naporg\" (na- " SMALL_C_CIRCUMFLEX "i tie estas anta" SMALL_U_BREVE "afikso), kies");
 			printf ("\n    " SMALL_G_CIRCUMFLEX "usta conjugacion por la pasinta estas \"napors\", tamen la programo donos");
 			printf ("\n    al vi \"niepors\" " SMALL_C_CIRCUMFLEX "ar la programo pensos ol " SMALL_C_CIRCUMFLEX "i vorto suferas abla" SMALL_U_BREVE "ton ka" SMALL_U_BREVE "ze");
-			printf ("\n    " SMALL_C_CIRCUMFLEX "i ekstra litero \"a\".");
+			printf ("\n    " SMALL_C_CIRCUMFLEX "i ekstra litero \"a\". Ne estas facila montri al konjugacisto kiun estas la");
+			printf ("\n    akcentita vokalo.");
+			printf ("\n    Alia rimarko: vi rimarkos ol la konjugacisto donas vortojn kun kelkaj");
+			printf ("\n    literoj inter parentezoj. Ekzemple: la donita preterita ununombra dua");
+			printf ("\n    persono de la verbo \"beud\" estas {bud(i)st(a)}, sed tio ne signifas ol");
+			printf ("\n    {budista} estas valida prononco. Vi devas havi kritikan rigardon kaj bonan");
+			printf ("\n    sa" SMALL_G_CIRCUMFLEX "on por trovi la ta" SMALL_U_BREVE "ga  prononcon, kiu estas {budst(a)}. Aligu " SMALL_C_CIRCUMFLEX "i");
+			printf ("\n    programon kun la gramatiko.");
 			printf ("\n");
 			printf ("\n* \"log\": aktivigas a" SMALL_U_BREVE " malaktivigas la sistemajn mesa" SMALL_G_CIRCUMFLEX "ojn. Tio estas tre");
 			printf ("\nutila rimedo pro kiu(j) laboras kun la kodo de " SMALL_C_CIRCUMFLEX "i programo.");

@@ -298,6 +298,16 @@ else if (strcmp(argument, "differs") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "dif(f)Ers");
 }
+else if (strcmp(argument, "diksdwinghend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "diksdwIng" SMALL_E_DIAERESIS_IN_TEXT "nd");
+}
+else if (strcmp(argument, "diksdwinghends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "diksdwIng" SMALL_E_DIAERESIS_IN_TEXT "nds");
+}
 else if (strcmp(argument, "direcs") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -317,6 +327,16 @@ else if (strcmp(argument, "direg") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "dirEg");
+}
+else if (strcmp(argument, "dwinghend") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "dwIng" SMALL_E_DIAERESIS_IN_TEXT "nd");
+}
+else if (strcmp(argument, "dwinghends") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "dwIng" SMALL_E_DIAERESIS_IN_TEXT "nd");
 }
 else if (strcmp(argument, "document") == 0)
 {
@@ -497,6 +517,16 @@ else if (strcmp(argument, "lineaments") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "linEam" SMALL_E_DIAERESIS_IN_TEXT "nts");
+}
+else if (strcmp(argument, "ministernconcil") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "minIst" SMALL_E_DIAERESIS_IN_TEXT "rnkontsil");
+}
+else if (strcmp(argument, "ministernconcils") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "minIst" SMALL_E_DIAERESIS_IN_TEXT "rnkontsils");
 }
 else if (strcmp(argument, "negleg") == 0)
 {
