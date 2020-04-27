@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("###############################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER v 0.34 ###########################\n");
+	printf ("########################### SAMBAHSA HEHLPER v 1.00 ###########################\n");
 	printf ("###############################################################################\n");
 }
 
@@ -59,7 +59,7 @@ void help (short int lang)
 			printf ("\n    pior sweurghte sei un werd kwehct baygh impronunceable");
 			printf ("\n    2 - Alyo gohd exempel est \"Kaapstad\". Eger id est un afrikaans werd, ids");
 			printf ("\n    correct transcription est {kA:pstat}, lakin tod werd esiet pronuncen kam");
-			printf ("\n    {kaapstAd} in \"pure\" Sambahsa. Tod situation est commun con proper nams.");
+			printf ("\n    {kaapstAd} in \"pure\" Sambahsa. Tod situation est commun con proper nomens.");
 			printf ("\n    3 - Sehkwent id aum describen uper: tod est un software, ne un conscieus");
 			printf ("\n    anghen. Tod programme khact correct-ye transcribe un werd kam \"defend\" med");
 			printf ("\n    ids wi capacitats ob id khact gvaedde od tod werd est composen (hat un");
@@ -68,10 +68,10 @@ void help (short int lang)
 			printf ("\n        transcriben ob io (is programmer) wihand-ye sieygim ei programme qua");
 			printf ("\n        sont ia transcriptions tom specific werds, bet to maght ne ses id fall");
 			printf ("\n        altern problematic werds. Khako dahe un tayar transcription pro vasya");
-			printf ("\n        ex ta werds (yoitkwe yu tehrbsiete antruses id programmes transcriptor),");
-			printf ("\n        bet kwohrim un internal liste tom werds. Kay woide qua problematic");
-			printf ("\n        werds hant tayar transcriptions, uset id commande \"pncliste\" au");
-			printf ("\n        \"listepnc\"");
+			printf ("\n        ex ta werds (yoitkwe yu tehrpsiete antruses id programmes");
+			printf ("\n        transcriptor), bet kwohrim un internal liste tom werds. Kay woide qua");
+			printf ("\n        problematic werds hant tayar transcriptions, uset id commande");
+			printf ("\n        \"pncliste\" au \"listepnc\"");
 			printf ("\n    4 - Tod est un programmation probleme. To est dayir id buksteiv \"e\" quan");
 			printf ("\n    tod ne est accentuen. In tod fall, est daht vos auter \"{e}\" au \"{"SMALL_E_DIAERESIS_IN_TEXT"}\". Eger");
 			printf ("\n    ne est facil diles con tod special harif \""SMALL_E_DIAERESIS_IN_TEXT"\", id programme maght linkwes");
@@ -86,9 +86,9 @@ void help (short int lang)
 			printf ("\n    tod extra buksteiv \"a\". Ne est facil ziele ei conjugator quod est id");
 			printf ("\n    accentuen voyel.");
 			printf ("\n    Alyo observation: yu kausiete od id conjugator daht werds samt sem");
-			printf ("\n    buksteivs inter kaws. Mathalan: id dahn preterit singular second person");
+			printf ("\n    buksteivs inter kawsa. Mathalan: id dahn preterit singular second person");
 			printf ("\n    ios verb \"beud\" est {bud(i)st(a)}, bet tod ne maynt od {budista} est un");
-			printf ("\n    valid pronunciation. Yu terhbte habe un critic okwi ed gohd sense kay");
+			printf ("\n    valid pronunciation. Yu tehrpte habe un critic okwi ed gohd sense kay");
 			printf ("\n    trehve id ciautaung pronunciation, quod est {budst(a)}. Alliete tod");
 			printf ("\n    programme con id grammatic.");
 			printf ("\n");

@@ -413,6 +413,11 @@ else if (strcmp(argument, "exists") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "eksIsts");
 }
+else if (strcmp(argument, "expremt") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "eksprEmt");
+}
 else if (strcmp(argument, "extend") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -517,6 +522,16 @@ else if (strcmp(argument, "lineaments") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "linEam" SMALL_E_DIAERESIS_IN_TEXT "nts");
+}
+else if (strcmp(argument, "menscenrect") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "mEns" SMALL_E_DIAERESIS_IN_TEXT "nr" SMALL_E_DIAERESIS_IN_TEXT "kt");
+}
+else if (strcmp(argument, "menscenrects") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "mEns" SMALL_E_DIAERESIS_IN_TEXT "nr" SMALL_E_DIAERESIS_IN_TEXT "kts");
 }
 else if (strcmp(argument, "ministernconcil") == 0)
 {

@@ -46,6 +46,14 @@ short int is_it_vowel_without_w (char ch)
 		return FALSE;
 }
 
+short int is_it_vowel_without_wy (char ch)
+{
+	if (ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch =='o' || ch=='O' || ch == 'u' || ch == 'U')
+		return TRUE;
+	else
+		return FALSE;
+}
+
 short int is_it_consonant (char ch)
 {
 	if (ch == 'b' || ch == 'c' || ch == 'd' || ch == 'f' || ch == 'g' || ch == 'h' || ch == 'j' || ch == 'k' || ch == 'l' || ch == 'm' || ch =='n' || ch == 'p' || ch == 'q' || ch == 'r' || ch == 's' || ch == 't' || ch == 'v' || ch == 'x' || ch == 'z')

@@ -66,9 +66,9 @@ short int check_nasal_infix ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'm' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == '\0') && argument[arg_counter - 1] != '\0' && !((argument[arg_counter - 1] == 'n' && argument[arg_counter - 1] == 'm')))
+		if ((is_it_consonant(argument[arg_counter - 1]) || argument[arg_counter - 1] == 'w' || argument[arg_counter - 1] == 'y') && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'm' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == '\0') && argument[arg_counter - 1] != '\0' && !((argument[arg_counter - 1] == 'n' || argument[arg_counter - 1] == 'm')))
 			x++;
-		else if (is_it_consonant(argument[arg_counter - 1]) && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'n' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == '\0') && argument[arg_counter - 1] != '\0' && !((argument[arg_counter - 1] == 'n' && argument[arg_counter - 1] == 'm')))
+		else if ((is_it_consonant(argument[arg_counter - 1]) || argument[arg_counter - 1] == 'w' || argument[arg_counter - 1] == 'y') && argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'n' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == '\0') && argument[arg_counter - 1] != '\0' && !((argument[arg_counter - 1] == 'n' || argument[arg_counter - 1] == 'm')))
 			x++;
 		else if (!(argument[arg_counter - 1] == 'm') && argument[arg_counter] == 'm' && argument[arg_counter + 1] == 'e' && !(argument[arg_counter + 2] == '\0' || argument[arg_counter + 2] == 'h' || is_it_vowel_without_w(argument[arg_counter + 2])))
 			x++;
@@ -1911,7 +1911,7 @@ void past_participe ()
 	}
 
 
-	if (!is_it_vowel(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h') && !(participe_en[strlen(participe_en) - 3] != 'i' && !(illogic_er) && participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'r') && !(participe_en[strlen(participe_en) - 3] != 'i' && !(illogic_el) && participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'l')) participe_en[strlen(participe_en)] = 'e';
+	if (!is_it_vowel_without_wy(participe_en[strlen(participe_en) - 1]) && !(is_it_vowel(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'h') && !(participe_en[strlen(participe_en) - 3] != 'i' && !(illogic_er) && participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'r') && !(participe_en[strlen(participe_en) - 3] != 'i' && !(illogic_el) && participe_en[strlen(participe_en) - 2] == 'e' && participe_en[strlen(participe_en) - 1] == 'l') && !(is_it_consonant(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'w') && !(is_it_consonant(participe_en[strlen(participe_en) - 2]) && participe_en[strlen(participe_en) - 1] == 'y')) participe_en[strlen(participe_en)] = 'e';
 
 	participe_en[strlen(participe_en)] = 'n';
 
