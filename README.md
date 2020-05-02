@@ -52,6 +52,10 @@ For more informations, you can go to the "help" section of the program by using 
 
 _Keep in mind that although these commands are translations of the Sambahsa word "hehlp", they will give you the text in the configured language, so if you configured the program to show texts in French (so you used `deflang fr`) and you use the command `help`, you still will get a text in French._
 
+### For Linux users
+
+Perhaps you will not find a Linux executable for the last version. If this is the case, know that this program can be compiled to Linux systems, I don't create a Linux binary for all releases because it's a bit annoying to deal with this operating system in virtual machine. But I gladly can generate a Linux binary for you, you just need to ask me [here](https://github.com/hmslima/sambahsahehlper/issues).
+
 ## For programmers
 
 I have to say that I am not a programmer, actually I am not even a "computer guy" and probably this is the first and last program that I am doing. So know in advance that I am very amateur in programming and perhaps you may find the code of this program a mess, full of redundancies, full of bad practices and "childish". **But the program does the job and it's what matters!**
