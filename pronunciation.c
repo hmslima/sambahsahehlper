@@ -2964,20 +2964,36 @@ void pronunciation ()
 
 				/************* uCe... **/
 
-				//uCes
-				else if ((is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'w' || argument[arg_counter + 1] == 'y') && argument[arg_counter + 2] == 'e' && argument[arg_counter + 3] == 's' && argument[arg_counter + 4] == '\0')
+                //ule(C)(s)...
+				else if (argument[arg_counter + 1] == 'l' && argument[arg_counter + 2] == 'e' && (argument[arg_counter + 3] == '\0' || (is_it_consonant( argument[arg_counter + 3]) && argument[arg_counter + 4] == '\0') || (is_it_consonant( argument[arg_counter + 3]) && argument[arg_counter + 4] == 's' && argument[arg_counter + 3] != 's' && argument[arg_counter + 5] == '\0')))
 				{
-					if (argument[arg_counter + 1] == 'l') // -ules doesn't get stress
+                    // If the whole word has the structure ulen
+				    if (argument[arg_counter + 3] == 'n')
 					{
 						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_U_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					else
+                    {
+                        #ifdef _WIN32
 						SPT_word[SPT_counter] = SMALL_U_DIAERESIS;
 						SPT_counter++;
 						#else
 						strncat(SPT_word, SMALL_U_DIAERESIS, 6);
 						SPT_counter = SPT_counter + 2;
 						#endif
-					}
-					else if (argument[arg_counter + 1] == 'c' || argument[arg_counter + 1] == 's' || argument[arg_counter + 1] == 'z' || argument[arg_counter + 1] == 'g' || argument[arg_counter + 1] == 'j' || argument[arg_counter + 1] == 'x' || argument[arg_counter + 1] == 'w' || argument[arg_counter + 1] == 'y')
+                    }
+				}
+				//uCes
+				else if ((is_it_consonant(argument[arg_counter + 1]) || argument[arg_counter + 1] == 'w' || argument[arg_counter + 1] == 'y') && argument[arg_counter + 2] == 'e' && argument[arg_counter + 3] == 's' && argument[arg_counter + 4] == '\0')
+				{
+					if (argument[arg_counter + 1] == 'c' || argument[arg_counter + 1] == 's' || argument[arg_counter + 1] == 'z' || argument[arg_counter + 1] == 'g' || argument[arg_counter + 1] == 'j' || argument[arg_counter + 1] == 'x' || argument[arg_counter + 1] == 'w' || argument[arg_counter + 1] == 'y')
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
@@ -3152,17 +3168,6 @@ void pronunciation ()
 					{
 						SPT_word[SPT_counter] = 'u';
 						SPT_counter++;
-					}
-					// For the -ule case
-					else if (argument[arg_counter + 1] == 'l' && argument[arg_counter + 2] == 'e' && argument[arg_counter + 3] == '\0')
-					{
-						#ifdef _WIN32
-						SPT_word[SPT_counter] = SMALL_U_DIAERESIS;
-						SPT_counter++;
-						#else
-						strncat(SPT_word, SMALL_U_DIAERESIS, 6);
-						SPT_counter = SPT_counter + 2;
-						#endif
 					}
 					else if (!(stress) && (is_there_more_than_one_vowel ()) && ((is_it_consonant(argument[arg_counter + 1])) || (argument[arg_counter + 1] == 'y') || (argument[arg_counter + 1] == 'i')) && !(argument[arg_counter + 1] == 's') && (argument[arg_counter + 2] == '\0'))
 					{
