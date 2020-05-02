@@ -2967,8 +2967,8 @@ void pronunciation ()
                 //ule(C)(s)...
 				else if (argument[arg_counter + 1] == 'l' && argument[arg_counter + 2] == 'e' && (argument[arg_counter + 3] == '\0' || (is_it_consonant( argument[arg_counter + 3]) && argument[arg_counter + 4] == '\0') || (is_it_consonant( argument[arg_counter + 3]) && argument[arg_counter + 4] == 's' && argument[arg_counter + 3] != 's' && argument[arg_counter + 5] == '\0')))
 				{
-                    // If the whole word has the structure ulen
-				    if (argument[arg_counter + 3] == 'n')
+                    // If the whole word has the structure (C)(C)(C)ulen
+				    if ((argument[arg_counter - 1] == '\0' || (argument[arg_counter - 2] == '\0' && is_it_consonant(argument[arg_counter - 1])) || (argument[arg_counter - 3] == '\0' && is_it_consonant(argument[arg_counter - 2]) && (is_it_consonant(argument[arg_counter - 1]) || argument[arg_counter - 1] == 'w' || argument[arg_counter - 1] == 'y' || argument[arg_counter - 1] == 'i')) || (argument[arg_counter - 4] == '\0' && is_it_consonant(argument[arg_counter - 3]) && is_it_consonant(argument[arg_counter - 2]) && (is_it_consonant(argument[arg_counter - 1]) || argument[arg_counter - 1] == 'w' || argument[arg_counter - 1] == 'y' || argument[arg_counter - 1] == 'i'))) && argument[arg_counter + 3] == 'n')
 					{
 						#ifdef _WIN32
 						SPT_word[SPT_counter] = CAPITAL_U_DIAERESIS;
