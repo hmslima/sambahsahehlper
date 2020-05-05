@@ -2471,11 +2471,39 @@ void pronunciation ()
 						{
 							if (show_system_messages) printf("\npoint e_else");
 
-							if ((argument[arg_counter + 1] == 't' || argument[arg_counter + 1] == 's') && argument[arg_counter + 2] == '\0')
+                            // ques
+                            if (argument[arg_counter - 2] == 'q' && argument[arg_counter - 1] == 'u' && argument[arg_counter + 1] == 's')
+							{
+                                if (show_system_messages) printf("\npoint e_else_ques");
+								#ifdef _WIN32
+								SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
+								SPT_counter++;
+								#else
+								strncat(SPT_word, SMALL_E_DIAERESIS, 6);
+								SPT_counter = SPT_counter + 2;
+								#endif
+								occurrence_of_the_small_e_diaeresis++;
+							}
+							// quet
+							else if (argument[arg_counter - 2] == 'q' && argument[arg_counter - 1] == 'u' && argument[arg_counter + 1] == 't')
+							{
+                                if (show_system_messages) printf("\npoint e_else_quet");
+								#ifdef _WIN32
+								SPT_word[SPT_counter] = SMALL_E_DIAERESIS;
+								SPT_counter++;
+								#else
+								strncat(SPT_word, SMALL_E_DIAERESIS, 6);
+								SPT_counter = SPT_counter + 2;
+								#endif
+								occurrence_of_the_small_e_diaeresis++;
+							}
+							//et0 / es0
+							else if ((argument[arg_counter + 1] == 't' || argument[arg_counter + 1] == 's') && argument[arg_counter + 2] == '\0')
 							{
                                 if (show_system_messages) printf("\npoint e_else_silent");
 								// Do nothing, this is a silent e
 							}
+							// eh
 							else if (argument[arg_counter + 1] == 'h')
 							{
 								if (show_system_messages) printf("\npoint e_else_with_h");

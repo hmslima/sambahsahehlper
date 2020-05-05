@@ -27,6 +27,7 @@ printf("\nconcern");
 printf("\nconcerns");
 printf("\nconcil");
 printf("\nconcils");
+printf("\nconclus");
 printf("\nconfer");
 printf("\nconfers");
 printf("\nconflict");

@@ -138,6 +138,11 @@ else if (strcmp(argument, "concerns") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "kontsErns");
 }
+else if (strcmp(argument, "conclus") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "konklUs");
+}
 else if (strcmp(argument, "concil") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
