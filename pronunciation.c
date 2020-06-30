@@ -1797,6 +1797,31 @@ void pronunciation ()
 						else
 							goto PROBLEMATIC_E;
 					}
+					//eCCCV
+					else if (!(stress) && (is_there_more_than_one_vowel_ignoring_last_e ()) && (is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (is_it_vowel(argument[arg_counter + 4])) && (argument[arg_counter + 5] == '\0'))
+					{
+						if (show_system_messages) printf("\npoint ECCCV");
+						if ((argument[arg_counter + 3] == 'e') && ((is_it_vowel(argument[arg_counter - 2])) || (is_it_vowel(argument[arg_counter - 3]))))
+						{
+							SPT_word[SPT_counter] = 'E';
+							SPT_counter++;
+							stress = TRUE;
+						}
+						else if (argument[arg_counter + 3] == 'e' && (is_it_vowel(argument[arg_counter - 1]) || is_it_vowel(argument[arg_counter - 2]) || is_it_vowel(argument[arg_counter - 3]) || is_it_vowel(argument[arg_counter - 4])))
+						{
+							SPT_word[SPT_counter] = 'E';
+							SPT_counter++;
+							stress = TRUE;
+						}
+						else if (!(argument[arg_counter + 3] == 'e') && !(argument[arg_counter + 3] == 'w'))
+						{
+							SPT_word[SPT_counter] = 'E';
+							SPT_counter++;
+							stress = TRUE;
+						}
+						else
+							goto PROBLEMATIC_E;
+					}
 					//eCVs
 					else if (!(stress) && (is_there_more_than_one_vowel_ignoring_last_e ()) && (is_it_consonant(argument[arg_counter + 1])) && (is_it_vowel(argument[arg_counter + 2])) && (argument[arg_counter + 3] == 's') && (argument[arg_counter + 4] == '\0'))
 					{
@@ -1832,6 +1857,31 @@ void pronunciation ()
 					else if (!(stress) && (is_there_more_than_one_vowel_ignoring_last_e ()) && (is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_vowel(argument[arg_counter + 3])) && (argument[arg_counter + 4] == 's') && (argument[arg_counter + 5] == '\0'))
 					{
 						if (show_system_messages) printf("\npoint eCCVs");
+						if ((argument[arg_counter + 3] == 'e') && ((is_it_vowel(argument[arg_counter - 2])) || (is_it_vowel(argument[arg_counter - 3]))))
+						{
+							SPT_word[SPT_counter] = 'E';
+							SPT_counter++;
+							stress = TRUE;
+						}
+						else if (argument[arg_counter + 3] == 'e' && (is_it_vowel(argument[arg_counter - 1]) || is_it_vowel(argument[arg_counter - 2]) || is_it_vowel(argument[arg_counter - 3]) || is_it_vowel(argument[arg_counter - 4])))
+						{
+							SPT_word[SPT_counter] = 'E';
+							SPT_counter++;
+							stress = TRUE;
+						}
+						else if (!(argument[arg_counter + 3] == 'e') && !(argument[arg_counter + 3] == 'w'))
+						{
+							SPT_word[SPT_counter] = 'E';
+							SPT_counter++;
+							stress = TRUE;
+						}
+						else
+							goto PROBLEMATIC_E;
+					}
+					//eCCCVs
+					else if (!(stress) && (is_there_more_than_one_vowel_ignoring_last_e ()) && (is_it_consonant(argument[arg_counter + 1])) && (is_it_consonant(argument[arg_counter + 2])) && (is_it_consonant(argument[arg_counter + 3])) && (is_it_vowel(argument[arg_counter + 4])) && (argument[arg_counter + 5] == 's') && (argument[arg_counter + 6] == '\0'))
+					{
+						if (show_system_messages) printf("\npoint ECCCVs");
 						if ((argument[arg_counter + 3] == 'e') && ((is_it_vowel(argument[arg_counter - 2])) || (is_it_vowel(argument[arg_counter - 3]))))
 						{
 							SPT_word[SPT_counter] = 'E';
@@ -3683,7 +3733,13 @@ void pronunciation ()
 				SPT_counter++;
 				SPT_word[SPT_counter] = 'c';
 				SPT_counter++;
-				// arg_counter++;  // Yeah, you must jump one letter
+			}
+			else if ((argument[arg_counter + 1] == 'h') && ((argument[arg_counter + 2] == '\0') || (argument[arg_counter + 2] == 's' && argument[arg_counter + 3] == '\0')))
+			{
+				SPT_word[SPT_counter] = 't';
+				SPT_counter++;
+				SPT_word[SPT_counter] = 'c';
+				SPT_counter++;
 			}
 			else if ((argument[arg_counter + 1] == 'h') && (!is_it_vowel(argument[arg_counter + 2])))
 			{

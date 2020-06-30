@@ -46,6 +46,7 @@ void help (short int lang)
 			printf ("\n    * \"deflang sb\": pro sambahsa-mundialect");
 			printf ("\n    * \"deflang pt\": pro portughesche");
 			printf ("\n    * \"deflang en\": pro englisch");
+			printf ("\n    * \"deflang es\": pro espaniol");
 			printf ("\n    * \"deflang fr\": pro franceois");
 			printf ("\n    * \"deflang eo\": pro esperanto");
 			printf ("\n* \"pnc\" au \"pronunce\": daht id pronunciation ios insert werd");
@@ -108,7 +109,7 @@ void help (short int lang)
 			printf ("\nthe language Sambahsa-Mundialect. In the whole process of creation of this");
 			printf ("\nprogram, he had the help of the creator of the language, the French Olivier");
 			printf ("\nSimon.");
-			printf ("\nThe goal of this program is to help the beginners showing the pronunciation and");
+			printf ("\nThe goal of this program is to help beginners by showing the pronunciation and");
 			printf ("\nconjugation of the words. Before we continue, you must understand that this");
 			printf ("\nis a simple program that does not correct the user\'s mistakes, so know that:");
 			printf ("\n* This program can only analyze only one word at a time");
@@ -123,6 +124,7 @@ void help (short int lang)
 			printf ("\n    * \"setlang sb\": for Sambahsa-Mundialect");
 			printf ("\n    * \"setlang pt\": for Portuguese");
 			printf ("\n    * \"setlang en\": for English");
+			printf ("\n    * \"setlang es\": for Spanish");
 			printf ("\n    * \"setlang fr\": for French");
 			printf ("\n    * \"setlang eo\": for Esperanto");
 			printf ("\n* \"pnc\" or \"pronunce\": gives the pronunciation of the inserted word");
@@ -203,6 +205,7 @@ void help (short int lang)
 			printf ("\n    * \"deflang sb\": para sambahsa-mundialect");
 			printf ("\n    * \"deflang pt\": para portugu" SMALL_E_CIRCUMFLEX "s");
 			printf ("\n    * \"deflang en\": para ingl" SMALL_E_CIRCUMFLEX "s");
+			printf ("\n    * \"deflang es\": para espanhol");
 			printf ("\n    * \"deflang fr\": para franc" SMALL_E_CIRCUMFLEX "s");
 			printf ("\n    * \"deflang eo\": para esperanto");
 			printf ("\n* \"pnc\" ou \"pronunce\": d" SMALL_A_ACUTE " a pron" SMALL_U_ACUTE "ncia da palavra inserida");
@@ -282,6 +285,7 @@ void help (short int lang)
 			printf ("\n    * \"deflang sb\" : sambahsa-mundialect");
 			printf ("\n    * \"deflang pt\" : portugais");
 			printf ("\n    * \"deflang en\" : anglais");
+			printf ("\n    * \"deflang es\" : espagnol");
 			printf ("\n    * \"deflang fr\" : fran" SMALL_C_CEDILLA "ais");
 			printf ("\n    * \"deflang eo\" : esperanto");
 			printf ("\n* \"pnc\" ou \"pronunce\" : donne la prononciation du mot ins" SMALL_E_ACUTE "r" SMALL_E_ACUTE "");
@@ -335,6 +339,7 @@ void help (short int lang)
 			printf ("\n    * \"deflang sb\": por sambaso-mundialekto");
 			printf ("\n    * \"deflang pt\": por la portugala");
 			printf ("\n    * \"deflang en\": por la angla");
+			printf ("\n    * \"deflang es\": por la hispana");
 			printf ("\n    * \"deflang fr\": por la franca");
 			printf ("\n    * \"deflang eo\": por esperanto");
 			printf ("\n* \"pnc\" a" SMALL_U_BREVE " \"pronunce\": donas la prononcon de la vorto enmetita");
