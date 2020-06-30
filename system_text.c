@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("###############################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER v 1.02 ###########################\n");
+	printf ("########################### SAMBAHSA HEHLPER v 1.50 ###########################\n");
 	printf ("###############################################################################\n");
 }
 
@@ -78,6 +78,9 @@ void help (short int lang)
 			printf ("\n    ne est facil diles con tod special harif \""SMALL_E_DIAERESIS_IN_TEXT"\", id programme maght linkwes");
 			printf ("\n    un \"e\" quer dehlgiet wehse un \""SMALL_E_DIAERESIS_IN_TEXT"\". Tik woidte de to. To ne est un serieus");
 			printf ("\n    probleme ob id meis important ject est accentue id correct voyel.");
+			printf ("\n* \"pncd\" au \"pronuncedatia\": id sam os \"pnc\", bet pro hol datias");
+			printf ("\n    * Mathalan: \"pnc werds.txt\"");
+			printf ("\n    Ia werds dehlgent ses separen med lignes, ne med commas au rewos!");
 			printf ("\n* \"cjg\" au \"conjuge\": daht id conjugation ios insert werd");
 			printf ("\n    * Mathalan: \"cjg edd\"");
 			printf ("\n    Io akster-ye recommande vos tik insere verbs aun prefixe. Ma? Un gohd");
@@ -159,6 +162,9 @@ void help (short int lang)
 			printf ("\n    Since it\'s not easy to deal with this special character \""SMALL_E_DIAERESIS_IN_TEXT"\", the program");
 			printf ("\n    may leave an \"e\" where should be an \""SMALL_E_DIAERESIS_IN_TEXT"\". Just know it. It\'s not a serious");
 			printf ("\n    problem because the most important thing is to stress the correct vowel");
+			printf ("\n* \"pncd\" or \"pronuncedatia\": the same of \"pnc\", but for whole files");
+			printf ("\n    * For example: \"pnc words.txt\"");
+			printf ("\n    The words must be separeted by lines, not by commas or spaces!");
 			printf ("\n* \"cjg\" or \"conjuge\": gives the conjugation of the inserted word");
 			printf ("\n    * For example: \"cjg edd\"");
 			printf ("\n    I strongly recommend you to only insert verbs without prefixes. Why? A");
@@ -239,6 +245,9 @@ void help (short int lang)
 			printf ("\n    n" SMALL_A_TILDE "o " SMALL_E_ACUTE " f" SMALL_A_ACUTE "cil lidar com este caractere especial \""SMALL_E_DIAERESIS_IN_TEXT"\", o programa pode deixar");
 			printf ("\n    um \"e\" onde deveria ser um \""SMALL_E_DIAERESIS_IN_TEXT"\". Apenas saiba disso. N" SMALL_A_TILDE "o " SMALL_E_ACUTE " um problema s" SMALL_E_ACUTE "rio");
 			printf ("\n    porque a coisa mais important " SMALL_E_ACUTE " acentuar t" SMALL_O_CIRCUMFLEX "nicamente a vogal correta.");
+			printf ("\n* \"pncd\" ou \"pronuncedatia\": o mesmo que \"pnc\", mas para arquivos inteiros");
+			printf ("\n    * Por examplo: \"pnc werds.txt\"");
+			printf ("\n    As palavras devem ser separadas por linhas, não por v" SMALL_I_ACUTE "rgulas ou espa" SMALL_C_CEDILLA "os!");
 			printf ("\n* \"cjg\" ou \"conjuge\": d" SMALL_A_ACUTE " a conjuga" SMALL_C_CEDILLA SMALL_A_TILDE "o da palavra inserida");
 			printf ("\n    * Por examplo: \"cjg edd\"");
 			printf ("\n    Eu fortemente lhe recomendo a somente inserir verbos sem prefixos. Por qu" SMALL_E_CIRCUMFLEX "?");
@@ -372,6 +381,10 @@ void help (short int lang)
 			printf ("\n    " CAPITAL_C_CIRCUMFLEX "ar ne estas facila labori kun " SMALL_C_CIRCUMFLEX "i speciala litero \""SMALL_E_DIAERESIS_IN_TEXT"\", la programo povas");
 			printf ("\n    lasi \"e\" kie devus esti \""SMALL_E_DIAERESIS_IN_TEXT"\". Nur scii tion. Tio ne estas serioza");
 			printf ("\n    problemo " SMALL_C_CIRCUMFLEX "ar la plej grava afero estas akcentigi la " SMALL_G_CIRCUMFLEX "ustan vokalon");
+			printf ("\n    probleme ob id meis important ject est accentue id correct voyel.");
+			printf ("\n* \"pncd\" a" SMALL_U_BREVE " \"pronuncedatia\": la samo de \"pnc\", sed por tutaj dosieroj");
+			printf ("\n    * Ekzemple: \"pnc vortoj.txt\"");
+			printf ("\n    La vortoj devas esti separitaj per linioj, ne per komoj a" SMALL_U_BREVE " spacoj!");
 			printf ("\n* \"cjg\" a" SMALL_U_BREVE " \"conjuge\": donas la konjagucion de la vorto enmetita");
 			printf ("\n    * Ekzemple: \"cjg edd\"");
 			printf ("\n    Mi forte rekomendas al vi por nur enmeti verbojn sen anta" SMALL_U_BREVE "afikso. Kial?");

@@ -345,10 +345,11 @@ short int is_there_more_than_one_vowel_after_problematic_e (char argument[256], 
 	else return FALSE;
 }
 
-void pronunciation ()
+const char* pronunciation ()
 {
 	short int arg_counter;
 	short int SPT_counter = 0;
+	memset(SPT_word, '\0', strlen(SPT_word)); // For cleaning this string that may be previously used
 
 	for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
 	{
@@ -4293,17 +4294,13 @@ void pronunciation ()
     // Before giving the program's own transcription, we will test if we already have a ready-made solution for the given word. There are words with "illogic" transcription because of ethymologic reasons that the program cannot predict
     #include "manual_transcriptions.h"
 
-	// Shows the SPT word given by the own program
-	if (is_testpnc_active)
-		printf("{%s}\n", SPT_word);
-	else
-		printf("\n{%s}\n", SPT_word);
-
-
-	// For cleaning
-	memset(SPT_word, '\0', strlen(SPT_word));
-	memset(argument, '\0', strlen(argument));
+    //For cleaning
+    memset(argument, '\0', strlen(argument));
 	SPT_counter = 0;
 	stress = FALSE;
 	occurrence_of_the_small_e_diaeresis = 0;
+
+	// Shows the SPT word given by the own program
+	return SPT_word;
+
 }

@@ -12,6 +12,6 @@ short int is_it_simple_consonant (char ch);
 short int is_there_more_than_one_vowel ();
 short int is_there_more_than_one_vowel_ignoring_last_e ();
 short int is_there_only_one_vowel_ignoring_last_diaeresis_e ();
-void pronunciation ();
+const char* pronunciation ();
 
 #endif

@@ -11,6 +11,12 @@ char command_name[64]; // The command itself
 short int command_number;
 char argument[192]; // The argument of the command .... 192 = 256 - 64
 
+char c; // For reading files
+char temp_word[192]; // For storing the temporary words
+int line_number = 1; // Counts each new line
+
+short int html_mode = FALSE;
+
 short int program_active = TRUE;
 
 short int show_system_messages = FALSE; // Show message errors
@@ -29,6 +35,9 @@ short int lang = 1; /* Defines the language of the system through integer number
 10 - Esperanto
 [...]
 */
+
+FILE *input_file, *output_file;
+char output_file_name[256];
 
 #include "system_text.h" // Collection of basic system messages in different languages
 #include "command.h" // Functions to make the program be able to receive and interpret commands

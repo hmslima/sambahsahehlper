@@ -22,8 +22,14 @@ switch (command_number)
 		#include "manual_transcription_list.h"
 		printf("\n");
 	break;
-	case 6: // Help
+	case 6: // Show cases
 		cases (lang);
+	break;
+	case 7: // Habilitates HTML, it's useful for output files
+		if (!html_mode)
+			html_mode = TRUE;
+		else
+			html_mode = FALSE;
 	break;
 
 	/* ************************************
@@ -45,10 +51,112 @@ switch (command_number)
 	break;
 	case 1001: // Uses the function that transcribes the given word to SPT
 		if (strcmp(argument, "no_argument") == 0 || argument[0] == '\0') invalid_argument (lang);
-		else pronunciation ();
+		else printf("\n%s\n", pronunciation ());
 	break;
 	case 1002: // Conjugates the given word
 		if (strcmp(argument, "no_argument") == 0 || argument[0] == '\0') invalid_argument (lang);
 		else conjugation ();
+	break;
+	case 1003: // Uses the function that transcribes the words from the file "input_werd.txt" to SPT
+        // Opens the input file
+        input_file = fopen(argument, "r");
+
+        // Creates the output file
+        if (!html_mode)
+        	output_file = fopen("output_sambahsa_pnc.txt", "w");
+		else
+			output_file = fopen("output_sambahsa_pnc.html", "w");
+
+        if ((input_file = fopen(argument, "r")) == NULL)
+        {
+            printf ("\nERROR: It\'s was not possible to open the file!\n");
+            break;
+        }
+
+        // Te name of the file is no more necessary
+        memset(argument, '\0', strlen(argument));
+
+		// For cleaning this variable
+        line_number = 1;
+
+        // Writes the beginning of the HTML file
+        if (html_mode)
+        {
+        	fprintf (output_file, "%s\n%s\n\t%s", "<!DOCTYPE html>", "<html>", "<head>");
+			fprintf (output_file, "\n\t%s\n\t%s\n\n", "</head>", "<body>");
+        }
+
+        while (c != EOF)
+		{
+			// Read contents from file
+			c = fgetc(input_file);
+
+			if (c == '\n' && (strlen(argument) == 0))
+			{
+				// Do nothing special, it's just an empty line
+
+				// Counts the lines
+				if (line_number == 1)
+					line_number = line_number + 1;
+				else
+					line_number++;
+			}
+			else if ((c == '\n') && (strlen(argument) > 0))
+			{
+				if (!html_mode)
+					fprintf (output_file, "%s", argument);
+				else
+					fprintf (output_file, "<b>%s", argument);
+
+				if (!html_mode)
+					fprintf (output_file, " = ");
+				else
+					fprintf (output_file, " =</b> ");
+
+				if (!html_mode)
+					fprintf (output_file, "%s\n", pronunciation ());
+				else
+					fprintf (output_file, "%s<br>\n", pronunciation ());
+
+				memset(argument, '\0', strlen(argument));
+
+				// Counts the lines
+				if (line_number == 1)
+					line_number = line_number + 1;
+				else
+					line_number++;
+			}
+			else if (c == ' ')
+			{
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with spaces, please remove this one\n", line_number);
+				printf("Aborting proccess!\n");
+				break;
+			}
+			else if ((c == '(') || (c == ')') || (c == '=') || (c == '-') || (c == '{') || (c == '}') || (c == '[') || (c == ']'))
+			{
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with characters like \"(\", \"=\", etc, please remove this one\n", line_number);
+				printf("Aborting proccess!\n");
+				break;
+			}
+			else
+			{
+				if ((c != ' ') && (c != '\n') && (c == 'a' || c == 'b' || c == 'c' || c == 'd' || c == 'e' || c == 'f' || c == 'g' || c == 'h' || c == 'i' || c == 'j' || c == 'l' || c == 'm' || c == 'n' || c == 'o' || c == 'p' || c == 'q' || c == 'r' || c == 's' || c == 't' || c == 'u' || c == 'v' || c == 'x' || c == 'y' || c == 'w' || c == 'z'))
+					strncat(argument, &c, 1);
+			}
+		}
+
+		// Writes the ending of the HTML file
+        if (html_mode)
+        {
+        	fprintf (output_file, "\n\t%s\n%s", "</body>", "</html>");
+        }
+
+		// Closes the files
+		fclose(input_file);
+		fclose(output_file);
+
+		// Closes the program because you cannot read the input file again
+		printf("\nProcess terminated. Ending the program\n");
+		program_active = FALSE;
 	break;
 }
