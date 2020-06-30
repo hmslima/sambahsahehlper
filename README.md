@@ -12,6 +12,35 @@ In order to ask the transcription of a word to SPT, you must use the command `pn
 
 `pnc bahsa`
 
+You can get the conjugations of many verbs at once and store them in an file through the command `cjgd` or `conjugedatia`. For example:
+
+`cjgd verbs.txt`
+
+*All words inside the file must be separeted by lines, not by commas or spaces, so your file must be in this way:*
+
+    ananec
+    importe
+    edd
+    preges
+    
+*NOT in this way:*
+
+    ananec, importe, edd, preges
+
+
+***For Windows users:*** *pay attention that Windows usually hides the extension of files. Let's say you have the file "words.txt", Windows Explorer will show this file with the name "words". When you try to open a file, please don't forget to put the file extension.*
+
+There is a similar command that is `pncd` or `pronuncedatia`, but this one gets for you the phonetic thanscriptions of words. For example:
+
+`pncd words.txt`
+
+*All warning said to the command `cjgd` are valid for the command `pncd`*
+
+Still about the commands `cjgd` and `pncd`. Their output file is in TXT format. But you can use the command `html` to make these commands generate HTML files. For example:
+
+    > html
+    > cjgd verbs.txt
+
 You can change the language of the texts of the program through the command `deflang` or `setlang`:
 
 `deflang sb` for Sambahsa-Mundialect _(the standard language of the program)_
