@@ -12,12 +12,14 @@ short int command_number;
 char argument[192]; // The argument of the command .... 192 = 256 - 64
 
 char c; // For reading files
-char temp_word[192]; // For storing the temporary words
+char file_name[1024]; // For storing the filename
 int line_number = 1; // Counts each new line
 
 short int html_mode = FALSE;
 
 short int program_active = TRUE;
+short int dealing_with_file = FALSE;
+short int using_command_cjgd = FALSE;
 
 short int show_system_messages = FALSE; // Show message errors
 short int is_testpnc_active = FALSE;

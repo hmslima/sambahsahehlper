@@ -57,7 +57,7 @@ switch (command_number)
 		if (strcmp(argument, "no_argument") == 0 || argument[0] == '\0') invalid_argument (lang);
 		else conjugation ();
 	break;
-	case 1003: // Uses the function that transcribes the words from the file "input_werd.txt" to SPT
+	case 1003: // Uses the function that transcribes the words from a file to SPT
         // Opens the input file
         input_file = fopen(argument, "r");
 
@@ -69,7 +69,7 @@ switch (command_number)
 
         if ((input_file = fopen(argument, "r")) == NULL)
         {
-            printf ("\nERROR: It\'s was not possible to open the file!\n");
+            printf ("\nERROR: It\'s was not possible to open the file! Check whether you wrote the name of the file correctly or you have permission to open files from this folder\n");
             break;
         }
 
@@ -79,17 +79,18 @@ switch (command_number)
 		// For cleaning this variable
         line_number = 1;
 
-        //Message for Windows users
-        #ifdef _WIN32
-        	fprintf (output_file, "%s", "<!-- The Windows version of this program cannot copy properly special characters from SPT (the vowels with diaresis and the section sign), but it is easy to fix, just use a text editor to find and replace all occurencies of wrong character for the correct ones -->\n\n");
-        #endif
-
         // Writes the beginning of the HTML file
         if (html_mode)
         {
         	fprintf (output_file, "%s\n%s\n\t%s", "<!DOCTYPE html>", "<html>", "<head>");
 			fprintf (output_file, "\n\t%s\n\t%s\n\n", "</head>", "<body>");
         }
+
+        //Message for Windows users
+        #ifdef _WIN32
+        	if (!html_mode) fprintf (output_file, "%s", "The Windows version of this program cannot copy properly special characters from SPT (the vowels with diaresis and the section sign), but it is easy to fix, just use a text editor to find and replace all occurencies of wrong character for the correct ones\n\n");
+        	else fprintf (output_file, "%s", "The Windows version of this program cannot copy properly special characters from SPT (the vowels with diaresis(like \"&#235;\" and \"&#220;\" ) and the section sign (\"&#167;\") ), but it is easy to fix, just use a text editor to find and replace all occurencies of wrong character for the correct ones<br><br>");
+        #endif
 
         while (c != EOF)
 		{
@@ -106,7 +107,7 @@ switch (command_number)
 				else
 					line_number++;
 			}
-			else if ((c == '\n') && (strlen(argument) > 0))
+			else if ((c == '\n' || c == EOF) && (strlen(argument) > 0))
 			{
 				if (!html_mode)
 					fprintf (output_file, "%s", argument);
@@ -130,6 +131,90 @@ switch (command_number)
 					line_number = line_number + 1;
 				else
 					line_number++;
+			}
+			else if (c == ' ')
+			{
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with spaces, please remove this one\n", line_number);
+				printf("Aborting proccess!\n");
+				break;
+			}
+			else if ((c == '(') || (c == ')') || (c == '=') || (c == '-') || (c == '{') || (c == '}') || (c == '[') || (c == ']'))
+			{
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with characters like \"(\", \"=\", etc, please remove this one\n", line_number);
+				printf("Aborting proccess!\n");
+				break;
+			}
+			else
+			{
+				if ((c != ' ') && (c != '\n') && (c == 'a' || c == 'b' || c == 'c' || c == 'd' || c == 'e' || c == 'f' || c == 'g' || c == 'h' || c == 'i' || c == 'j' || c == 'l' || c == 'm' || c == 'n' || c == 'o' || c == 'p' || c == 'q' || c == 'r' || c == 's' || c == 't' || c == 'u' || c == 'v' || c == 'x' || c == 'y' || c == 'w' || c == 'z'))
+					strncat(argument, &c, 1);
+			}
+		}
+
+		// Writes the ending of the HTML file
+        if (html_mode)
+        {
+        	fprintf (output_file, "\n\t%s\n%s", "</body>", "</html>");
+        }
+
+		// Closes the files
+		fclose(input_file);
+		fclose(output_file);
+
+		// Closes the program because you cannot read the input file again
+		printf("\nProcess terminated. Ending the program\n");
+		program_active = FALSE;
+	break;
+	case 1004: // Uses the function that transcribes the words from a file to SPT
+		dealing_with_file = TRUE;
+
+		// Opens the input file
+        input_file = fopen(argument, "r");
+
+        // Creates the output file
+        if (!html_mode)
+        	output_file = fopen("output_sambahsa_cjg.txt", "w");
+		else
+			output_file = fopen("output_sambahsa_cjg.html", "w");
+
+        if ((input_file = fopen(argument, "r")) == NULL)
+        {
+            printf ("\nERROR: It\'s was not possible to open the file! Check whether you wrote the name of the file correctly or you have permission to open files from this folder\n");
+            break;
+        }
+
+		// Te name of the file is no more necessary
+		strcpy(file_name, argument);
+        memset(argument, '\0', strlen(argument));
+
+        // For cleaning this variable
+        line_number = 1;
+
+        while (c != EOF)
+		{
+			// Read contents from file
+			c = fgetc(input_file);
+
+			if (c == '\n' && (strlen(argument) == 0))
+			{
+				// Do nothing special, it's just an empty line
+
+				// Counts the lines
+				if (line_number == 1)
+					line_number = line_number + 1;
+				else
+					line_number++;
+			}
+			else if ((c == '\n' || c == EOF) && (strlen(argument) > 0))
+			{
+				// Counts the lines
+				if (line_number == 1)
+					line_number = line_number + 1;
+				else
+					line_number++;
+
+				//Calls the function
+				conjugation ();
 			}
 			else if (c == ' ')
 			{

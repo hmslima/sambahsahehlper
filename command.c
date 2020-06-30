@@ -97,7 +97,7 @@ short int define_command_number (char command_name[64])
 	else if ((strcmp(command_name, "pnc") == 0) || (strcmp(command_name, "pronunce") == 0)) command_number = 1001;
 	else if ((strcmp(command_name, "cjg") == 0) || (strcmp(command_name, "conjuge") == 0)) command_number = 1002;
 	else if ((strcmp(command_name, "pncd") == 0) || (strcmp(command_name, "pronuncedatia") == 0)) command_number = 1003;
-	else if ((strcmp(command_name, "cjgd") == 0) || (strcmp(command_name, "conjugedatia") == 0)) command_number = 1002;
+	else if ((strcmp(command_name, "cjgd") == 0) || (strcmp(command_name, "conjugedatia") == 0)) command_number = 1004;
 	else command_number = 0; // 0 means invalid command
 
 	return command_number;

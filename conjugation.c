@@ -11,6 +11,9 @@ extern char argument[192];
 extern short int lang;
 
 extern short int show_system_messages;
+extern short int dealing_with_file;
+extern FILE *output_file;
+extern short int html_mode;
 
 short int arg_counter;
 short int word_counter;
@@ -1981,82 +1984,146 @@ void conjugation ()
 		printf("\n-------");
 	}
 
-	// The verb
-	if (lang == 2) printf("\nVerb: ");
-	else if (lang == 4) printf("\nVerbo: ");
-	else if (lang == 6) printf("\nVerbe : ");
-	else if (lang == 8 || lang == 9) printf("\nVerbo: ");
-	else if (lang == 10) printf("\nVerbo: ");
-	else printf("\nVerb: ");
-	printf("%s", argument);
+	/***************************************************************************
+	************* THE TEXT TO BE SHOWN IN CONSOLE
+	****************************************************************************/
+	if (!dealing_with_file)
+	{
+		// The verb
+		if (lang == 2) printf("\nVerb: ");
+		else if (lang == 4) printf("\nVerbo: ");
+		else if (lang == 6) printf("\nVerbe : ");
+		else if (lang == 8 || lang == 9) printf("\nVerbo: ");
+		else if (lang == 10) printf("\nVerbo: ");
+		else printf("\nVerb: ");
+		printf("%s", argument);
 
+		// Infinitive
+		if (lang == 2) printf("\nInfinitive: ");
+		else if (lang == 4) printf("\nInfinitivo: ");
+		else if (lang == 6) printf("\nInfinitif : ");
+		else if (lang == 8 || lang == 9) printf("\nInfinitivo: ");
+		else if (lang == 10) printf("\nInfinitivo: ");
+		else printf("\nInfinitive: ");
+		printf("%s", infinitive);
 
-	// Infinitive
-	if (lang == 2) printf("\nInfinitive: ");
-	else if (lang == 4) printf("\nInfinitivo: ");
-	else if (lang == 6) printf("\nInfinitif : ");
-	else if (lang == 8 || lang == 9) printf("\nInfinitivo: ");
-	else if (lang == 10) printf("\nInfinitivo: ");
-	else printf("\nInfinitive: ");
-	printf("%s", infinitive);
+		// Present tense
+		if (lang == 2) printf("\nPresent tense: ");
+		else if (lang == 4) printf("\nPresente: ");
+		else if (lang == 6) printf("\nPr" SMALL_E_ACUTE "sent : ");
+		else if (lang == 8 || lang == 9) printf("\nPresente: ");
+		else if (lang == 10) printf("\nPrezenco: ");
+		else printf("\nPresent tid: ");
+		// -----
+		if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r') || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'l')) strcpy(io_pronoun, "io ");
+		else strcpy(io_pronoun, "");
+		printf("%s%s, %s, %s, %s, yu %s, %s", io_pronoun, present_1ps, present_2ps, present_3ps, present_1pp, present_2pp, present_3pp);
 
-	// Present tense
-	if (lang == 2) printf("\nPresent tense: ");
-	else if (lang == 4) printf("\nPresente: ");
-	else if (lang == 6) printf("\nPr" SMALL_E_ACUTE "sent : ");
-	else if (lang == 8 || lang == 9) printf("\nPresente: ");
-	else if (lang == 10) printf("\nPrezenco: ");
-	else printf("\nPresent tid: ");
-	// -----
-	if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r') || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'l')) strcpy(io_pronoun, "io ");
-	else strcpy(io_pronoun, "");
-	printf("%s%s, %s, %s, %s, yu %s, %s", io_pronoun, present_1ps, present_2ps, present_3ps, present_1pp, present_2pp, present_3pp);
+		// Past tense
+		if (lang == 2) printf("\nPast tense: ");
+		else if (lang == 4) printf("\nPret" SMALL_E_ACUTE "rito: ");
+		else if (lang == 6) printf("\nPass" SMALL_E_ACUTE " : ");
+		else if (lang == 8 || lang == 9) printf("\nPasado: ");
+		else if (lang == 10) printf("\nPreterito: ");
+		else printf("\nPreterit: ");
+		// -----
+		printf("%s, %s, %s, %s, %s, %s", past_1ps, past_2ps, past_3ps, past_1pp, past_2pp, past_3pp);
 
-	// Past tense
-	if (lang == 2) printf("\nPast tense: ");
-	else if (lang == 4) printf("\nPret" SMALL_E_ACUTE "rito: ");
-	else if (lang == 6) printf("\nPass" SMALL_E_ACUTE " : ");
-	else if (lang == 8 || lang == 9) printf("\nPasado: ");
-	else if (lang == 10) printf("\nPreterito: ");
-	else printf("\nPreterit: ");
-	// -----
-	printf("%s, %s, %s, %s, %s, %s", past_1ps, past_2ps, past_3ps, past_1pp, past_2pp, past_3pp);
+		// Future tense
+		if (lang == 2) printf("\nFuture tense: ");
+		else if (lang == 4) printf("\nFuturo: ");
+		else if (lang == 6) printf("\nFutur : ");
+		else if (lang == 8 || lang == 9) printf("\nFuturo: ");
+		else if (lang == 10) printf("\nFuturo: ");
+		else printf("\nFuture tid: ");
+		if (present_basis[strlen(present_basis) - 1] == 's')
+			printf("siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
+		else
+			printf("%s, %s, %s, %s, yu %s, %s", future_1ps, future_2ps, future_3ps, future_1pp, future_2pp, future_3pp);
 
-	// Future tense
-	if (lang == 2) printf("\nFuture tense: ");
-	else if (lang == 4) printf("\nFuturo: ");
-	else if (lang == 6) printf("\nFutur : ");
-	else if (lang == 8 || lang == 9) printf("\nFuturo: ");
-	else if (lang == 10) printf("\nFuturo: ");
-	else printf("\nFuture tid: ");
-	if (present_basis[strlen(present_basis) - 1] == 's')
-		printf("siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
-	else
-		printf("%s, %s, %s, %s, yu %s, %s", future_1ps, future_2ps, future_3ps, future_1pp, future_2pp, future_3pp);
+		// Conditional
+		if (lang == 2) printf("\nConditional: ");
+		else if (lang == 4) printf("\nCondicional: ");
+		else if (lang == 6) printf("\nConditionnel : ");
+		else if (lang == 8 || lang == 9) printf("\nCondicional: ");
+		else if (lang == 10) printf("\nKondicionalo: ");
+		else printf("\nConditional: ");
+		// -----
+		printf("%s, %s, %s, %s, yu %s, %s", conditional_1ps, conditional_2ps, conditional_3ps, conditional_1pp, conditional_2pp, conditional_3pp);
 
-	// Conditional
-	if (lang == 2) printf("\nConditional: ");
-	else if (lang == 4) printf("\nCondicional: ");
-	else if (lang == 6) printf("\nConditionnel : ");
-	else if (lang == 8 || lang == 9) printf("\nCondicional: ");
-	else if (lang == 10) printf("\nKondicionalo: ");
-	else printf("\nConditional: ");
-	// -----
-	printf("%s, %s, %s, %s, yu %s, %s", conditional_1ps, conditional_2ps, conditional_3ps, conditional_1pp, conditional_2pp, conditional_3pp);
+		// Past participle
+		if (lang == 2) printf("\nPast participle: ");
+		else if (lang == 4) printf("\nPartic" SMALL_I_ACUTE "pio do passado: ");
+		else if (lang == 6) printf("\nParticipe pass" SMALL_E_ACUTE " : ");
+		else if (lang == 8 || lang == 9) printf("\nPasado participio: ");
+		else if (lang == 10) printf("\nPasinta pasiva participo: ");
+		else printf("\nPrev participe: ");
+		// -----
+		printf("%s / %s", participe_t, participe_en);
 
-	// Past participle
-	if (lang == 2) printf("\nPast participle: ");
-	else if (lang == 4) printf("\nPartic" SMALL_I_ACUTE "pio do passado: ");
-	else if (lang == 6) printf("\nParticipe pass" SMALL_E_ACUTE " : ");
-	else if (lang == 8 || lang == 9) printf("\nPasado participio: ");
-	else if (lang == 10) printf("\nPasinta pasiva participo: ");
-	else printf("\nPrev participe: ");
-	// -----
-	printf("%s / %s", participe_t, participe_en);
+		printf("\n");
+    }
+    /***************************************************************************
+	************* THE TEXT TO BE SHOWN IN A FILE
+	****************************************************************************/
+    else
+    {
+    	// The verb
+    	if (!html_mode) fprintf (output_file, "%s: ", "Verb");
+		else fprintf (output_file, "<b>%s:</b> ", "Verb");
+    	fprintf (output_file, "%s", argument);
+    	if (!html_mode) fprintf (output_file, "\n");
+		else fprintf (output_file, "<br>");
 
+		// Infinitive
+		if (!html_mode) fprintf (output_file, "%s: ", "Infinitive");
+		else fprintf (output_file, "<b>%s:</b> ", "Infinitive");
+		fprintf (output_file, "%s", infinitive);
+		if (!html_mode) fprintf (output_file, "\n");
+		else fprintf (output_file, "<br>");
 
-    printf("\n");
+		// Present tense
+		if (!html_mode) fprintf (output_file, "%s: ", "Present");
+		else fprintf (output_file, "<b>%s:</b> ", "Present");
+		if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r') || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'l')) strcpy(io_pronoun, "io ");
+		else strcpy(io_pronoun, "");
+		fprintf (output_file, "%s%s, %s, %s, %s, yu %s, %s", io_pronoun, present_1ps, present_2ps, present_3ps, present_1pp, present_2pp, present_3pp);
+		if (!html_mode) fprintf (output_file, "\n");
+		else fprintf (output_file, "<br>");
 
+		// Past tense
+		if (!html_mode) fprintf (output_file, "%s: ", "Preterit");
+		else fprintf (output_file, "<b>%s:</b> ", "Preterit");
+		fprintf (output_file, "%s, %s, %s, %s, %s, %s", past_1ps, past_2ps, past_3ps, past_1pp, past_2pp, past_3pp);
+		if (!html_mode) fprintf (output_file, "\n");
+		else fprintf (output_file, "<br>");
+
+		// Future tense
+		if (!html_mode) fprintf (output_file, "%s: ", "Future tid");
+		else fprintf (output_file, "<b>%s:</b> ", "Future tid");
+		if (present_basis[strlen(present_basis) - 1] == 's')
+			fprintf (output_file, "siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
+		else
+			fprintf (output_file, "%s, %s, %s, %s, yu %s, %s", future_1ps, future_2ps, future_3ps, future_1pp, future_2pp, future_3pp);
+		if (!html_mode) fprintf (output_file, "\n");
+		else fprintf (output_file, "<br>");
+
+		// Conditional
+		if (!html_mode) fprintf (output_file, "%s: ", "Conditional");
+		else fprintf (output_file, "<b>%s:</b> ", "Conditional");
+		fprintf (output_file, "%s, %s, %s, %s, yu %s, %s", conditional_1ps, conditional_2ps, conditional_3ps, conditional_1pp, conditional_2pp, conditional_3pp);
+		if (!html_mode) fprintf (output_file, "\n");
+		else fprintf (output_file, "<br>");
+
+		// Past participle
+		if (!html_mode) fprintf (output_file, "%s: ", "Prev participe");
+		else fprintf (output_file, "<b>%s:</b> ", "Prev participe");
+
+		fprintf (output_file, "%s / %s", participe_t, participe_en);
+
+		if (!html_mode) fprintf (output_file, "\n\n");
+		else fprintf (output_file, "<br><br>");
+    }
 
     // For cleaning
 	memset(argument, '\0', strlen(argument));
