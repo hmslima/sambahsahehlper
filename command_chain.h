@@ -79,6 +79,11 @@ switch (command_number)
 		// For cleaning this variable
         line_number = 1;
 
+        //Message for Windows users
+        #ifdef _WIN32
+        	fprintf (output_file, "%s", "<!-- The Windows version of this program cannot copy properly special characters from SPT (the vowels with diaresis and the section sign), but it is easy to fix, just use a text editor to find and replace all occurencies of wrong character for the correct ones -->\n\n");
+        #endif
+
         // Writes the beginning of the HTML file
         if (html_mode)
         {
