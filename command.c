@@ -93,6 +93,7 @@ short int define_command_number (char command_name[64])
 	else if ((strcmp(command_name, "pncliste") == 0) || (strcmp(command_name, "listepnc") == 0) || (strcmp(command_name, "pnclist") == 0) || (strcmp(command_name, "listpnc") == 0)) command_number = 5;
 	else if ((strcmp(command_name, "falls") == 0) || (strcmp(command_name, "casos") == 0) || (strcmp(command_name, "cases") == 0) || (strcmp(command_name, "kazoj") == 0) || (strcmp(command_name, "cas") == 0)) command_number = 6;
 	else if (strcmp(command_name, "html") == 0) command_number = 7;
+	else if (strcmp(command_name, "htmlt") == 0) command_number = 8;
 	else if ((strcmp(command_name, "deflang") == 0) || (strcmp(command_name, "setlang") == 0)) command_number = 1000;
 	else if ((strcmp(command_name, "pnc") == 0) || (strcmp(command_name, "pronunce") == 0)) command_number = 1001;
 	else if ((strcmp(command_name, "cjg") == 0) || (strcmp(command_name, "conjuge") == 0)) command_number = 1002;

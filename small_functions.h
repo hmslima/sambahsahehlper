@@ -2,8 +2,6 @@
 #define SMALL_FUNCTIONS_H
 
 short int checklang (char argument[192]);
-
-/*struct personage player (struct personage person);
-struct place location (struct place Loc);*/
+void remove_capital_letters (char argument[192]);
 
 #endif

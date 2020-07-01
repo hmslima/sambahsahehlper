@@ -31,6 +31,18 @@ switch (command_number)
 		else
 			html_mode = FALSE;
 	break;
+	case 8: // Habilitates HTML, it's useful for output files
+		if (!html_mode)
+		{
+			htmlt_mode = TRUE;
+			html_mode = TRUE;
+		}
+		else
+		{
+			htmlt_mode = FALSE;
+			html_mode = FALSE;
+		}
+	break;
 
 	/* ************************************
 	* Anything beyond 999 needs an argument
@@ -80,7 +92,7 @@ switch (command_number)
         line_number = 1;
 
         // Writes the beginning of the HTML file
-        if (html_mode)
+        if (html_mode && !htmlt_mode)
         {
         	fprintf (output_file, "%s\n%s\n\t%s", "<!DOCTYPE html>", "<html>", "<head>");
 			fprintf (output_file, "\n\t%s\n\t%s\n\n", "</head>", "<body>");
@@ -112,17 +124,29 @@ switch (command_number)
 				if (!html_mode)
 					fprintf (output_file, "%s", argument);
 				else
-					fprintf (output_file, "<b>%s", argument);
+				{
+					if (!htmlt_mode) fprintf (output_file, "<b>%s", argument);
+					else fprintf (output_file, "%s", argument);
+				}
+
 
 				if (!html_mode)
 					fprintf (output_file, " = ");
 				else
-					fprintf (output_file, " =</b> ");
+				{
+					if (!htmlt_mode) fprintf (output_file, " =</b> ");
+					else fprintf (output_file, "\t&gt;\t");
+				}
+
+				remove_capital_letters (argument);
 
 				if (!html_mode)
-					fprintf (output_file, "%s\n", pronunciation ());
+					fprintf (output_file, "{%s}\n", pronunciation ());
 				else
-					fprintf (output_file, "%s<br>\n", pronunciation ());
+				{
+					if (!htmlt_mode) fprintf (output_file, "{%s}<br>\n", pronunciation ());
+					else fprintf (output_file, "{%s}\n", pronunciation ());
+				}
 
 				memset(argument, '\0', strlen(argument));
 
@@ -152,7 +176,7 @@ switch (command_number)
 		}
 
 		// Writes the ending of the HTML file
-        if (html_mode)
+        if (html_mode && !htmlt_mode)
         {
         	fprintf (output_file, "\n\t%s\n%s", "</body>", "</html>");
         }
@@ -189,6 +213,13 @@ switch (command_number)
 
         // For cleaning this variable
         line_number = 1;
+
+        // Writes the beginning of the HTML file
+        if (html_mode && !htmlt_mode)
+        {
+        	fprintf (output_file, "%s\n%s\n\t%s", "<!DOCTYPE html>", "<html>", "<head>");
+			fprintf (output_file, "\n\t%s\n\t%s\n\n", "</head>", "<body>");
+        }
 
         while (c != EOF)
 		{
@@ -236,7 +267,7 @@ switch (command_number)
 		}
 
 		// Writes the ending of the HTML file
-        if (html_mode)
+        if (html_mode && !htmlt_mode)
         {
         	fprintf (output_file, "\n\t%s\n%s", "</body>", "</html>");
         }

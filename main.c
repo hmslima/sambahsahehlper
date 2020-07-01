@@ -16,6 +16,7 @@ char file_name[1024]; // For storing the filename
 int line_number = 1; // Counts each new line
 
 short int html_mode = FALSE;
+short int htmlt_mode = FALSE;
 
 short int program_active = TRUE;
 short int dealing_with_file = FALSE;

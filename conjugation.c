@@ -14,6 +14,7 @@ extern short int show_system_messages;
 extern short int dealing_with_file;
 extern FILE *output_file;
 extern short int html_mode;
+extern short int htmlt_mode;
 
 short int arg_counter;
 short int word_counter;
@@ -2068,22 +2069,28 @@ void conjugation ()
 	****************************************************************************/
     else
     {
+    	//The Verb before the TAB
+		if (htmlt_mode) fprintf (output_file, "%s\t&gt;\t", argument);
+
     	// The verb
-    	if (!html_mode) fprintf (output_file, "%s: ", "Verb");
-		else fprintf (output_file, "<b>%s:</b> ", "Verb");
-    	fprintf (output_file, "%s", argument);
-    	if (!html_mode) fprintf (output_file, "\n");
-		else fprintf (output_file, "<br>");
+    	if (!htmlt_mode)
+    	{
+			if (!html_mode) fprintf (output_file, "%s: ", "Verb");
+			else fprintf (output_file, "<b>%s:</b> ", "Verb");
+			fprintf (output_file, "%s", argument);
+			if (!html_mode) fprintf (output_file, "\n");
+			else fprintf (output_file, "<br>");
+		}
 
 		// Infinitive
-		if (!html_mode) fprintf (output_file, "%s: ", "Infinitive");
+		if (!html_mode || htmlt_mode) fprintf (output_file, "%s: ", "Infinitive");
 		else fprintf (output_file, "<b>%s:</b> ", "Infinitive");
 		fprintf (output_file, "%s", infinitive);
 		if (!html_mode) fprintf (output_file, "\n");
 		else fprintf (output_file, "<br>");
 
 		// Present tense
-		if (!html_mode) fprintf (output_file, "%s: ", "Present");
+		if (!html_mode || htmlt_mode) fprintf (output_file, "%s: ", "Present");
 		else fprintf (output_file, "<b>%s:</b> ", "Present");
 		if (present_1ps[strlen(present_1ps) - 1] == 'e' || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'r') || (present_1ps[strlen(present_1ps) - 2] == 'e' && present_1ps[strlen(present_1ps) - 1] == 'l')) strcpy(io_pronoun, "io ");
 		else strcpy(io_pronoun, "");
@@ -2092,14 +2099,14 @@ void conjugation ()
 		else fprintf (output_file, "<br>");
 
 		// Past tense
-		if (!html_mode) fprintf (output_file, "%s: ", "Preterit");
+		if (!html_mode || htmlt_mode) fprintf (output_file, "%s: ", "Preterit");
 		else fprintf (output_file, "<b>%s:</b> ", "Preterit");
 		fprintf (output_file, "%s, %s, %s, %s, %s, %s", past_1ps, past_2ps, past_3ps, past_1pp, past_2pp, past_3pp);
 		if (!html_mode) fprintf (output_file, "\n");
 		else fprintf (output_file, "<br>");
 
 		// Future tense
-		if (!html_mode) fprintf (output_file, "%s: ", "Future tid");
+		if (!html_mode || htmlt_mode) fprintf (output_file, "%s: ", "Future tid");
 		else fprintf (output_file, "<b>%s:</b> ", "Future tid");
 		if (present_basis[strlen(present_basis) - 1] == 's')
 			fprintf (output_file, "siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
@@ -2109,20 +2116,21 @@ void conjugation ()
 		else fprintf (output_file, "<br>");
 
 		// Conditional
-		if (!html_mode) fprintf (output_file, "%s: ", "Conditional");
+		if (!html_mode || htmlt_mode) fprintf (output_file, "%s: ", "Conditional");
 		else fprintf (output_file, "<b>%s:</b> ", "Conditional");
 		fprintf (output_file, "%s, %s, %s, %s, yu %s, %s", conditional_1ps, conditional_2ps, conditional_3ps, conditional_1pp, conditional_2pp, conditional_3pp);
 		if (!html_mode) fprintf (output_file, "\n");
 		else fprintf (output_file, "<br>");
 
 		// Past participle
-		if (!html_mode) fprintf (output_file, "%s: ", "Prev participe");
+		if (!html_mode || htmlt_mode) fprintf (output_file, "%s: ", "Prev participe");
 		else fprintf (output_file, "<b>%s:</b> ", "Prev participe");
 
 		fprintf (output_file, "%s / %s", participe_t, participe_en);
 
 		if (!html_mode) fprintf (output_file, "\n\n");
-		else fprintf (output_file, "<br><br>");
+		else if (htmlt_mode) fprintf (output_file, "\n");
+		else fprintf (output_file, "<br><br>\n\n");
     }
 
     // For cleaning
