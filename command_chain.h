@@ -81,7 +81,9 @@ switch (command_number)
 
         if ((input_file = fopen(argument, "r")) == NULL)
         {
-            printf ("\nERROR: It\'s was not possible to open the file! Check whether you wrote the name of the file correctly or you have permission to open files from this folder\n");
+            printf ("\nERROR: It was not possible to open the file! Check whether you wrote the name\n");
+            printf ("of the file correctly or you have permission to open files from this folder\n");
+            printf ("Did you remember of informing the file\'s extension?\n");
             break;
         }
 
@@ -158,14 +160,18 @@ switch (command_number)
 			}
 			else if (c == ' ')
 			{
-				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with spaces, please remove this one\n", line_number);
-				printf("Aborting proccess!\n");
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with spaces,\nplease remove this one.\n", line_number);
+				printf("\nAborting proccess!\n");
+				printf("\nPress Any Key to Continue\n\n");
+				getchar();
 				break;
 			}
 			else if ((c == '(') || (c == ')') || (c == '=') || (c == '-') || (c == '{') || (c == '}') || (c == '[') || (c == ']'))
 			{
-				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with characters like \"(\", \"=\", etc, please remove this one\n", line_number);
-				printf("Aborting proccess!\n");
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with characters\nlike \"}\", \"=\", \"(\", \"-\", etc. Please remove this one.\n", line_number);
+				printf("\nAborting proccess!\n");
+				printf("\nPress Any Key to Continue\n\n");
+				getchar();
 				break;
 			}
 			else
@@ -203,7 +209,9 @@ switch (command_number)
 
         if ((input_file = fopen(argument, "r")) == NULL)
         {
-            printf ("\nERROR: It\'s was not possible to open the file! Check whether you wrote the name of the file correctly or you have permission to open files from this folder\n");
+            printf ("\nERROR: It was not possible to open the file! Check whether you wrote the name\n");
+            printf ("of the file correctly or you have permission to open files from this folder\n");
+            printf ("Did you remember of informing the file\'s extension?\n");
             break;
         }
 
@@ -249,14 +257,18 @@ switch (command_number)
 			}
 			else if (c == ' ')
 			{
-				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with spaces, please remove this one\n", line_number);
-				printf("Aborting proccess!\n");
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with spaces,\nplease remove this one.\n", line_number);
+				printf("\nAborting proccess!\n");
+				printf("\nPress Any Key to Continue\n\n");
+				getchar();
 				break;
 			}
 			else if ((c == '(') || (c == ')') || (c == '=') || (c == '-') || (c == '{') || (c == '}') || (c == '[') || (c == ']'))
 			{
-				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with characters like \"(\", \"=\", etc, please remove this one\n", line_number);
-				printf("Aborting proccess!\n");
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with characters\nlike \"}\", \"=\", \"(\", \"-\", etc. Please remove this one.\n", line_number);
+				printf("\nAborting proccess!\n");
+				printf("\nPress Any Key to Continue\n\n");
+				getchar();
 				break;
 			}
 			else
