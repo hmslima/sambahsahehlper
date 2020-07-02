@@ -166,9 +166,9 @@ switch (command_number)
 				getchar();
 				break;
 			}
-			else if ((c == '(') || (c == ')') || (c == '=') || (c == '-') || (c == '{') || (c == '}') || (c == '[') || (c == ']'))
+			else if ((c == '(') || (c == ')') || (c == '=') || (c == '{') || (c == '}') || (c == '[') || (c == ']'))
 			{
-				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with characters\nlike \"}\", \"=\", \"(\", \"-\", etc. Please remove this one.\n", line_number);
+				printf("\nERROR: (line: %d) Sambahsa Helper doesn\'t support inputs with characters\nlike \"}\", \"=\", \"(\", etc. Please remove this one.\n", line_number);
 				printf("\nAborting proccess!\n");
 				printf("\nPress Any Key to Continue\n\n");
 				getchar();
@@ -176,7 +176,7 @@ switch (command_number)
 			}
 			else
 			{
-				if ((c != ' ') && (c != '\n') && (c == 'a' || c == 'A' || c == 'b' || c == 'B' || c == 'c' || c == 'C' || c == 'd' || c == 'D' || c == 'e' || c == 'E' || c == 'f' || c == 'F' || c == 'g' || c == 'G' || c == 'h' || c == 'H' || c == 'i' || c == 'I' || c == 'j' || c == 'J' || c == 'k' || c == 'K' || c == 'l' || c == 'L' || c == 'm' || c == 'M' || c == 'n' || c == 'N' || c == 'o' || c == 'O' || c == 'p' || c == 'P' || c == 'q' || c == 'Q' || c == 'r' || c == 'R' || c == 's' || c == 'S' || c == 't' || c == 'T' || c == 'u' || c == 'U' || c == 'v' || c == 'V' || c == 'x' || c == 'X' || c == 'y' || c == 'Y' || c == 'w' || c == 'W' || c == 'z' || c == 'Z'))
+				if ((c != ' ') && (c != '\n') && (c == 'a' || c == 'A' || c == 'b' || c == 'B' || c == 'c' || c == 'C' || c == 'd' || c == 'D' || c == 'e' || c == 'E' || c == 'f' || c == 'F' || c == 'g' || c == 'G' || c == 'h' || c == 'H' || c == 'i' || c == 'I' || c == 'j' || c == 'J' || c == 'k' || c == 'K' || c == 'l' || c == 'L' || c == 'm' || c == 'M' || c == 'n' || c == 'N' || c == 'o' || c == 'O' || c == 'p' || c == 'P' || c == 'q' || c == 'Q' || c == 'r' || c == 'R' || c == 's' || c == 'S' || c == 't' || c == 'T' || c == 'u' || c == 'U' || c == 'v' || c == 'V' || c == 'x' || c == 'X' || c == 'y' || c == 'Y' || c == 'w' || c == 'W' || c == 'z' || c == 'Z' || c == '-' || c == '\''))
 					strncat(argument, &c, 1);
 			}
 		}
