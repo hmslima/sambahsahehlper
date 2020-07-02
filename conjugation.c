@@ -1090,7 +1090,7 @@ void past_tense ()
 	past_basis_counter = strlen(past_basis);
 	if (strcmp(argument, "es") == 0) // Irregular verb
 	{
-        strcpy(past_1ps, "buim//eem");
+        strcpy(past_1ps, "buim/eem");
 	}
 	else if (strcmp(argument, "hab") == 0) // Irregular verb
 	{
@@ -1151,7 +1151,7 @@ void past_tense ()
 	strcpy(past_2ps, past_basis);
 	if (strcmp(argument, "es") == 0) // Irregular verb
 	{
-        strcpy(past_2ps, "buist(a)//ees");
+        strcpy(past_2ps, "buist(a)/ees");
 	}
 	else if (strcmp(argument, "hab") == 0) // Irregular verb
 	{
@@ -1220,7 +1220,7 @@ void past_tense ()
 	strcpy(past_3ps, past_basis);
 	if (strcmp(argument, "es") == 0) // Irregular verb
 	{
-        strcpy(past_3ps, "buit//eet");
+        strcpy(past_3ps, "buit/eet");
 	}
 	else if (strcmp(argument, "hab") == 0) // Irregular verb
 	{
@@ -1281,7 +1281,7 @@ void past_tense ()
 	strcpy(past_1pp, past_basis);
 	if (strcmp(argument, "es") == 0) // Irregular verb
 	{
-        strcpy(past_1pp, "buam//eemos");
+        strcpy(past_1pp, "buam/eemos");
 	}
 	else if (strcmp(argument, "hab") == 0) // Irregular verb
 	{
@@ -1359,7 +1359,7 @@ void past_tense ()
 	strcpy(past_2pp, past_basis);
 	if (strcmp(argument, "es") == 0) // Irregular verb
 	{
-        strcpy(past_2pp, "buat//eete");
+        strcpy(past_2pp, "buat/eete");
 	}
 	else if (strcmp(argument, "hab") == 0) // Irregular verb
 	{
@@ -1437,7 +1437,7 @@ void past_tense ()
 	strcpy(past_3pp, past_basis);
 	if (strcmp(argument, "es") == 0) // Irregular verb
 	{
-        strcpy(past_3pp, "buir//eent");
+        strcpy(past_3pp, "buir/eent");
 	}
 	else if (strcmp(argument, "hab") == 0) // Irregular verb
 	{
