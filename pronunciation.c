@@ -1593,6 +1593,42 @@ const char* pronunciation ()
 						#endif
 						stress = TRUE;
 					}
+					// euCV(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && is_it_consonant(argument[arg_counter + 2]) && is_it_vowel(argument[arg_counter + 3]) && ((argument[arg_counter + 4] == 's' && argument[arg_counter + 5] == '\0') || argument[arg_counter + 4] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// euCCV(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && is_it_consonant(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_vowel(argument[arg_counter + 4]) && ((argument[arg_counter + 5] == 's' && argument[arg_counter + 6] == '\0') || argument[arg_counter + 5] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
+					// euCCCV(s)\0
+					else if (!(stress) && (is_there_more_than_one_vowel ()) && is_it_consonant(argument[arg_counter + 2]) && is_it_consonant(argument[arg_counter + 3]) && is_it_consonant(argument[arg_counter + 4]) && is_it_vowel(argument[arg_counter + 5]) && ((argument[arg_counter + 6] == 's' && argument[arg_counter + 7] == '\0') || argument[arg_counter + 6] == '\0'))
+					{
+						#ifdef _WIN32
+						SPT_word[SPT_counter] = CAPITAL_O_DIAERESIS;
+						SPT_counter++;
+						#else
+						strncat(SPT_word, CAPITAL_O_DIAERESIS, 6);
+						SPT_counter = SPT_counter + 2;
+						#endif
+						stress = TRUE;
+					}
 					else // No sctress accent
 					{
 						#ifdef _WIN32

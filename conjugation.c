@@ -1179,8 +1179,9 @@ void past_tense ()
 	else if (past_2ps[strlen(past_2ps) - 3] != 'i' && !(illogic_el) && past_2ps[strlen(past_2ps) - 2] == 'e' && past_2ps[strlen(past_2ps) - 1] == 'l')
 	{
 		past_2ps[past_basis_counter - 2] = 'l';
-		past_2ps[past_basis_counter - 1] = 's';
-		past_2ps[past_basis_counter] = 't';
+		past_2ps[past_basis_counter - 1] = 'i';
+		past_2ps[past_basis_counter] = 's';
+		past_2ps[past_basis_counter + 1] = 't';
 	}
 	else if (past_basis[strlen(past_basis) - 2] == 'i' && past_basis[strlen(past_basis) - 1] == 'e')
 	{
@@ -1552,7 +1553,19 @@ void infinitive_verb ()
 		GOTO_EI2:
 		strcpy(infinitive, past_basis);
 		counter = strlen(infinitive);
-		if (infinitive[strlen(infinitive) - 1] == 'e')
+		if (argument[strlen(argument) - 3] != 'i' && !(illogic_el) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l')
+		{
+			infinitive[counter - 2] = 'l';
+			infinitive[counter - 1] = 'e';
+			infinitive[counter] = 's';
+		}
+		else if (argument[strlen(argument) - 3] != 'i' && !(illogic_er) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'r')
+		{
+			infinitive[counter - 2] = 'r';
+			infinitive[counter - 1] = 'e';
+			infinitive[counter] = 's';
+		}
+		else if (infinitive[strlen(infinitive) - 1] == 'e')
         {
         	infinitive[counter] = 's';
         }
