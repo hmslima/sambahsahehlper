@@ -831,7 +831,12 @@ else if (strcmp(argument, "preven") == 0)
 else if (strcmp(argument, "prevens") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
-	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "vEn");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "vEns");
+}
+else if (strcmp(argument, "previd") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "vId");
 }
 else if (strcmp(argument, "project") == 0)
 {
