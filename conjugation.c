@@ -104,6 +104,7 @@ short int check_eh ()
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in -in
 	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ay || oy || uy
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
 	else if (argument[strlen(argument) - 3] == 'i' && argument[strlen(argument) - 2] == 'e' && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -ieC
 	else if (argument[strlen(argument) - 3] != 'q' && argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 'i') x = 0; // The stress is in -ui
@@ -121,13 +122,14 @@ short int check_eu ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'u' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w'))
+		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'u' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == '\0'))
 			x++;
 	}
 
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in -in
 	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ay || oy || uy
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
 	else if (argument[strlen(argument) - 3] == 'i' && argument[strlen(argument) - 2] == 'e' && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -ieC
 	else if (argument[strlen(argument) - 3] != 'q' && argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 'i') x = 0; // The stress is in -ui
@@ -135,6 +137,18 @@ short int check_eu ()
 	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') // The stress is in -aC || -oC || -uC
 	{
 		if (argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'u')
+		{/*Do nothing*/}
+		else x = 0;
+	}
+	else if ((argument[strlen(argument) - 3] == 'a' || argument[strlen(argument) - 3] == 'o' || argument[strlen(argument) - 3] == 'u') && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1])) // The stress is in -aCC || -oCC || -uCC
+	{
+		if (argument[strlen(argument) - 4] == 'e' && argument[strlen(argument) - 3] == 'u')
+		{/*Do nothing*/}
+		else x = 0;
+	}
+	else if ((argument[strlen(argument) - 4] == 'a' || argument[strlen(argument) - 4] == 'o' || argument[strlen(argument) - 4] == 'u') && is_it_consonant(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1])) // The stress is in -aCCC || -oCCC || -uCCC
+	{
+		if (argument[strlen(argument) - 5] == 'e' && argument[strlen(argument) - 4] == 'u')
 		{/*Do nothing*/}
 		else x = 0;
 	}
@@ -155,23 +169,21 @@ short int check_ei ()
 
 	for (arg_counter = strlen(argument); arg_counter >= 0 ; arg_counter--)
 	{
-		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'i' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w') && /*skeir is a prefix*/ !(argument[arg_counter - 2] == 's' && argument[arg_counter - 1] == 'k' && argument[arg_counter + 2] == 'r'))
+		if (argument[arg_counter] == 'e' && argument[arg_counter + 1] == 'i' && (is_it_consonant(argument[arg_counter + 2]) || argument[arg_counter + 2] == 'y' || argument[arg_counter + 2] == 'w' || argument[arg_counter + 2] == '\0') && /*skeir is a prefix*/ !(argument[arg_counter - 2] == 's' && argument[arg_counter - 1] == 'k' && argument[arg_counter + 2] == 'r'))
 			x++;
 	}
 
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
-	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in -in
+	else if (argument[strlen(argument) - 3] != 'e' && argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in -in
 	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ay || oy || uy
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
 	else if (argument[strlen(argument) - 3] == 'i' && argument[strlen(argument) - 2] == 'e' && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -ieC
 	else if (argument[strlen(argument) - 3] != 'q' && argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 'i') x = 0; // The stress is in -ui
 	else if (argument[strlen(argument) - 4] == 'o' && is_it_consonant(argument[strlen(argument) - 3]) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l') x = 0; // The stress is in -oCel
-	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') // The stress is in -aC || -oC || -uC
-	{
-		if (argument[strlen(argument) - 3] == 'e' && argument[strlen(argument) - 2] == 'i')
-		{/*Do nothing*/}
-		else x = 0;
-	}
+	else if ((argument[strlen(argument) - 2] == 'a' || argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') x = 0; // The stress is in -aC || -oC || -uC
+	else if ((argument[strlen(argument) - 3] == 'a' || argument[strlen(argument) - 3] == 'o' || argument[strlen(argument) - 3] == 'u') && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -aCC || -oCC || -uCC
+	else if ((argument[strlen(argument) - 4] == 'a' || argument[strlen(argument) - 4] == 'o' || argument[strlen(argument) - 4] == 'u') && is_it_consonant(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -aCCC || -oCCC || -uCCC
 	else if (is_it_vowel(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1]) && ((argument[strlen(argument) - 2] == argument[strlen(argument) - 1]) || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'k'))) // The stressed vowel is in the vowel VCC
 	{
 		if (argument[strlen(argument) - 4] == 'e' && argument[strlen(argument) - 3] == 'i')
@@ -211,13 +223,23 @@ short int check_a ()
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in -in
 	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if ((argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -oy || uy
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
 	else if (argument[strlen(argument) - 3] == 'i' && argument[strlen(argument) - 2] == 'e' && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -ieC
 	else if (argument[strlen(argument) - 3] != 'q' && argument[strlen(argument) - 2] == 'u' && argument[strlen(argument) - 1] == 'i') x = 0; // The stress is in -ui
 	else if (argument[strlen(argument) - 4] == 'o' && is_it_consonant(argument[strlen(argument) - 3]) && argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'l') x = 0; // The stress is in -oCel
 	else if ((argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && is_it_consonant(argument[strlen(argument) - 1]) && argument[strlen(argument) - 1] != 's') x = 0; // The stress is in -oC || -uC
+	else if ((argument[strlen(argument) - 3] == 'o' || argument[strlen(argument) - 3] == 'u') && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -oCC || -uCC
+	else if ((argument[strlen(argument) - 4] == 'o' || argument[strlen(argument) - 4] == 'u') && is_it_consonant(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -oCCC || -uCCC
+	else if ((argument[strlen(argument) - 5] == 'o' || argument[strlen(argument) - 5] == 'u') && is_it_consonant(argument[strlen(argument) - 4]) && is_it_consonant(argument[strlen(argument) - 3]) && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -oCCCC || -uCCCC
 	else if (is_it_vowel(argument[strlen(argument) - 3]) && argument[strlen(argument) - 3] != 'a' && is_it_consonant(argument[strlen(argument) - 2]) && is_it_consonant(argument[strlen(argument) - 1]) && ((argument[strlen(argument) - 2] == argument[strlen(argument) - 1]) || (argument[strlen(argument) - 2] == 'c' && argument[strlen(argument) - 1] == 'k'))) x = 0; // The stressed vowel is in the vowel VCC
 	else if (argument[strlen(argument) - 2] == 'a' && argument[strlen(argument) - 1] == 'h') x = 0; // The stress is in -ah
+
+	// Manual corrections
+	if (strcmp(argument, "chiaujaen") == 0) x = 0;
+	else if (strcmp(argument, "contraven") == 0) x = 0;
+	else if (strcmp(argument, "faungmoen") == 0) x = 0;
+	else if (strcmp(argument, "fwenschaw") == 0) x = 1; // This one has ablaut
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -431,8 +453,8 @@ void present_tense ()
 	{
 		// Do nothing
 	}
-	else if (present_1ps[strlen(present_1ps) - 1] == 'w' || present_1ps[strlen(present_1ps) - 1] == 'y') present_1ps[strlen(present_1ps)] = 'o';
-	else if (is_it_vowel(present_1ps[strlen(present_1ps) - 1])) present_1ps[strlen(present_1ps)] = 'm';
+	else if (present_1ps[strlen(present_1ps) - 1] == 'w' || (!(present_1ps[strlen(present_1ps) - 2] == 'a' || present_1ps[strlen(present_1ps) - 2] == 'u') && present_1ps[strlen(present_1ps) - 1] == 'y')) present_1ps[strlen(present_1ps)] = 'o';
+	else if (is_it_vowel(present_1ps[strlen(present_1ps) - 1]) || present_1ps[strlen(present_1ps) - 1] == 'y') present_1ps[strlen(present_1ps)] = 'm';
 	else if (is_it_vowel(present_1ps[strlen(present_1ps) - 2]) && present_1ps[strlen(present_1ps) - 1] == 'h') present_1ps[strlen(present_1ps)] = 'm';
 	else present_1ps[strlen(present_1ps)] = 'o';
 
@@ -987,6 +1009,31 @@ void past_tense ()
 					past_basis[word_counter] = argument[arg_counter];
 					word_counter++;
 				}
+				else if (argument[arg_counter + 6] == 'a' && argument[arg_counter + 7] != '\0' && (is_it_consonant(argument[arg_counter + 7]) || argument[arg_counter + 7] == 'y' || argument[arg_counter + 7] == 'u'))
+				{
+					past_basis[word_counter] = argument[arg_counter];
+					word_counter++;
+				}
+				else if (argument[arg_counter + 7] == 'a' && argument[arg_counter + 8] != '\0' && (is_it_consonant(argument[arg_counter + 8]) || argument[arg_counter + 8] == 'y' || argument[arg_counter + 8] == 'u'))
+				{
+					past_basis[word_counter] = argument[arg_counter];
+					word_counter++;
+				}
+				else if (argument[arg_counter + 8] == 'a' && argument[arg_counter + 9] != '\0' && (is_it_consonant(argument[arg_counter + 9]) || argument[arg_counter + 9] == 'y' || argument[arg_counter + 9] == 'u'))
+				{
+					past_basis[word_counter] = argument[arg_counter];
+					word_counter++;
+				}
+				else if (argument[arg_counter + 9] == 'a' && argument[arg_counter + 10] != '\0' && (is_it_consonant(argument[arg_counter + 10]) || argument[arg_counter + 10] == 'y' || argument[arg_counter + 10] == 'u'))
+				{
+					past_basis[word_counter] = argument[arg_counter];
+					word_counter++;
+				}
+				else if (argument[arg_counter + 10] == 'a' && argument[arg_counter + 11] != '\0' && (is_it_consonant(argument[arg_counter + 11]) || argument[arg_counter + 11] == 'y' || argument[arg_counter + 11] == 'u'))
+				{
+					past_basis[word_counter] = argument[arg_counter];
+					word_counter++;
+				}
 				else
 				{
 					past_basis[arg_counter] = 'i';
@@ -1084,6 +1131,11 @@ void past_tense ()
 			}
 		}
 	}
+
+	// Manual corrections for some problematic words
+	if (strcmp(argument, "bekmehen") == 0) strcpy(past_basis, "bekmeh");
+	else if (strcmp(argument, "etikmehen") == 0) strcpy(past_basis, "etikmeh");
+	else if (strcmp(argument, "kmehen") == 0) strcpy(past_basis, "kmeh");
 
 	// First person singular
 	strcpy(past_1ps, past_basis);
@@ -1799,7 +1851,7 @@ void conditional ()
 		conditional_3pp[conditional_counter + 2] = 'n';
 		conditional_3pp[conditional_counter + 3] = 't';
 	}
-	else if (is_it_vowel(present_basis[strlen(present_basis) - 1]) && present_basis[strlen(present_basis) - 1] != 'w' && present_basis[strlen(present_basis) - 1] != 'y')
+	else if (is_it_vowel(present_basis[strlen(present_basis) - 1] && !(present_basis[strlen(present_basis) - 2] == 'e' && present_basis[strlen(present_basis) - 1] == 'u')) && present_basis[strlen(present_basis) - 1] != 'w' && present_basis[strlen(present_basis) - 1] != 'y')
 	{
 		// First person singular
 		conditional_1ps[conditional_counter - 1] = 'i';
@@ -1966,6 +2018,10 @@ void conjugation ()
 			illogic_el = TRUE;
 		else
 			illogic_el = FALSE;
+	}
+	if (strcmp(argument, "erem") == 0 || strcmp(argument, "keren") == 0 || strcmp(argument, "speren") == 0 || strcmp(argument, "steren") == 0 || strcmp(argument, "weren") == 0) // This one is to solve a bug with -er words with nasal infx
+	{
+		illogic_er = TRUE;
 	}
 
 	// Call the functions
