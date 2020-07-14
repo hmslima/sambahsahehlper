@@ -333,6 +333,16 @@ else if (strcmp(argument, "conflicts") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "konflIkts");
 }
+else if (strcmp(argument, "contradic") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "kontradIk");
+}
+else if (strcmp(argument, "contradics") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "kontradIks");
+}
 else if (strcmp(argument, "contraven") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -422,6 +432,26 @@ else if (strcmp(argument, "depends") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "pEnds");
+}
+else if (strcmp(argument, "derid") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "rId");
+}
+else if (strcmp(argument, "derids") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "rIds");
+}
+else if (strcmp(argument, "desaddic") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "zaddIk");
+}
+else if (strcmp(argument, "desaddics") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "d" SMALL_E_DIAERESIS_IN_TEXT "zaddIks");
 }
 else if (strcmp(argument, "descend") == 0)
 {
@@ -548,10 +578,25 @@ else if (strcmp(argument, "elect") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "elEkt");
 }
+else if (strcmp(argument, "elecs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "elEks");
+}
 else if (strcmp(argument, "eleg") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "elEg");
+}
+else if (strcmp(argument, "emercs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "emErks");
+}
+else if (strcmp(argument, "emerg") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "emErg");
 }
 else if (strcmp(argument, "emolument") == 0)
 {
@@ -618,6 +663,16 @@ else if (strcmp(argument, "engweus") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "engw" CAPITAL_O_DIAERESIS_IN_TEXT "s");
 }
+else if (strcmp(argument, "enkrew") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "enkrEw");
+}
+else if (strcmp(argument, "enkrews") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "enkrEws");
+}
 else if (strcmp(argument, "ensuite") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -627,6 +682,16 @@ else if (strcmp(argument, "ensuites") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "enswIts");
+}
+else if (strcmp(argument, "entretein") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "entr" SMALL_E_DIAERESIS_IN_TEXT "tEyn");
+}
+else if (strcmp(argument, "entreteins") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "entr" SMALL_E_DIAERESIS_IN_TEXT "tEyn");
 }
 else if (strcmp(argument, "establishment") == 0)
 {
@@ -702,6 +767,11 @@ else if (strcmp(argument, "h") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "hatc");
+}
+else if (strcmp(argument, "heresie") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "h" SMALL_E_DIAERESIS_IN_TEXT "r" SMALL_E_DIAERESIS_IN_TEXT "zI:");
 }
 else if (strcmp(argument, "indirect") == 0)
 {
@@ -943,6 +1013,26 @@ else if (strcmp(argument, "offends") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "ofEnds");
 }
+else if (strcmp(argument, "oiscrisc") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "oyskrIsk");
+}
+else if (strcmp(argument, "oiscriscs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "oyskrIsks");
+}
+else if (strcmp(argument, "oisdu") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "oysdU");
+}
+else if (strcmp(argument, "oisdus") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "oysdUs");
+}
 else if (strcmp(argument, "oisghend") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -952,6 +1042,16 @@ else if (strcmp(argument, "oisghends") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "oysgEnds");
+}
+else if (strcmp(argument, "oiswind") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "oyswInd");
+}
+else if (strcmp(argument, "oiswinds") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "oyswInds");
 }
 else if (strcmp(argument, "ostend") == 0)
 {
@@ -988,6 +1088,36 @@ else if (strcmp(argument, "perhvdi") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "pEr(h)vdi");
 }
+else if (strcmp(argument, "perigleg") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "p" SMALL_E_DIAERESIS_IN_TEXT "riglEg");
+}
+else if (strcmp(argument, "periglecs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "p" SMALL_E_DIAERESIS_IN_TEXT "riglEks");
+}
+else if (strcmp(argument, "peripuwen") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "p" SMALL_E_DIAERESIS_IN_TEXT "rip" CAPITAL_U_DIAERESIS_IN_TEXT "w" SMALL_E_DIAERESIS_IN_TEXT "n");
+}
+else if (strcmp(argument, "peripuwens") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "p" SMALL_E_DIAERESIS_IN_TEXT "rip" CAPITAL_U_DIAERESIS_IN_TEXT "w" SMALL_E_DIAERESIS_IN_TEXT "ns");
+}
+else if (strcmp(argument, "peristyl") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "p" SMALL_E_DIAERESIS_IN_TEXT "rist" CAPITAL_U_DIAERESIS_IN_TEXT "l");
+}
+else if (strcmp(argument, "peristyls") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "p" SMALL_E_DIAERESIS_IN_TEXT "rist" CAPITAL_U_DIAERESIS_IN_TEXT "ls");
+}
 else if (strcmp(argument, "perplex") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -1003,6 +1133,16 @@ else if (strcmp(argument, "pipends") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "pipEnds");
 }
+else if (strcmp(argument, "precept") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "tsEpt");
+}
+else if (strcmp(argument, "precepts") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "tsEpts");
+}
 else if (strcmp(argument, "precid") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -1017,6 +1157,11 @@ else if (strcmp(argument, "precis") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "tsIs");
+}
+else if (strcmp(argument, "preemptive") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "Emptiv");
 }
 else if (strcmp(argument, "prefect") == 0)
 {
@@ -1037,6 +1182,21 @@ else if (strcmp(argument, "prefers") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "fErs");
+}
+else if (strcmp(argument, "preghes") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "gEs");
+}
+else if (strcmp(argument, "presenning") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "zEnning");
+}
+else if (strcmp(argument, "presennings") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "zEnnings");
 }
 else if (strcmp(argument, "present") == 0)
 {
@@ -1078,6 +1238,41 @@ else if (strcmp(argument, "previd") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "vId");
 }
+else if (strcmp(argument, "previds") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "pr" SMALL_E_DIAERESIS_IN_TEXT "vIds");
+}
+else if (strcmp(argument, "probeprist") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "prObeprist");
+}
+else if (strcmp(argument, "probeprists") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "prObeprists");
+}
+else if (strcmp(argument, "procent") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "protsEnt");
+}
+else if (strcmp(argument, "procents") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "protsEnts");
+}
+else if (strcmp(argument, "projec") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "projEk");
+}
+else if (strcmp(argument, "projecs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "projEks");
+}
 else if (strcmp(argument, "project") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -1087,6 +1282,16 @@ else if (strcmp(argument, "projects") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "projEkts");
+}
+else if (strcmp(argument, "Prokrustes") == 0 || strcmp(argument, "prokrustes") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "prokrUst" SMALL_E_DIAERESIS_IN_TEXT "s");
+}
+else if (strcmp(argument, "prokwe") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "prOkw(" SMALL_E_DIAERESIS_IN_TEXT ")");
 }
 else if (strcmp(argument, "prophet") == 0)
 {
@@ -1103,6 +1308,16 @@ else if (strcmp(argument, "propos") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "propOs");
 }
+else if (strcmp(argument, "prospec") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "prospEk");
+}
+else if (strcmp(argument, "prospecs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "prospEks");
+}
 else if (strcmp(argument, "prospect") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -1112,6 +1327,46 @@ else if (strcmp(argument, "prospects") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "prospEkts");
+}
+else if (strcmp(argument, "protecs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "protEks");
+}
+else if (strcmp(argument, "proteg") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "protEg");
+}
+else if (strcmp(argument, "protest") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "protEst");
+}
+else if (strcmp(argument, "protests") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "protEsts");
+}
+else if (strcmp(argument, "proverb") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "provErb");
+}
+else if (strcmp(argument, "proverbs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "provErbs");
+}
+else if (strcmp(argument, "provid") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "provId");
+}
+else if (strcmp(argument, "provids") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "provIds");
 }
 else if (strcmp(argument, "q") == 0)
 {
@@ -1272,6 +1527,16 @@ else if (strcmp(argument, "transfers") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "transfErs");
+}
+else if (strcmp(argument, "transcrib") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "transkrIb");
+}
+else if (strcmp(argument, "transcrips") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "transkrIps");
 }
 else if ((strcmp(argument, "TV") == 0) || (strcmp(argument, "tv") == 0))
 {

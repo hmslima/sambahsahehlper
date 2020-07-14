@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("###############################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER v 1.995 ##########################\n");
+	printf ("########################### SAMBAHSA HEHLPER v 1.996 ##########################\n");
 	printf ("###############################################################################\n");
 }
 
@@ -83,22 +83,17 @@ void help (short int lang)
 			printf ("\n    Ia werds dehlgent ses separen med lignes, ne med commas au rewos!");
 			printf ("\n* \"cjg\" au \"conjuge\": daht id conjugation ios insert werd");
 			printf ("\n    * Mathalan: \"cjg edd\"");
-			printf ("\n    Io akster-ye recommande vos tik insere verbs aun prefixe. Ma? Un gohd");
-			printf ("\n    exempel est id verb \"naporg\" (na- her est un prefixe), quos correct");
-			printf ("\n    conjugation pro id prev est \"napors\", lakin id programme dahsiet vos");
-			printf ("\n    \"niepors\" ob id programme mehnsiet od tod werd subeiht un ablaut bi-sabab");
-			printf ("\n    tod extra buksteiv \"a\". Ne est facil ziele ei conjugator quod est id");
-			printf ("\n    accentuen voyel.");
-			printf ("\n    Alyo observation: yu kausiete od id conjugator daht werds samt sem");
+			printf ("\n    Un observation: yu kausiete od id conjugator daht werds samt sem");
 			printf ("\n    buksteivs inter kawsa. Mathalan: id dahn preterit singular second person");
-			printf ("\n    ios verb \"beud\" est {bud(i)st(a)}, bet tod ne maynt od {budista} est un");
+			printf ("\n    ios verb \"beud\" est \"bud(i)st(a)\", bet tod ne maynt od \"budista\" est un");
 			printf ("\n    valid pronunciation. Yu tehrpte habe un critic okwi ed gohd sense kay");
-			printf ("\n    trehve id ciautaung pronunciation, quod est {budst(a)}. Alliete tod");
+			printf ("\n    trehve id ciautaung pronunciation, quod est \"budst(a)\". Alliete tod");
 			printf ("\n    programme con id grammatic.");
 			printf ("\n* \"cjgd\" au \"conjugedatia\": id sam os \"cjg\", bet pro hol datias");
 			printf ("\n    * Mathalan: \"cjgd verbs.txt\"");
 			printf ("\n    Ia werds dehlgent ses separen med lignes, ne med commas au rewos!");
 			printf ("\n* \"html\": enwehrct id HTML mode pro ia commandes \"pncd\" ed \"cjgd\"");
+			printf ("\n* \"htmlt\": enwehrct id TiddlyDict HTML mode pro ia commandes \"pncd\" ed \"cjgd\"");
 			printf ("\n");
 			printf ("\n* \"log\": enwehrct we swehrct ia programme messages. Tod est un baygh util");
 			printf ("\nressurce pro quel deilt con id code tos programme. Ia programmes messages sont");
@@ -171,22 +166,17 @@ void help (short int lang)
 			printf ("\n    The words must be separeted by lines, not by commas or spaces!");
 			printf ("\n* \"cjg\" or \"conjuge\": gives the conjugation of the inserted word");
 			printf ("\n    * For example: \"cjg edd\"");
-			printf ("\n    I strongly recommend you to only insert verbs without prefixes. Why? A");
-			printf ("\n    good example is the verb \"naporg\" (na- here is a prefix), whose correct");
-			printf ("\n    conjugation to the past is \"napors\", however the program will give you");
-			printf ("\n    \"niepors\" because the program will think that this word undergoes an");
-			printf ("\n    ablaut because of this extra letter \"a\". It\'s not easy to show to the");
-			printf ("\n    the conjugator where is the stressed vowel.");
-			printf ("\n    Other observation: you\'ll note that the conjugator gives words with some");
+			printf ("\n    An observation: you\'ll note that the conjugator gives words with some");
 			printf ("\n    letters between parenthesis. For example: it given past singular second");
-			printf ("\n    person of the verb \"beud\" is {bud(i)st(a)}, but it doesn\'t mean that");
-			printf ("\n    {budista} is a valid pronunciation. You must have a critical eye and good");
-			printf ("\n    sense to find the appropriate pronunciation, which is {budst(a)}. Ally this");
+			printf ("\n    person of the verb \"beud\" is \"bud(i)st(a)\", but it doesn\'t mean that");
+			printf ("\n    \"budista\" is a valid pronunciation. You must have a critical eye and good");
+			printf ("\n    sense to find the appropriate pronunciation, which is \"budst(a)\". Ally this");
 			printf ("\n    program with the grammar.");
 			printf ("\n* \"cjgd\" or \"conjugedatia\": the same of \"cjg\", but for whole files");
 			printf ("\n    * For example: \"cjgd verbs.txt\"");
 			printf ("\n    The words must be separeted by lines, not by commas or spaces!");
 			printf ("\n* \"html\": activates the HTML mode for the commands \"pncd\" and \"cjgd\"");
+			printf ("\n* \"htmlt\": activates the TiddlyDict HTML mode for the commands \"pncd\" and \"cjgd\"");
 			printf ("\n");
 			printf ("\n* \"log\": activates or deactivates the system messages. It\'s a very useful");
 			printf ("\nresource for who deals with the code of this program.");
@@ -240,7 +230,7 @@ void help (short int lang)
 			printf ("\n    pessoa consciente. Este programa n" SMALL_A_TILDE "o pode transcrever corretamente uma");
 			printf ("\n    palavra como \"defend\" pela sua pr" SMALL_O_ACUTE "pria capacidade porque o programa n" SMALL_A_TILDE "o");
 			printf ("\n    pode adivinhar que esta palavra " SMALL_E_ACUTE " composta (tem um prefixo).");
-			printf ("\n        Na verdade voc" SMALL_E_CIRCUMFLEX " ver" SMALL_A_ACUTE " \"defend\" e \"Kaapstad\" serem transcritos");
+			printf ("\n        Na verdade, voc" SMALL_E_CIRCUMFLEX " ver" SMALL_A_ACUTE " \"defend\" e \"Kaapstad\" serem transcritos");
 			printf ("\n        corretamente porque eu (o programador) manualmente disse ao programa");
 			printf ("\n        quais s" SMALL_A_TILDE "o as transcri" SMALL_C_CEDILLA SMALL_O_TILDE "es dessas palavras espec" SMALL_I_ACUTE "ficas, mas este pode");
 			printf ("\n        n" SMALL_A_TILDE "o ser o caso de outras palavras problem" SMALL_A_ACUTE "ticas. Eu n" SMALL_A_TILDE "o posso dar uma");
@@ -258,22 +248,17 @@ void help (short int lang)
 			printf ("\n    As palavras devem ser separadas por linhas, não por v" SMALL_I_ACUTE "rgulas ou espa" SMALL_C_CEDILLA "os!");
 			printf ("\n* \"cjg\" ou \"conjuge\": d" SMALL_A_ACUTE " a conjuga" SMALL_C_CEDILLA SMALL_A_TILDE "o da palavra inserida");
 			printf ("\n    * Por examplo: \"cjg edd\"");
-			printf ("\n    Eu fortemente lhe recomendo a somente inserir verbos sem prefixos. Por qu" SMALL_E_CIRCUMFLEX "?");
-			printf ("\n    Um bom exemplo " SMALL_E_ACUTE " o verbo \"naporg\" (na- aqui " SMALL_E_ACUTE " um prefixo), cuja conjuga" SMALL_C_CEDILLA SMALL_A_TILDE "o");
-			printf ("\n    correta para o pret" SMALL_E_ACUTE "rito " SMALL_E_ACUTE " \"napors\", entretanto o programa lhe dar" SMALL_A_ACUTE "");
-			printf ("\n    \"niepors\" porque o programa pensar" SMALL_A_ACUTE " que esta palavra sofre com apofonia");
-			printf ("\n    por causa deste \"a\" extra. N" SMALL_A_TILDE "o " SMALL_E_ACUTE " f" SMALL_A_ACUTE "cil mostrar para o conjugador onde est" SMALL_A_ACUTE "");
-			printf ("\n    a vogal acentuada tonicamente.");
-			printf ("\n    Outra observa" SMALL_C_CEDILLA SMALL_A_TILDE "o: voc" SMALL_E_CIRCUMFLEX " notar" SMALL_A_ACUTE " que o conjugador d" SMALL_A_ACUTE " verbos com algumas");
+			printf ("\n    Uma observa" SMALL_C_CEDILLA SMALL_A_TILDE "o: voc" SMALL_E_CIRCUMFLEX " notar" SMALL_A_ACUTE " que o conjugador d" SMALL_A_ACUTE " verbos com algumas");
 			printf ("\n    letras entre par" SMALL_E_CIRCUMFLEX "nteses. Por exemplo: a segunda pessoa do singular do");
-			printf ("\n    pret" SMALL_E_ACUTE "rito do verbo \"beud\" que o programa d" SMALL_A_ACUTE " " SMALL_E_ACUTE " {bud(i)st(a)}, mas isso");
-			printf ("\n    n" SMALL_A_TILDE "o significa que {budista} " SMALL_E_ACUTE " uma pron" SMALL_U_ACUTE "ncia v" SMALL_A_ACUTE "lida. Voc" SMALL_E_CIRCUMFLEX " tem que ter um");
+			printf ("\n    pret" SMALL_E_ACUTE "rito do verbo \"beud\" que o programa d" SMALL_A_ACUTE " " SMALL_E_ACUTE " \"bud(i)st(a)\", mas isso");
+			printf ("\n    n" SMALL_A_TILDE "o significa que \"budista\" " SMALL_E_ACUTE " uma pron" SMALL_U_ACUTE "ncia v" SMALL_A_ACUTE "lida. Voc" SMALL_E_CIRCUMFLEX " tem que ter um");
 			printf ("\n    olhar cr" SMALL_I_ACUTE "tico e bom senso para achar a pron" SMALL_U_ACUTE "ncia apropriada, que " SMALL_E_ACUTE "");
-			printf ("\n    {budst(a)}. Alie este programa com a gram" SMALL_A_ACUTE "tica.");
+			printf ("\n    \"budst(a)\". Alie este programa com a gram" SMALL_A_ACUTE "tica.");
 			printf ("\n* \"cjgd\" ou \"conjugedatia\": o mesmo que \"cjg\", mas para arquivos inteiros");
 			printf ("\n    * Por examplo: \"cjgd verbs.txt\"");
 			printf ("\n    As palavras devem ser separadas por linhas, não por v" SMALL_I_ACUTE "rgulas ou espa" SMALL_C_CEDILLA "os!");
 			printf ("\n* \"html\": ativa o modo HTML para os comandos \"pncd\" e \"cjgd\"");
+			printf ("\n* \"htmlt\": ativa o modo HTML TiddlyDict para os comandos \"pncd\" e \"cjgd\"");
 			printf ("\n");
 			printf ("\n* \"log\": ativa ou desativa as mensagens de sistema. Este " SMALL_E_ACUTE " um recurso muito");
 			printf ("\n" SMALL_U_ACUTE "til pra quem lida com o c" SMALL_O_ACUTE "digo deste programa. As mensagens de sistema s" SMALL_A_TILDE "o");
@@ -338,6 +323,90 @@ void help (short int lang)
 
 			printf("\n");
 		break;
+		case 8:
+		case 9:
+			printf ("\nAYUDA");
+			printf ("\n-------------------------------------------------------------------------------\n");
+			printf ("\nThis program was created by the Brazilian Henrique Matheus da Silva Lima for");
+			printf ("\nthe language Sambahsa-Mundialect. In the whole process of creation of this");
+			printf ("\nprogram, he had the help of the creator of the language, the French Olivier");
+			printf ("\nSimon.");
+			printf ("\nThe goal of this program is to help beginners by showing the pronunciation and");
+			printf ("\nconjugation of the words. Before we continue, you must understand that this");
+			printf ("\nis a simple program that does not correct the user\'s mistakes, so know that:");
+			printf ("\n* This program can only analyze only one word at a time");
+			printf ("\n* Unnecessary white spaces will result in strange behavior, therefore you must,");
+			printf ("\nfor example, write \"pnc werd\", not \"pnc  werd\" or \" pnc werd\" or \"pnc werd \".");
+			printf ("\nAre we understood?");
+			printf ("\n");
+			printf ("\nHere are the commands:\n");
+			printf ("\n* \"exit\": exits the program");
+			printf ("\n* \"cases\": shows a table of declination cases");
+			printf ("\n* \"setlang\": changes the language of the program");
+			printf ("\n    * \"setlang sb\": for Sambahsa-Mundialect");
+			printf ("\n    * \"setlang pt\": for Portuguese");
+			printf ("\n    * \"setlang en\": for English");
+			printf ("\n    * \"setlang es\": for Spanish");
+			printf ("\n    * \"setlang fr\": for French");
+			printf ("\n    * \"setlang eo\": for Esperanto");
+			printf ("\n* \"pnc\" or \"pronunce\": gives the pronunciation of the inserted word");
+			printf ("\n    * For example: \"pnc plateau\" will result in \"{platO:}\"");
+			printf ("\n    About the transcriptor, you need to keep four things in mind. But before we");
+			printf ("\n    go forward in this discussion, know that this program is very competent in");
+			printf ("\n    its job, however there are some rare situations that require your");
+			printf ("\n    attention.");
+			printf ("\n    1 - Remember that these transcriptions follow too much the theory. For");
+			printf ("\n    example, in theory the transcription of \"yoinkjiae\" is {yoynkjyAy}, but in");
+			printf ("\n    practice its suggested transcription is {yoynkjiAy} because this one is");
+			printf ("\n    more pronounceable. So don\'t worry too much if a word seems to be very");
+			printf ("\n    unpronounceable.");
+			printf ("\n    2 - Other good example is \"Kaapstad\". Since it\'s a Afrikaans word, its");
+			printf ("\n    correct transcription is {kA:pstat}, however this word would be pronounced");
+			printf ("\n    as {kaapstAd} in \"pure\" Sambahsa. This situation is common with proper");
+			printf ("\n    nouns.");
+			printf ("\n    3 - Following the reasoning described above: this is a software, not a");
+			printf ("\n    conscious person. This program cannot correctly transcribe a word like");
+			printf ("\n    \"defend\" through its own capacities because the program cannot guess that");
+			printf ("\n    this is a compound word (it has a prefix).");
+			printf ("\n        Actually you'll see \"defend\" and \"Kaapstad\" being correctly");
+			printf ("\n        transcribed because I (the programmer) manually told the program what");
+			printf ("\n        are the transcriptions of these specific words, but it can not be the");
+			printf ("\n        case of other problematic words. I cannot give a ready-made ");
+			printf ("\n        transcription for all of these words (so you will have to rely on the");
+			printf ("\n        program\'s transcriber), but I made an internal list of them. In order");
+			printf ("\n        to know what problematic words have ready-made transcriptions, use the");
+			printf ("\n        command \"pnclist\" or \"listpnc\"");
+			printf ("\n    4 - This is a programming problem. It\'s about the letter \"e\" when this one");
+			printf ("\n    is not stressed. In this case it\'s given to you either \"{e}\" or \"{"SMALL_E_DIAERESIS_IN_TEXT"}\".");
+			printf ("\n    Since it\'s not easy to deal with this special character \""SMALL_E_DIAERESIS_IN_TEXT"\", the program");
+			printf ("\n    may leave an \"e\" where should be an \""SMALL_E_DIAERESIS_IN_TEXT"\". Just know it. It\'s not a serious");
+			printf ("\n    problem because the most important thing is to stress the correct vowel");
+			printf ("\n* \"pncd\" or \"pronuncedatia\": the same of \"pnc\", but for whole files");
+			printf ("\n    * For example: \"pncd words.txt\"");
+			printf ("\n    The words must be separeted by lines, not by commas or spaces!");
+			printf ("\n* \"cjg\" or \"conjuge\": gives the conjugation of the inserted word");
+			printf ("\n    * For example: \"cjg edd\"");
+			printf ("\n    An observation: you\'ll note that the conjugator gives words with some");
+			printf ("\n    letters between parenthesis. For example: it given past singular second");
+			printf ("\n    person of the verb \"beud\" is \"bud(i)st(a)\", but it doesn\'t mean that");
+			printf ("\n    \"budista\" is a valid pronunciation. You must have a critical eye and good");
+			printf ("\n    sense to find the appropriate pronunciation, which is \"budst(a)\". Ally this");
+			printf ("\n    program with the grammar.");
+			printf ("\n* \"cjgd\" or \"conjugedatia\": the same of \"cjg\", but for whole files");
+			printf ("\n    * For example: \"cjgd verbs.txt\"");
+			printf ("\n    The words must be separeted by lines, not by commas or spaces!");
+			printf ("\n* \"html\": activates the HTML mode for the commands \"pncd\" and \"cjgd\"");
+			printf ("\n* \"htmlt\": activates the TiddlyDict HTML mode for the commands \"pncd\" and \"cjgd\"");
+			printf ("\n");
+			printf ("\n* \"log\": activates or deactivates the system messages. It\'s a very useful");
+			printf ("\nresource for who deals with the code of this program.");
+			printf ("\n");
+			printf ("\n# THIS IS A LONG TEXT, PERHAPS YOU WILL HAVE TO ROLL UP THIS WINDOW IN YOUR");
+			printf ("\nTERMINAL EMULATOR (OR MAXIMISE THIS WINDOW) IN ORDER TO SEE THE BEGINNING");
+			printf ("\nOF THIS TEXT");
+
+			printf("\n");
+		break;
 		case 10:
 			printf ("\nHELPO");
 			printf ("\n-------------------------------------------------------------------------------\n");
@@ -399,22 +468,17 @@ void help (short int lang)
 			printf ("\n    La vortoj devas esti separitaj per linioj, ne per komoj a" SMALL_U_BREVE " spacoj!");
 			printf ("\n* \"cjg\" a" SMALL_U_BREVE " \"conjuge\": donas la konjagucion de la vorto enmetita");
 			printf ("\n    * Ekzemple: \"cjg edd\"");
-			printf ("\n    Mi forte rekomendas al vi por nur enmeti verbojn sen anta" SMALL_U_BREVE "afikso. Kial?");
-			printf ("\n    Bona ekzemplo estas la verbo \"naporg\" (na- " SMALL_C_CIRCUMFLEX "i tie estas anta" SMALL_U_BREVE "afikso), kies");
-			printf ("\n    " SMALL_G_CIRCUMFLEX "usta conjugacion por la pasinta estas \"napors\", tamen la programo donos");
-			printf ("\n    al vi \"niepors\" " SMALL_C_CIRCUMFLEX "ar la programo pensos ol " SMALL_C_CIRCUMFLEX "i vorto suferas abla" SMALL_U_BREVE "ton ka" SMALL_U_BREVE "ze");
-			printf ("\n    " SMALL_C_CIRCUMFLEX "i ekstra litero \"a\". Ne estas facila montri al konjugacisto kiun estas la");
-			printf ("\n    akcentita vokalo.");
 			printf ("\n    Alia rimarko: vi rimarkos ol la konjugacisto donas vortojn kun kelkaj");
 			printf ("\n    literoj inter parentezoj. Ekzemple: la donita preterita ununombra dua");
-			printf ("\n    persono de la verbo \"beud\" estas {bud(i)st(a)}, sed tio ne signifas ol");
-			printf ("\n    {budista} estas valida prononco. Vi devas havi kritikan rigardon kaj bonan");
-			printf ("\n    sa" SMALL_G_CIRCUMFLEX "on por trovi la ta" SMALL_U_BREVE "ga  prononcon, kiu estas {budst(a)}. Aligu " SMALL_C_CIRCUMFLEX "i");
+			printf ("\n    persono de la verbo \"beud\" estas \"bud(i)st(a)\", sed tio ne signifas ol");
+			printf ("\n    \"budista\" estas valida prononco. Vi devas havi kritikan rigardon kaj bonan");
+			printf ("\n    sa" SMALL_G_CIRCUMFLEX "on por trovi la ta" SMALL_U_BREVE "ga  prononcon, kiu estas \"budst(a)\". Aligu " SMALL_C_CIRCUMFLEX "i");
 			printf ("\n    programon kun la gramatiko.");
 			printf ("\n* \"cjgd\" a" SMALL_U_BREVE " \"conjugedatia\": la samo de \"cjg\", sed por tutaj dosieroj");
 			printf ("\n    * Ekzemple: \"cjgd verboj.txt\"");
 			printf ("\n    La vortoj devas esti separitaj per linioj, ne per komoj a" SMALL_U_BREVE " spacoj!");
 			printf ("\n* \"html\": aktivigas la HTML-modon por la ordonoj \"pncd\" kaj \"cjgd\"");
+			printf ("\n* \"htmlt\": aktivigas la TiddlyDict-HTML-modon por la ordonoj \"pncd\" kaj \"cjgd\"");
 			printf ("\n");
 			printf ("\n* \"log\": aktivigas a" SMALL_U_BREVE " malaktivigas la sistemajn mesa" SMALL_G_CIRCUMFLEX "ojn. Tio estas tre");
 			printf ("\nutila rimedo pro kiu(j) laboras kun la kodo de " SMALL_C_CIRCUMFLEX "i programo.");
@@ -444,6 +508,10 @@ void command_not_found (short int lang)
 		case 6:
 			printf ("\nERROR: Commande introuvable. En cas de doute, utilisez la commande \"aide\"\n");
 		break;
+		case 8:
+		case 9:
+			printf ("\nERROR: Comando no v" SMALL_A_ACUTE "lido. En caso de duda, utilice el comando \"ayuda\" para obtener ayuda.\n");
+		break;
 		case 10:
 			printf ("\nERARO: Netrovita ordono. En kazo de dubo, uzu la ordonon \"helpo\"\n");
 		break;
@@ -467,6 +535,10 @@ void invalid_argument (short int lang)
 		case 6:
 			printf ("\nERROR: Argument invalide. En cas de doute, utilisez la commande \"aide\"\n");
 		break;
+		case 8:
+		case 9:
+			printf ("\nERROR: Argumento no v" SMALL_A_ACUTE "lido. En caso de duda, utilice el comando \"ayuda\" para obtener ayuda.\n");
+		break;
 		case 10:
 			printf ("\nERARO: Nevalida argumento. En kazo de dubo, uzu la ordonon \"helpo\"\n");
 		break;
@@ -489,6 +561,10 @@ void too_long_word (short int lang)
 		break;
 		case 6:
 			printf ("\n* Ce mot est long... SI (et seulement SI!!!) c'est un mot compos" SMALL_E_ACUTE ", il y a une petite probabilit" SMALL_E_ACUTE " que le programme n'ait pas pu le transcrire de mani" SMALL_E_GRAVE "re appropri" SMALL_E_ACUTE "e\n");
+		break;
+		case 8:
+		case 9:
+			printf ("\n* Esta palabra es larga... SI (" INVERTED_EXCLAMATION_MARK "solo SI!) Esta es una palabra compuesta, existe una PEQUE" CAPITAL_N_TILDE "A probabilidad de que el programa no pueda transcribirla correctamente\n");
 		break;
 		case 10:
 			printf ("\n* " CAPITAL_C_CIRCUMFLEX "i tie vorto est tro longa... SE (kaj apena" SMALL_U_BREVE " SE!!!), ĉi tiu estas kombinita vorto, estas malgranda " SMALL_S_CIRCUMFLEX "anco ol la programo ne ta" SMALL_U_BREVE "ge povis transscribe tiun vorton\n");

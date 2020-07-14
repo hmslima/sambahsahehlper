@@ -223,6 +223,7 @@ short int check_a ()
 	if (argument[strlen(argument) - 1] == 'e') x = 0; // Verbs ended in -e have no ablaut
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'n') x = 0; // The stress is in -in
 	else if (argument[strlen(argument) - 2] == 'e' && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -ey
+	else if (is_it_vowel(argument[strlen(argument) - 2]) && argument[strlen(argument) - 2] != 'a' && argument[strlen(argument) - 1] == 'h') x = 0; // The stress is in -Vh
 	else if ((argument[strlen(argument) - 2] == 'o' || argument[strlen(argument) - 2] == 'u') && argument[strlen(argument) - 1] == 'y') x = 0; // The stress is in -oy || uy
 	else if (argument[strlen(argument) - 2] == 'i' && argument[strlen(argument) - 1] == 'e') x = 0; // The stress is in -ie
 	else if (argument[strlen(argument) - 3] == 'i' && argument[strlen(argument) - 2] == 'e' && is_it_consonant(argument[strlen(argument) - 1])) x = 0; // The stress is in -ieC
@@ -237,9 +238,18 @@ short int check_a ()
 
 	// Manual corrections
 	if (strcmp(argument, "chiaujaen") == 0) x = 0;
+	else if (strcmp(argument, "contradic") == 0) x = 0;
 	else if (strcmp(argument, "contraven") == 0) x = 0;
+	else if (strcmp(argument, "desaddic") == 0) x = 0;
+	else if (strcmp(argument, "embraned") == 0) x = 0;
+	else if (strcmp(argument, "fanzow") == 0) x = 0;
 	else if (strcmp(argument, "faungmoen") == 0) x = 0;
 	else if (strcmp(argument, "fwenschaw") == 0) x = 1; // This one has ablaut
+	else if (strcmp(argument, "mwaungsou") == 0) x = 0;
+	else if (strcmp(argument, "palpeber") == 0) x = 0;
+	else if (strcmp(argument, "transcrib") == 0) x = 0;
+	else if (strcmp(argument, "transfer") == 0) x = 0;
+	else if (strcmp(argument, "zanchou") == 0) x = 0;
 
 	return x; // Have the same effect of TRUE or FALSE
 }
@@ -1061,7 +1071,7 @@ void past_tense ()
 		word_counter = 0;
 
 		if (!(check_eh() || check_ei() || check_eu() || check_nasal_infix()))
-		{
+		{;
 			for (arg_counter = 0; arg_counter < strlen(argument) ; arg_counter++)
 			{
 				if (argument[arg_counter] == 'd' && argument[arg_counter + 1] == '\0')
@@ -1136,6 +1146,7 @@ void past_tense ()
 	if (strcmp(argument, "bekmehen") == 0) strcpy(past_basis, "bekmeh");
 	else if (strcmp(argument, "etikmehen") == 0) strcpy(past_basis, "etikmeh");
 	else if (strcmp(argument, "kmehen") == 0) strcpy(past_basis, "kmeh");
+	else if (strcmp(argument, "sanbaw") == 0) strcpy(past_basis, "sanbiew");
 
 	// First person singular
 	strcpy(past_1ps, past_basis);
@@ -1807,6 +1818,7 @@ void conditional ()
 	strcpy(conditional_2pp, present_basis);
 	strcpy(conditional_3pp, present_basis);
 
+	//ie
 	if (present_basis[strlen(present_basis) - 2] == 'i' && present_basis[strlen(present_basis) - 1] == 'e')
 	{
 		// First person singular
@@ -1851,7 +1863,8 @@ void conditional ()
 		conditional_3pp[conditional_counter + 2] = 'n';
 		conditional_3pp[conditional_counter + 3] = 't';
 	}
-	else if (is_it_vowel(present_basis[strlen(present_basis) - 1] && !(present_basis[strlen(present_basis) - 2] == 'e' && present_basis[strlen(present_basis) - 1] == 'u')) && present_basis[strlen(present_basis) - 1] != 'w' && present_basis[strlen(present_basis) - 1] != 'y')
+	//-V !(-eu) !(-w) !(-y)
+	else if (is_it_vowel(present_basis[strlen(present_basis) - 1]) && !(present_basis[strlen(present_basis) - 2] == 'e' && present_basis[strlen(present_basis) - 1] == 'u') && present_basis[strlen(present_basis) - 1] != 'w' && present_basis[strlen(present_basis) - 1] != 'y')
 	{
 		// First person singular
 		conditional_1ps[conditional_counter - 1] = 'i';
@@ -1977,6 +1990,26 @@ void past_participe ()
 	else
 	{
         if (participe_t[strlen(participe_t) - 1] == 'd') participe_t[strlen(participe_t) - 1] = 's';
+        else if (participe_t[strlen(participe_t) - 2] == 'd' && participe_t[strlen(participe_t) - 1] == 'd')
+        {
+        	participe_t[strlen(participe_t) - 2] = 's';
+        	participe_t[strlen(participe_t) - 1] = 's';
+		}
+		else if (participe_t[strlen(participe_t) - 2] == 't' && participe_t[strlen(participe_t) - 1] == 't')
+        {
+        	participe_t[strlen(participe_t) - 2] = 's';
+        	participe_t[strlen(participe_t) - 1] = 's';
+		}
+		else if (participe_t[strlen(participe_t) - 2] == 'r' && participe_t[strlen(participe_t) - 1] == 't') participe_t[strlen(participe_t) - 1] = 's';
+		else if (participe_t[strlen(participe_t) - 2] == 'r' && participe_t[strlen(participe_t) - 1] == 'r') participe_t[strlen(participe_t) - 1] = 's';
+		else if (participe_t[strlen(participe_t) - 2] == 'r' && participe_t[strlen(participe_t) - 1] == 'g') participe_t[strlen(participe_t) - 1] = 's';
+        else if (participe_t[strlen(participe_t) - 2] == 'l' && participe_t[strlen(participe_t) - 1] == 'g') participe_t[strlen(participe_t) - 1] = 's';
+        else if (participe_t[strlen(participe_t) - 2] == 'c' && participe_t[strlen(participe_t) - 1] == 't')
+        {
+        	participe_t[strlen(participe_t) - 2] = 'x';
+        	participe_t[strlen(participe_t) - 1] = '\0';
+        }
+        else if (participe_t[strlen(participe_t) - 2] == 'r' && participe_t[strlen(participe_t) - 1] == 't') participe_t[strlen(participe_t) - 1] = 's';
 	}
 
 
@@ -2019,7 +2052,8 @@ void conjugation ()
 		else
 			illogic_el = FALSE;
 	}
-	if (strcmp(argument, "erem") == 0 || strcmp(argument, "keren") == 0 || strcmp(argument, "speren") == 0 || strcmp(argument, "steren") == 0 || strcmp(argument, "weren") == 0) // This one is to solve a bug with -er words with nasal infx
+	// This one is to solve a bug with -er words with nasal infx
+	if (strcmp(argument, "emerg") == 0 || strcmp(argument, "erem") == 0 || strcmp(argument, "keren") == 0 || strcmp(argument, "speren") == 0 || strcmp(argument, "steren") == 0 || strcmp(argument, "weren") == 0)
 	{
 		illogic_er = TRUE;
 	}

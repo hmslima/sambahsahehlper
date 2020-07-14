@@ -165,6 +165,10 @@ for "special" characters:
 #define SUPERSCRIPT_TWO "\xfd"
 #define SUPERSCRIPT_THREE "\xfc"
 
+#define INVERTED_QUESTION_MARK "\xa8"
+#define INVERTED_EXCLAMATION_MARK "\xad"
+
+
 #else
 
 #define SMALL_A_ACUTE "\u00e1"
@@ -249,6 +253,9 @@ for "special" characters:
 #define SUPERSCRIPT_ONE "\u00b9"
 #define SUPERSCRIPT_TWO "\u00b2"
 #define SUPERSCRIPT_THREE "\u00b3"
+
+#define INVERTED_QUESTION_MARK "\u00bf"
+#define INVERTED_EXCLAMATION_MARK "\u00a1"
 
 #endif
 

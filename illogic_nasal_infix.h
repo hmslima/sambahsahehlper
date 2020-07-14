@@ -7,6 +7,7 @@ else if (strcmp(argument, "contraven") == 0) x = 0;
 else if (strcmp(argument, "demneh") == 0) x = 0;
 else if (strcmp(argument, "deten") == 0) x = 0;
 else if (strcmp(argument, "diemmen") == 0) x = 1; // This one has nasal infix!
+else if (strcmp(argument, "emerg") == 0) x = 0;
 else if (strcmp(argument, "endermerg") == 0) x = 0;
 else if (strcmp(argument, "exgventer") == 0) x = 0;
 else if (strcmp(argument, "forglehmer") == 0) x = 0;
