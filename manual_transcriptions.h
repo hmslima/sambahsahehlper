@@ -1383,10 +1383,65 @@ else if (strcmp(argument, "recent") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "tsEnt");
 }
+else if (strcmp(argument, "recep") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "tsEp");
+}
+else if (strcmp(argument, "receps") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "tsEps");
+}
+else if (strcmp(argument, "recept") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "tsEp");
+}
+else if (strcmp(argument, "recepts") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "tsEps");
+}
 else if (strcmp(argument, "recess") == 0 || strcmp(argument, "reccess") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "tsEs(s)");
+}
+else if (strcmp(argument, "record") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "kOrd");
+}
+else if (strcmp(argument, "recule") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "k" CAPITAL_U_DIAERESIS_IN_TEXT "l");
+}
+else if (strcmp(argument, "recules") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "k" CAPITAL_U_DIAERESIS_IN_TEXT "ls");
+}
+else if (strcmp(argument, "recurs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "kUrs");
+}
+else if (strcmp(argument, "recycling") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "ts" CAPITAL_U_DIAERESIS_IN_TEXT "kling");
+}
+else if (strcmp(argument, "regret") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "grEt");
+}
+else if (strcmp(argument, "regrets") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "grEts");
 }
 else if (strcmp(argument, "refer") == 0)
 {
@@ -1403,15 +1458,65 @@ else if (strcmp(argument, "refert") == 0)
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "fErt");
 }
+else if (strcmp(argument, "reflect") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "flEkt");
+}
+else if (strcmp(argument, "reflects") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "flEkts");
+}
+else if (strcmp(argument, "reflecs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "flEks");
+}
+else if (strcmp(argument, "refleg") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "flEg");
+}
+else if (strcmp(argument, "refreschment") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "frEcm" SMALL_E_DIAERESIS_IN_TEXT "nt");
+}
 else if (strcmp(argument, "rejec") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "rejEk");
 }
-else if (strcmp(argument, "reject") == 0)
+else if (strcmp(argument, "rejecs") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "jEkt");
+}
+else if (strcmp(argument, "reject") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "jEkts");
+}
+else if (strcmp(argument, "relevant") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "l" SMALL_E_DIAERESIS_IN_TEXT "vAnt");
+}
+else if (strcmp(argument, "remix") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "mIks");
+}
+else if (strcmp(argument, "reoinascen") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "oynAs" SMALL_E_DIAERESIS_IN_TEXT "n");
+}
+else if (strcmp(argument, "reoinascens") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "oynAs" SMALL_E_DIAERESIS_IN_TEXT "ns");
 }
 else if (strcmp(argument, "reper") == 0)
 {
@@ -1422,6 +1527,16 @@ else if (strcmp(argument, "repers") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "pErs");
+}
+else if (strcmp(argument, "resid") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "zId");
+}
+else if (strcmp(argument, "resids") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "zIds");
 }
 else if (strcmp(argument, "respect") == 0)
 {
@@ -1442,6 +1557,66 @@ else if (strcmp(argument, "restricts") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "strIkts");
+}
+else if (strcmp(argument, "revers") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "vErs");
+}
+else if (strcmp(argument, "rewaldh") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wAld");
+}
+else if (strcmp(argument, "rewaldhs") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wAlds");
+}
+else if (strcmp(argument, "rewidue") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wid" CAPITAL_U_DIAERESIS_IN_TEXT ":");
+}
+else if (strcmp(argument, "rewidues") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wid" CAPITAL_U_DIAERESIS_IN_TEXT ":s");
+}
+else if (strcmp(argument, "rewiduesa") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wid" CAPITAL_U_DIAERESIS_IN_TEXT ":za");
+}
+else if (strcmp(argument, "rewiduesas") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wid" CAPITAL_U_DIAERESIS_IN_TEXT ":zas");
+}
+else if (strcmp(argument, "rewost") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wOst");
+}
+else if (strcmp(argument, "rewoswakt") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wozwAkt");
+}
+else if (strcmp(argument, "rewoswakts") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wozwAkts");
+}
+else if (strcmp(argument, "rewot") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wOt");
+}
+else if (strcmp(argument, "rewots") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "r" SMALL_E_DIAERESIS_IN_TEXT "wOts");
 }
 else if ((strcmp(argument, "RNA") == 0) || (strcmp(argument, "rna") == 0))
 {
@@ -1472,6 +1647,16 @@ else if (strcmp(argument, "seloswent") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "sElosw" SMALL_E_DIAERESIS_IN_TEXT "nt");
+}
+else if (strcmp(argument, "suaodent") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "swaOd" SMALL_E_DIAERESIS_IN_TEXT "nt");
+}
+else if (strcmp(argument, "suapit") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "swapIt");
 }
 else if (strcmp(argument, "subven") == 0)
 {
@@ -1553,6 +1738,21 @@ else if ((strcmp(argument, "VHS") == 0) || (strcmp(argument, "vhs") == 0))
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "ve hatc es");
 }
+else if (strcmp(argument, "vinyek") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "vIny" SMALL_E_DIAERESIS_IN_TEXT "k");
+}
+else if (strcmp(argument, "virgenvinyek") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "virdj" SMALL_E_DIAERESIS_IN_TEXT "nvIny" SMALL_E_DIAERESIS_IN_TEXT "k");
+}
+else if (strcmp(argument, "virgenvinyeks") == 0)
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "virdj" SMALL_E_DIAERESIS_IN_TEXT "nvIny" SMALL_E_DIAERESIS_IN_TEXT "ks");
+}
 else if (strcmp(argument, "w") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
@@ -1597,4 +1797,9 @@ else if (strcmp(argument, "z") == 0)
 {
 	if (show_system_messages) printf("\npoint ready_made_solution\n");
 	strcpy(SPT_word, "dzed");
+}
+else if ((strcmp(argument, "Zakynthos") == 0) || (strcmp(argument, "zakynthos") == 0))
+{
+	if (show_system_messages) printf("\npoint ready_made_solution\n");
+	strcpy(SPT_word, "dzak" CAPITAL_U_DIAERESIS_IN_TEXT "n" SECTION_SIGN_IN_TEXT "os");
 }

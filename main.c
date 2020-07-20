@@ -67,7 +67,7 @@ int main ()
 	printf("\nInsert the commands without quotation marks and avoid inserting words with");
 	printf("\nprefix or any kind of compound word!");
 	printf("\n");
-	printf("\nES: Use el comando \"deflang es\" para cambiar el idioma del programa para espa" SMALL_N_TILDE "ol");
+	printf("\nES: Use el comando \"deflang es\" para cambiar el idioma del programa a espa" SMALL_N_TILDE "ol");
 	printf("\nPT: Use o comando \"deflang pt\" para mudar o idioma do programa para portugu" SMALL_E_CIRCUMFLEX "s");
 	printf("\nFR: Utilisez la commande \"deflang fr\" pour changer la langue en fran" SMALL_C_CEDILLA "ais");
 	printf("\nEO: Uzu la ordonon \"deflang eo\" por " SMALL_S_CIRCUMFLEX "an" SMALL_G_CIRCUMFLEX "i la lingvon por esperanto");
