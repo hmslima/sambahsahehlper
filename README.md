@@ -2,6 +2,8 @@
 
 This is a program that I created for helping beginner students of the auxiliary language Sambahsa-Mundialect, it can conjugate verbs and transcribe any word to SPT. *If anything that I've said here is alien to you, maybe you should see my grammar in [this link](https://github.com/hmslima/sambahsacompletegrammar).*
 
+**ATTENTION:** _*The SPT transcriptor of this program is deprecated, please use [JS Sambahsa Transcriptor](https://github.com/hmslima/JS-Sambahsapronunciator) instead. But the conjugagtor of this program still is recomendable*_
+
 ## For users
 
 In order to ask the conjugation of a verb you must use the command `cjg` or `conjuge` plus the verb, for example:
@@ -11,6 +13,8 @@ In order to ask the conjugation of a verb you must use the command `cjg` or `con
 In order to ask the transcription of a word to SPT, you must use the command `pnc` or `pronunce` plus the word, for example:
 
 `pnc bahsa`
+
+_Remember, as I said, it's preferable that you use the transcriptor of JS Sambahsa Transcriptor_
 
 You can get the conjugations of many verbs at once and store them in an file through the command `cjgd` or `conjugedatia`. For example:
 
