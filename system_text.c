@@ -11,7 +11,7 @@ extern short int lang;
 void logo ()
 {
 	printf ("###############################################################################\n");
-	printf ("########################### SAMBAHSA HEHLPER v 2.00 ###########################\n");
+	printf ("########################### SAMBAHSA HEHLPER v 2.03 ###########################\n");
 	printf ("###############################################################################\n");
 }
 
@@ -50,6 +50,8 @@ void help (short int lang)
 			printf ("\n    * \"deflang fr\": pro franceois");
 			printf ("\n    * \"deflang eo\": pro esperanto");
 			printf ("\n* \"pnc\" au \"pronunce\": daht id pronunciation ios insert werd");
+			printf ("\n> ID PRONUNCIATOR TOS PROGRAMME EST OBSOLETE, PLAIS NEUD ID JAVASCRIPT");
+			printf ("\n  SAMBAHSA PRONUNCIATOR");
 			printf ("\n    * Mathalan: \"pnc plateau\" resultesiet in \"{platO:}\"");
 			printf ("\n    Dayir id transcriptor, yu naudhte gwupes quar jects in ment. Bet pre wey");
 			printf ("\n    natolcsiemos de to, woidte od tod programme est baygh competent in sien");
@@ -86,9 +88,9 @@ void help (short int lang)
 			printf ("\n    Un observation: yu kausiete od id conjugator daht werds samt sem");
 			printf ("\n    buksteivs inter kawsa. Mathalan: id dahn preterit singular second person");
 			printf ("\n    ios verb \"beud\" est \"bud(i)st(a)\", bet tod ne maynt od \"budista\" est un");
-			printf ("\n    valid pronunciation. Yu tehrpte habe un critic okwi ed gohd sense kay");
-			printf ("\n    trehve id ciautaung pronunciation, quod est \"budst(a)\". Alliete tod");
-			printf ("\n    programme con id grammatic.");
+			printf ("\n    valid pronunciation. Yu tehrpte habe un critic ok ed gohd sense kay");
+			printf ("\n    trehve id ciautaung pronunciation, quod est \"budst(a)\". Comleiste tod");
+			printf ("\n    programme ed id sambahsa grammatic.");
 			printf ("\n* \"cjgd\" au \"conjugedatia\": id sam os \"cjg\", bet pro hol datias");
 			printf ("\n    * Mathalan: \"cjgd verbs.txt\"");
 			printf ("\n    Ia werds dehlgent ses separen med lignes, ne med commas au rewos!");
@@ -131,6 +133,8 @@ void help (short int lang)
 			printf ("\n    * \"setlang fr\": for French");
 			printf ("\n    * \"setlang eo\": for Esperanto");
 			printf ("\n* \"pnc\" or \"pronunce\": gives the pronunciation of the inserted word");
+			printf ("\n> THE PRONUNCIATOR OF THIS PROGRAM IS OBSOLETE, PLEASE USE THE JAVASCRIPT");
+			printf ("\n  SAMBAHSA PRONUNCIATOR");
 			printf ("\n    * For example: \"pnc plateau\" will result in \"{platO:}\"");
 			printf ("\n    About the transcriptor, you need to keep four things in mind. But before we");
 			printf ("\n    go forward in this discussion, know that this program is very competent in");
@@ -214,6 +218,8 @@ void help (short int lang)
 			printf ("\n    * \"deflang fr\": para franc" SMALL_E_CIRCUMFLEX "s");
 			printf ("\n    * \"deflang eo\": para esperanto");
 			printf ("\n* \"pnc\" ou \"pronunce\": d" SMALL_A_ACUTE " a pron" SMALL_U_ACUTE "ncia da palavra inserida");
+			printf ("\n> O PRONUNCIADOR DESTE PROGRAMA EST" CAPITAL_A_ACUTE " OBSOLETO, POR FAVOR USE O PRONUNCIADOR");
+			printf ("\n  DE SAMBAHSA EM JAVASCRIPT");
 			printf ("\n    * Por exemplo: \"pnc plateau\" resultar" SMALL_A_ACUTE " em \"{platO:}\"");
 			printf ("\n    Sobre o transcritor, voc" SMALL_E_CIRCUMFLEX " precisa ter quatro coisas na sua mente. Mas antes");
 			printf ("\n    de prosseguirmos, saiba que este programa " SMALL_E_ACUTE " muito competente em seu");
@@ -296,6 +302,8 @@ void help (short int lang)
 			printf ("\n    * \"deflang fr\" : fran" SMALL_C_CEDILLA "ais");
 			printf ("\n    * \"deflang eo\" : esperanto");
 			printf ("\n* \"pnc\" ou \"pronunce\" : donne la prononciation du mot ins" SMALL_E_ACUTE "r" SMALL_E_ACUTE "");
+			printf ("\n> LE PRONONCIATEUR DE CE PROGRAMME EST OBSOL" CAPITAL_E_GRAVE "TE, VEUILLEZ UTILISER LE");
+			printf ("\n  PRONONCIATEUR DE SAMBAHSA DANS JAVASCRIPT");
 			printf ("\n    * Par exemple, \"pnc plateau\" donnera \"{platO:}\"");
 			printf ("\n    Sur le transcripteur, vous devez garder quatre choses " SMALL_A_GRAVE " l\'esprit. Mais");
 			printf ("\n    avant que nous rediscutions de " SMALL_C_CEDILLA "a, sachez que ce programme conna" SMALL_I_CIRCUMFLEX "t bien");
@@ -352,6 +360,8 @@ void help (short int lang)
 			printf ("\n    * \"deflang fr\": para franc" SMALL_E_ACUTE "s");
 			printf ("\n    * \"deflang eo\": para esperanto");
 			printf ("\n* \"pnc\" o \"pronunce\": proporciona la pronunciaci" SMALL_O_ACUTE "n de la palabra insertada");
+			printf ("\n> EL PRONUNCIADOR DE ESTE PROGRAMA EST" CAPITAL_A_ACUTE " OBSOLETO, POR FAVOR UTILICE EL");
+			printf ("\n  PRONUNCIADOR DE SAMBAHSA EM JAVASCRIPT");
 			printf ("\n    * Por ejemplo: \"pnc plateau\" dar" SMALL_A_ACUTE " como resultado \"{platO:}\"");
 			printf ("\n    Sobre el transcriptor, debe tener cuatro cosas en mente. Pero antes de");
 			printf ("\n    proceder, sepa que este programa es muy competente en su trabajo,");
@@ -433,6 +443,8 @@ void help (short int lang)
 			printf ("\n    * \"deflang fr\": por la franca");
 			printf ("\n    * \"deflang eo\": por esperanto");
 			printf ("\n* \"pnc\" a" SMALL_U_BREVE " \"pronunce\": donas la prononcon de la vorto enmetita");
+			printf ("\n> LA PRONONCISTO DE " CAPITAL_C_CIRCUMFLEX "I PROGRAMO ESTAS MALMODERNA, BONVOLU UZI LA JAVASCRIPT-A");
+			printf ("\n  PRONONCISTO DE SAMBASO");
 			printf ("\n    * Ekzemple: \"pnc plateau\" resultos en \"{platO:}\"");
 			printf ("\n    Pri la transskribisto, tenu en menso kvar a" SMALL_J_CIRCUMFLEX "ojn. Sed anta" SMALL_U_BREVE " ni iros");
 			printf ("\n    anta" SMALL_U_BREVE "e en " SMALL_C_CIRCUMFLEX "i tiu diskuto, sciu ol " SMALL_C_CIRCUMFLEX "i tiu programo estas tre kompetenta en");

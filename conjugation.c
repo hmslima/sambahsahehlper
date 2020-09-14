@@ -491,7 +491,7 @@ void present_tense ()
 		present_2ps[strlen(present_2ps) - 1] = 'c';
 		present_2ps[strlen(present_2ps)] = 's';
 	}
-	else if (present_basis2[strlen(present_basis2) - 1] == 'k')
+	else if (present_basis2[strlen(present_basis2) - 2] != 'c' && present_basis2[strlen(present_basis2) - 1] == 'k')
 	{
 		present_2ps[strlen(present_2ps) - 1] = 'c';
 		present_2ps[strlen(present_2ps)] = 's';
@@ -523,7 +523,7 @@ void present_tense ()
         strcpy(present_3ps, "woidit");
 	}
 	else if (present_3ps[strlen(present_3ps) - 1] == 'g') present_3ps[strlen(present_3ps) - 1] = 'c';
-	else if (present_3ps[strlen(present_3ps) - 1] == 'k') present_3ps[strlen(present_3ps) - 1] = 'c';
+	else if (present_3ps[strlen(present_3ps) - 2] != 'c' && present_3ps[strlen(present_3ps) - 1] == 'k') present_3ps[strlen(present_3ps) - 1] = 'c';
 	else if (present_3ps[strlen(present_3ps) - 1] == 'b') present_3ps[strlen(present_3ps) - 1] = 'p';
 	else if (present_3ps[strlen(present_3ps) - 1] == 'v' && present_3ps[strlen(present_3ps) - 2] != 'g' && (check_eh() || check_ei() || check_eu())) present_3ps[strlen(present_3ps) - 1] = 'f';
 	if (!((strcmp(argument, "es") == 0) || (strcmp(argument, "hab") == 0) || (strcmp(argument, "woid") == 0)))
@@ -632,7 +632,7 @@ void present_tense ()
 	{
 		present_2pp_counter = strlen(present_2pp);
 		if (present_2pp[strlen(present_2pp) - 1] == 'g') present_2pp[strlen(present_2pp) - 1] = 'c';
-		else if (present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
+		else if (present_2pp[strlen(present_2pp) - 2] != 'c' && present_2pp[strlen(present_2pp) - 1] == 'k') present_2pp[strlen(present_2pp) - 1] = 'c';
 		else if (present_2pp[strlen(present_2pp) - 1] == 'b') present_2pp[strlen(present_2pp) - 1] = 'p';
 		else if (present_2pp[strlen(present_2pp) - 1] == 'v' && present_2pp[strlen(present_2pp) - 2] != 'g' && (check_eh() || check_ei() || check_eu())) present_2pp[strlen(present_2pp) - 1] = 'f';
 
@@ -1981,7 +1981,7 @@ void past_participe ()
 	if (!(check_von_wahl()))
 	{
 		if (participe_t[strlen(participe_t) - 1] == 'g') participe_t[strlen(participe_t) - 1] = 'c';
-		else if (participe_t[strlen(participe_t) - 1] == 'k') participe_t[strlen(participe_t) - 1] = 'c';
+		else if (participe_t[strlen(participe_t) - 2] != 'c' && participe_t[strlen(participe_t) - 1] == 'k') participe_t[strlen(participe_t) - 1] = 'c';
 		else if (participe_t[strlen(participe_t) - 1] == 'b') participe_t[strlen(participe_t) - 1] = 'p';
 		else if (participe_t[strlen(participe_t) - 1] == 'v' && participe_t[strlen(participe_t) - 2] != 'g' && (check_eh() || check_ei() || check_eu())) participe_t[strlen(participe_t) - 1] = 'f';
 
