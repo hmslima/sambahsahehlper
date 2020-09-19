@@ -506,6 +506,11 @@ void present_tense ()
 		present_2ps[strlen(present_2ps) - 1] = 'f';
 		present_2ps[strlen(present_2ps)] = 's';
 	}
+	else if (present_basis2[strlen(present_basis2) - 2] == 'g' && present_basis2[strlen(present_basis2) - 1] == 'n')
+	{
+		present_2ps[strlen(present_2ps)] = 'e';
+		present_2ps[strlen(present_2ps)] = 's';
+	}
 	else present_2ps[strlen(present_2ps)] = 's';
 
 	// Third person singular
@@ -528,7 +533,12 @@ void present_tense ()
 	else if (present_3ps[strlen(present_3ps) - 1] == 'v' && present_3ps[strlen(present_3ps) - 2] != 'g' && (check_eh() || check_ei() || check_eu())) present_3ps[strlen(present_3ps) - 1] = 'f';
 	if (!((strcmp(argument, "es") == 0) || (strcmp(argument, "hab") == 0) || (strcmp(argument, "woid") == 0)))
 	{
-		if (present_3ps[strlen(present_3ps) - 1] != 't') present_3ps[strlen(present_3ps)] = 't';
+		if (present_3ps[strlen(present_3ps) - 2] == 'g' && present_3ps[strlen(present_3ps) - 1] == 'n')
+		{
+			present_3ps[strlen(present_3ps)] = 'e';
+			present_3ps[strlen(present_3ps)] = 't';
+		}
+		else if (present_3ps[strlen(present_3ps) - 1] != 't') present_3ps[strlen(present_3ps)] = 't';
 	}
 
 	// First person plural
@@ -639,6 +649,14 @@ void present_tense ()
 		if ((present_2pp[present_2pp_counter - 3] != 'i' && !(illogic_er) && present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'r') || (present_2pp[present_2pp_counter - 3] != 'i' && !(illogic_el) && present_2pp[present_2pp_counter - 2] == 'e' && present_2pp[present_2pp_counter - 1] == 'l'))
 		{
 			present_2pp[present_2pp_counter] = 't';
+		}
+		else if (present_2pp[present_2pp_counter - 2] == 'g' && present_2pp[present_2pp_counter - 1] == 'n')
+		{
+			present_2pp[present_2pp_counter] = 'e';
+			present_2pp[present_2pp_counter + 1] = 't';
+			present_2pp[present_2pp_counter + 2] = '(';
+			present_2pp[present_2pp_counter + 3] = 'e';
+			present_2pp[present_2pp_counter + 4] = ')';
 		}
 		else if (present_2pp[present_2pp_counter - 1] != 't')
 		{
@@ -1985,7 +2003,12 @@ void past_participe ()
 		else if (participe_t[strlen(participe_t) - 1] == 'b') participe_t[strlen(participe_t) - 1] = 'p';
 		else if (participe_t[strlen(participe_t) - 1] == 'v' && participe_t[strlen(participe_t) - 2] != 'g' && (check_eh() || check_ei() || check_eu())) participe_t[strlen(participe_t) - 1] = 'f';
 
-		if (participe_t[strlen(participe_t) - 1] != 't') participe_t[strlen(participe_t)] = 't';
+		if (participe_t[strlen(participe_t) - 2] == 'g' && participe_t[strlen(participe_t) - 1] == 'n')
+		{
+			participe_t[strlen(participe_t)] = 'e';
+			participe_t[strlen(participe_t)] = 't';
+		}
+		else if (participe_t[strlen(participe_t) - 1] != 't') participe_t[strlen(participe_t)] = 't';
 	}
 	else
 	{
@@ -2140,7 +2163,7 @@ void conjugation ()
 		else if (lang == 8 || lang == 9) printf("\nFuturo: ");
 		else if (lang == 10) printf("\nFuturo: ");
 		else printf("\nFuture tid: ");
-		if (present_basis[strlen(present_basis) - 1] == 's')
+		if (present_basis[strlen(present_basis) - 1] == 's' || present_basis[strlen(present_basis) - 1] == 'x' || present_basis[strlen(present_basis) - 1] == 'j' || present_basis[strlen(present_basis) - 1] == 'z' || (present_basis[strlen(present_basis) - 2] == 'g' && present_basis[strlen(present_basis) - 1] == 'n') || (present_basis[strlen(present_basis) - 3] == 's' && present_basis[strlen(present_basis) - 2] == 'c' && present_basis[strlen(present_basis) - 1] == 'h') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'u' && present_basis[strlen(present_basis) - 2] == 'z' && present_basis[strlen(present_basis) - 1] == 'd') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'u' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 't') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'u' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 'k') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'i' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 'c') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'h' && present_basis[strlen(present_basis) - 2] == 'z' && present_basis[strlen(present_basis) - 1] == 'd') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'h' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 'p') || (present_basis[strlen(present_basis) - 5] == 'e' && present_basis[strlen(present_basis) - 4] == 'h' && present_basis[strlen(present_basis) - 3] == 'r' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 't') || (present_basis[strlen(present_basis) - 3] == 'a' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 'p') || (present_basis[strlen(present_basis) - 5] == 'a' && present_basis[strlen(present_basis) - 4] == 'n' && present_basis[strlen(present_basis) - 3] == 'g' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 't'))
 			printf("siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
 		else
 			printf("%s, %s, %s, %s, yu %s, %s", future_1ps, future_2ps, future_3ps, future_1pp, future_2pp, future_3pp);
@@ -2211,7 +2234,7 @@ void conjugation ()
 		// Future tense
 		if (!html_mode || htmlt_mode) fprintf (output_file, "%s: ", "Future tid");
 		else fprintf (output_file, "<b>%s:</b> ", "Future tid");
-		if (present_basis[strlen(present_basis) - 1] == 's')
+		if (present_basis[strlen(present_basis) - 1] == 's' || present_basis[strlen(present_basis) - 1] == 'x' || present_basis[strlen(present_basis) - 1] == 'j' || present_basis[strlen(present_basis) - 1] == 'z' || (present_basis[strlen(present_basis) - 2] == 'g' && present_basis[strlen(present_basis) - 1] == 'n') || (present_basis[strlen(present_basis) - 3] == 's' && present_basis[strlen(present_basis) - 2] == 'c' && present_basis[strlen(present_basis) - 1] == 'h') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'u' && present_basis[strlen(present_basis) - 2] == 'z' && present_basis[strlen(present_basis) - 1] == 'd') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'u' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 't') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'u' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 'k') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'i' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 'c') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'h' && present_basis[strlen(present_basis) - 2] == 'z' && present_basis[strlen(present_basis) - 1] == 'd') || (present_basis[strlen(present_basis) - 4] == 'e' && present_basis[strlen(present_basis) - 3] == 'h' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 'p') || (present_basis[strlen(present_basis) - 5] == 'e' && present_basis[strlen(present_basis) - 4] == 'h' && present_basis[strlen(present_basis) - 3] == 'r' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 't') || (present_basis[strlen(present_basis) - 3] == 'a' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 'p') || (present_basis[strlen(present_basis) - 5] == 'a' && present_basis[strlen(present_basis) - 4] == 'n' && present_basis[strlen(present_basis) - 3] == 'g' && present_basis[strlen(present_basis) - 2] == 's' && present_basis[strlen(present_basis) - 1] == 't'))
 			fprintf (output_file, "siem %s, sies %s, siet %s, siem(o)s %s, yu siete %s, sient %s", infinitive, infinitive, infinitive, infinitive, infinitive, infinitive);
 		else
 			fprintf (output_file, "%s, %s, %s, %s, yu %s, %s", future_1ps, future_2ps, future_3ps, future_1pp, future_2pp, future_3pp);
